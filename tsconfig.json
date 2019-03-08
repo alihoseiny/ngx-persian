@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-persian": [
+        "dist/ngx-persian"
+      ],
+      "ngx-persian/*": [
+        "dist/ngx-persian/*"
+      ]
+    }
   }
 }
