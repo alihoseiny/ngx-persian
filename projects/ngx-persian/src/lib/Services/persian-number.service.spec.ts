@@ -95,6 +95,19 @@ describe('PersianNumberService', () => {
 
   });
 
+  describe('arabic_to_persian', () => {
+    [
+      ['315٤', '315۴'],
+      ['٤٥٦', '۴۵۶'],
+      ['۸۷۶٥٥٥۲۳۴۳٦۶٤۴٤', '۸۷۶۵۵۵۲۳۴۳۶۶۴۴۴']
+    ].forEach(([input, expectedOutput]) => {
+      it(`should replace arabic numbers to the persian ones and change ${input} to the ${expectedOutput}`, () => {
+        expect(persianNumberService.arabic_to_persian(input)).toBe(expectedOutput);
+      });
+    });
+
+    });
+
   describe('to_persian', () => {
     it('should throw InvalidServiceInputError when input value is undefined', () => {
       expect(() => {
