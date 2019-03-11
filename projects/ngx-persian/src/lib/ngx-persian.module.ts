@@ -5,6 +5,6 @@ import { NgxPersianComponent } from './ngx-persian.component';
   declarations: [NgxPersianComponent],
   imports: [
   ],
-  exports: [NgxPersianComponent]
+  exports: []
 })
 export class NgxPersianModule { }
