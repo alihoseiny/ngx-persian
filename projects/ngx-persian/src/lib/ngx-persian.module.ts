@@ -3,8 +3,7 @@ import { NgxPersianComponent } from './ngx-persian.component';
 
 @NgModule({
   declarations: [NgxPersianComponent],
-  imports: [
-  ],
+  imports: [],
   exports: []
 })
 export class NgxPersianModule { }
