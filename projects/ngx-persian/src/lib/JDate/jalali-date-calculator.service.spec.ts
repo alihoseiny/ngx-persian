@@ -1,10 +1,9 @@
 import {JalaliDateCalculatorService} from './jalali-date-calculator.service';
-import {JalaliDateValidatorService} from './jalali-date-validator.service';
 
 describe('JalaliDateCalculatorService', () => {
   let jalaliDateCalculatorService: JalaliDateCalculatorService;
   beforeEach(() => {
-    jalaliDateCalculatorService = new JalaliDateCalculatorService(new JalaliDateValidatorService());
+    jalaliDateCalculatorService = new JalaliDateCalculatorService();
   });
 
   describe('numberOfPassedGDays', () => {
@@ -17,7 +16,7 @@ describe('JalaliDateCalculatorService', () => {
       it(`should return number of passed days in Gregorian date. input: ${dateObj.toString()} expected output: ${expectedOutput}`, () => {
         let jDateObj: JalaliDateCalculatorService;
         if (dateObj instanceof Date) {
-           jDateObj = new JalaliDateCalculatorService(new JalaliDateValidatorService(), dateObj);
+           jDateObj = new JalaliDateCalculatorService(dateObj);
         }
         // @ts-ignore
         expect(jDateObj.numberOfPassedGDays()).toBe(expectedOutput);
@@ -33,7 +32,7 @@ describe('JalaliDateCalculatorService', () => {
     ].forEach(([expectedOutput, input]) => {
       it(`should return Gregorian date as a Date object from number of passed days . input: ${input} expected output:
                      ${expectedOutput.toString()}`, () => {
-        const jDateObj = new JalaliDateCalculatorService(new JalaliDateValidatorService());
+        const jDateObj = new JalaliDateCalculatorService();
         // @ts-ignore
         expect(jDateObj.createGDateFromDays(input)).toEqual(expectedOutput);
       });
@@ -50,7 +49,7 @@ describe('JalaliDateCalculatorService', () => {
       it(`should return number of passed days in Gregorian date. input: ${dateObj.toString()} expected output: ${expectedOutput}`, () => {
         let jDateObj: JalaliDateCalculatorService;
         if (dateObj instanceof Date) {
-          jDateObj = new JalaliDateCalculatorService(new JalaliDateValidatorService());
+          jDateObj = new JalaliDateCalculatorService();
         }
         // @ts-ignore
         expect(jDateObj.numberOfPassedGDays(dateObj)).toBe(expectedOutput);
@@ -82,7 +81,7 @@ describe('JalaliDateCalculatorService', () => {
     ].forEach(([expectedOutput, input]) => {
       it(`should return Gregorian date as a Date object from number of passed days . input: ${input} expected output:
                      ${expectedOutput.toString()}`, () => {
-        const jDateObj = new JalaliDateCalculatorService(new JalaliDateValidatorService());
+        const jDateObj = new JalaliDateCalculatorService();
         // @ts-ignore
         expect(jDateObj.createGDateFromDays(input)).toEqual(expectedOutput);
       });

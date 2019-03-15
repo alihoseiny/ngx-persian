@@ -1,0 +1,383 @@
+import { JDate } from './jdate';
+import {InvalidJalaliDateError} from './InvalidJalaliDate.error';
+
+describe('JDate', () => {
+  let jDate: JDate;
+  beforeEach(() => {
+    jDate = new JDate();
+  });
+
+  it('should create an instance', () => {
+    expect(new JDate()).toBeTruthy();
+  });
+
+  describe('pars', () => {
+    [
+      ['11 دی 1348 00:00:00', -12600000],
+      ['11 Dey 1348 00:00:00', -12600000],
+    ].forEach(([input, expectedOutput]) => {
+      it(`should return passed milliseconds from January 1, 1970, 00:00:00 UTC until given time`, () => {
+        // @ts-ignore
+        expect(JDate.parse(input)).toBe(expectedOutput);
+      });
+    });
+
+    ['12:35:30', '11 Day 1348 00:12:00', '-12600000'].forEach(input => {
+      it(`should throw InvalidJalaliDate error when input value (${input}) does not follow the proper pattern`, () => {
+        expect(() => {
+          JDate.parse(input);
+        }).toThrow(new InvalidJalaliDateError());
+      });
+    });
+  });
+
+  describe('getDate', () => {
+    [
+      [new JDate(1397, 11, 29), 29],
+      [new JDate('11 دی 1348 00:12:00'), 11],
+      [new JDate(1375, 1, 1, 12, 32, 55, 321), 1]
+    ].forEach(([jDateObj, day]) => {
+      it(`should returns the day of the month for the specified date`, () => {
+        // @ts-ignore
+        expect(jDateObj.getDate()).toBe(day);
+      });
+    });
+  });
+
+  describe('getDay', () => {
+    [
+      [new JDate(1397, 11, 24), 0],
+      [new JDate(1397, 2, 19), 1],
+      [new JDate(1370, 7, 5), 2],
+      [new JDate(1370, 7, 27), 3],
+      [new JDate(1370, 7, 21), 4],
+      [new JDate(1397, 11, 1), 5],
+      [new JDate(1397, 11, 23), 6],
+    ].forEach(([jDateObj, dayOfWeek]) => {
+      it('should return number of the day in the week.', () => {
+        // @ts-ignore
+        expect(jDateObj.getDay()).toBe(dayOfWeek);
+      });
+    });
+  });
+
+  describe('getFullYear', () => {
+    [
+      [new JDate(1397, 11, 29), 1397],
+      [new JDate('11 دی 1348 00:12:00'), 1348],
+      [new JDate(1375, 1, 1, 12, 32, 55, 321), 1375]
+    ].forEach(([jDateObj, day]) => {
+      it(`should returns the day of the month for the specified date`, () => {
+        // @ts-ignore
+        expect(jDateObj.getFullYear()).toBe(day);
+      });
+    });
+  });
+
+  describe('getHours', () => {
+    [
+      [new JDate(1397, 11, 29), 0],
+      [new JDate('11 دی 1348 00:12:00'), 0],
+      [new JDate(1375, 1, 1, 12, 32, 55, 321), 12]
+    ].forEach(([jDateObj, hour]) => {
+      it(`should returns the day of the month for the specified date`, () => {
+        // @ts-ignore
+        expect(jDateObj.getHours()).toBe(hour);
+      });
+    });
+  });
+
+  describe('getMilliseconds', () => {
+    [
+      [new JDate(1397, 11, 29), 0],
+      [new JDate('11 دی 1348 00:12:00'), 0],
+      [new JDate(1375, 1, 1, 12, 32, 55, 321), 321]
+    ].forEach(([jDateObj, milliseconds]) => {
+      it(`should returns the milliseconds of the time`, () => {
+        // @ts-ignore
+        expect(jDateObj.getMilliseconds()).toBe(milliseconds);
+      });
+    });
+  });
+
+  describe('getMinutes', () => {
+    [
+      [new JDate(1397, 11, 29), 0],
+      [new JDate('11 دی 1348 00:12:00'), 12],
+      [new JDate(1375, 1, 1, 12, 32, 55, 321), 32]
+    ].forEach(([jDateObj, minutes]) => {
+      it(`should returns the getMinutes of the time`, () => {
+        // @ts-ignore
+        expect(jDateObj.getMinutes()).toBe(minutes);
+      });
+    });
+  });
+
+  describe('getMonth', () => {
+    [
+      [new JDate('30 اسفند 1375 13:54:58'), 11],
+      [new JDate(1397, 0, 1), 0],
+      [new JDate(1375, 5, 1, 12, 32, 55, 321), 5]
+    ].forEach(([jDateObj, month]) => {
+      it('should return number of the month in the date.', () => {
+        // @ts-ignore
+        expect(jDateObj.getMonth()).toBe(month);
+      });
+    });
+  });
+
+  describe('getSeconds', () => {
+    [
+      [new JDate('30 اسفند 1375 13:54:58'), 58],
+      [new JDate(1397, 0, 1), 0],
+      [new JDate(1375, 5, 1, 12, 32, 55, 321), 55]
+    ].forEach(([jDateObj, seconds]) => {
+      it('should return number of the seconds in the date.', () => {
+        // @ts-ignore
+        expect(jDateObj.getSeconds()).toBe(seconds);
+      });
+    });
+  });
+
+  describe('getTime', () => {
+    [
+      [new JDate('11 دی 1348 00:00:00'), -12600000],
+      [new JDate('11 Dey 1348 00:00:00'), -12600000],
+    ].forEach(([jDateObj, time]) => {
+      it('should return number of milliseconds since the unix epoch', () => {
+        // @ts-ignore
+        expect(jDateObj.getTime()).toBe(time);
+      });
+    });
+  });
+
+  describe('setDate', () => {
+    [
+      [new JDate('29 دی 1348 00:00:00'), 11, -12600000],
+      [new JDate('03 Dey 1348 00:00:00'),11,  -12600000],
+    ].forEach(([jDateObj, newDate, time]) => {
+      it('should return number of milliseconds since the unix epoch', () => {
+        // @ts-ignore
+        expect(jDateObj.setDate(newDate)).toBe(time);
+        // @ts-ignore
+        expect(jDateObj.getDate()).toBe(newDate);
+      });
+    });
+  });
+
+  describe('setFullYear', () => {
+    [
+      [new JDate('11 دی 1397 00:00:00'), 1348, -12600000],
+      [new JDate('11 Dey 1400 00:00:00'),1348,  -12600000],
+    ].forEach(([jDateObj, newYear, time]) => {
+      it('should return number of milliseconds since the unix epoch', () => {
+        // @ts-ignore
+        expect(jDateObj.setFullYear(newYear)).toBe(time);
+        // @ts-ignore
+        expect(jDateObj.getFullYear()).toBe(newYear);
+      });
+    });
+  });
+
+  describe('setHours', () => {
+    [
+      [new JDate('11 دی 1348 01:00:00'), 0, -12600000],
+      [new JDate('11 Dey 1348 23:00:00'), 0,  -12600000],
+    ].forEach(([jDateObj, hour, time]) => {
+      it('should return number of milliseconds since the unix epoch when only new hour inputted', () => {
+        // @ts-ignore
+        expect(jDateObj.setHours(hour)).toBe(time);
+        // @ts-ignore
+        expect(jDateObj.getHours()).toBe(hour);
+      });
+    });
+
+    [
+      [new JDate('11 دی 1348 01:20:00'), 0, 0, -12600000],
+      [new JDate('11 Dey 1348 23:59:00'), 0, 0,  -12600000],
+    ].forEach(([jDateObj, hour, min, time]) => {
+      it('should return number of milliseconds since the unix epoch when new hour and minutes inputted', () => {
+        // @ts-ignore
+        expect(jDateObj.setHours(hour, min)).toBe(time);
+        // @ts-ignore
+        expect(jDateObj.getHours()).toBe(hour);
+        // @ts-ignore
+        expect(jDateObj.getMinutes()).toBe(min);
+      });
+    });
+
+    [
+      [new JDate('11 دی 1348 01:20:03'), 0, 0, 0, -12600000],
+      [new JDate('11 Dey 1348 23:59:29'), 0, 0, 0, -12600000],
+    ].forEach(([jDateObj, hour, min, sec, time]) => {
+      it('should return number of milliseconds since the unix epoch when new hour, minutes and seconds inputted', () => {
+        // @ts-ignore
+        expect(jDateObj.setHours(hour, min, sec)).toBe(time);
+        // @ts-ignore
+        expect(jDateObj.getHours()).toBe(hour);
+        // @ts-ignore
+        expect(jDateObj.getMinutes()).toBe(min);
+        // @ts-ignore
+        expect(jDateObj.getSeconds()).toBe(sec);
+      });
+    });
+
+    [
+      [new JDate('11 دی 1348 01:20:03'), 0, 0, 0, 0, -12600000],
+      [new JDate('11 Dey 1348 23:59:29'), 0, 0, 0, 0, -12600000],
+    ].forEach(([jDateObj, hour, min, sec, milli, time]) => {
+      it('should return number of milliseconds since the unix epoch when new hour, minutes, seconds and milliseconds inputted', () => {
+        // @ts-ignore
+        expect(jDateObj.setHours(hour, min, sec, milli)).toBe(time);
+        // @ts-ignore
+        expect(jDateObj.getHours()).toBe(hour);
+        // @ts-ignore
+        expect(jDateObj.getMinutes()).toBe(min);
+        // @ts-ignore
+        expect(jDateObj.getSeconds()).toBe(sec);
+        // @ts-ignore
+        expect(jDateObj.getMilliseconds()).toBe(milli);
+      });
+    });
+
+  });
+
+  describe('setMilliseconds', () => {
+    [
+      [new JDate('11 دی 1348 00:00:00'), 0, -12600000],
+      [new JDate('11 Dey 1348 00:00:00'), 0, -12600000],
+    ].forEach(([jDateObj, milli, time]) => {
+      it('should return number of milliseconds since the unix epoch when new milliseconds inputted', () => {
+        // @ts-ignore
+        expect(jDateObj.setMilliseconds(milli)).toBe(time);
+        // @ts-ignore
+        expect(jDateObj.getMilliseconds()).toBe(milli);
+      });
+    });
+  });
+
+  describe('setMinutes', () => {
+
+    [
+      [new JDate('11 دی 1348 00:20:00'), 0, -12600000],
+      [new JDate('11 Dey 1348 00:59:00'), 0,  -12600000],
+    ].forEach(([jDateObj, min, time]) => {
+      it('should return number of milliseconds since the unix epoch when new minutes inputted', () => {
+        // @ts-ignore
+        expect(jDateObj.setMinutes(min)).toBe(time);
+        // @ts-ignore
+        expect(jDateObj.getMinutes()).toBe(min);
+      });
+    });
+
+    [
+      [new JDate('11 دی 1348 00:20:03'), 0, 0, -12600000],
+      [new JDate('11 Dey 1348 00:59:29'), 0, 0, -12600000],
+    ].forEach(([jDateObj, min, sec, time]) => {
+      it('should return number of milliseconds since the unix epoch when new minutes and seconds inputted', () => {
+        // @ts-ignore
+        expect(jDateObj.setMinutes(min, sec)).toBe(time);
+        // @ts-ignore
+        expect(jDateObj.getMinutes()).toBe(min);
+        // @ts-ignore
+        expect(jDateObj.getSeconds()).toBe(sec);
+      });
+    });
+
+    [
+      [new JDate('11 دی 1348 01:20:03'), 0, 0, 0, -12600000],
+      [new JDate('11 Dey 1348 23:59:29'), 0, 0, 0, -12600000],
+    ].forEach(([jDateObj, min, sec, milli, time]) => {
+      it('should return number of milliseconds since the unix epoch when new minutes, seconds and milliseconds inputted', () => {
+        // @ts-ignore
+        expect(jDateObj.setHours(min, sec, milli)).toBe(time);
+        // @ts-ignore
+        expect(jDateObj.getMinutes()).toBe(min);
+        // @ts-ignore
+        expect(jDateObj.getSeconds()).toBe(sec);
+        // @ts-ignore
+        expect(jDateObj.getMilliseconds()).toBe(milli);
+      });
+    });
+
+  });
+
+  describe('setMonth', () => {
+
+    [
+      [new JDate('11 اسفند 1348 00:00:00'), 9, -12600000],
+      [new JDate('11 Tir 1348 00:00:00'), 9,  -12600000],
+    ].forEach(([jDateObj, month, time]) => {
+      it('should return number of milliseconds since the unix epoch when new Month inputted', () => {
+        // @ts-ignore
+        expect(jDateObj.setMonth(month)).toBe(time);
+        // @ts-ignore
+        expect(jDateObj.getMonth()).toBe(month);
+      });
+    });
+
+    [
+      [new JDate('27 خرداد 1348 00:00:00'), 9, 11, -12600000],
+      [new JDate('01 Mordad 1348 00:00:00'), 9, 11, -12600000],
+    ].forEach(([jDateObj, month, date, time]) => {
+      it('should return number of milliseconds since the unix epoch when new month and day inputted', () => {
+        // @ts-ignore
+        expect(jDateObj.setMonth(month, date)).toBe(time);
+        // @ts-ignore
+        expect(jDateObj.getMonth()).toBe(month);
+        // @ts-ignore
+        expect(jDateObj.getDate()).toBe(date);
+      });
+    });
+
+
+  });
+
+  describe('setSeconds', () => {
+
+    [
+      [new JDate('11 دی 1348 00:00:03'), 0, -12600000],
+      [new JDate('11 Dey 1348 00:00:29'), 0, -12600000],
+    ].forEach(([jDateObj, sec, time]) => {
+      it('should return number of milliseconds since the unix epoch when new seconds inputted', () => {
+        // @ts-ignore
+        expect(jDateObj.setSeconds(sec)).toBe(time);
+        // @ts-ignore
+        expect(jDateObj.getSeconds()).toBe(sec);
+      });
+    });
+
+    [
+      [new JDate('11 دی 1348 00:00:03'), 0, 0, -12600000],
+      [new JDate('11 Dey 1348 00:00:29'), 0, 0, -12600000],
+    ].forEach(([jDateObj, sec, milli, time]) => {
+      it('should return number of milliseconds since the unix epoch when new seconds and milliseconds inputted', () => {
+        // @ts-ignore
+        expect(jDateObj.setSeconds(sec, milli)).toBe(time);
+        // @ts-ignore
+        expect(jDateObj.getSeconds()).toBe(sec);
+        // @ts-ignore
+        expect(jDateObj.getMilliseconds()).toBe(milli);
+      });
+    });
+
+  });
+
+  describe('setTime', () => {
+
+    [
+      [new JDate('11 دی 1348 00:00:00'), -12600000],
+      [new JDate('11 Dey 1348 00:00:00'), -12600000],
+    ].forEach(([jDateObj, time]) => {
+      it('should create JDate object from number of milliseconds since January 1, 1970, 00:00:00 UTC', () => {
+        const newDate = new JDate();
+        // @ts-ignore
+        newDate.setTime(time);
+        // @ts-ignore
+        expect(jDateObj).toEqual(newDate);
+      });
+    });
+
+  });
+
+});

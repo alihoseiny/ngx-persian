@@ -13,7 +13,7 @@ export class JalaliDateCalculatorService {
   private readonly _jMonth: number;
   private readonly _jDay: number;
 
-  constructor(private validator: JalaliDateValidatorService, private date?: Date) {
+  constructor(private date?: Date, public validator: JalaliDateValidatorService = new JalaliDateValidatorService(),) {
     if (this.date) {
       const convrtedDate = this.convertToJalali(this.date);
       this._jYear = convrtedDate.year;
