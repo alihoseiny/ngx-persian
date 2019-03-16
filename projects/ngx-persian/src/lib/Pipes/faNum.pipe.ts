@@ -8,7 +8,7 @@ export class FaNumPipe implements PipeTransform {
 
   transform(value: string | number) {
     value = String(value);
-    return this.persianNumberService.to_persian(value);
+    return this.persianNumberService.toPersian(value);
   }
 }
 

@@ -15,13 +15,13 @@ describe('PersianLetterService', () => {
     expect(service).toBeTruthy();
   });
 
-  describe('contains_persian', () => {
+  describe('containsPersian', () => {
     it ('Should return false when input is undefined', () => {
-        expect(persianLetterService.contains_persian(undefined)).toBeFalsy();
+        expect(persianLetterService.containsPersian(undefined)).toBeFalsy();
     });
 
     it ('Should return false when input is null', () => {
-        expect(persianLetterService.contains_persian(null)).toBeFalsy();
+        expect(persianLetterService.containsPersian(null)).toBeFalsy();
     });
 
     [
@@ -31,7 +31,7 @@ describe('PersianLetterService', () => {
       '۰۹۸۷۶۵۳۲۱'
     ].forEach(input => {
       it(`should return false when input (${input}) does not contain any persian letter.`, () => {
-        expect(persianLetterService.contains_persian(input)).toBeFalsy();
+        expect(persianLetterService.containsPersian(input)).toBeFalsy();
       });
     });
 
@@ -45,19 +45,19 @@ describe('PersianLetterService', () => {
       '\t  '
     ].forEach(input => {
       it(`should return true when input (${input}) contains at least one persian letter.`, () => {
-        expect(persianLetterService.contains_persian(input)).toBeTruthy();
+        expect(persianLetterService.containsPersian(input)).toBeTruthy();
       });
     });
 
   });
 
-  describe('is_persian', () => {
+  describe('isPersian', () => {
     it ('Should return false when input is undefined', () => {
-        expect(persianLetterService.is_persian(undefined)).toBeFalsy();
+        expect(persianLetterService.isPersian(undefined)).toBeFalsy();
     });
 
     it ('Should return false when input is null', () => {
-        expect(persianLetterService.is_persian(null)).toBeFalsy();
+        expect(persianLetterService.isPersian(null)).toBeFalsy();
     });
 
     [
@@ -74,7 +74,7 @@ describe('PersianLetterService', () => {
           symbols: true,
           whitespaces:  true
         };
-        expect(persianLetterService.is_persian(input, options)).toBeFalsy();
+        expect(persianLetterService.isPersian(input, options)).toBeFalsy();
       });
     });
 
@@ -91,7 +91,7 @@ describe('PersianLetterService', () => {
           symbols: false,
           whitespaces:  false
         };
-        expect(persianLetterService.is_persian(input, options)).toBeFalsy();
+        expect(persianLetterService.isPersian(input, options)).toBeFalsy();
       });
     });
 
@@ -102,7 +102,7 @@ describe('PersianLetterService', () => {
         symbols: false,
         whitespaces:  false
       };
-      expect(persianLetterService.is_persian('متنفارسیبدونفاصله', options)).toBeTruthy();
+      expect(persianLetterService.isPersian('متنفارسیبدونفاصله', options)).toBeTruthy();
     });
 
     it('should return true when persian letters and symbols allowed and input contains only them.', () => {
@@ -112,7 +112,7 @@ describe('PersianLetterService', () => {
         symbols: true,
         whitespaces:  false
       };
-      expect(persianLetterService.is_persian('فارسی؟!.،', options)).toBeTruthy();
+      expect(persianLetterService.isPersian('فارسی؟!.،', options)).toBeTruthy();
     });
 
     it('should return true when persian letters and whitespaces allowed and input only contains them', () => {
@@ -122,7 +122,7 @@ describe('PersianLetterService', () => {
         symbols: false,
         whitespaces:  true
       };
-      expect(persianLetterService.is_persian('متن فارسی', options)).toBeTruthy();
+      expect(persianLetterService.isPersian('متن فارسی', options)).toBeTruthy();
     });
 
     it('should return true when persian letters and digits allowed and input only contains them', () => {
@@ -132,7 +132,7 @@ describe('PersianLetterService', () => {
         symbols: false,
         whitespaces:  false
       };
-      expect(persianLetterService.is_persian('متن۱۲۵فارسی۷۸۶۴۵', options)).toBeTruthy();
+      expect(persianLetterService.isPersian('متن۱۲۵فارسی۷۸۶۴۵', options)).toBeTruthy();
     });
 
     it('should return true when persian letters and english digits allowed and input only contains them', () => {
@@ -142,12 +142,12 @@ describe('PersianLetterService', () => {
         symbols: false,
         whitespaces:  false
       };
-      expect(persianLetterService.is_persian('متن6576854ارسی04358349858767', options)).toBeTruthy();
+      expect(persianLetterService.isPersian('متن6576854ارسی04358349858767', options)).toBeTruthy();
     });
 
   });
 
-  describe('to_persian', () => {
+  describe('toPersian', () => {
     [
       ['متني با ي های عربي', 'متنی با ی های عربی'],
       ['متنی كه ك های آن عربی اند', 'متنی که ک های آن عربی اند'],
@@ -155,7 +155,7 @@ describe('PersianLetterService', () => {
       ['ترکیبی از ك و ي عربي و فارسی', 'ترکیبی از ک و ی عربی و فارسی']
     ].forEach(([input, expectedOutput]) => {
       it(`should replace arabic letters to the text and return ${expectedOutput} instead of ${input}`, () => {
-        expect(persianLetterService.to_persian(input)).toBe(expectedOutput);
+        expect(persianLetterService.toPersian(input)).toBe(expectedOutput);
       });
     });
   });

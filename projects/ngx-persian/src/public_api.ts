@@ -9,3 +9,6 @@ export {EnNumPipe} from './lib/Pipes/enNum.pipe';
 export {FaNumPipe} from './lib/Pipes/faNum.pipe';
 export {IRCurrencyPipe} from './lib/Pipes/IRCurrency.pipe';
 export {NationalCodePipe} from './lib/Pipes/nationalCode.pipe';
+export {JDate} from './lib/JDate/jdate'
+export {JalaliDateCalculatorService} from './lib/JDate/jalali-date-calculator.service';
+export {JalaliDateValidatorService} from './lib/JDate/jalali-date-validator.service';

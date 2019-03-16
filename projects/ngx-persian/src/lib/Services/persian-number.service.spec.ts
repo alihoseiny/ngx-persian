@@ -15,18 +15,18 @@ describe('PersianNumberService', () => {
     expect(service).toBeTruthy();
   });
 
-  describe('contains_persian', () => {
+  describe('containsPersian', () => {
 
     it('should return false when input is undefined.', () => {
-      expect(persianNumberService.contains_persian(undefined)).toBeFalsy();
+      expect(persianNumberService.containsPersian(undefined)).toBeFalsy();
     });
 
     it('should return false when input is null', () => {
-      expect(persianNumberService.contains_persian(null)).toBeFalsy();
+      expect(persianNumberService.containsPersian(null)).toBeFalsy();
     });
 
     it('should return false when input is an empty string', () => {
-      expect(persianNumberService.contains_persian('')).toBeFalsy();
+      expect(persianNumberService.containsPersian('')).toBeFalsy();
     });
 
     [
@@ -38,7 +38,7 @@ describe('PersianNumberService', () => {
       '46468متن8787نوش ته'
     ].forEach(input => {
       it(`should return false when input (${input}) doesn't contain any persian number`, () => {
-        expect(persianNumberService.contains_persian(input)).toBeFalsy();
+        expect(persianNumberService.containsPersian(input)).toBeFalsy();
       });
     });
 
@@ -50,23 +50,23 @@ describe('PersianNumberService', () => {
       'A   Lon۲g english text '
     ].forEach(input => {
       it(`should return true when input (${input}) contains any persian number`, () => {
-        expect(persianNumberService.contains_persian(input)).toBeTruthy();
+        expect(persianNumberService.containsPersian(input)).toBeTruthy();
       });
     });
 
   });
 
-  describe('is_persian', () => {
+  describe('isPersian', () => {
     it('should return false if input value is undefined', () => {
-      expect(persianNumberService.is_persian(undefined)).toBeFalsy();
+      expect(persianNumberService.isPersian(undefined)).toBeFalsy();
     });
 
     it('should return false if input value is null', () => {
-      expect(persianNumberService.is_persian(null)).toBeFalsy();
+      expect(persianNumberService.isPersian(null)).toBeFalsy();
     });
 
     it('should return false when inputs is an empty string', () => {
-      expect(persianNumberService.is_persian('')).toBeFalsy();
+      expect(persianNumberService.isPersian('')).toBeFalsy();
     });
 
     [
@@ -75,49 +75,46 @@ describe('PersianNumberService', () => {
       '۱۲۳4۵۶',
       '1245۸۹۶21۰',
       'Just english text',
-      'تنها حروف فارسی'
+      'تنها حروف فارسی',
+      '۸۴۸۴سلام ۹۸۰۰۰۰۰۰',
+      '   ۱۲۳ ۴ ',
+      '۸۷۶۹۵some en te x۳t۴',
+
     ].forEach((input) => {
       it(`should return false when input string (${input}) containing any english number`, () => {
-        expect(persianNumberService.is_persian(input)).toBeFalsy();
+        expect(persianNumberService.isPersian(input)).toBeFalsy();
       });
     });
 
-    [
-      '   ۱۲۳ ۴ ',
-      '۸۷۶۹۵some en te x۳t۴',
-      '۲۳۴۶۷۸۹۰۹۸۷۶۳۲۱',
-      '۸۴۸۴سلام ۹۸۰۰۰۰۰۰'
-    ].forEach(input => {
-      it(`should return true when all numeric characters in the input (${input}) are persian`, () => {
-        expect(persianNumberService.is_persian(input)).toBeTruthy();
+      it(`should return true when all characters in the input are persian numbers`, () => {
+        expect(persianNumberService.isPersian('۲۳۴۶۷۸۹۰۹۸۷۶۳۲۱')).toBeTruthy();
       });
-    });
 
   });
 
-  describe('arabic_to_persian', () => {
+  describe('arabicToPersian', () => {
     [
       ['315٤', '315۴'],
       ['٤٥٦', '۴۵۶'],
       ['۸۷۶٥٥٥۲۳۴۳٦۶٤۴٤', '۸۷۶۵۵۵۲۳۴۳۶۶۴۴۴']
     ].forEach(([input, expectedOutput]) => {
       it(`should replace arabic numbers to the persian ones and change ${input} to the ${expectedOutput}`, () => {
-        expect(persianNumberService.arabic_to_persian(input)).toBe(expectedOutput);
+        expect(persianNumberService.arabicToPersian(input)).toBe(expectedOutput);
       });
     });
 
     });
 
-  describe('to_persian', () => {
+  describe('toPersian', () => {
     it('should throw InvalidServiceInputError when input value is undefined', () => {
       expect(() => {
-        persianNumberService.to_persian(undefined);
+        persianNumberService.toPersian(undefined);
       }).toThrow(new InvalidServiceInputError());
     });
 
     it('should throw InvalidServiceInputError when input value is null', () => {
       expect(() => {
-        persianNumberService.to_persian(null);
+        persianNumberService.toPersian(null);
       }).toThrow(new InvalidServiceInputError());
     });
 
@@ -137,22 +134,22 @@ describe('PersianNumberService', () => {
       it(`should replace all en numbers in input value to persian ones. input: ${input}, output: ${output} `, () => {
         // Ignores typescript error on type of the output variable
         // @ts-ignore
-        expect(persianNumberService.to_persian(input)).toBe(output);
+        expect(persianNumberService.toPersian(input)).toBe(output);
       });
     });
 
   });
 
-  describe('to_english', () => {
+  describe('toEnglish', () => {
     it('should throw InvalidServiceInputError when input value is undefined', () => {
       expect(() => {
-        persianNumberService.to_english(undefined);
+        persianNumberService.toEnglish(undefined);
       }).toThrow(new InvalidServiceInputError());
     });
 
     it('should throw InvalidServiceInputError when input value is null', () => {
       expect(() => {
-        persianNumberService.to_english(null);
+        persianNumberService.toEnglish(null);
       }).toThrow(new InvalidServiceInputError());
     });
 
@@ -169,7 +166,7 @@ describe('PersianNumberService', () => {
       ['', '']
     ].forEach(([output, input]) => {
       it(`should replace all en numbers in input value to persian ones. input: ${input}, output: ${output} `, () => {
-        expect(persianNumberService.to_english(input)).toBe(output);
+        expect(persianNumberService.toEnglish(input)).toBe(output);
       });
     });
 

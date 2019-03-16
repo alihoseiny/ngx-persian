@@ -8,6 +8,6 @@ export class EnNumPipe  implements PipeTransform {
 
   transform(value: string | number) {
     value = String(value);
-    return this.persianNumberService.to_english(value);
+    return this.persianNumberService.toEnglish(value);
   }
 }

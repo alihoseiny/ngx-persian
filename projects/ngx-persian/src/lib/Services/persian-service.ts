@@ -1,8 +1,8 @@
 export interface PersianService {
 
-  is_persian(value: string): boolean;
+  isPersian(value: string): boolean;
 
-  to_persian(value: string | number): string;
+  toPersian(value: string | number): string;
 
-  contains_persian(value: string): boolean;
+  containsPersian(value: string): boolean;
 }
