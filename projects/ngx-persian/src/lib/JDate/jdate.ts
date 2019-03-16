@@ -2,6 +2,9 @@ import {JalaliDateCalculatorService} from './jalali-date-calculator.service';
 import {InvalidJalaliDateError} from './InvalidJalaliDate.error';
 
 /**
+ * This class represents a complete Date object for Jalali dates. It accepts jalali Dates, converts Georgian dates to jalali and implements
+ * all the behaviours of default Date object of JavaScript for Jalali Date, plus some additional methods for developers convenience.
+ * ATTENTION:
  * UTC methods are not implemented for Jalali date. They working directly on gDate object (Corresponding date in Georgian) and changing
  * properties of this. Then new JDate object will create from the modified Georgian Date. So they may Cause unpredictable behaviour.
  * Please don't use UTC methods with "todo" tag on them unless you are sure about the behaviour.
@@ -23,6 +26,11 @@ export class JDate implements Date{
   private _jMonth: number;
   private _jDay: number;
 
+  /**
+   * If input value length is shorter than desiredLength, adds zeros at the beginning of it until meets desired length.
+   * @param value a number or string that we want have a specific length
+   * @param desiredLength
+   */
   public static zeroPadding(value: number | string, desiredLength): string {
     value = value.toString();
     while (value.length < desiredLength) {
@@ -31,6 +39,13 @@ export class JDate implements Date{
     return value;
   }
 
+  /**
+   * Extracts Georgian Date object from a Jalali date string.
+   * @param dateString a Jalali date string following this pattern: "yyyy mmm dd HH:MM:SS" or this pattern: "yyyy mmmm dd HH:MM:SS".
+   * example: '11 دی 1348 00:00:00' or '11 Dey 1348 00:00:00'
+   * @param calculator Jalali calculator service injected using DI
+   * @return a Georgian Date object.
+   */
   public static parse(dateString: string, calculator: JalaliDateCalculatorService = new JalaliDateCalculatorService()): number {
     const dateArray = dateString.split(' ');
     if (dateArray.length < 3) { throw new InvalidJalaliDateError(); }
@@ -49,6 +64,33 @@ export class JDate implements Date{
   }
 
 
+  /**
+   * For creating a JDate object, you have 5 different options.
+   * 1- If you want to have current date and time, you can simply call new JDate() without any parameter.
+   * 2- If you want to create JDate object from a jalali date string as described in the `pars` method document, you can pass that string as
+   *    first parameter and leave others empty.
+   * 3 - If you want to create JDate object from number of passed milliseconds from UNIX epoch (for example creating a Jalali date object
+   *     from result of getTime method of another Date object), you can pass the number as first parameter and leave others alone.
+   * 4 - If you want to create JDate object from a Georgian Date object, you can simply pass that Date object as first parameter and leave
+   *     others empty.
+   * 5- If you want to create JDate object from date and time values, you can simply fill corresponding parameters of each date and time
+   * value to the constructor. You don't have to fill all of the parameters. only those you need. other parameters will fill with zero.
+   * Examples of all of those scenarios:
+   * 1) new JDate()
+   * 2) new JDate('11 دی 1348 00:00:00')
+   * 3) new JDate(-12600000)
+   * 4) new JDate(new Date(2018, 1, 1))
+   * 5) new JDate(1397, 12, 25) or new JDate(1397, 12, 25, 12, 32, 45, 123)
+   *
+   * @param jYear
+   * @param jMonth
+   * @param jDay
+   * @param hours
+   * @param minutes
+   * @param seconds
+   * @param milliseconds
+   * @param calculator
+   */
   constructor(jYear?: number | string | Date, jMonth?: number, jDay?: number, hours: number = 0, minutes: number = 0,
               seconds: number = 0, milliseconds: number = 0, private calculator: JalaliDateCalculatorService = new JalaliDateCalculatorService()) {
     if (!jYear) {
