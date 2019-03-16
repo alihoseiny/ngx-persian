@@ -11,6 +11,12 @@ export class JDate implements Date{
 
   private static EN_MONTHS = ['Farvardin', 'Ordibehesht', 'Khordad', 'Tir', 'Mordad', 'Shahrivar', 'Mehr', 'Aban', 'Azar', 'Dey', 'Behman', 'Esfand'];
   private static FA_MONTHS = ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند'];
+  private static DAYS_OF_WEEK = ['جمعه', 'شنبه', 'یکشنبه', 'دوشنبه', 'سه‌شنبه', 'چهارشنبه', 'پنج‌شنبه'];
+  private static EN_DAYS_OF_WEEK = ['Jom\'e', 'Shanbe', 'Yekshanbe', 'Doshanbe', 'Seshanbe', 'Cheharshanbe', 'Panjshanbe'];
+  private static COMPLETE_BEFORE_NOON = 'قبل از ظهر';
+  private static COMPLETE_AFTER_NOON = 'بعد از ظهر';
+  private static SHORT_BEFORE_NOON = 'ق.ظ';
+  private static SHORT_AFTER_NOON = 'ب.ظ';
 
   private _gDate: Date;
   private _jYear: number;
@@ -71,7 +77,6 @@ export class JDate implements Date{
    * @private
    */
   private _renewGDate(): void {
-    console.debug(`${this._jYear} ${this._jMonth} ${this._jDay}`);
     this._gDate = this.calculator.convertToGeorgian(this._jYear, this._jMonth, this._jDay);
   }
 
@@ -165,6 +170,15 @@ export class JDate implements Date{
    */
   getHours(): number {
     return this._gDate.getHours();
+  }
+
+  /**
+   * Converts default 24-hour clock hour value to the 12-hour clock version.
+   * @return a number between 1 to 12
+   */
+  getHours12hourClock(): number {
+    const result = this.getHours() % 12;
+    return result ? result : 12;
   }
 
   /**
@@ -478,39 +492,193 @@ export class JDate implements Date{
     return this.getTime();
   }
 
+  /**
+   * Returns name of the day of the week in persian.
+   * @return name of the day
+   */
+  getNameOfTheDay(): string {
+    return JDate.DAYS_OF_WEEK[this.getDay()];
+  }
+
+  /**
+   * @return name of the month in persian. ex: مهر
+   */
+  getNameOfTheMonth(): string {
+    return JDate.FA_MONTHS[this.getMonth()];
+  }
+
+  /**
+   * returns the date portion of a Date object in human readable form in Persian.
+   * @return a string following this pattern: "nameOfTheDay nameOfTheMonth dayNumber fullYear". ex: پنج‌شنبه اسفند 30 1375
+   */
   toDateString(): string {
-    return "";
+    return `${this.getNameOfTheDay()} ${this.getNameOfTheMonth()} ${this.getDate()} ${this.getFullYear()}`;
   }
 
+  /**
+   * Returns time marker of object time. all hour numbers lesser than 12 are before noon and all greater than 12 are after noon.
+   * @param shortVersion controls output. if be true, output will be in short format like: ب.ظ if be false, output will be in complete format like: بعد از ظهر
+   * @return time marker for showing if time is before noon or after it
+   */
+  getTimeMarker(shortVersion: boolean = false): string {
+    if (this.getHours() < 12) { return shortVersion ? JDate.SHORT_BEFORE_NOON : JDate.COMPLETE_BEFORE_NOON; }
+    return shortVersion ? JDate.SHORT_AFTER_NOON : JDate.COMPLETE_AFTER_NOON;
+  }
+
+  /**
+   * Replace patterns of date formatting with corresponding strings from JDate object values.
+   * In bi-character pattern parts, missed digits will fill with zero.
+   * @param pattern a pattern string with replaceable parts:
+   *        yyyy -> Year number in 4-digit representation. ex: 1397
+   *        yy -> Year number in 2-digit representation. ex: 97
+   *        mmmm -> Name of the month in English representation. ex: Esfand
+   *        mmm -> Name of the month in Persian representation. ex: اسفند
+   *        mm -> 2-digit number of the month starting from 1
+   *        m -> non zero-padding number of the month starting from 1
+   *        dddd -> Name of the day in the week in English representation. ex: Shanbe
+   *        ddd -> Name of the day in the week id Persian representation. ex: شنبه
+   *        dd -> 2-digit number of the day in the month starting from 1
+   *        d -> non zero-padding number of the day in the month starting from 1
+   * @return A formatted string that all Date patter parts has been replaced. Other characters of the pattern will left unchanged.
+   * @private
+   */
+  private _format_date(pattern: string): string {
+    return pattern.replace(/yyyy/g, JDate.zeroPadding(this.getFullYear(), 4))
+      .replace(/\byy\b/g, (this.getFullYear() % 100).toString())
+      .replace(/\bmmmm\b/g, JDate.EN_MONTHS[this.getMonth()])
+      .replace(/\bmmm\b/g, JDate.FA_MONTHS[this.getMonth()])
+      .replace(/\bmm\b/g, JDate.zeroPadding(this.getMonth() + 1, 2))
+      .replace(/\bm\b/g, (this.getMonth() + 1).toString())
+      .replace(/\bdddd\b/g, JDate.EN_DAYS_OF_WEEK[this.getDay()])
+      .replace(/\bddd\b/g, JDate.DAYS_OF_WEEK[this.getDay()])
+      .replace(/\bdd\b/g, JDate.zeroPadding(this.getDate(), 2))
+      .replace(/\bd\b/g, this.getDate().toString())
+  }
+
+  /**
+   * Replace patterns of time formatting with corresponding strings from JDate object values.
+   * In bi-character pattern parts, missed digits will fill with zero.
+   * @param pattern a pattern string with replaceable parts:
+   *        HH -> 2-digit form of hour number in 24-hour clock format.
+   *        H -> non zero-padding form of hour number in 24-hour clock format.
+   *        hh -> 2-digit form of hour number in 12-hour clock format.
+   *        H -> non zero-padding form of hour number in 12-hour clock format.
+   *        MM -> 2-digit form of minutes number.
+   *        M -> non zero-padding form of minutes number
+   *        SS -> 2-digit form of seconds number.
+   *        S -> non zero-padding form of seconds number.
+   *        l -> number of milliseconds
+   *        T -> Time marker in full format like: قبل از ظهر
+   *        t -> Time marker in short format like: ق.ظ
+   * @private
+   */
+  private _format_time(pattern: string): string {
+    return pattern.replace(/\bHH\b/g, JDate.zeroPadding(this.getHours(), 2))
+      .replace(/\bH\b/g, this.getHours().toString())
+      .replace(/\bhh\b/g, JDate.zeroPadding(this.getHours12hourClock(), 2))
+      .replace(/\bh\b/g, this.getHours12hourClock().toString())
+      .replace(/\bMM\b/g, JDate.zeroPadding(this.getMinutes(), 2))
+      .replace(/\bM\b/g, this.getMinutes().toString())
+      .replace(/\bSS\b/g, JDate.zeroPadding(this.getSeconds(), 2))
+      .replace(/\bS\b/g, this.getSeconds().toString())
+      .replace(/\bl\b/g, this.getMilliseconds().toString())
+      .replace(/\bT\b/g, this.getTimeMarker(false))
+      .replace(/\bt\b/g, this.getTimeMarker(true));
+  }
+
+  /**
+   * This method format date and time stored in the JDate object according to the entered pattern.
+   * Only masks will replace and all other characters will be unchanged after formatting.
+   * You can use masks several times in a pattern but be careful because if some of masks written immediately, they create new masks with
+   * different meaning. It's better to always have some splitter characters between different masks.
+   * @param pattern a string containing zero or more formatting mask.
+   * Masks:
+   *        yyyy -> Year number in 4-digit representation. Leading zero for years lesser than 1000 ex: 1397
+   *        yy -> Year number in 2-digit representation without Leading zeros. ex: 97
+   *        mmmm -> Name of the month in English representation. ex: Esfand
+   *        mmm -> Name of the month in Persian representation. ex: اسفند
+   *        mm -> 2-digit number of the month starting from 1. Leading zero for single-digit months.
+   *        m -> number of the month starting from 1 without Leading zeros.
+   *        dddd -> Name of the day in the week in English representation. ex: Shanbe
+   *        ddd -> Name of the day in the week id Persian representation. ex: شنبه
+   *        dd -> 2-digit number of the day in the month starting from 1. Leading zero for single-digit days.
+   *        d -> number of the day in the month starting from 1 without Leading zeros.
+   *        HH -> 2-digit form of hour number in 24-hour clock format. Leading zero for single-digit hours.
+   *        H -> non zero-padding form of hour number in 24-hour clock format without Leading zeros.
+   *        hh -> 2-digit form of hour number in 12-hour clock format. Leading zero for single-digit hours.
+   *        H -> non zero-padding form of hour number in 12-hour clock format without Leading zeros.
+   *        MM -> 2-digit form of minutes number. Leading zero for single-digit minutes.
+   *        M -> non zero-padding form of minutes number without Leading zeros.
+   *        SS -> 2-digit form of seconds number. Leading zero for single-digit seconds.
+   *        S -> non zero-padding form of seconds number without Leading zeros.
+   *        l -> number of milliseconds without Leading zeros.
+   *        T -> Time marker in full format like: قبل از ظهر
+   *        t -> Time marker in short format like: ق.ظ
+   *@return formatted dateTime string.
+   */
+  format(pattern: string): string {
+    return this._format_time(this._format_date(pattern));
+  }
+
+  /**
+   * @return a string in simplified extended ISO format (ISO 8601), which is always 24 or 27 characters long (yyyy-mm-ddTHH:MM:SS.lZ).
+   *        Be careful because that T in the middle of the pattern is not a format Mask and is a simple character.
+   */
   toISOString(): string {
-    return "";
+    return this.format('yyyy-mm-dd') + 'T' + this.format('HH:MM:SS.l') + 'Z';
   }
 
+  /**
+   * returns a string representation of the Date object.
+   * @param key
+   */
   toJSON(key?: any): string {
-    return "";
+    return this.toISOString();
   }
 
+  /**
+   * eturns a string with a language sensitive representation of the date portion of this date.
+   * The new locales and options arguments let applications specify the language whose formatting conventions
+   * should be used and allow to customize the behavior of the function. In older implementations,
+   * which ignore the locales and options arguments, the locale used and the form of the string returned are
+   * entirely implementation dependent.
+   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
+   */
   toLocaleDateString(): string;
   toLocaleDateString(locales?: string | string[], options?: Intl.DateTimeFormatOptions): string;
   toLocaleDateString(locales?: string | string[], options?: Intl.DateTimeFormatOptions): string {
-    return "";
+    return this._gDate.toLocaleDateString(locales, options);
   }
 
+  /**
+   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString
+   */
   toLocaleTimeString(): string;
   toLocaleTimeString(locales?: string | string[], options?: Intl.DateTimeFormatOptions): string;
   toLocaleTimeString(locales?: string | string[], options?: Intl.DateTimeFormatOptions): string {
-    return "";
+    return this._gDate.toLocaleTimeString(locales, options);
   }
 
+  /**
+   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toTimeString
+   */
   toTimeString(): string {
-    return "";
+    return this._gDate.toTimeString();
   }
 
+  /**
+   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString
+   * @todo add implementation
+   */
   toUTCString(): string {
-    return "";
+    return this._gDate.toUTCString();
   }
 
+  /**
+   * Similar to the getTime method.
+   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/valueOf
+   */
   valueOf(): number {
-    return 0;
+    return this.getTime();
   }
 }

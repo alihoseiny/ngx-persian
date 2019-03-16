@@ -380,4 +380,147 @@ describe('JDate', () => {
 
   });
 
+  describe('getNameOfTheDay', () => {
+    [
+      [new JDate(1397, 11, 24), 'جمعه'],
+      [new JDate(1397, 2, 19), 'شنبه'],
+      [new JDate(1370, 7, 5), 'یکشنبه'],
+      [new JDate(1370, 7, 27), 'دوشنبه'],
+      [new JDate(1370, 7, 21), 'سه‌شنبه'],
+      [new JDate(1397, 11, 1), 'چهارشنبه'],
+      [new JDate(1397, 11, 23), 'پنج‌شنبه'],
+    ].forEach(([jDateObj, dayOfWeek]) => {
+      it('should return number of the day in the week.', () => {
+        // @ts-ignore
+        expect(jDateObj.getNameOfTheDay()).toBe(dayOfWeek);
+      });
+    });
+  });
+
+  describe('getNameOfTheMonth', () => {
+    [
+      [new JDate('30 اسفند 1375 13:54:58'), 'اسفند'],
+      [new JDate(1397, 0, 1), 'فروردین'],
+      [new JDate(1375, 5, 1, 12, 32, 55, 321), 'شهریور']
+    ].forEach(([jDateObj, month]) => {
+      it('should return number of the month in the date.', () => {
+        // @ts-ignore
+        expect(jDateObj.getNameOfTheMonth()).toBe(month);
+      });
+    });
+  });
+
+  describe('toDateString', () => {
+    [
+      [new JDate('30 Esfand 1375 13:54:58'), 'پنج‌شنبه اسفند 30 1375'],
+      [new JDate(1397, 0, 1), 'چهارشنبه فروردین 1 1397'],
+      [new JDate(1377, 5, 1, 12, 32, 55, 321), 'یکشنبه شهریور 1 1377']
+    ].forEach(([jDateObj, dateString]) => {
+      it('should return number of the month in the date.', () => {
+        // @ts-ignore
+        expect(jDateObj.toDateString()).toBe(dateString);
+      });
+    });
+  });
+
+  describe('getHours12hourClock', () => {
+  [  [new JDate(1397, 1, 1, 12), 12],
+    [new JDate(1397, 1, 1, 13), 1],
+    [new JDate(1397, 1, 1, 14), 2],
+    [new JDate(1397, 1, 1, 15), 3],
+    [new JDate(1397, 1, 1, 16), 4],
+    [new JDate(1397, 1, 1, 17), 5],
+    [new JDate(1397, 1, 1, 18), 6],
+    [new JDate(1397, 1, 1, 19), 7],
+    [new JDate(1397, 1, 1, 20), 8],
+    [new JDate(1397, 1, 1, 21), 9],
+    [new JDate(1397, 1, 1, 22), 10],
+    [new JDate(1397, 1, 1, 23), 11],
+    [new JDate(1397, 1, 1, 0), 12],
+    [new JDate(1397, 1, 1, 1), 1],
+    [new JDate(1397, 1, 1, 2), 2],
+    [new JDate(1397, 1, 1, 3), 3],
+    [new JDate(1397, 1, 1, 4), 4],
+    [new JDate(1397, 1, 1, 5), 5],
+    [new JDate(1397, 1, 1, 6), 6],
+    [new JDate(1397, 1, 1, 7), 7],
+    [new JDate(1397, 1, 1, 8), 8],
+    [new JDate(1397, 1, 1, 9), 9],
+    [new JDate(1397, 1, 1, 10), 10],
+    [new JDate(1397, 1, 1, 11), 11]].forEach(([jDateObj, hour]) => {
+    // @ts-ignore
+    it(`should convert JDate hour (${jDateObj.getHours()}) to 12-hour clock version (${hour})`, () => {
+      // @ts-ignore
+      expect(jDateObj.getHours12hourClock()).toBe(hour);
+    });
+  });
+  });
+
+  describe('getTimeMarker', () => {
+    [
+      [new JDate(1397, 1, 1, 0), false, 'قبل از ظهر'],
+      [new JDate(1397, 1, 1, 5), false, 'قبل از ظهر'],
+      [new JDate(1397, 1, 1, 13), false, 'بعد از ظهر'],
+      [new JDate(1397, 1, 1, 12), false, 'بعد از ظهر'],
+      [new JDate(1397, 1, 1, 0), true, 'ق.ظ'],
+      [new JDate(1397, 1, 1, 3), true, 'ق.ظ'],
+      [new JDate(1397, 1, 1, 13), true, 'ب.ظ'],
+      [new JDate(1397, 1, 1, 23), true, 'ب.ظ'],
+    ].forEach(([jDateObj, isShortVersion, marker]) => {
+      it('should return time marker according to the hour value of the JDate object.', () => {
+        // @ts-ignore
+        expect(jDateObj.getTimeMarker(isShortVersion)).toBe(marker);
+      });
+    });
+  });
+
+  describe('format', () => {
+    [
+      [new JDate(1397, 11, 25, 11, 31, 30, 158), 'yyyy-mm-dd', '1397-12-25'],
+      [new JDate(1397, 0, 1, 11, 31, 30, 158), 'yyyy-m-d', '1397-1-1'],
+      [new JDate(1397, 0, 1, 11, 31, 30, 158), 'yyyy-mm-dd', '1397-01-01'],
+      [new JDate(1397, 0, 1, 11, 31, 30, 158), 'yy-mm-dd', '97-01-01'],
+      [new JDate(1397, 0, 1, 11, 31, 30, 158), 'yyyy', '1397'],
+      [new JDate(1397, 0, 1, 11, 31, 30, 158), 'yy', '97'],
+      [new JDate(1397, 0, 1, 11, 31, 30, 158), 'mm', '01'],
+      [new JDate(1397, 0, 1, 11, 31, 30, 158), 'm', '1'],
+      [new JDate(1397, 0, 1, 11, 31, 30, 158), 'mmm', 'فروردین'],
+      [new JDate(1397, 0, 1, 11, 31, 30, 158), 'mmmm', 'Farvardin'],
+      [new JDate(1397, 0, 1, 11, 31, 30, 158), 'd', '1'],
+      [new JDate(1397, 0, 1, 11, 31, 30, 158), 'dd', '01'],
+      [new JDate(1397, 0, 1, 11, 31, 30, 158), 'ddd', 'چهارشنبه'],
+      [new JDate(1397, 0, 1, 11, 31, 30, 158), 'dddd', 'Cheharshanbe'],
+      [new JDate(1397, 0, 1, 11, 31, 30, 158), 'HH:MM:SS.l', '11:31:30.158'],
+      [new JDate(1397, 0, 1, 1, 31, 30, 158), 'HH', '01'],
+      [new JDate(1397, 0, 1, 1, 31, 30, 158), 'H', '1'],
+      [new JDate(1397, 0, 1, 13, 31, 30, 158), 'hh', '01'],
+      [new JDate(1397, 0, 1, 13, 31, 30, 158), 'h', '1'],
+      [new JDate(1397, 0, 1, 13, 4, 30, 158), 'MM', '04'],
+      [new JDate(1397, 0, 1, 13, 4, 30, 158), 'M', '4'],
+      [new JDate(1397, 0, 1, 13, 4, 3, 158), 'SS', '03'],
+      [new JDate(1397, 0, 1, 13, 4, 3, 158), 'S', '3'],
+      [new JDate(1397, 0, 1, 13, 4, 3, 158), 'l', '158'],
+      [new JDate(1397, 0, 1, 13, 4, 3, 158), 'T', 'بعد از ظهر'],
+      [new JDate(1397, 0, 1, 3, 4, 3, 158), 't', 'ق.ظ'],
+      [new JDate(1397, 0, 1, 11, 31, 30, 158), 'yyyy-mm-dd HH:MM:SS.l', '1397-01-01 11:31:30.158'],
+    ].forEach(([jDateObj, pattern, formattedString]) => {
+      it(`should return formatted string from JDate object.`, () => {
+        // @ts-ignore
+        expect(jDateObj.format(pattern)).toBe(formattedString);
+      });
+    });
+  });
+
+  describe('toISOString', () => {
+    [
+      [new JDate(1397, 11, 12, 12, 12, 12, 0), '1397-12-12T12:12:12.0Z'],
+      [new JDate(1397, 0, 5, 1, 2, 9, 123), '1397-01-05T01:02:09.123Z'],
+    ].forEach(([jDateObj, isoString]) => {
+      it('should return iso string from JDate object in Jalali Date', () => {
+        // @ts-ignore
+        expect(jDateObj.toISOString()).toBe(isoString);
+      });
+    });
+  });
+
 });
