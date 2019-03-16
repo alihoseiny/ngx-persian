@@ -1,0 +1,1445 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-persian documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">ngx-persian documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li>JalaliDateCalculatorService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.ts</code>
+        </p>
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_jDay">_jDay</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_jMonth">_jMonth</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_jYear">_jYear</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#validator">validator</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#convertToGeorgian">convertToGeorgian</a>
+                            </li>
+                            <li>
+                                <a href="#convertToJalali">convertToJalali</a>
+                            </li>
+                            <li>
+                                <a href="#createGDateFromDays">createGDateFromDays</a>
+                            </li>
+                            <li>
+                                <a href="#firstDayOfJYearInMarch">firstDayOfJYearInMarch</a>
+                            </li>
+                            <li>
+                                <a href="#GeorgianYearToJalaliYear">GeorgianYearToJalaliYear</a>
+                            </li>
+                            <li>
+                                <a href="#jalaliYearToGeorgianYear">jalaliYearToGeorgianYear</a>
+                            </li>
+                            <li>
+                                <a href="#numberOfPassedGDays">numberOfPassedGDays</a>
+                            </li>
+                            <li>
+                                <a href="#numberOfPassedJDays">numberOfPassedJDays</a>
+                            </li>
+                            <li>
+                                <a href="#numOfGLeapYears">numOfGLeapYears</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#jDay">jDay</a>
+                                </li>
+                                <li>
+                                    <a href="#jMonth">jMonth</a>
+                                </li>
+                                <li>
+                                    <a href="#jYear">jYear</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(date?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, validator: <a href="../injectables/JalaliDateValidatorService.html">JalaliDateValidatorService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.ts:18</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>date</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>Georgian date as a regular javascript Date object.</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>validator</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/JalaliDateValidatorService.html" target="_self" >JalaliDateValidatorService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <code><p>jalaliDateValidator injected using DI.</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="convertToGeorgian"></a>
+                    <span class="name">
+                        <b>
+                            convertToGeorgian
+                        </b>
+                        <a href="#convertToGeorgian"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>convertToGeorgian(jYear: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, jMonth: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, jDay: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="170"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.ts:170</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Converts a valid jalali date to a javascript Date object representing a equivalent Georgian date.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>jYear</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>a full Jalali year like 1397</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>jMonth</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>starts from zero</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>jDay</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>starts from 1</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="convertToJalali"></a>
+                    <span class="name">
+                        <b>
+                            convertToJalali
+                        </b>
+                        <a href="#convertToJalali"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>convertToJalali(gDate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="129"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.ts:129</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>this method converts Georgian date to the jalali date. Output is an object implementing SimpleDateInterface.</p>
+<p>ATTENTION: month number starts from 0, but day number starts from 1. Just like native javascript Date object.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>gDate</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>Georgian date as a javascript Date object.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/SimpleDateInterface.html" target="_self" >SimpleDateInterface</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createGDateFromDays"></a>
+                    <span class="name">
+                        <b>
+                            createGDateFromDays
+                        </b>
+                        <a href="#createGDateFromDays"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createGDateFromDays(numOfDays: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.ts:77</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Creates a javascript Date object from number of passed days in Georgian calendar representing Georgian date.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>numOfDays</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="firstDayOfJYearInMarch"></a>
+                    <span class="name">
+                        <b>
+                            firstDayOfJYearInMarch
+                        </b>
+                        <a href="#firstDayOfJYearInMarch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>firstDayOfJYearInMarch(jYear)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.ts:100</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>first day of the Farvardin month in Jalali calendar is in March month. This method returns the day number of new jalali year in March.
+The day number starts from 1 not zero and is equal to the real numbers in the calendar.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>jYear</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>full jalali year like 1397</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GeorgianYearToJalaliYear"></a>
+                    <span class="name">
+                        <b>
+                            GeorgianYearToJalaliYear
+                        </b>
+                        <a href="#GeorgianYearToJalaliYear"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>GeorgianYearToJalaliYear(gYear: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="118"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.ts:118</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Converts georgian year to the jalali year. Output year is the jalali year that start within the Georgian year.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>gYear</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>full georgian year like 2018</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="jalaliYearToGeorgianYear"></a>
+                    <span class="name">
+                        <b>
+                            jalaliYearToGeorgianYear
+                        </b>
+                        <a href="#jalaliYearToGeorgianYear"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>jalaliYearToGeorgianYear(jYear: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.ts:110</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Converts jalali year number to the georgian year. Output year is the georgian year that jalali year starts within it, not the year
+that starts in the winter of jalali year.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>jYear</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>full jalali year like 1397</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="numberOfPassedGDays"></a>
+                    <span class="name">
+                        <b>
+                            numberOfPassedGDays
+                        </b>
+                        <a href="#numberOfPassedGDays"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>numberOfPassedGDays(gDate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.ts:54</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Calculates the Julian Day number from Gregorian or Julian calendar dates.</p>
+<p>Only some code cleaning applied to the source code.</p>
+<p>The procedure was tested to be good since 1 March, -100100 (of both calendars) up to a few million years into the future.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>gDate</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>this.date</code>
+                                    </td>
+
+                                    <td>
+                                        <p>an instance of javascript date representing a Georgian date.</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="numberOfPassedJDays"></a>
+                    <span class="name">
+                        <b>
+                            numberOfPassedJDays
+                        </b>
+                        <a href="#numberOfPassedJDays"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>numberOfPassedJDays(jYear: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, jMonth: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, jDay: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.ts:68</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Returns number of passed days from source day in jalali calendar to the given jalali date.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>jYear</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>full jalali year like 1397</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>jMonth</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>starts from zero</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>jDay</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>day number starts from one</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="numOfGLeapYears"></a>
+                    <span class="name">
+                        <b>
+                            numOfGLeapYears
+                        </b>
+                        <a href="#numOfGLeapYears"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>numOfGLeapYears(targetGYear: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="91"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.ts:91</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This function returns number of passed leap years from AD 621 until targetGYear.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>targetGYear</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>is full year number like 2018</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_jDay"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                                <span class="modifier">Readonly</span>
+                            _jDay</b>
+                            <a href="#_jDay"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_jMonth"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                                <span class="modifier">Readonly</span>
+                            _jMonth</b>
+                            <a href="#_jMonth"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_jYear"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                                <span class="modifier">Readonly</span>
+                            _jYear</b>
+                            <a href="#_jYear"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="validator"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            validator</b>
+                            <a href="#validator"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/JalaliDateValidatorService.html" target="_self" >JalaliDateValidatorService</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new JalaliDateValidatorService()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.ts:25</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description">jalaliDateValidator injected using DI.</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="jDay"></a>
+                        <span class="name"><b>jDay</b><a href="#jDay"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>jDay()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.ts:34</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="jMonth"></a>
+                        <span class="name"><b>jMonth</b><a href="#jMonth"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>jMonth()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.ts:37</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="jYear"></a>
+                        <span class="name"><b>jYear</b><a href="#jYear"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>jYear()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.ts:40</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
+import {div, mod} from &#x27;./ArithmeticUtils&#x27;;
+import {InvalidJalaliDateError} from &#x27;./InvalidJalaliDate.error&#x27;;
+import {SimpleDateInterface} from &#x27;./SimpleDate.interface&#x27;;
+import {JalaliDateValidatorService} from &#x27;./jalali-date-validator.service&#x27;;
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+/**
+ * This class converts Jalali date to Georgian and vase versa. You can use all of the methods as static methods.
+ *
+ */
+export class JalaliDateCalculatorService {
+
+  private readonly _jYear: number;
+  private readonly _jMonth: number;
+  private readonly _jDay: number;
+
+  /**
+   *
+   * @param date Georgian date as a regular javascript Date object.
+   * @param validator jalaliDateValidator injected using DI.
+   */
+  constructor(private date?: Date, public validator: JalaliDateValidatorService &#x3D; new JalaliDateValidatorService(),) {
+    if (this.date) {
+      const convrtedDate &#x3D; this.convertToJalali(this.date);
+      this._jYear &#x3D; convrtedDate.year;
+      this._jMonth &#x3D; convrtedDate.month;
+      this._jDay &#x3D; convrtedDate.day;
+    }
+  }
+
+  get jDay(): number {
+    return this._jDay;
+  }
+  get jMonth(): number {
+    return this._jMonth;
+  }
+  get jYear(): number {
+    return this._jYear;
+  }
+
+  /**
+   * Calculates the Julian Day number from Gregorian or Julian calendar dates.
+   *
+   * Only some code cleaning applied to the source code.
+   *
+   * The procedure was tested to be good since 1 March, -100100 (of both calendars) up to a few million years into the future.
+   * @param gDate an instance of javascript date representing a Georgian date.
+   * @see https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L195
+
+   */
+  numberOfPassedGDays(gDate: Date &#x3D; this.date): number {
+    const gMonth &#x3D; gDate.getMonth() - 7;
+    const gYear &#x3D; gDate.getFullYear() + 100100;
+    const gMonthDiv &#x3D; div(gMonth, 6);
+    const result &#x3D; div((gYear + gMonthDiv) * 1461, 4) + div(153 * mod(gMonth + 17, 12) + 2, 5) + gDate.getDate() - 34840408;
+    return result - div(div(gYear + gMonthDiv, 100) * 3, 4) + 752;
+  }
+
+  /**
+   * Returns number of passed days from source day in jalali calendar to the given jalali date.
+   * @param jYear full jalali year like 1397
+   * @param jMonth starts from zero
+   * @param jDay day number starts from one
+   */
+  numberOfPassedJDays(jYear: number, jMonth: number, jDay: number): number {
+    return this.numberOfPassedGDays(new Date(this.jalaliYearToGeorgianYear(jYear), 2, this.firstDayOfJYearInMarch(jYear))) +
+      jMonth * 31 - div(jMonth + 1, 7) * (jMonth - 6) + jDay - 1;
+  }
+
+  /**
+   * Creates a javascript Date object from number of passed days in Georgian calendar representing Georgian date.
+   * @see https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L213
+   */
+  createGDateFromDays(numOfDays: number): Date {
+    const j &#x3D; (4 * numOfDays + 139361631) + div(div(4 * numOfDays + 183187720, 146097) * 3, 4) * 4 - 3908;
+    const i &#x3D; div(mod(j, 1461), 4) * 5 + 308;
+    const gDay &#x3D; div(mod(i, 153), 5) + 1;
+    const gMonth &#x3D; mod(div(i, 153), 12);
+    const gYear &#x3D; div(j, 1461) - 100100 + div(7 - gMonth, 6);
+    return new Date(gYear, gMonth, gDay);
+  }
+
+  /**
+   * This function returns number of passed leap years from AD 621 until targetGYear.
+   * @param targetGYear is full year number like 2018
+   * @see https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L110
+   */
+  numOfGLeapYears(targetGYear: number): number {
+    return div(targetGYear, 4) - div((div(targetGYear, 100) + 1) * 3, 4) - 150;
+  }
+
+  /**
+   * first day of the Farvardin month in Jalali calendar is in March month. This method returns the day number of new jalali year in March.
+   * The day number starts from 1 not zero and is equal to the real numbers in the calendar.
+   * @param jYear full jalali year like 1397
+   */
+  firstDayOfJYearInMarch(jYear): number {
+    const gYear &#x3D; jYear + 621;
+    return this.validator.numOfJLeapYears(jYear) - this.numOfGLeapYears(gYear) + 20;
+  }
+
+  /**
+   * Converts jalali year number to the georgian year. Output year is the georgian year that jalali year starts within it, not the year
+   * that starts in the winter of jalali year.
+   * @param jYear full jalali year like 1397
+   */
+  jalaliYearToGeorgianYear(jYear: number): number {
+    return jYear + 621;
+  }
+
+  /**
+   * Converts georgian year to the jalali year. Output year is the jalali year that start within the Georgian year.
+   * @param gYear full georgian year like 2018
+   */
+  GeorgianYearToJalaliYear(gYear: number): number {
+    return gYear - 621;
+  }
+
+  /**
+   * this method converts Georgian date to the jalali date. Output is an object implementing SimpleDateInterface.
+   *
+   * ATTENTION: month number starts from 0, but day number starts from 1. Just like native javascript Date object.
+   * @param gDate Georgian date as a javascript Date object.
+   * @see https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L149
+   */
+  convertToJalali(gDate: Date): SimpleDateInterface {
+    const georgianYear &#x3D; gDate.getFullYear();
+    let jalaliYear &#x3D; this.GeorgianYearToJalaliYear(georgianYear);
+    const passedDays &#x3D; this.numberOfPassedGDays(gDate);
+    const numOfPassedDaysTo1Farvardin &#x3D; this.numberOfPassedGDays(new Date(georgianYear, 2, this.firstDayOfJYearInMarch(jalaliYear)));
+
+    let jalaliDay: number;
+    let jalaliMonth: number;
+
+    // Find number of days that passed since 1 Farvardin.
+    let numOfDayInJYear &#x3D; passedDays - numOfPassedDaysTo1Farvardin;
+    if (numOfDayInJYear &gt;&#x3D; 0) {
+      if (numOfDayInJYear &lt;&#x3D; 185) {
+        // The first 6 months.
+        jalaliMonth &#x3D; div(numOfDayInJYear, 31);
+        jalaliDay &#x3D; mod(numOfDayInJYear, 31) + 1;
+        return  {year: jalaliYear, month: jalaliMonth, day: jalaliDay};
+      } else {
+        // The remaining months.
+        numOfDayInJYear -&#x3D; 186;
+      }
+    } else {
+      // Previous Jalali year.
+      jalaliYear -&#x3D; 1;
+      numOfDayInJYear +&#x3D; 179;
+      if (this.validator.isJYearLeap(jalaliYear)) {
+        numOfDayInJYear +&#x3D; 1;
+      }
+    }
+    jalaliMonth &#x3D; 6 + div(numOfDayInJYear, 30);
+    jalaliDay &#x3D; mod(numOfDayInJYear, 30) + 1;
+    return {year: jalaliYear, month: jalaliMonth, day: jalaliDay};
+  }
+
+  /**
+   * Converts a valid jalali date to a javascript Date object representing a equivalent Georgian date.
+   * @param jYear a full Jalali year like 1397
+   * @param jMonth starts from zero
+   * @param jDay starts from 1
+   * @throws InvalidJalaliDateError when inputted date is not a valid Jalali date.
+   */
+  convertToGeorgian(jYear: number, jMonth: number, jDay: number): Date {
+    if (!this.validator.isValidJDate(jYear, jMonth, jDay)) { throw new InvalidJalaliDateError(); }
+    return this.createGDateFromDays(this.numberOfPassedJDays(jYear, jMonth, jDay));
+  }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'JalaliDateCalculatorService.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

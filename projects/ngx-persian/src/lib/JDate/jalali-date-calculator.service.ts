@@ -20,7 +20,7 @@ export class JalaliDateCalculatorService {
   /**
    *
    * @param date Georgian date as a regular javascript Date object.
-   * @param validator
+   * @param validator jalaliDateValidator injected using DI.
    */
   constructor(private date?: Date, public validator: JalaliDateValidatorService = new JalaliDateValidatorService(),) {
     if (this.date) {
@@ -43,10 +43,13 @@ export class JalaliDateCalculatorService {
 
   /**
    * Calculates the Julian Day number from Gregorian or Julian calendar dates.
-   * @see https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L195
+   *
    * Only some code cleaning applied to the source code.
+   *
    * The procedure was tested to be good since 1 March, -100100 (of both calendars) up to a few million years into the future.
    * @param gDate an instance of javascript date representing a Georgian date.
+   * @see https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L195
+
    */
   numberOfPassedGDays(gDate: Date = this.date): number {
     const gMonth = gDate.getMonth() - 7;
@@ -118,6 +121,7 @@ export class JalaliDateCalculatorService {
 
   /**
    * this method converts Georgian date to the jalali date. Output is an object implementing SimpleDateInterface.
+   *
    * ATTENTION: month number starts from 0, but day number starts from 1. Just like native javascript Date object.
    * @param gDate Georgian date as a javascript Date object.
    * @see https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L149

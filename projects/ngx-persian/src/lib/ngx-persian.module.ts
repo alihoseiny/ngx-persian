@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
-import { NgxPersianComponent } from './ngx-persian.component';
 
 @NgModule({
-  declarations: [NgxPersianComponent],
+  declarations: [],
   imports: [],
   exports: []
 })

@@ -12,6 +12,7 @@ export function round(x: number): number {
 
 /**
  * This function returns integer part of division result of num1 and num2 numbers.
+ *
  * For example: div (10, 3) is equal to 3.
  */
 export function div(num1: number, num2: number): number {
