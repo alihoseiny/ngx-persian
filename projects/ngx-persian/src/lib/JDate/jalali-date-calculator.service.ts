@@ -7,12 +7,21 @@ import {JalaliDateValidatorService} from './jalali-date-validator.service';
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * This class converts Jalali date to Georgian and vase versa. You can use all of the methods as static methods.
+ *
+ */
 export class JalaliDateCalculatorService {
 
   private readonly _jYear: number;
   private readonly _jMonth: number;
   private readonly _jDay: number;
 
+  /**
+   *
+   * @param date Georgian date as a regular javascript Date object.
+   * @param validator
+   */
   constructor(private date?: Date, public validator: JalaliDateValidatorService = new JalaliDateValidatorService(),) {
     if (this.date) {
       const convrtedDate = this.convertToJalali(this.date);

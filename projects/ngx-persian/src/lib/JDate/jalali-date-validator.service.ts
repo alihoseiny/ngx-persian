@@ -5,6 +5,10 @@ import {InvalidJalaliDateError} from './InvalidJalaliDate.error';
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * Methods of this Service doing validation stuff on a Jalali date. You can use this Service using DI in all around of your app for
+ * validating Jalali dates without needing to convert them to the Georgian Date.
+ */
 export class JalaliDateValidatorService {
 
   private static _minAcceptableYear = -61;
@@ -109,6 +113,12 @@ export class JalaliDateValidatorService {
     return jDay <= this.jMonthLength(jYear, jMonth) && jDay > 0;
   }
 
+  /**
+   * If Jalali date is not a valid Jalali date, return false. otherwise returns true.
+   * @param jYear full year number like: 1397
+   * @param jMonth starts from zero
+   * @param jDay starts from one
+   */
   isValidJDate(jYear, jMonth, jDay): boolean {
     return this.isValidJYear(jYear) && this.isValidJMonth(jMonth) && this.isValidJDay(jYear, jMonth, jDay);
   }
