@@ -9,8 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "compodoc": "compodoc",
-    "generate-docs": "compodoc -p projects/ngx-persian/tsconfig.lib.json",
-    "serve-docs": "compodoc -s projects/ngx-persian/tsconfig.lib.json"
+    "generate-docs": "compodoc -p projects/ngx-persian/tsconfig.lib.json -d docs",
+    "serve-docs": "compodoc -s projects/ngx-persian/tsconfig.lib.json -d docs"
   },
   "private": true,
   "dependencies": {
