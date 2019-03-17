@@ -76,9 +76,9 @@ describe('Persian validators', () => {
   selector: 'ngx-persian-test-tcomponent',
   template: `
     <form  [formGroup]="form">
-      <input type="text" formControlName="persianNumber">
-      <input type="text" formControlName="persianLetter">
-      <input type="text" formControlName="persianLetterAllOptions">
+      <input type="text" formControlName="persianNumber" style="visibility: hidden;">
+      <input type="text" formControlName="persianLetter" style="visibility: hidden;">
+      <input type="text" formControlName="persianLetterAllOptions" style="visibility: hidden;">
     </form>
   `
 })

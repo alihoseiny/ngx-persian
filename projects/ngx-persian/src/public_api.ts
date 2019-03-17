@@ -4,6 +4,7 @@
 
 
 
+
 export * from './lib/ngx-persian.module';
 export {PersianLetterService} from './lib/Services/persian-letter.service';
 export {PersianNumberService} from './lib/Services/persian-number.service';
@@ -16,3 +17,4 @@ export {JalaliDateCalculatorService} from './lib/JDate/jalali-date-calculator.se
 export {JalaliDateValidatorService} from './lib/JDate/jalali-date-validator.service';
 export {persianLettersValidator, persianNumbersValidator} from './lib/Validators/persian-validators';
 export {PersianNumbersDirective, PersianLetterDirective} from './lib/Validators/persian-directives';
+export {MobileCodes, MobilePhoneNumberService, operatorsNames} from './lib/Services/mobile-phone-number.service';
