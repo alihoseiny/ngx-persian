@@ -1,0 +1,36 @@
+<div class="container">
+  <h2>Pipes</h2>
+  <h1>Ngx-persian</h1>
+
+  <form [formGroup]="fGroup" id="join-us">
+    <div class="fields">
+      <span>
+        <input type="text" formControlName="englishPipe" placeholder="Persian digit to English">
+      </span>
+      <br />
+      <span>
+          <input type="text" formControlName="persianPipe" placeholder="English digits to Persian">
+      </span>
+      <br />
+      <span>
+          <input type="text" formControlName="rialPipe" placeholder="قیمت به ریال">
+      </span>
+      <br />
+      <span>
+          <input type="text" formControlName="tomanPipe" placeholder="قیمت به تومان">
+      </span>
+      <br />
+      <span>
+          <input type="text" formControlName="irncode" placeholder="کدملی">
+      </span>
+      <br />
+    </div>
+</form>
+  <section id="results">
+    <p><span>Persian To English:</span> {{fGroup.get('englishPipe').value | enNum}}</p>
+    <p><span>English and Arabic to Persian:</span> {{fGroup.get('persianPipe').value | faNum}}</p>
+    <p><span>In Rial: </span> {{fGroup.get('rialPipe').value | irc:'r'}}</p>
+    <p><span>In Toman: </span> {{fGroup.get('tomanPipe').value | irc:'toman'}}</p>
+    <p><span>National Code: </span> {{fGroup.get('irncode').value | nationalCode}}</p>
+  </section>
+</div>
