@@ -1,31 +1,46 @@
 
 # NgxPersian
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
+A full featured tool set for Persian Application Created by Angular (v > 2) containing Pipes, Services, Directives and javascript Similar Date object for working with Jalali Date.
 
-## Development server
+You can use Tools provided by this library for:
+- Converting English numbers to Persian numbers and vise versa 
+- Validating persian text with different options
+- Validating persian numbers for numeric inputs
+- Converting and validating Jalali Date and time like native javascript Date object
+- Formatting currency values in Rial or Toman currency type with flexable options.
+- Formatting Iranian National Number
+- Validating phone numbers of Iranian Mobile operators.
+- Getting operator name of a phone number in English or Persian
+- Validating reactive and template-base form inputs for persian numbers or texts.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# How to Install?
+For installing this library, you can simply run following command in your Angular app root:
 
-## Code scaffolding
+`npm install ngx-persian --save`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+For installing the library globally, you can run following command instead:
 
-## Build
+`npm install ngx-persian -g`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+# Documents
+Short documentation of the library is here. For more detailed documents, you can see the [code document](http://).
 
-## Running unit tests
+## Pipes
+We are using pipes for formatting values in the templates. We Have 4 Different pipes in the **ngx-persian** for formatting stuff needed by the persian app developers:
+### faNum
+This pipe replaces all the English and Arabic digits to the Persian Digits without any need for additional code or parameter.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+For using this pipe, firstly you need to import the pipe from the library in your module:
 
-## Running end-to-end tests
+`import {FaNumPipe} from 'ngx-persian';`
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Then, like any other pipe, you need to _declare_ the pipe in your module. For this, you should add following line in the `declarations` array of the `@NgModule` of your module:
 
-## Further help
+`FaNumPipe,`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-=======
-# ngx-persian
+Now you can this pipe anywhere you like in your templates.
 
+For example, if we want to convert non-english digits in a attribute named: `englishTextDigit`, we can use this code in our template:
+
+`{{englishTextDigit | faNum}}`
