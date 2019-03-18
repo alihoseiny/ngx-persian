@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import {div, mod} from './ArithmeticUtils';
 import {InvalidJalaliDateError} from './InvalidJalaliDate.error';
 
-@Injectable({
-  providedIn: 'root'
-})
+
 /**
  * Methods of this Service doing validation stuff on a Jalali date. You can use this Service using DI in all around of your app for
  * validating Jalali dates without needing to convert them to the Georgian Date.
  */
+@Injectable({
+  providedIn: 'root'
+})
 export class JalaliDateValidatorService {
 
   private static _minAcceptableYear = -61;

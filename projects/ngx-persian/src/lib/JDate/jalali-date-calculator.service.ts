@@ -4,42 +4,16 @@ import {InvalidJalaliDateError} from './InvalidJalaliDate.error';
 import {SimpleDateInterface} from './SimpleDate.interface';
 import {JalaliDateValidatorService} from './jalali-date-validator.service';
 
-@Injectable({
-  providedIn: 'root'
-})
 /**
  * This class converts Jalali date to Georgian and vase versa. You can use all of the methods as static methods.
  *
  */
+@Injectable({
+  providedIn: 'root'
+})
 export class JalaliDateCalculatorService {
 
-  private readonly _jYear: number;
-  private readonly _jMonth: number;
-  private readonly _jDay: number;
-
-  /**
-   *
-   * @param date Georgian date as a regular javascript Date object.
-   * @param validator jalaliDateValidator injected using DI.
-   */
-  constructor(private date?: Date, public validator: JalaliDateValidatorService = new JalaliDateValidatorService(),) {
-    if (this.date) {
-      const convrtedDate = this.convertToJalali(this.date);
-      this._jYear = convrtedDate.year;
-      this._jMonth = convrtedDate.month;
-      this._jDay = convrtedDate.day;
-    }
-  }
-
-  get jDay(): number {
-    return this._jDay;
-  }
-  get jMonth(): number {
-    return this._jMonth;
-  }
-  get jYear(): number {
-    return this._jYear;
-  }
+  constructor(public validator: JalaliDateValidatorService) {}
 
   /**
    * Calculates the Julian Day number from Gregorian or Julian calendar dates.
@@ -51,7 +25,7 @@ export class JalaliDateCalculatorService {
    * @see https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L195
 
    */
-  numberOfPassedGDays(gDate: Date = this.date): number {
+  numberOfPassedGDays(gDate: Date): number {
     const gMonth = gDate.getMonth() - 7;
     const gYear = gDate.getFullYear() + 100100;
     const gMonthDiv = div(gMonth, 6);

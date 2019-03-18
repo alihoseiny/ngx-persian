@@ -31,7 +31,6 @@ export class PersianLetterService implements PersianService {
    * elements those specified in the options object plus persian letters.
    * @return a RegExp object that can use in searching a string for special characters (persian letters and others specified in the options)
    * @param options
-   * @private
    */
   private static _stringValidationRegex(options: PLOptions): RegExp {
     let result = '';
@@ -50,7 +49,6 @@ export class PersianLetterService implements PersianService {
    * @param value
    * @param options
    * @return a number greater equal to 0 representing number of matches occurred in the input value.
-   * @private
    */
   private static _getMatchedPatternLength(value: string, options: PLOptions): number {
     const matchResult = value.match(PersianLetterService._stringValidationRegex(options));
