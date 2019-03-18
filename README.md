@@ -72,8 +72,8 @@ For example, if we want to convert persian digits in a attribute named: `persian
 
 You can see the example usage of these pipes in below GIF:
 
-![faNum and enNum pipes](https://github.com/alihoseiny/ngx-persian/raw/master/Usage%20Examples/chrome-capture.gif "Animation of faNum and enNum pipes usage")
+![faNum and enNum pipes](https://github.com/alihoseiny/ngx-persian/raw/master/Usage%20Examples/faNum%20and%20enNum%20pipes.gif "Animation of faNum and enNum pipes usage")
 
-Still have questions? see the related part of example app or see related section in code document. 
+Still have questions? see the [related part of example app](#) or see related section in code document. 
 
-Also you can see unit tests of FaNumPipe and unit tests of EnNumPipe for more examples of how input and outputs could be. 
+Also you can see [unit tests of FaNumPipe](https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/faNum.pipe.spec.ts) and [unit tests of EnNumPipe](https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/enNum.pipe.spec.ts) for more examples of how input and outputs could be. 
