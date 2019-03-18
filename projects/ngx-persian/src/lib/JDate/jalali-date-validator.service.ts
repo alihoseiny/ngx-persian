@@ -32,7 +32,8 @@ export class JalaliDateValidatorService {
   /**
    * Calculates the number of the leap years in jalali Calendar.
    * @param targetJYear should be full year like: 1397 and should be between -61 to 3177.
-   * @see https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L71
+   *
+   * [Implementation in source code]{@link https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L71}
    */
   numOfJLeapYears(targetJYear: number): number {
     // Jalali years starting the 33-year rule.
@@ -83,7 +84,8 @@ export class JalaliDateValidatorService {
 
   /**
    * Checks if jalali year is in acceptable range or not.
-   * @see https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L27
+   *
+   * [Implementation in source code]{@link https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L27}
    * @param jYear full jalali year like 1397
    */
   isValidJYear(jYear: number): boolean {

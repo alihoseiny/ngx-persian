@@ -44,3 +44,27 @@ Now you can this pipe anywhere you like in your templates.
 For example, if we want to convert non-english digits in a attribute named: `englishTextDigit`, we can use this code in our template:
 
 `{{englishTextDigit | faNum}}`
+
+## enNum
+This pipe replaces all the Persian Digits to English digits without any need for additional code or parameter.
+
+For using this pipe, firstly you need to import the pipe from the library in your module:
+
+`import {EnNumPipe} from 'ngx-persian';`
+
+Then, like any other pipe, you need to _declare_ the pipe in your module. For this, you should add following line in the `declarations` array of the `@NgModule` of your module:
+
+`EnNumPipe,`
+
+Now you can this pipe anywhere you like in your templates.
+
+For example, if we want to convert persian digits in a attribute named: `persianTextDigit`, we can use this code in our template:
+`{{persianTextDigit | enNum}}`
+
+You can see the example usage of these pipes in below GIF:
+
+![faNum and enNum pipes](https://github.com/alihoseiny/ngx-persian/raw/master/Usage%20Examples/chrome-capture.gif "Animation of faNum and enNum pipes usage")
+
+Still have questions? see the related part of example app or see related section in code document. 
+
+Also you can see unit tests of FaNumPipe and unit tests of EnNumPipe for more examples of how input and outputs could be. 

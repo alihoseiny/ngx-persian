@@ -21,8 +21,10 @@ export class JalaliDateCalculatorService {
    * Only some code cleaning applied to the source code.
    *
    * The procedure was tested to be good since 1 March, -100100 (of both calendars) up to a few million years into the future.
+   *
    * @param gDate an instance of javascript date representing a Georgian date.
-   * @see https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L195
+   *
+   * [Implementation in source code]{@link https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L195}
 
    */
   numberOfPassedGDays(gDate: Date): number {
@@ -46,7 +48,8 @@ export class JalaliDateCalculatorService {
 
   /**
    * Creates a javascript Date object from number of passed days in Georgian calendar representing Georgian date.
-   * @see https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L213
+   *
+   * [Implementation in source code]{@link https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L213}
    */
   createGDateFromDays(numOfDays: number): Date {
     const j = (4 * numOfDays + 139361631) + div(div(4 * numOfDays + 183187720, 146097) * 3, 4) * 4 - 3908;
@@ -60,7 +63,8 @@ export class JalaliDateCalculatorService {
   /**
    * This function returns number of passed leap years from AD 621 until targetGYear.
    * @param targetGYear is full year number like 2018
-   * @see https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L110
+   *
+   * [Implementation in source code]{@link https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L110}
    */
   numOfGLeapYears(targetGYear: number): number {
     return div(targetGYear, 4) - div((div(targetGYear, 100) + 1) * 3, 4) - 150;
@@ -98,7 +102,8 @@ export class JalaliDateCalculatorService {
    *
    * ATTENTION: month number starts from 0, but day number starts from 1. Just like native javascript Date object.
    * @param gDate Georgian date as a javascript Date object.
-   * @see https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L149
+   *
+   * [Implementation in source code]{@link https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L149}
    */
   convertToJalali(gDate: Date): SimpleDateInterface {
     const georgianYear = gDate.getFullYear();

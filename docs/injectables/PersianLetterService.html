@@ -161,8 +161,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">projects/ngx-persian/src/lib/Services/persian-letter.service.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">projects/ngx-persian/src/lib/Services/persian-letter.service.ts:53</a></div>
                 </td>
             </tr>
 
@@ -251,8 +251,8 @@ occurred in the input value.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">projects/ngx-persian/src/lib/Services/persian-letter.service.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">projects/ngx-persian/src/lib/Services/persian-letter.service.ts:35</a></div>
                 </td>
             </tr>
 
@@ -325,8 +325,8 @@ elements those specified in the options object plus persian letters.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">projects/ngx-persian/src/lib/Services/persian-letter.service.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">projects/ngx-persian/src/lib/Services/persian-letter.service.ts:62</a></div>
                 </td>
             </tr>
 
@@ -397,8 +397,8 @@ elements those specified in the options object plus persian letters.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="83"
-                            class="link-to-prism">projects/ngx-persian/src/lib/Services/persian-letter.service.ts:83</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">projects/ngx-persian/src/lib/Services/persian-letter.service.ts:81</a></div>
                 </td>
             </tr>
 
@@ -505,8 +505,8 @@ You can combine any number of options field together.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="96"
-                            class="link-to-prism">projects/ngx-persian/src/lib/Services/persian-letter.service.ts:96</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="94"
+                            class="link-to-prism">projects/ngx-persian/src/lib/Services/persian-letter.service.ts:94</a></div>
                 </td>
             </tr>
 
@@ -695,7 +695,6 @@ export class PersianLetterService implements PersianService {
    * elements those specified in the options object plus persian letters.
    * @return a RegExp object that can use in searching a string for special characters (persian letters and others specified in the options)
    * @param options
-   * @private
    */
   private static _stringValidationRegex(options: PLOptions): RegExp {
     let result &#x3D; &#x27;&#x27;;
@@ -714,7 +713,6 @@ export class PersianLetterService implements PersianService {
    * @param value
    * @param options
    * @return a number greater equal to 0 representing number of matches occurred in the input value.
-   * @private
    */
   private static _getMatchedPatternLength(value: string, options: PLOptions): number {
     const matchResult &#x3D; value.match(PersianLetterService._stringValidationRegex(options));

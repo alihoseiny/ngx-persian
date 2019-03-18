@@ -6,7 +6,8 @@ import {PLOptions} from '../Services/persian-letter.service';
 
 /**
  * You can add PersianNumbersDirective property to your input tag for using persianNumbersValidator function on its value.
- * @see persianNumbersValidator
+ *
+ * [For more information also see persianNumbersValidator]{@link persianNumbersValidator}
  */
 @Directive({
   selector: 'PersianNumbersDirective',
@@ -27,7 +28,7 @@ export class PersianNumbersDirective implements Validator {
 /**
  * You can add PersianLetterDirective property to your input tag for using persianNumbersValidator function on its value
  * For setting options value, you can simply set PersianLetterDirective property equal to the PLOptions object.
- * @see persianLettersValidator
+ * [For more information also see persianLettersValidator]{@link persianLettersValidator}
  */
 @Directive({
   selector: 'persianLettersValidator',

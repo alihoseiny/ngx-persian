@@ -757,7 +757,7 @@ export class JDate implements Date{
    * which ignore the locales and options arguments, the locale used and the form of the string returned are
    * entirely implementation dependent.
    *
-   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
+   * [For more information see javascript Date object documentation about this method]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString}
    */
   toLocaleDateString(): string;
   toLocaleDateString(locales?: string | string[], options?: Intl.DateTimeFormatOptions): string;
@@ -767,7 +767,7 @@ export class JDate implements Date{
 
   /**
    * @return toLocaleTimeString of Georgian Date .
-   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString
+   * [For more information see javascript Date object documentation about this method]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString}
    */
   toLocaleTimeString(): string;
   toLocaleTimeString(locales?: string | string[], options?: Intl.DateTimeFormatOptions): string;
@@ -777,7 +777,8 @@ export class JDate implements Date{
 
   /**
    * @return toTimeString of Georgian date
-   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toTimeString
+   *
+   * [For more information see javascript Date object documentation about this method]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toTimeString}
    */
   toTimeString(): string {
     return this._gDate.toTimeString();
@@ -785,7 +786,8 @@ export class JDate implements Date{
 
   /**
    * @return toUTCString of Georgian date.
-   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString
+   *
+   * [For more information see javascript Date object documentation about this method]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString}
    * @todo add implementation
    */
   toUTCString(): string {
@@ -794,7 +796,8 @@ export class JDate implements Date{
 
   /**
    * Similar to the getTime method.
-   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/valueOf
+   *
+   * [For more information also see getTime method]{@link getTime}
    */
   valueOf(): number {
     return this.getTime();

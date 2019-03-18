@@ -31,20 +31,48 @@
                    <div class="content-data">
 
 <h1 id="ngxpersian">NgxPersian</h1>
-<p>This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 7.3.5.</p>
-<h2 id="development-server">Development server</h2>
-<p>Run <code>ng serve</code> for a dev server. Navigate to <code>http://localhost:4200/</code>. The app will automatically reload if you change any of the source files.</p>
-<h2 id="code-scaffolding">Code scaffolding</h2>
-<p>Run <code>ng generate component component-name</code> to generate a new component. You can also use <code>ng generate directive|pipe|service|class|guard|interface|enum|module</code>.</p>
-<h2 id="build">Build</h2>
-<p>Run <code>ng build</code> to build the project. The build artifacts will be stored in the <code>dist/</code> directory. Use the <code>--prod</code> flag for a production build.</p>
-<h2 id="running-unit-tests">Running unit tests</h2>
-<p>Run <code>ng test</code> to execute the unit tests via <a href="https://karma-runner.github.io">Karma</a>.</p>
-<h2 id="running-end-to-end-tests">Running end-to-end tests</h2>
-<p>Run <code>ng e2e</code> to execute the end-to-end tests via <a href="http://www.protractortest.org/">Protractor</a>.</p>
-<h2 id="further-help">Further help</h2>
-<h1 id="to-get-more-help-on-the-angular-cli-use-ng-help-or-go-check-out-the-angular-cli-readme">To get more help on the Angular CLI use <code>ng help</code> or go check out the <a href="https://github.com/angular/angular-cli/blob/master/README.md">Angular CLI README</a>.</h1>
-<h1 id="ngx-persian">ngx-persian</h1>
+<p>A full featured tool set for Persian Application Created by Angular (v &gt; 2) containing Pipes, Services, Directives and javascript Similar Date object for working with Jalali Date.</p>
+<p>You can use Tools provided by this library for:
+- Converting English numbers to Persian numbers and vise versa 
+- Validating persian text with different options
+- Validating persian numbers for numeric inputs
+- Converting and validating Jalali Date and time like native javascript Date object
+- Formatting currency values in Rial or Toman currency type with flexable options.
+- Formatting Iranian National Number
+- Validating phone numbers of Iranian Mobile operators.
+- Getting operator name of a phone number in English or Persian
+- Validating reactive and template-base form inputs for persian numbers or texts.</p>
+<h1 id="how-to-install">How to Install?</h1>
+<p>For installing this library, you can simply run following command in your Angular app root:</p>
+<p><code>npm install ngx-persian --save</code></p>
+<p>For installing the library globally, you can run following command instead:</p>
+<p><code>npm install ngx-persian -g</code></p>
+<h1 id="documents">Documents</h1>
+<p>Short documentation of the library is here. For more detailed documents, you can see the <a href="http://">code document</a>.</p>
+<h2 id="pipes">Pipes</h2>
+<p>We are using pipes for formatting values in the templates. We Have 4 Different pipes in the <strong>ngx-persian</strong> for formatting stuff needed by the persian app developers:</p>
+<h3 id="fanum">faNum</h3>
+<p>This pipe replaces all the English and Arabic digits to the Persian Digits without any need for additional code or parameter.</p>
+<p>For using this pipe, firstly you need to import the pipe from the library in your module:</p>
+<p><code>import {FaNumPipe} from &#39;ngx-persian&#39;;</code></p>
+<p>Then, like any other pipe, you need to <em>declare</em> the pipe in your module. For this, you should add following line in the <code>declarations</code> array of the <code>@NgModule</code> of your module:</p>
+<p><code>FaNumPipe,</code></p>
+<p>Now you can this pipe anywhere you like in your templates.</p>
+<p>For example, if we want to convert non-english digits in a attribute named: <code>englishTextDigit</code>, we can use this code in our template:</p>
+<p><code>{{englishTextDigit | faNum}}</code></p>
+<h2 id="ennum">enNum</h2>
+<p>This pipe replaces all the Persian Digits to English digits without any need for additional code or parameter.</p>
+<p>For using this pipe, firstly you need to import the pipe from the library in your module:</p>
+<p><code>import {EnNumPipe} from &#39;ngx-persian&#39;;</code></p>
+<p>Then, like any other pipe, you need to <em>declare</em> the pipe in your module. For this, you should add following line in the <code>declarations</code> array of the <code>@NgModule</code> of your module:</p>
+<p><code>EnNumPipe,</code></p>
+<p>Now you can this pipe anywhere you like in your templates.</p>
+<p>For example, if we want to convert persian digits in a attribute named: <code>persianTextDigit</code>, we can use this code in our template:
+<code>{{persianTextDigit | enNum}}</code></p>
+<p>You can see the example usage of these pipes in below GIF:</p>
+<p><img src="https://github.com/alihoseiny/ngx-persian/raw/master/Usage%20Examples/chrome-capture.gif" alt="faNum and enNum pipes" class="img-responsive" title="Animation of faNum and enNum pipes usage"></p>
+<p>Still have questions? see the related part of example app or see related section in code document. </p>
+<p>Also you can see unit tests of FaNumPipe and unit tests of EnNumPipe for more examples of how input and outputs could be. </p>
 
 
 
