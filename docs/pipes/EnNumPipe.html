@@ -71,6 +71,14 @@
 
             </p>
 
+            <p class="comment">
+                <h3>Example</h3>
+            </p>
+            <div class="io-description">
+                        <div>
+                            <pre class="line-numbers"><code class="language-javascript">{{persianTextDigit | enNum}}</code></pre>
+                        </div>
+            </div>
 
         <section>
             <h3>Metadata</h3>
@@ -111,8 +119,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">projects/ngx-persian/src/lib/Pipes/enNum.pipe.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">projects/ngx-persian/src/lib/Pipes/enNum.pipe.ts:17</a></div>
                 </td>
             </tr>
 
@@ -176,6 +184,7 @@ import {PersianNumberService} from &#x27;../Services/persian-number.service&#x27
 
 /**
  * Replaces all persian numbers in the text to the english numbers.
+ * @example {{persianTextDigit | enNum}}
  */
 @Pipe({name: &#x27;enNum&#x27;})
 export class EnNumPipe  implements PipeTransform {

@@ -3,6 +3,7 @@ import {PersianNumberService} from '../Services/persian-number.service';
 
 /**
  * Replaces all persian numbers in the text to the english numbers.
+ * @example {{persianTextDigit | enNum}}
  */
 @Pipe({name: 'enNum'})
 export class EnNumPipe  implements PipeTransform {

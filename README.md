@@ -14,6 +14,15 @@ You can use Tools provided by this library for:
 - Getting operator name of a phone number in English or Persian
 - Validating reactive and template-base form inputs for persian numbers or texts.
 
+## Why you should use this library?
+There are many reasons for using this library For everyone who develops an Angular application for people living in Iran:
+* You can find almost everything you need in a signle library and don't need to install thousand of different libraries.
+* It's developed for recent version of angular (v4 to v7) and is not out ot date like most of other libraries.
+* We solved problems in Angular way, not like most of other libraries those only glued a js solution to the Angular and Typescript.
+* It's alive! Many of other persian libraries have unanswered issues from 1-2 year ago.
+* Almost everything has been tested. There are more than 590 unit tests written for all parts. So you can use everything without any fear of breaking things down.
+* It's documented. Everything are clear and you can find anything you want from this document, code document and also unit test.
+
 # How to Install?
 For installing this library, you can simply run following command in your Angular app root:
 
@@ -44,3 +53,27 @@ Now you can this pipe anywhere you like in your templates.
 For example, if we want to convert non-english digits in a attribute named: `englishTextDigit`, we can use this code in our template:
 
 `{{englishTextDigit | faNum}}`
+
+## enNum
+This pipe replaces all the Persian Digits to English digits without any need for additional code or parameter.
+
+For using this pipe, firstly you need to import the pipe from the library in your module:
+
+`import {EnNumPipe} from 'ngx-persian';`
+
+Then, like any other pipe, you need to _declare_ the pipe in your module. For this, you should add following line in the `declarations` array of the `@NgModule` of your module:
+
+`EnNumPipe,`
+
+Now you can this pipe anywhere you like in your templates.
+
+For example, if we want to convert persian digits in a attribute named: `persianTextDigit`, we can use this code in our template:
+`{{persianTextDigit | enNum}}`
+
+You can see the example usage of these pipes in below GIF:
+
+![faNum and enNum pipes](https://github.com/alihoseiny/ngx-persian/raw/master/Usage%20Examples/chrome-capture.gif "Animation of faNum and enNum pipes usage")
+
+Still have questions? see the related part of example app or see related section in code document. 
+
+Also you can see unit tests of FaNumPipe and unit tests of EnNumPipe for more examples of how input and outputs could be. 

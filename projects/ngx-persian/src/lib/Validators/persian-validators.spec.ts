@@ -39,6 +39,11 @@ describe('Persian validators', () => {
       });
     });
 
+    it('should be valid when input string is a string contains only persian letters.', () => {
+      component.form.get('persianNumber').setValue('۱۸۴۹۵۷۴۳۹۷');
+      expect(component.form.get('persianNumber').valid).toBeTruthy();
+    });
+
   });
 
   describe('persianLettersValidator', () => {

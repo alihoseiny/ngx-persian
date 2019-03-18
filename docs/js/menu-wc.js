@@ -58,25 +58,55 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <ul class="links collapse" ${ isNormalMode ? 'id="modules-links"' : 'id="xs-modules-links"' }>
                             <li class="link">
                                 <a href="modules/NgxPersianModule.html" data-type="entity-link">NgxPersianModule</a>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                        'data-target="#directives-links-module-NgxPersianModule-72d1570c723c86eaa55abed1407c029c"' : 'data-target="#xs-directives-links-module-NgxPersianModule-72d1570c723c86eaa55abed1407c029c"' }>
+                                        <span class="icon ion-md-code-working"></span>
+                                        <span>Directives</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-NgxPersianModule-72d1570c723c86eaa55abed1407c029c"' :
+                                        'id="xs-directives-links-module-NgxPersianModule-72d1570c723c86eaa55abed1407c029c"' }>
+                                        <li class="link">
+                                            <a href="directives/PersianLetterDirective.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">PersianLetterDirective</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="directives/PersianNumbersDirective.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">PersianNumbersDirective</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                            'data-target="#pipes-links-module-NgxPersianModule-72d1570c723c86eaa55abed1407c029c"' : 'data-target="#xs-pipes-links-module-NgxPersianModule-72d1570c723c86eaa55abed1407c029c"' }>
+                                            <span class="icon ion-md-add"></span>
+                                            <span>Pipes</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-NgxPersianModule-72d1570c723c86eaa55abed1407c029c"' :
+                                            'id="xs-pipes-links-module-NgxPersianModule-72d1570c723c86eaa55abed1407c029c"' }>
+                                            <li class="link">
+                                                <a href="pipes/EnNumPipe.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">EnNumPipe</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="pipes/FaNumPipe.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">FaNumPipe</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="pipes/IRCurrencyPipe.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">IRCurrencyPipe</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="pipes/NationalCodePipe.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">NationalCodePipe</a>
+                                            </li>
+                                        </ul>
+                                    </li>
                             </li>
                 </ul>
                 </li>
-                        <li class="chapter">
-                            <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#directives-links"' :
-                                'data-target="#xs-directives-links"' }>
-                                <span class="icon ion-md-code-working"></span>
-                                <span>Directives</span>
-                                <span class="icon ion-ios-arrow-down"></span>
-                            </div>
-                            <ul class="links collapse" ${ isNormalMode ? 'id="directives-links"' : 'id="xs-directives-links"' }>
-                                <li class="link">
-                                    <a href="directives/PersianLetterDirective.html" data-type="entity-link">PersianLetterDirective</a>
-                                </li>
-                                <li class="link">
-                                    <a href="directives/PersianNumbersDirective.html" data-type="entity-link">PersianNumbersDirective</a>
-                                </li>
-                            </ul>
-                        </li>
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#classes-links"' :
                             'data-target="#xs-classes-links"' }>
@@ -87,6 +117,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <ul class="links collapse" ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
                                 <a href="classes/InvalidJalaliDateError.html" data-type="entity-link">InvalidJalaliDateError</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/InvalidMobileOperatorError.html" data-type="entity-link">InvalidMobileOperatorError</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/InvalidMobilePhoneNumberError.html" data-type="entity-link">InvalidMobilePhoneNumberError</a>
                             </li>
                             <li class="link">
                                 <a href="classes/InvalidServiceInputError.html" data-type="entity-link">InvalidServiceInputError</a>
@@ -109,6 +145,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/JalaliDateValidatorService.html" data-type="entity-link">JalaliDateValidatorService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/MobilePhoneNumberService.html" data-type="entity-link">MobilePhoneNumberService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/PersianLetterService.html" data-type="entity-link">PersianLetterService</a>
@@ -137,28 +176,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                         </ul>
                     </li>
-                        <li class="chapter">
-                            <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#pipes-links"' :
-                                'data-target="#xs-pipes-links"' }>
-                                <span class="icon ion-md-add"></span>
-                                <span>Pipes</span>
-                                <span class="icon ion-ios-arrow-down"></span>
-                            </div>
-                            <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links"' : 'id="xs-pipes-links"' }>
-                                <li class="link">
-                                    <a href="pipes/EnNumPipe.html" data-type="entity-link">EnNumPipe</a>
-                                </li>
-                                <li class="link">
-                                    <a href="pipes/FaNumPipe.html" data-type="entity-link">FaNumPipe</a>
-                                </li>
-                                <li class="link">
-                                    <a href="pipes/IRCurrencyPipe.html" data-type="entity-link">IRCurrencyPipe</a>
-                                </li>
-                                <li class="link">
-                                    <a href="pipes/NationalCodePipe.html" data-type="entity-link">NationalCodePipe</a>
-                                </li>
-                            </ul>
-                        </li>
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#miscellaneous-links"'
                             : 'data-target="#xs-miscellaneous-links"' }>
@@ -172,6 +189,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
+                            </li>
+                            <li class="link">
+                                <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
                             </li>
                         </ul>
                     </li>
