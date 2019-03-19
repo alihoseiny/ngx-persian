@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 
+
 @Component({
   selector: 'app-pipes-test',
   templateUrl: './pipes-test.component.html',
@@ -10,7 +11,7 @@ export class PipesTestComponent implements OnInit {
 
   fGroup: FormGroup;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.fGroup = new FormGroup({

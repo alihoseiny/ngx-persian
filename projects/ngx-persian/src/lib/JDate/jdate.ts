@@ -33,9 +33,9 @@ export class JDate implements Date{
   /**
    * If input value length is shorter than desiredLength, adds zeros at the beginning of it until meets desired length.
    * @param value a number or string that we want have a specific length
-   * @param desiredLength
+   * @param desiredLength length of output string. If be shorter than input length, input will return.
    */
-  public static zeroPadding(value: number | string, desiredLength): string {
+  public static zeroPadding(value: number | string, desiredLength: number): string {
     value = value.toString();
     while (value.length < desiredLength) {
       value = '0' + value;
@@ -76,16 +76,22 @@ export class JDate implements Date{
 
   /**
    * For creating a JDate object, you have 5 different options.
+   *
    * 1- If you want to have current date and time, you can simply call new JDate() without any parameter.
+   *
    * 2- If you want to create JDate object from a jalali date string as described in the `pars` method document, you can pass that string as
    *    first parameter and leave others empty.
+   *
    * 3 - If you want to create JDate object from number of passed milliseconds from UNIX epoch (for example creating a Jalali date object
    *     from result of getTime method of another Date object), you can pass the number as first parameter and leave others alone.
+   *
    * 4 - If you want to create JDate object from a Georgian Date object, you can simply pass that Date object as first parameter and leave
    *     others empty.
+   *
    * 5- If you want to create JDate object from date and time values, you can simply fill corresponding parameters of each date and time
    * value to the constructor. You don't have to fill all of the parameters. only those you need. other parameters will fill with zero.
    * Examples of all of those scenarios:
+   *
    * @example new JDate()
    * @example new JDate('11 دی 1348 00:00:00')
    * @example new JDate(-12600000)
@@ -99,6 +105,7 @@ export class JDate implements Date{
    * @param minutes
    * @param seconds
    * @param milliseconds
+   * @throws InvalidJalaliDateError
    */
   constructor(jYear?: number | string | Date, jMonth?: number, jDay?: number, hours: number = 0, minutes: number = 0,
               seconds: number = 0, milliseconds: number = 0) {
@@ -618,7 +625,7 @@ export class JDate implements Date{
    *
    *        d -> non zero-padding number of the day in the month starting from 1
    *
-   * @return A formatted string that all Date patter parts has been replaced. Other characters of the pattern will left unchanged.
+   * @return A formatted string that all Date pattern parts has been replaced. Other characters of the pattern will left unchanged.
    */
   private _format_date(pattern: string): string {
     return pattern.replace(/yyyy/g, JDate.zeroPadding(this.getFullYear(), 4))
@@ -743,21 +750,29 @@ export class JDate implements Date{
 
   /**
    * @return a string representation of the Date object.
+   * [see toString method]{@link toString}
    * @param key
    */
   toJSON(key?: any): string {
-    return this.toISOString();
+    return this.toString();
   }
 
   /**
-   * @return a string with a language sensitive representation of the date portion of this date.
+   * returns formatted date with following pattern: 'ddd mmm d yyyy HH:MM:SS'
+   */
+  toString(): string {
+    return this.format('ddd mmm d yyyy HH:MM:SS')
+  }
+
+  /**
+   * [For more information see javascript Date object documentation about this method]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString}
    *
    * The new locales and options arguments let applications specify the language whose formatting conventions
    * should be used and allow to customize the behavior of the function. In older implementations,
    * which ignore the locales and options arguments, the locale used and the form of the string returned are
    * entirely implementation dependent.
    *
-   * [For more information see javascript Date object documentation about this method]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString}
+   * @return a string with a language sensitive representation of the date portion of this date.
    */
   toLocaleDateString(): string;
   toLocaleDateString(locales?: string | string[], options?: Intl.DateTimeFormatOptions): string;
