@@ -336,6 +336,9 @@ Recreating objects are safer than working with UTC methods.</p>
                                 <a href="#toLocaleTimeString">toLocaleTimeString</a>
                             </li>
                             <li>
+                                <a href="#toString">toString</a>
+                            </li>
+                            <li>
                                 <a href="#toTimeString">toTimeString</a>
                             </li>
                             <li>
@@ -412,15 +415,15 @@ Recreating objects are safer than working with UTC methods.</p>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>For creating a JDate object, you have 5 different options.
-1- If you want to have current date and time, you can simply call new JDate() without any parameter.
-2- If you want to create JDate object from a jalali date string as described in the <code>pars</code> method document, you can pass that string as
-    first parameter and leave others empty.
-3 - If you want to create JDate object from number of passed milliseconds from UNIX epoch (for example creating a Jalali date object
-     from result of getTime method of another Date object), you can pass the number as first parameter and leave others alone.
-4 - If you want to create JDate object from a Georgian Date object, you can simply pass that Date object as first parameter and leave
-     others empty.
-5- If you want to create JDate object from date and time values, you can simply fill corresponding parameters of each date and time
+                            <div class="io-description"><p>For creating a JDate object, you have 5 different options.</p>
+<p>1- If you want to have current date and time, you can simply call new JDate() without any parameter.</p>
+<p>2- If you want to create JDate object from a jalali date string as described in the <code>pars</code> method document, you can pass that string as
+    first parameter and leave others empty.</p>
+<p>3 - If you want to create JDate object from number of passed milliseconds from UNIX epoch (for example creating a Jalali date object
+     from result of getTime method of another Date object), you can pass the number as first parameter and leave others alone.</p>
+<p>4 - If you want to create JDate object from a Georgian Date object, you can simply pass that Date object as first parameter and leave
+     others empty.</p>
+<p>5- If you want to create JDate object from date and time values, you can simply fill corresponding parameters of each date and time
 value to the constructor. You don&#39;t have to fill all of the parameters. only those you need. other parameters will fill with zero.
 Examples of all of those scenarios:</p>
 </div>
@@ -1006,8 +1009,8 @@ Examples of all of those scenarios:</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="168"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:168</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="174"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:174</a></div>
                 </td>
             </tr>
 
@@ -1050,8 +1053,8 @@ Otherwise nothing happens.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="176"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:176</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="182"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:182</a></div>
                 </td>
             </tr>
 
@@ -1124,8 +1127,8 @@ Otherwise nothing happens.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="623"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:623</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="629"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:629</a></div>
                 </td>
             </tr>
 
@@ -1215,8 +1218,8 @@ In bi-character pattern parts, missed digits will fill with zero.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="664"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:664</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="670"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:670</a></div>
                 </td>
             </tr>
 
@@ -1306,8 +1309,8 @@ In bi-character pattern parts, missed digits will fill with zero.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="129"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:129</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="135"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:135</a></div>
                 </td>
             </tr>
 
@@ -1347,8 +1350,8 @@ In bi-character pattern parts, missed digits will fill with zero.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="732"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:732</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="738"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:738</a></div>
                 </td>
             </tr>
 
@@ -1450,8 +1453,8 @@ different meaning. It&#39;s better to always have some splitter characters betwe
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="199"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:199</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="205"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:205</a></div>
                 </td>
             </tr>
 
@@ -1495,8 +1498,8 @@ different meaning. It&#39;s better to always have some splitter characters betwe
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="206"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:206</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="212"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:212</a></div>
                 </td>
             </tr>
 
@@ -1540,8 +1543,8 @@ different meaning. It&#39;s better to always have some splitter characters betwe
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="215"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:215</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="221"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:221</a></div>
                 </td>
             </tr>
 
@@ -1592,8 +1595,8 @@ different meaning. It&#39;s better to always have some splitter characters betwe
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="223"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:223</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="229"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:229</a></div>
                 </td>
             </tr>
 
@@ -1641,8 +1644,8 @@ different meaning. It&#39;s better to always have some splitter characters betwe
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="231"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:231</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="237"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:237</a></div>
                 </td>
             </tr>
 
@@ -1688,8 +1691,8 @@ different meaning. It&#39;s better to always have some splitter characters betwe
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="239"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:239</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="245"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:245</a></div>
                 </td>
             </tr>
 
@@ -1733,8 +1736,8 @@ different meaning. It&#39;s better to always have some splitter characters betwe
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="246"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:246</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="252"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:252</a></div>
                 </td>
             </tr>
 
@@ -1772,8 +1775,8 @@ different meaning. It&#39;s better to always have some splitter characters betwe
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="254"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:254</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="260"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:260</a></div>
                 </td>
             </tr>
 
@@ -1818,8 +1821,8 @@ where zero indicates the first month of the year.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="565"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:565</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="571"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:571</a></div>
                 </td>
             </tr>
 
@@ -1867,8 +1870,8 @@ where zero indicates the first month of the year.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="573"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:573</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="579"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:579</a></div>
                 </td>
             </tr>
 
@@ -1916,8 +1919,8 @@ where zero indicates the first month of the year.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="261"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:261</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="267"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:267</a></div>
                 </td>
             </tr>
 
@@ -1961,8 +1964,8 @@ where zero indicates the first month of the year.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="274"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:274</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="280"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:280</a></div>
                 </td>
             </tr>
 
@@ -2011,8 +2014,8 @@ client browser in any other timezone.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="591"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:591</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="597"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:597</a></div>
                 </td>
             </tr>
 
@@ -2093,8 +2096,8 @@ client browser in any other timezone.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="283"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:283</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="289"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:289</a></div>
                 </td>
             </tr>
 
@@ -2140,8 +2143,8 @@ client browser in any other timezone.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="292"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:292</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="298"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:298</a></div>
                 </td>
             </tr>
 
@@ -2187,8 +2190,8 @@ client browser in any other timezone.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="301"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:301</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="307"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:307</a></div>
                 </td>
             </tr>
 
@@ -2234,8 +2237,8 @@ client browser in any other timezone.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="310"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:310</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="316"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:316</a></div>
                 </td>
             </tr>
 
@@ -2281,8 +2284,8 @@ client browser in any other timezone.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="318"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:318</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="324"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:324</a></div>
                 </td>
             </tr>
 
@@ -2326,8 +2329,8 @@ client browser in any other timezone.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="326"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:326</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="332"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:332</a></div>
                 </td>
             </tr>
 
@@ -2371,8 +2374,8 @@ client browser in any other timezone.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="334"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:334</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="340"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:340</a></div>
                 </td>
             </tr>
 
@@ -2416,8 +2419,8 @@ client browser in any other timezone.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="343"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:343</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="349"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:349</a></div>
                 </td>
             </tr>
 
@@ -2463,8 +2466,8 @@ client browser in any other timezone.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="351"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:351</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="357"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:357</a></div>
                 </td>
             </tr>
 
@@ -2598,8 +2601,8 @@ or this pattern:</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="360"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:360</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="366"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:366</a></div>
                 </td>
             </tr>
 
@@ -2676,8 +2679,8 @@ or this pattern:</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="371"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:371</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="377"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:377</a></div>
                 </td>
             </tr>
 
@@ -2785,8 +2788,8 @@ or this pattern:</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="387"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:387</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="393"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:393</a></div>
                 </td>
             </tr>
 
@@ -2912,8 +2915,8 @@ January 1, 1970 00:00:00 UTC until the time represented by the updated JDate ins
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="400"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:400</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="406"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:406</a></div>
                 </td>
             </tr>
 
@@ -2990,8 +2993,8 @@ January 1, 1970 00:00:00 UTC until the time represented by the updated JDate ins
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="412"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:412</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="418"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:418</a></div>
                 </td>
             </tr>
 
@@ -3100,8 +3103,8 @@ January 1, 1970 00:00:00 UTC until the time represented by the updated JDate ins
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="425"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:425</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="431"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:431</a></div>
                 </td>
             </tr>
 
@@ -3194,8 +3197,8 @@ January 1, 1970 00:00:00 UTC until the time represented by the updated JDate ins
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="437"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:437</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="443"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:443</a></div>
                 </td>
             </tr>
 
@@ -3288,8 +3291,8 @@ January 1, 1970 00:00:00 UTC until the time represented by the updated JDate ins
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="448"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:448</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="454"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:454</a></div>
                 </td>
             </tr>
 
@@ -3366,8 +3369,8 @@ January 1, 1970 00:00:00 UTC until the time represented by the updated JDate ins
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="460"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:460</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="466"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:466</a></div>
                 </td>
             </tr>
 
@@ -3445,8 +3448,8 @@ Then recreate the JDate object from new Georgian object.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="475"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:475</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="481"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:481</a></div>
                 </td>
             </tr>
 
@@ -3556,8 +3559,8 @@ specify the monthValue.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="494"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:494</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="500"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:500</a></div>
                 </td>
             </tr>
 
@@ -3686,8 +3689,8 @@ you must also specify the minutesValue and secondsValue.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="508"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:508</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="514"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:514</a></div>
                 </td>
             </tr>
 
@@ -3765,8 +3768,8 @@ you must also specify the minutesValue and secondsValue.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="526"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:526</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="532"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:532</a></div>
                 </td>
             </tr>
 
@@ -3878,8 +3881,8 @@ you must also specify the minutesValue and secondsValue.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="541"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:541</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="547"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:547</a></div>
                 </td>
             </tr>
 
@@ -3973,8 +3976,8 @@ you must also specify the minutesValue and secondsValue.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="555"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:555</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="561"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:561</a></div>
                 </td>
             </tr>
 
@@ -4067,8 +4070,8 @@ you must also specify the minutesValue and secondsValue.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="582"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:582</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="588"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:588</a></div>
                 </td>
             </tr>
 
@@ -4118,8 +4121,8 @@ you must also specify the minutesValue and secondsValue.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="740"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:740</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="746"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:746</a></div>
                 </td>
             </tr>
 
@@ -4164,8 +4167,8 @@ Be careful because that T in the middle of the pattern is not a format Mask and 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="748"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:748</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="755"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:755</a></div>
                 </td>
             </tr>
 
@@ -4206,7 +4209,8 @@ Be careful because that T in the middle of the pattern is not a format Mask and 
 
                     </div>
                     <div class="io-description">
-                        <p>a string representation of the Date object.</p>
+                        <p>a string representation of the Date object.
+[see toString method]{</p>
 
                     </div>
                 </td>
@@ -4235,8 +4239,8 @@ Be careful because that T in the middle of the pattern is not a format Mask and 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="762"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:762</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="776"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:776</a></div>
                 </td>
             </tr>
 
@@ -4256,6 +4260,7 @@ Be careful because that T in the middle of the pattern is not a format Mask and 
 should be used and allow to customize the behavior of the function. In older implementations,
 which ignore the locales and options arguments, the locale used and the form of the string returned are
 entirely implementation dependent.</p>
+<p>[For more information see javascript Date object documentation about this method]{</p>
 
                     </div>
                 </td>
@@ -4284,8 +4289,8 @@ entirely implementation dependent.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="763"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:763</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="777"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:777</a></div>
                 </td>
             </tr>
 
@@ -4366,8 +4371,8 @@ entirely implementation dependent.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="764"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:764</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="778"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:778</a></div>
                 </td>
             </tr>
 
@@ -4448,8 +4453,8 @@ entirely implementation dependent.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="772"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:772</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="786"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:786</a></div>
                 </td>
             </tr>
 
@@ -4464,7 +4469,8 @@ entirely implementation dependent.</p>
 
                     </div>
                     <div class="io-description">
-                        <p>toLocaleTimeString of Georgian Date .</p>
+                        <p>toLocaleTimeString of Georgian Date .
+[For more information see javascript Date object documentation about this method]{</p>
 
                     </div>
                 </td>
@@ -4493,8 +4499,8 @@ entirely implementation dependent.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="773"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:773</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="787"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:787</a></div>
                 </td>
             </tr>
 
@@ -4575,8 +4581,8 @@ entirely implementation dependent.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="774"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:774</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="788"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:788</a></div>
                 </td>
             </tr>
 
@@ -4630,6 +4636,47 @@ entirely implementation dependent.</p>
                     </div>
                     <div class="io-description">
                         
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toString"></a>
+                    <span class="name">
+                        <b>
+                            toString
+                        </b>
+                        <a href="#toString"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toString()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="762"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:762</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>returns formatted date with following pattern: &#39;ddd mmm d yyyy HH:MM:SS&#39;</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
                     </div>
                 </td>
             </tr>
@@ -4657,8 +4704,8 @@ entirely implementation dependent.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="782"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:782</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="797"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:797</a></div>
                 </td>
             </tr>
 
@@ -4674,6 +4721,7 @@ entirely implementation dependent.</p>
                     </div>
                     <div class="io-description">
                         <p>toTimeString of Georgian date</p>
+<p>[For more information see javascript Date object documentation about this method]{</p>
 
                     </div>
                 </td>
@@ -4702,8 +4750,8 @@ entirely implementation dependent.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="791"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:791</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="807"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:807</a></div>
                 </td>
             </tr>
 
@@ -4719,6 +4767,7 @@ entirely implementation dependent.</p>
                     </div>
                     <div class="io-description">
                         <p>toUTCString of Georgian date.</p>
+<p>[For more information see javascript Date object documentation about this method]{</p>
 
                     </div>
                 </td>
@@ -4839,8 +4888,8 @@ entirely implementation dependent.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="184"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:184</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="190"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:190</a></div>
                 </td>
             </tr>
 
@@ -4905,8 +4954,8 @@ entirely implementation dependent.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="186"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:186</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="192"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:192</a></div>
                 </td>
             </tr>
 
@@ -4971,8 +5020,8 @@ entirely implementation dependent.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="188"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:188</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="194"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:194</a></div>
                 </td>
             </tr>
 
@@ -5037,8 +5086,8 @@ entirely implementation dependent.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="190"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:190</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="196"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:196</a></div>
                 </td>
             </tr>
 
@@ -5107,8 +5156,8 @@ entirely implementation dependent.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="192"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:192</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="198"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:198</a></div>
                 </td>
             </tr>
 
@@ -5177,8 +5226,8 @@ entirely implementation dependent.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="799"
-                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:799</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="816"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:816</a></div>
                 </td>
             </tr>
 
@@ -5186,6 +5235,7 @@ entirely implementation dependent.</p>
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Similar to the getTime method.</p>
+<p><a href="getTime">For more information also see getTime method</a></p>
 </div>
 
                     <div class="io-description">
@@ -5223,7 +5273,7 @@ entirely implementation dependent.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:137</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="143" class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:143</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -5289,7 +5339,7 @@ entirely implementation dependent.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="147" class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:147</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="153" class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:153</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -5355,7 +5405,7 @@ entirely implementation dependent.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="157" class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:157</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="163" class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:163</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -5487,16 +5537,22 @@ export class JDate implements Date{
 
   /**
    * For creating a JDate object, you have 5 different options.
+   *
    * 1- If you want to have current date and time, you can simply call new JDate() without any parameter.
+   *
    * 2- If you want to create JDate object from a jalali date string as described in the &#x60;pars&#x60; method document, you can pass that string as
    *    first parameter and leave others empty.
+   *
    * 3 - If you want to create JDate object from number of passed milliseconds from UNIX epoch (for example creating a Jalali date object
    *     from result of getTime method of another Date object), you can pass the number as first parameter and leave others alone.
+   *
    * 4 - If you want to create JDate object from a Georgian Date object, you can simply pass that Date object as first parameter and leave
    *     others empty.
+   *
    * 5- If you want to create JDate object from date and time values, you can simply fill corresponding parameters of each date and time
    * value to the constructor. You don&#x27;t have to fill all of the parameters. only those you need. other parameters will fill with zero.
    * Examples of all of those scenarios:
+   *
    * @example new JDate()
    * @example new JDate(&#x27;11 دی 1348 00:00:00&#x27;)
    * @example new JDate(-12600000)
@@ -6154,10 +6210,18 @@ export class JDate implements Date{
 
   /**
    * @return a string representation of the Date object.
+   * [see toString method]{@link toString}
    * @param key
    */
   toJSON(key?: any): string {
-    return this.toISOString();
+    return this.toString();
+  }
+
+  /**
+   * returns formatted date with following pattern: &#x27;ddd mmm d yyyy HH:MM:SS&#x27;
+   */
+  toString(): string {
+    return this.format(&#x27;ddd mmm d yyyy HH:MM:SS&#x27;)
   }
 
   /**
@@ -6168,7 +6232,7 @@ export class JDate implements Date{
    * which ignore the locales and options arguments, the locale used and the form of the string returned are
    * entirely implementation dependent.
    *
-   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
+   * [For more information see javascript Date object documentation about this method]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString}
    */
   toLocaleDateString(): string;
   toLocaleDateString(locales?: string | string[], options?: Intl.DateTimeFormatOptions): string;
@@ -6178,7 +6242,7 @@ export class JDate implements Date{
 
   /**
    * @return toLocaleTimeString of Georgian Date .
-   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString
+   * [For more information see javascript Date object documentation about this method]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString}
    */
   toLocaleTimeString(): string;
   toLocaleTimeString(locales?: string | string[], options?: Intl.DateTimeFormatOptions): string;
@@ -6188,7 +6252,8 @@ export class JDate implements Date{
 
   /**
    * @return toTimeString of Georgian date
-   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toTimeString
+   *
+   * [For more information see javascript Date object documentation about this method]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toTimeString}
    */
   toTimeString(): string {
     return this._gDate.toTimeString();
@@ -6196,7 +6261,8 @@ export class JDate implements Date{
 
   /**
    * @return toUTCString of Georgian date.
-   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString
+   *
+   * [For more information see javascript Date object documentation about this method]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString}
    * @todo add implementation
    */
   toUTCString(): string {
@@ -6205,7 +6271,8 @@ export class JDate implements Date{
 
   /**
    * Similar to the getTime method.
-   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/valueOf
+   *
+   * [For more information also see getTime method]{@link getTime}
    */
   valueOf(): number {
     return this.getTime();

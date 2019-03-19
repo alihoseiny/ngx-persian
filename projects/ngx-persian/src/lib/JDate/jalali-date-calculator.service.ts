@@ -93,7 +93,7 @@ export class JalaliDateCalculatorService {
    * Converts georgian year to the jalali year. Output year is the jalali year that start within the Georgian year.
    * @param gYear full georgian year like 2018
    */
-  GeorgianYearToJalaliYear(gYear: number): number {
+  georgianYearToJalaliYear(gYear: number): number {
     return gYear - 621;
   }
 
@@ -107,7 +107,7 @@ export class JalaliDateCalculatorService {
    */
   convertToJalali(gDate: Date): SimpleDateInterface {
     const georgianYear = gDate.getFullYear();
-    let jalaliYear = this.GeorgianYearToJalaliYear(georgianYear);
+    let jalaliYear = this.georgianYearToJalaliYear(georgianYear);
     const passedDays = this.numberOfPassedGDays(gDate);
     const numOfPassedDaysTo1Farvardin = this.numberOfPassedGDays(new Date(georgianYear, 2, this.firstDayOfJYearInMarch(jalaliYear)));
 

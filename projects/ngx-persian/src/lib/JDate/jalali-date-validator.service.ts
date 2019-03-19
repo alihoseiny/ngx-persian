@@ -22,7 +22,7 @@ export class JalaliDateValidatorService {
    * @param jYear full jalali year like 1397
    * @param jMonth number of month from 0 for Farvardin to 11 for Esfand.
    */
-  jMonthLength(jYear: number, jMonth): number {
+  jMonthLength(jYear: number, jMonth: number): number {
     if (jMonth < 6) { return 31; }
     if (jMonth < 11 || this.isJYearLeap(jYear)) { return 30; }
     return 29;
@@ -76,7 +76,7 @@ export class JalaliDateValidatorService {
   /**
    * If JYear is a leap year in jalali Calendar, return true. We using the fact that if a year is leap, number of leap years until that year
    * and the year after it is not equal.
-   * @param jYear : full jalali year like: 1397
+   * @param jYear full jalali year like: 1397
    */
   isJYearLeap(jYear: number): boolean {
     return this.numOfJLeapYears(jYear) !== this.numOfJLeapYears(jYear + 1);
@@ -122,7 +122,7 @@ export class JalaliDateValidatorService {
    * @param jMonth starts from zero
    * @param jDay starts from one
    */
-  isValidJDate(jYear, jMonth, jDay): boolean {
+  isValidJDate(jYear: number, jMonth: number, jDay: number): boolean {
     return this.isValidJYear(jYear) && this.isValidJMonth(jMonth) && this.isValidJDay(jYear, jMonth, jDay);
   }
 }
