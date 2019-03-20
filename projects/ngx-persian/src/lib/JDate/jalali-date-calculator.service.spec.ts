@@ -1,5 +1,6 @@
 import {JalaliDateCalculatorService} from './jalali-date-calculator.service';
 import {JalaliDateValidatorService} from './jalali-date-validator.service';
+import {InvalidJalaliDateError} from './InvalidJalaliDate.error';
 
 describe('JalaliDateCalculatorService', () => {
   let jalaliDateCalculatorService: JalaliDateCalculatorService;
@@ -151,6 +152,13 @@ describe('JalaliDateCalculatorService', () => {
         expect(jalaliDateCalculatorService.convertToGeorgian(jYear, jMonth, jDay)).toEqual(gDate);
       });
     });
+
+    it('should throw InvalidJalaliDateError when inputted date is not a valid date in Jalali calendar.', () => {
+      expect(() => {
+        jalaliDateCalculatorService.convertToGeorgian(1397, 11, 30);
+      }).toThrow(new InvalidJalaliDateError());
+    });
+
   });
 
 });

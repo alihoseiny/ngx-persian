@@ -177,6 +177,17 @@ describe('JDate', () => {
         expect(jDateObj.getFullYear()).toBe(newYear);
       });
     });
+
+    it('should return number of milliseconds since the unix epoch when year and month inputted', () => {
+      const jDateObj = new JDate('11 مهر 1397 00:00:00');
+      expect(jDateObj.setFullYear(1348, 9)).toBe(-12600000);
+    });
+
+    it('should return number of milliseconds since the unix epoch when year and month and day inputted', () => {
+      const jDateObj = new JDate('10 مهر 1397 00:00:00');
+      expect(jDateObj.setFullYear(1348, 9, 11)).toBe(-12600000);
+    });
+
   });
 
   describe('setHours', () => {
@@ -290,7 +301,7 @@ describe('JDate', () => {
     ].forEach(([jDateObj, min, sec, milli, time]) => {
       it('should return number of milliseconds since the unix epoch when new minutes, seconds and milliseconds inputted', () => {
         // @ts-ignore
-        expect(jDateObj.setHours(min, sec, milli)).toBe(time);
+        expect(jDateObj.setMinutes(min, sec, milli)).toBe(time);
         // @ts-ignore
         expect(jDateObj.getMinutes()).toBe(min);
         // @ts-ignore

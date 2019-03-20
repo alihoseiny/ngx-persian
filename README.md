@@ -1,5 +1,10 @@
 
 # NgxPersian
+![npm](https://img.shields.io/npm/dt/ngx-persian.svg?style=popout-square)
+![npm](https://img.shields.io/npm/v/ngx-persian.svg?style=popout-square)
+![documentation](https://img.shields.io/badge/documentation-73%25-blueviolet.svg?style=popout-square)
+![test coverage](https://img.shields.io/badge/Test%20Coverage-90%25-success.svg?style=popout-square)
+
 
 A full featured tool set for Persian Application Created by Angular (v > 2) containing Pipes, Services, Directives and javascript Similar Date object for working with Jalali Date.
 
@@ -33,7 +38,7 @@ For installing the library globally, you can run following command instead:
 `npm install ngx-persian -g`
 
 # Documents
-Short documentation of the library is here. For more detailed documents, you can see the [code document](http://).
+Short documentation of the library is here. For more detailed documents, you can see the [code document](https://alihoseiny.github.io/ngx-persian/).
 
 ## Pipes
 We are using pipes for formatting values in the templates. We Have 4 Different pipes in the **ngx-persian** for formatting stuff needed by the persian app developers:
