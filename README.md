@@ -6,7 +6,7 @@
 ![test coverage](https://img.shields.io/badge/Test%20Coverage-90%25-success.svg?style=popout-square)
 
 
-A full featured tool set for Persian Application Created by Angular (v > 2) containing Pipes, Services, Directives and javascript Similar Date object for working with Jalali Date.
+A full featured tool set for Persian Applications Created by Angular (v > 2) containing Pipes, Services, Directives and javascript Similar Date object for working with Jalali Date.
 
 You can use Tools provided by this library for:
 - Converting English numbers to Persian numbers and vise versa 
@@ -387,6 +387,7 @@ Supporting Mobile operator companies are listed in table below:
 |samantel|سامانتل|
 |lotustel|لوتوس‌تل|
 |anarestan|انارستان|
+
 We've provided an enum named `operatorsNames` you can see it [here](https://alihoseiny.github.io/ngx-persian/miscellaneous/enumerations.html#operatorsNames).
 
 Example:
@@ -821,7 +822,7 @@ Read [code document of PersianLetterDirective](https://alihoseiny.github.io/ngx-
 # Contribution
 We want to keep this library fresh and useful for all Iranian developers. So we need your help for adding new features, fixing bugs and adding more documents.
 
-## How You can Help All Iranian Angular Developers
+## How You can Help All Iranian Angular Developers?
 You are wondering how you can contribute in this project? Here is a list of what you can do:
 1. You did anything useful and special for Iranian apps? So you can add that in this library and save other developers time.
 2. You think number of tests for some part of this library is not enough? So you can write more tests.
