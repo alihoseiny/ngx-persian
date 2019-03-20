@@ -849,4 +849,4 @@ Thank you for your contribution and make life easier for Iranian Angular develop
 # There is any problem?
 If you have questions, find some bugs or need some features, you can open an issue and tell us. For some strange reasons this is not possible? so contact me by this email: `salam@alihoseiny.ir`.
 # Citations
-I should give a thank to [jalaali js](https://github.com/jalaali/jalaali-js) and it's implementation in Type script: [jalaali Helper in Typescript](https://github.com/sijad/ts-jalaali/) Because I used their code in Jalali services.
+I should say a thank you to developers of [jalaali js](https://github.com/jalaali/jalaali-js) and it's implementation in Type script: [jalaali Helper in Typescript](https://github.com/sijad/ts-jalaali/) Because I used their code in Jalali services.

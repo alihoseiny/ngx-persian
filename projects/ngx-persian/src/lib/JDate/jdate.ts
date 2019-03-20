@@ -818,3 +818,4 @@ export class JDate implements Date{
     return this.getTime();
   }
 }
+
