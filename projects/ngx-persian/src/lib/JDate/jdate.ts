@@ -201,6 +201,13 @@ export class JDate implements Date{
   }
 
   /**
+   * @return a regular javascript Date object representing Georgian date corresponding to the Jalili date of the JDate object.
+   */
+  getGeorgianDate(): Date {
+    return this._gDate;
+  }
+
+  /**
    * @return the day of the month for the specified date according to local time.
    */
   getDate(): number {

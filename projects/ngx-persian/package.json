@@ -1,9 +1,9 @@
 {
   "name": "ngx-persian",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A Full-featured library for newer versions on angular (2-7) for working with persian letters, digits, Date and time, Iran National Number and ...",
-  "keywords": ["Angular", "Persian", "Farsi", "Convert To Persian", "Jalali Date"],
-  "license": "SEE LICENSE IN LICENSE",
+  "keywords": ["Angular", "Persian", "Farsi", "Convert To Persian", "Jalali Date", "Khorshidi", "Shamsi", "Iran", "Phone number", "pipe", "Form validator"],
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/alihoseiny/ngx-persian"

@@ -219,7 +219,7 @@ and the year after it is not equal.</p>
 
 
                                     <td>
-                                        <p>: full jalali year like: 1397</p>
+                                        <p>full jalali year like: 1397</p>
 
                                     </td>
                                 </tr>
@@ -949,7 +949,7 @@ export class JalaliDateValidatorService {
   /**
    * If JYear is a leap year in jalali Calendar, return true. We using the fact that if a year is leap, number of leap years until that year
    * and the year after it is not equal.
-   * @param jYear : full jalali year like: 1397
+   * @param jYear full jalali year like: 1397
    */
   isJYearLeap(jYear: number): boolean {
     return this.numOfJLeapYears(jYear) !&#x3D;&#x3D; this.numOfJLeapYears(jYear + 1);

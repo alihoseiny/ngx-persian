@@ -836,7 +836,7 @@ For contributing, first fork the repository. Then create your branch and start c
 We are following TDD guides for developing this library, So you **SHOULD** add tests first and then add your code.
 ## 3. Write the Dock
 All codes should have complete in-code document following JSDoc syntax. Plus you should re-generate the code document using [compodoc](https://compodoc.app).
-For generating documents, you should run following command in the _library_ directory:
+For generating documents, you should run following command in the _project_ directory:
 `npm run generate-docs`
 
 Also you should add some documents about how to using a feature in the `README.md` file.
