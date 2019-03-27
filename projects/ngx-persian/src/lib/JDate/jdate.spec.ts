@@ -296,8 +296,8 @@ describe('JDate', () => {
     });
 
     [
-      [new JDate('11 دی 1348 01:20:03'), 0, 0, 0, -12600000],
-      [new JDate('11 Dey 1348 23:59:29'), 0, 0, 0, -12600000],
+      [new JDate('11 دی 1348 00:20:03'), 0, 0, 0, -12600000],
+      [new JDate('11 Dey 1348 00:59:29'), 0, 0, 0, -12600000],
     ].forEach(([jDateObj, min, sec, milli, time]) => {
       it('should return number of milliseconds since the unix epoch when new minutes, seconds and milliseconds inputted', () => {
         // @ts-ignore
