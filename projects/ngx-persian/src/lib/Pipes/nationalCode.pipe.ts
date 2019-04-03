@@ -7,13 +7,13 @@ import { Pipe, PipeTransform} from '@angular/core';
 export class NationalCodePipe implements PipeTransform {
 
   /**
-   *
    * @param value a 10-digit number or a string only contains 10 digits.
    * @example 001-236547-5
+   * @return a formatted text from 10-digit input or an empty string if length of the input is not 10.
    */
-  transform(value: string | number): any {
+  transform(value: string | number): string {
     value = String(value);
-    if (value.length !== 10) { throw new Error(`${value} is not a acceptable national code.`); }
+    if (value.length !== 10) { return ''; }
     return `${value.substring(0, 3)}-${value.substring(3, 9)}-${value[9]}`;
   }
 }
