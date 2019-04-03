@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import {div, mod} from './ArithmeticUtils';
 import {InvalidJalaliDateError} from './InvalidJalaliDate.error';
 
-@Injectable({
-  providedIn: 'root'
-})
+
 /**
  * Methods of this Service doing validation stuff on a Jalali date. You can use this Service using DI in all around of your app for
  * validating Jalali dates without needing to convert them to the Georgian Date.
  */
+@Injectable({
+  providedIn: 'root'
+})
 export class JalaliDateValidatorService {
 
   private static _minAcceptableYear = -61;
@@ -21,7 +22,7 @@ export class JalaliDateValidatorService {
    * @param jYear full jalali year like 1397
    * @param jMonth number of month from 0 for Farvardin to 11 for Esfand.
    */
-  jMonthLength(jYear: number, jMonth): number {
+  jMonthLength(jYear: number, jMonth: number): number {
     if (jMonth < 6) { return 31; }
     if (jMonth < 11 || this.isJYearLeap(jYear)) { return 30; }
     return 29;
@@ -31,7 +32,8 @@ export class JalaliDateValidatorService {
   /**
    * Calculates the number of the leap years in jalali Calendar.
    * @param targetJYear should be full year like: 1397 and should be between -61 to 3177.
-   * @see https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L71
+   *
+   * [Implementation in source code]{@link https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L71}
    */
   numOfJLeapYears(targetJYear: number): number {
     // Jalali years starting the 33-year rule.
@@ -74,7 +76,7 @@ export class JalaliDateValidatorService {
   /**
    * If JYear is a leap year in jalali Calendar, return true. We using the fact that if a year is leap, number of leap years until that year
    * and the year after it is not equal.
-   * @param jYear : full jalali year like: 1397
+   * @param jYear full jalali year like: 1397
    */
   isJYearLeap(jYear: number): boolean {
     return this.numOfJLeapYears(jYear) !== this.numOfJLeapYears(jYear + 1);
@@ -82,7 +84,8 @@ export class JalaliDateValidatorService {
 
   /**
    * Checks if jalali year is in acceptable range or not.
-   * @see https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L27
+   *
+   * [Implementation in source code]{@link https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L27}
    * @param jYear full jalali year like 1397
    */
   isValidJYear(jYear: number): boolean {
@@ -119,7 +122,7 @@ export class JalaliDateValidatorService {
    * @param jMonth starts from zero
    * @param jDay starts from one
    */
-  isValidJDate(jYear, jMonth, jDay): boolean {
+  isValidJDate(jYear: number, jMonth: number, jDay: number): boolean {
     return this.isValidJYear(jYear) && this.isValidJMonth(jMonth) && this.isValidJDay(jYear, jMonth, jDay);
   }
 }

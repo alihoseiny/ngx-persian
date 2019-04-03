@@ -1,5 +1,6 @@
 import {JalaliDateCalculatorService} from './jalali-date-calculator.service';
 import {InvalidJalaliDateError} from './InvalidJalaliDate.error';
+import {JalaliDateValidatorService} from './jalali-date-validator.service';
 
 /**
  * This class represents a complete Date object for Jalali dates. It accepts jalali Dates, converts Georgian dates to jalali and implements
@@ -27,13 +28,14 @@ export class JDate implements Date{
   private _jYear: number;
   private _jMonth: number;
   private _jDay: number;
+  private _calculator: JalaliDateCalculatorService = new JalaliDateCalculatorService(new JalaliDateValidatorService());
 
   /**
    * If input value length is shorter than desiredLength, adds zeros at the beginning of it until meets desired length.
    * @param value a number or string that we want have a specific length
-   * @param desiredLength
+   * @param desiredLength length of output string. If be shorter than input length, input will return.
    */
-  public static zeroPadding(value: number | string, desiredLength): string {
+  public static zeroPadding(value: number | string, desiredLength: number): string {
     value = value.toString();
     while (value.length < desiredLength) {
       value = '0' + value;
@@ -51,10 +53,10 @@ export class JDate implements Date{
    *        "yyyy mmmm dd HH:MM:SS".
    * @example 11 دی 1348 00:00:00
    * @example 11 Dey 1348 00:00:00
-   * @param calculator Jalali calculator service injected using DI
    * @return a Georgian Date object.
    */
-  public static parse(dateString: string, calculator: JalaliDateCalculatorService = new JalaliDateCalculatorService()): number {
+  public static parse(dateString: string): number {
+    const calculator = new JalaliDateCalculatorService(new JalaliDateValidatorService());
     const dateArray = dateString.split(' ');
     if (dateArray.length < 3) { throw new InvalidJalaliDateError(); }
     const day = parseInt(dateArray[0]);
@@ -74,16 +76,22 @@ export class JDate implements Date{
 
   /**
    * For creating a JDate object, you have 5 different options.
+   *
    * 1- If you want to have current date and time, you can simply call new JDate() without any parameter.
+   *
    * 2- If you want to create JDate object from a jalali date string as described in the `pars` method document, you can pass that string as
    *    first parameter and leave others empty.
+   *
    * 3 - If you want to create JDate object from number of passed milliseconds from UNIX epoch (for example creating a Jalali date object
    *     from result of getTime method of another Date object), you can pass the number as first parameter and leave others alone.
+   *
    * 4 - If you want to create JDate object from a Georgian Date object, you can simply pass that Date object as first parameter and leave
    *     others empty.
+   *
    * 5- If you want to create JDate object from date and time values, you can simply fill corresponding parameters of each date and time
    * value to the constructor. You don't have to fill all of the parameters. only those you need. other parameters will fill with zero.
    * Examples of all of those scenarios:
+   *
    * @example new JDate()
    * @example new JDate('11 دی 1348 00:00:00')
    * @example new JDate(-12600000)
@@ -97,10 +105,10 @@ export class JDate implements Date{
    * @param minutes
    * @param seconds
    * @param milliseconds
-   * @param calculator
+   * @throws InvalidJalaliDateError
    */
   constructor(jYear?: number | string | Date, jMonth?: number, jDay?: number, hours: number = 0, minutes: number = 0,
-              seconds: number = 0, milliseconds: number = 0, private calculator: JalaliDateCalculatorService = new JalaliDateCalculatorService()) {
+              seconds: number = 0, milliseconds: number = 0) {
     if (!jYear) {
       this._createFromDate(new Date());
     } else if (typeof jYear === 'string' && jMonth === undefined) {
@@ -112,7 +120,7 @@ export class JDate implements Date{
     }
     else {
       // @ts-ignore
-      this._gDate = this.calculator.convertToGeorgian(jYear, jMonth, jDay);
+      this._gDate = this._calculator.convertToGeorgian(jYear, jMonth, jDay);
       // @ts-ignore
       this._jYear = jYear;
       this._jMonth = jMonth;
@@ -124,10 +132,9 @@ export class JDate implements Date{
 
   /**
    * This method recalculates the gDate value with private attributes those storing Jalali date parts.
-   * @private
    */
   private _renewGDate(): void {
-    this._gDate = this.calculator.convertToGeorgian(this._jYear, this._jMonth, this._jDay);
+    this._gDate = this._calculator.convertToGeorgian(this._jYear, this._jMonth, this._jDay);
   }
 
   /**
@@ -164,19 +171,17 @@ export class JDate implements Date{
    * throws InvalidJalaliDateError when date values of this object won't represent a valid Jalali date.
    * Otherwise nothing happens.
    * @throws InvalidJalaliDateError
-   * @private
    */
   private _check_date_validity(): void{
-    if (!this.calculator.validator.isValidJDate(this._jYear, this._jMonth, this._jDay)) { throw new InvalidJalaliDateError(); }
+    if (!this._calculator.validator.isValidJDate(this._jYear, this._jMonth, this._jDay)) { throw new InvalidJalaliDateError(); }
   }
 
   /**
    * Calculates Jalali year from Georgian Date object and sets the attributes of the object to proper values.
    * @param gDate
-   * @private
    */
   private _createFromDate(gDate: Date) {
-    const conversionResult = this.calculator.convertToJalali(gDate);
+    const conversionResult = this._calculator.convertToJalali(gDate);
     this._jYear = conversionResult.year;
     this._jMonth = conversionResult.month;
     this._jDay = conversionResult.day;
@@ -193,6 +198,13 @@ export class JDate implements Date{
 
   [Symbol.toPrimitive](hint: "default" | "string" | "number" | string): string | number {
     return undefined;
+  }
+
+  /**
+   * @return a regular javascript Date object representing Georgian date corresponding to the Jalili date of the JDate object.
+   */
+  getGeorgianDate(): Date {
+    return this._gDate;
   }
 
   /**
@@ -620,8 +632,7 @@ export class JDate implements Date{
    *
    *        d -> non zero-padding number of the day in the month starting from 1
    *
-   * @return A formatted string that all Date patter parts has been replaced. Other characters of the pattern will left unchanged.
-   * @private
+   * @return A formatted string that all Date pattern parts has been replaced. Other characters of the pattern will left unchanged.
    */
   private _format_date(pattern: string): string {
     return pattern.replace(/yyyy/g, JDate.zeroPadding(this.getFullYear(), 4))
@@ -663,7 +674,6 @@ export class JDate implements Date{
    *        T -> Time marker in full format like: قبل از ظهر
    *
    *        t -> Time marker in short format like: ق.ظ
-   * @private
    */
   private _format_time(pattern: string): string {
     return pattern.replace(/\bHH\b/g, JDate.zeroPadding(this.getHours(), 2))
@@ -747,21 +757,29 @@ export class JDate implements Date{
 
   /**
    * @return a string representation of the Date object.
+   * [see toString method]{@link toString}
    * @param key
    */
   toJSON(key?: any): string {
-    return this.toISOString();
+    return this.toString();
   }
 
   /**
-   * @return a string with a language sensitive representation of the date portion of this date.
+   * returns formatted date with following pattern: 'ddd mmm d yyyy HH:MM:SS'
+   */
+  toString(): string {
+    return this.format('ddd mmm d yyyy HH:MM:SS')
+  }
+
+  /**
+   * [For more information see javascript Date object documentation about this method]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString}
    *
    * The new locales and options arguments let applications specify the language whose formatting conventions
    * should be used and allow to customize the behavior of the function. In older implementations,
    * which ignore the locales and options arguments, the locale used and the form of the string returned are
    * entirely implementation dependent.
    *
-   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
+   * @return a string with a language sensitive representation of the date portion of this date.
    */
   toLocaleDateString(): string;
   toLocaleDateString(locales?: string | string[], options?: Intl.DateTimeFormatOptions): string;
@@ -771,7 +789,7 @@ export class JDate implements Date{
 
   /**
    * @return toLocaleTimeString of Georgian Date .
-   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString
+   * [For more information see javascript Date object documentation about this method]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString}
    */
   toLocaleTimeString(): string;
   toLocaleTimeString(locales?: string | string[], options?: Intl.DateTimeFormatOptions): string;
@@ -781,7 +799,8 @@ export class JDate implements Date{
 
   /**
    * @return toTimeString of Georgian date
-   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toTimeString
+   *
+   * [For more information see javascript Date object documentation about this method]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toTimeString}
    */
   toTimeString(): string {
     return this._gDate.toTimeString();
@@ -789,7 +808,8 @@ export class JDate implements Date{
 
   /**
    * @return toUTCString of Georgian date.
-   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString
+   *
+   * [For more information see javascript Date object documentation about this method]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString}
    * @todo add implementation
    */
   toUTCString(): string {
@@ -798,9 +818,11 @@ export class JDate implements Date{
 
   /**
    * Similar to the getTime method.
-   * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/valueOf
+   *
+   * [For more information also see getTime method]{@link getTime}
    */
   valueOf(): number {
     return this.getTime();
   }
 }
+

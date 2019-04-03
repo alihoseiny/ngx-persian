@@ -3,6 +3,7 @@ import {PersianNumberService} from '../Services/persian-number.service';
 
 /**
  * Replaces all arabic and english numbers with persian numbers.
+ * @example {{englishTextDigit | faNum}}
  */
 @Pipe({name: 'faNum'})
 export class FaNumPipe implements PipeTransform {

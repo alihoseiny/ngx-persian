@@ -39,6 +39,11 @@ describe('Persian validators', () => {
       });
     });
 
+    it('should be valid when input string is a string contains only persian letters.', () => {
+      component.form.get('persianNumber').setValue('۱۸۴۹۵۷۴۳۹۷');
+      expect(component.form.get('persianNumber').valid).toBeTruthy();
+    });
+
   });
 
   describe('persianLettersValidator', () => {
@@ -76,9 +81,9 @@ describe('Persian validators', () => {
   selector: 'ngx-persian-test-tcomponent',
   template: `
     <form  [formGroup]="form">
-      <input type="text" formControlName="persianNumber">
-      <input type="text" formControlName="persianLetter">
-      <input type="text" formControlName="persianLetterAllOptions">
+      <input type="text" formControlName="persianNumber" style="visibility: hidden;">
+      <input type="text" formControlName="persianLetter" style="visibility: hidden;">
+      <input type="text" formControlName="persianLetterAllOptions" style="visibility: hidden;">
     </form>
   `
 })

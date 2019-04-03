@@ -31,7 +31,6 @@ export class PersianLetterService implements PersianService {
    * elements those specified in the options object plus persian letters.
    * @return a RegExp object that can use in searching a string for special characters (persian letters and others specified in the options)
    * @param options
-   * @private
    */
   private static _stringValidationRegex(options: PLOptions): RegExp {
     let result = '';
@@ -45,12 +44,12 @@ export class PersianLetterService implements PersianService {
 
   /**
    * This method gets regex of persian letters and other chars specified in the options and then splits the input value by that regex.
+   *
    * If match result is null - there is no match - returns 0. otherwise returns length of the match array that shows number of matched
    * occurred in the input value.
    * @param value
    * @param options
    * @return a number greater equal to 0 representing number of matches occurred in the input value.
-   * @private
    */
   private static _getMatchedPatternLength(value: string, options: PLOptions): number {
     const matchResult = value.match(PersianLetterService._stringValidationRegex(options));
@@ -73,11 +72,20 @@ export class PersianLetterService implements PersianService {
    * Result of validation on existence  of other characters controls by options parameter.
    * @param value
    * @param options controlling validation result on existence  of other characters controls by options parameter. Fields:
-   *        persianDigits: if sets to true, validation result will be true if input value contains persian digits plus persian letters
+   *
+   *        persianDigits: if sets to true, validation result will be true if input value contains persian digits plus persian letters.
+   *
+   *
    *        enDigits: if sets to true, validation result will be true if input value contains english digits plus persian letters
+   *
+   *
    *        symbols: if sets to true, validation result will be true if input value contains specific symbols plus persian letters.
    *                 symbols list: ?$-/:؟!~"'^_-[]{}()%&*><;
+   *
+   *
    *        whitespaces: if sets to true, validation result will be true if input value contains white spaces plus persian letters
+   *
+   *
    * You can combine any number of options field together.
    */
   isPersian(value: string, options: PLOptions = {

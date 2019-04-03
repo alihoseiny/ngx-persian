@@ -4,42 +4,16 @@ import {InvalidJalaliDateError} from './InvalidJalaliDate.error';
 import {SimpleDateInterface} from './SimpleDate.interface';
 import {JalaliDateValidatorService} from './jalali-date-validator.service';
 
-@Injectable({
-  providedIn: 'root'
-})
 /**
  * This class converts Jalali date to Georgian and vase versa. You can use all of the methods as static methods.
  *
  */
+@Injectable({
+  providedIn: 'root'
+})
 export class JalaliDateCalculatorService {
 
-  private readonly _jYear: number;
-  private readonly _jMonth: number;
-  private readonly _jDay: number;
-
-  /**
-   *
-   * @param date Georgian date as a regular javascript Date object.
-   * @param validator jalaliDateValidator injected using DI.
-   */
-  constructor(private date?: Date, public validator: JalaliDateValidatorService = new JalaliDateValidatorService(),) {
-    if (this.date) {
-      const convrtedDate = this.convertToJalali(this.date);
-      this._jYear = convrtedDate.year;
-      this._jMonth = convrtedDate.month;
-      this._jDay = convrtedDate.day;
-    }
-  }
-
-  get jDay(): number {
-    return this._jDay;
-  }
-  get jMonth(): number {
-    return this._jMonth;
-  }
-  get jYear(): number {
-    return this._jYear;
-  }
+  constructor(public validator: JalaliDateValidatorService) {}
 
   /**
    * Calculates the Julian Day number from Gregorian or Julian calendar dates.
@@ -47,11 +21,13 @@ export class JalaliDateCalculatorService {
    * Only some code cleaning applied to the source code.
    *
    * The procedure was tested to be good since 1 March, -100100 (of both calendars) up to a few million years into the future.
+   *
    * @param gDate an instance of javascript date representing a Georgian date.
-   * @see https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L195
+   *
+   * [Implementation in source code]{@link https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L195}
 
    */
-  numberOfPassedGDays(gDate: Date = this.date): number {
+  numberOfPassedGDays(gDate: Date): number {
     const gMonth = gDate.getMonth() - 7;
     const gYear = gDate.getFullYear() + 100100;
     const gMonthDiv = div(gMonth, 6);
@@ -72,7 +48,8 @@ export class JalaliDateCalculatorService {
 
   /**
    * Creates a javascript Date object from number of passed days in Georgian calendar representing Georgian date.
-   * @see https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L213
+   *
+   * [Implementation in source code]{@link https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L213}
    */
   createGDateFromDays(numOfDays: number): Date {
     const j = (4 * numOfDays + 139361631) + div(div(4 * numOfDays + 183187720, 146097) * 3, 4) * 4 - 3908;
@@ -86,7 +63,8 @@ export class JalaliDateCalculatorService {
   /**
    * This function returns number of passed leap years from AD 621 until targetGYear.
    * @param targetGYear is full year number like 2018
-   * @see https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L110
+   *
+   * [Implementation in source code]{@link https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L110}
    */
   numOfGLeapYears(targetGYear: number): number {
     return div(targetGYear, 4) - div((div(targetGYear, 100) + 1) * 3, 4) - 150;
@@ -115,7 +93,7 @@ export class JalaliDateCalculatorService {
    * Converts georgian year to the jalali year. Output year is the jalali year that start within the Georgian year.
    * @param gYear full georgian year like 2018
    */
-  GeorgianYearToJalaliYear(gYear: number): number {
+  georgianYearToJalaliYear(gYear: number): number {
     return gYear - 621;
   }
 
@@ -124,11 +102,12 @@ export class JalaliDateCalculatorService {
    *
    * ATTENTION: month number starts from 0, but day number starts from 1. Just like native javascript Date object.
    * @param gDate Georgian date as a javascript Date object.
-   * @see https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L149
+   *
+   * [Implementation in source code]{@link https://github.com/sijad/ts-jalaali/blob/296a7c2fa1816a5bbb0b11bbe3eb03ebc17059f6/src/jalaali.ts#L149}
    */
   convertToJalali(gDate: Date): SimpleDateInterface {
     const georgianYear = gDate.getFullYear();
-    let jalaliYear = this.GeorgianYearToJalaliYear(georgianYear);
+    let jalaliYear = this.georgianYearToJalaliYear(georgianYear);
     const passedDays = this.numberOfPassedGDays(gDate);
     const numOfPassedDaysTo1Farvardin = this.numberOfPassedGDays(new Date(georgianYear, 2, this.firstDayOfJYearInMarch(jalaliYear)));
 

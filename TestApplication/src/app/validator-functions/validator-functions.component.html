@@ -1,0 +1,71 @@
+<div class="container">
+  <h2>Validators</h2>
+  <h1>Ngx-persian</h1>
+
+  <form [formGroup]="fGroup" id="join-us">
+    <div class="fields">
+      <span>
+        <input type="text" formControlName="onlyPersianNumbers" placeholder="فرم ۱">
+      </span>
+      <br />
+      <span>
+          <input type="text" formControlName="onlyPersianLetters" placeholder="فرم۲">
+      </span>
+      <br />
+      <span>
+        <input type="text" formControlName="persianLettersWithWhiteSpace" placeholder="فرم ۳">
+      </span>
+      <br />
+      <span>
+      <input type="text" formControlName="persianLettersWithEnglishNums" placeholder="فرم ۴">
+      </span>
+      <br />
+      <span>
+      <input type="text" formControlName="persianLettersWithPersianNums" placeholder="فرم ۵">
+      </span>
+      <br />
+      <span>
+      <input type="text" formControlName="persianLettersWithSymbols" placeholder="فرم ۶">
+      </span>
+      <br />
+    </div>
+  </form>
+  <section id="results">
+    <p>
+      <span>Only persian numbers input:</span>
+      <br>
+      <span *ngIf="fGroup.get('onlyPersianNumbers').valid">مقدار فرم۱ معتبر است</span>
+      <span *ngIf="fGroup.get('onlyPersianNumbers').invalid && fGroup.get('onlyPersianNumbers').dirty">در فرم۱ تنها اعداد فارسی می‌توانند قرار بگیرند.</span>
+    </p>
+    <p>
+      <span>Only persian letters input:</span>
+      <br>
+      <span *ngIf="fGroup.get('onlyPersianLetters').valid">مقدار فرم ۲ معتبر است</span>
+      <span *ngIf="fGroup.get('onlyPersianLetters').invalid && fGroup.get('onlyPersianLetters').dirty">در فرم ۲ تنها حروف فارسی می‌توانند قرار بگیرند.</span>
+    </p>
+    <p>
+      <span>Only persian letters input:</span>
+      <br>
+      <span *ngIf="fGroup.get('persianLettersWithWhiteSpace').valid">مقدار فرم ۳ معتبر است</span>
+      <span *ngIf="fGroup.get('persianLettersWithWhiteSpace').invalid && fGroup.get('persianLettersWithWhiteSpace').dirty">در فرم ۳ تنها حروف فارسی و فاصله‌ها می‌توانند قرار بگیرند.</span>
+    </p>
+    <p>
+      <span>Only persian letters and english digits input:</span>
+      <br>
+      <span *ngIf="fGroup.get('persianLettersWithEnglishNums').valid">مقدار فرم ۴ معتبر است</span>
+      <span *ngIf="fGroup.get('persianLettersWithEnglishNums').invalid && fGroup.get('persianLettersWithEnglishNums').dirty">در فرم ۴ تنها حروف فارسی و ارقام انگلیسی می‌توانند قرار بگیرند.</span>
+    </p>
+    <p>
+      <span>Only persian letters and persian digits input:</span>
+      <br>
+      <span *ngIf="fGroup.get('persianLettersWithPersianNums').valid">مقدار فرم ۵ معتبر است</span>
+      <span *ngIf="fGroup.get('persianLettersWithPersianNums').invalid && fGroup.get('persianLettersWithPersianNums').dirty">در فرم ۵ تنها حروف و ارقام فارسی می‌توانند قرار بگیرند.</span>
+    </p>
+    <p>
+      <span>Only persian letters and symbols:</span>
+      <br>
+      <span *ngIf="fGroup.get('persianLettersWithSymbols').valid">مقدار فرم ۶ معتبر است</span>
+      <span *ngIf="fGroup.get('persianLettersWithSymbols').invalid && fGroup.get('persianLettersWithSymbols').dirty">در فرم ۶ تنها حروف فارسی و علامت‌های مشخص می‌توانند قرار بگیرند.</span>
+    </p>
+  </section>
+</div>

@@ -26,7 +26,6 @@ export class PersianNumberService implements PersianService {
    * splits input value by persian letters and then returns length of matched array.
    * @param value
    * @return 0 if input value has no persian letter, numbers of persian letters in the input value otherwise.
-   * @private
    */
   private static _getMatchedPatternLength(value: string): number {
     // language=JSRegexp
