@@ -100,7 +100,10 @@ describe('NationalCodeService', () => {
     12364756,
     1234567892,
     234567892,
-    7731689951
+    7731689951,
+    'abdc',
+    'سلام',
+    'abcdfgrdsr'
   ].forEach(input => {
     it(`should return false when input value (${input}) is not a valid national code according to the validation algorithm.`, () => {
       expect(nationalCodeService.isValid(input)).toBeFalsy();

@@ -14,7 +14,7 @@ You can use Tools provided by this library for:
 - Validating persian numbers for numeric inputs
 - Converting and validating Jalali Date and time like native javascript Date object
 - Formatting currency values in Rial or Toman currency type with flexable options.
-- Formatting Iranian National Number
+- Validating and Formatting Iranian National Number
 - Validating phone numbers of Iranian Mobile operators.
 - Getting operator name of a phone number in English or Persian
 - Validating reactive and template-base form inputs for persian numbers or texts.
@@ -739,6 +739,68 @@ plus some additional methods for simpler use like [`format` method](https://alih
 [Also you can get more clear vision of each method by viewing unit test of JDate class here.](https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/JDate/jdate.spec.ts)
 
 By using this class in your app, you never need another help for working and validating Jalali date and time.
+
+## NationalCodeService
+You can use this service for validating Iranian national code (number) And finding out if user input is a correct National code or not.
+For reading more detailed document, you can see [related part of the code document of the NationalCodeService] (https://alihoseiny.github.io/ngx-persian/injectables/NationalCodeService.html)
+
+### Adding NationalCodeService to Your Application
+For using this service you only need to import it in the file you want to use that in it. Simple as this:
+
+`import {NationalCodeService} from 'ngx-persian';`
+
+For Injecting this service, you just need to add it in the constructor of your service or component like this:
+
+`constructor(private nationalCodeService: NationalCodeService) {}`
+
+Now you can use it like other attributes of your class with this keyword.
+
+So lets digging deep to the class and see what its methods do:
+
+### normalize
+This method normalizes inputs for being a 10-digit string.
+
+This method removes whitespaces from sides of the input and adds zero character at the beginning of the input until the length of the result reach to 10.
+
+If Input length is shorter than 8 or longer than 10, an [`InvalidNationalCodeError](https://alihoseiny.github.io/ngx-persian/classes/) will throw.
+
+Example:
+```typescript
+console.log(this.nationalCodeService(15234756));
+// Expected output is: '0015234756'
+
+console.log(this.nationalCodeService('015234756'));
+// Expected output is: '0015234756'
+
+console.log(this.nationalCodeService('0015234756'));
+// Expected output is: '0015234756'
+
+try {
+  this.nationalCodeService('34756');
+} catch (e) {
+  console.log('Input length is less than 8 and an InvalidNationalCodeError throw');
+}
+
+```
+
+For more information you can see [the related part of code document about normalize](https://alihoseiny.github.io/ngx-persian/injectables/NationalCodeService.html#normalize) method. Also for more examples, you can see the [unit tests of the normalize method](https://github.com/alihoseiny/ngx-persian/tree/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Services/national-code.service.spec.ts#L10).
+
+### isValid
+This method first normalizes the input using normalize method and implicitly checks input length, So you DO NOT NEED to normalize input before, but this will not make any bad effect.
+
+Then checks the validity of the input for being a valid Iranian national code. If it's a valid code, return true. Otherwise returns false.
+
+Example:
+
+```typescript
+console.log(this.isValid(2365478824));
+// Expected output: true
+
+console.log(this.isValid(7731689951));
+// Expected output: false
+``` 
+
+For more information you can see [the related part of code document about isValid](https://alihoseiny.github.io/ngx-persian/injectables/NationalCodeService.html#isValid) method. Also for more examples, you can see the [unit tests of the normalize method](https://github.com/alihoseiny/ngx-persian/tree/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Services/national-code.service.spec.ts#L60).
 
 ## Validators
 There are different validators for reactive forms. You can use them in your forms for validating data related to Iran or Farsi language without any need for writing new code.
