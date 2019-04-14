@@ -125,6 +125,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/InvalidMobilePhoneNumberError.html" data-type="entity-link">InvalidMobilePhoneNumberError</a>
                             </li>
                             <li class="link">
+                                <a href="classes/InvalidNationalCodeError.html" data-type="entity-link">InvalidNationalCodeError</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/InvalidServiceInputError.html" data-type="entity-link">InvalidServiceInputError</a>
                             </li>
                             <li class="link">
@@ -148,6 +151,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/MobilePhoneNumberService.html" data-type="entity-link">MobilePhoneNumberService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/NationalCodeService.html" data-type="entity-link">NationalCodeService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/PersianLetterService.html" data-type="entity-link">PersianLetterService</a>

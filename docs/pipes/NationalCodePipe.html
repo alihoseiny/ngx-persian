@@ -158,11 +158,12 @@
                         </div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>a formatted text from 10-digit input or an empty string if length of the input is not 10.</p>
+
                     </div>
                 </td>
             </tr>
@@ -183,13 +184,13 @@
 export class NationalCodePipe implements PipeTransform {
 
   /**
-   *
    * @param value a 10-digit number or a string only contains 10 digits.
    * @example 001-236547-5
+   * @return a formatted text from 10-digit input or an empty string if length of the input is not 10.
    */
-  transform(value: string | number): any {
+  transform(value: string | number): string {
     value &#x3D; String(value);
-    if (value.length !&#x3D;&#x3D; 10) { throw new Error(&#x60;${value} is not a acceptable national code.&#x60;); }
+    if (value.length !&#x3D;&#x3D; 10) { return &#x27;&#x27;; }
     return &#x60;${value.substring(0, 3)}-${value.substring(3, 9)}-${value[9]}&#x60;;
   }
 }

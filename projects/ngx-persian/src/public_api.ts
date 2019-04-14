@@ -18,3 +18,4 @@ export {JalaliDateValidatorService} from './lib/JDate/jalali-date-validator.serv
 export {persianLettersValidator, persianNumbersValidator} from './lib/Validators/persian-validators';
 export {PersianNumbersDirective, PersianLetterDirective} from './lib/Validators/persian-directives';
 export {MobileCodes, MobilePhoneNumberService, operatorsNames} from './lib/Services/mobile-phone-number.service';
+export {NationalCodeService} from './lib/Services/national-code.service';
