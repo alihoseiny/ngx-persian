@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { PipesTestComponent } from './pipes-test/pipes-test.component';
-import {EnNumPipe, FaNumPipe, IRCurrencyPipe, NationalCodePipe} from 'ngx-persian';
+import {EnNumPipe, FaNumPipe, IRCurrencyPipe, NationalCodePipe, JdatePipe} from 'ngx-persian';
 import { ValidatorFunctionsComponent } from './validator-functions/validator-functions.component';
 
 @NgModule({
@@ -14,6 +14,7 @@ import { ValidatorFunctionsComponent } from './validator-functions/validator-fun
     FaNumPipe,
     IRCurrencyPipe,
     NationalCodePipe,
+    JdatePipe,
     PipesTestComponent,
     ValidatorFunctionsComponent,
   ],
