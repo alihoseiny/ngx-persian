@@ -35,6 +35,11 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </a>
                         </li>
                         <li class="link">
+                            <a href="contributing.html"  data-type="chapter-link">
+                                <span class="icon ion-ios-paper"></span>CONTRIBUTING
+                            </a>
+                        </li>
+                        <li class="link">
                             <a href="license.html"  data-type="chapter-link">
                                 <span class="icon ion-ios-paper"></span>LICENSE
                             </a>
@@ -60,13 +65,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/NgxPersianModule.html" data-type="entity-link">NgxPersianModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#directives-links-module-NgxPersianModule-72d1570c723c86eaa55abed1407c029c"' : 'data-target="#xs-directives-links-module-NgxPersianModule-72d1570c723c86eaa55abed1407c029c"' }>
+                                        'data-target="#directives-links-module-NgxPersianModule-27092bdf446d3c61b1292385fa5309c2"' : 'data-target="#xs-directives-links-module-NgxPersianModule-27092bdf446d3c61b1292385fa5309c2"' }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-NgxPersianModule-72d1570c723c86eaa55abed1407c029c"' :
-                                        'id="xs-directives-links-module-NgxPersianModule-72d1570c723c86eaa55abed1407c029c"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-NgxPersianModule-27092bdf446d3c61b1292385fa5309c2"' :
+                                        'id="xs-directives-links-module-NgxPersianModule-27092bdf446d3c61b1292385fa5309c2"' }>
                                         <li class="link">
                                             <a href="directives/PersianLetterDirective.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules">PersianLetterDirective</a>
@@ -79,13 +84,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#pipes-links-module-NgxPersianModule-72d1570c723c86eaa55abed1407c029c"' : 'data-target="#xs-pipes-links-module-NgxPersianModule-72d1570c723c86eaa55abed1407c029c"' }>
+                                            'data-target="#pipes-links-module-NgxPersianModule-27092bdf446d3c61b1292385fa5309c2"' : 'data-target="#xs-pipes-links-module-NgxPersianModule-27092bdf446d3c61b1292385fa5309c2"' }>
                                             <span class="icon ion-md-add"></span>
                                             <span>Pipes</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-NgxPersianModule-72d1570c723c86eaa55abed1407c029c"' :
-                                            'id="xs-pipes-links-module-NgxPersianModule-72d1570c723c86eaa55abed1407c029c"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-NgxPersianModule-27092bdf446d3c61b1292385fa5309c2"' :
+                                            'id="xs-pipes-links-module-NgxPersianModule-27092bdf446d3c61b1292385fa5309c2"' }>
                                             <li class="link">
                                                 <a href="pipes/EnNumPipe.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">EnNumPipe</a>
@@ -97,6 +102,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                             <li class="link">
                                                 <a href="pipes/IRCurrencyPipe.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">IRCurrencyPipe</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="pipes/JdatePipe.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">JdatePipe</a>
                                             </li>
                                             <li class="link">
                                                 <a href="pipes/NationalCodePipe.html"

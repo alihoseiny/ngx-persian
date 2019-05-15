@@ -659,6 +659,8 @@ export class JDate implements Date{
    *
    *        hh -> 2-digit form of hour number in 12-hour clock format.
    *
+   *        h -> non zero-padding form of hour number in 12-hour clock format.
+   *
    *        H -> non zero-padding form of hour number in 12-hour clock format.
    *
    *        MM -> 2-digit form of minutes number.

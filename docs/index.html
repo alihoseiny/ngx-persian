@@ -42,7 +42,7 @@
 - Validating persian numbers for numeric inputs
 - Converting and validating Jalali Date and time like native javascript Date object
 - Formatting currency values in Rial or Toman currency type with flexable options.
-- Formatting Iranian National Number
+- Validating and Formatting Iranian National Number
 - Validating phone numbers of Iranian Mobile operators.
 - Getting operator name of a phone number in English or Persian
 - Validating reactive and template-base form inputs for persian numbers or texts.</p>
@@ -532,6 +532,46 @@ plus some additional methods for simpler use like <a href="https://alihoseiny.gi
 <p><a href="https://alihoseiny.github.io/ngx-persian/classes/JDate.html"><strong>You can see complete document of all methods of this class by clicking on this text</strong>.</a></p>
 <p><a href="https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/JDate/jdate.spec.ts">Also you can get more clear vision of each method by viewing unit test of JDate class here.</a></p>
 <p>By using this class in your app, you never need another help for working and validating Jalali date and time.</p>
+<h2 id="nationalcodeservice">NationalCodeService</h2>
+<p>You can use this service for validating Iranian national code (number) And finding out if user input is a correct National code or not.
+For reading more detailed document, you can see [related part of the code document of the NationalCodeService] (https://alihoseiny.github.io/ngx-persian/injectables/NationalCodeService.html)</p>
+<h3 id="adding-nationalcodeservice-to-your-application">Adding NationalCodeService to Your Application</h3>
+<p>For using this service you only need to import it in the file you want to use that in it. Simple as this:</p>
+<p><code>import {NationalCodeService} from &#39;ngx-persian&#39;;</code></p>
+<p>For Injecting this service, you just need to add it in the constructor of your service or component like this:</p>
+<p><code>constructor(private nationalCodeService: NationalCodeService) {}</code></p>
+<p>Now you can use it like other attributes of your class with this keyword.</p>
+<p>So lets digging deep to the class and see what its methods do:</p>
+<h3 id="normalize">normalize</h3>
+<p>This method normalizes inputs for being a 10-digit string.</p>
+<p>This method removes whitespaces from sides of the input and adds zero character at the beginning of the input until the length of the result reach to 10.</p>
+<p>If Input length is shorter than 8 or longer than 10, an <a href="https://alihoseiny.github.io/ngx-persian/classes/">`InvalidNationalCodeError</a> will throw.</p>
+<p>Example:
+```typescript
+console.log(this.nationalCodeService(15234756));
+// Expected output is: &#39;0015234756&#39;</p>
+<p>console.log(this.nationalCodeService(&#39;015234756&#39;));
+// Expected output is: &#39;0015234756&#39;</p>
+<p>console.log(this.nationalCodeService(&#39;0015234756&#39;));
+// Expected output is: &#39;0015234756&#39;</p>
+<p>try {
+  this.nationalCodeService(&#39;34756&#39;);
+} catch (e) {
+  console.log(&#39;Input length is less than 8 and an InvalidNationalCodeError throw&#39;);
+}</p>
+<p>```</p>
+<p>For more information you can see <a href="https://alihoseiny.github.io/ngx-persian/injectables/NationalCodeService.html#normalize">the related part of code document about normalize</a> method. Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/tree/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Services/national-code.service.spec.ts#L10">unit tests of the normalize method</a>.</p>
+<h3 id="isvalid">isValid</h3>
+<p>This method first normalizes the input using normalize method and implicitly checks input length, So you DO NOT NEED to normalize input before, but this will not make any bad effect.</p>
+<p>Then checks the validity of the input for being a valid Iranian national code. If it&#39;s a valid code, return true. Otherwise returns false.</p>
+<p>Example:</p>
+<p>```typescript
+console.log(this.isValid(2365478824));
+// Expected output: true</p>
+<p>console.log(this.isValid(7731689951));
+// Expected output: false
+``` </p>
+<p>For more information you can see <a href="https://alihoseiny.github.io/ngx-persian/injectables/NationalCodeService.html#isValid">the related part of code document about isValid</a> method. Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/tree/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Services/national-code.service.spec.ts#L60">unit tests of the normalize method</a>.</p>
 <h2 id="validators">Validators</h2>
 <p>There are different validators for reactive forms. You can use them in your forms for validating data related to Iran or Farsi language without any need for writing new code.</p>
 <h3 id="persiannumbersvalidator">persianNumbersValidator</h3>

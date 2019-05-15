@@ -1,7 +1,7 @@
 <div class="container">
   <h2>Pipes</h2>
   <h1>Ngx-persian</h1>
-
+  {{d | date}}
   <form [formGroup]="fGroup" id="join-us">
     <div class="fields">
       <span>
@@ -32,5 +32,6 @@
     <p><span>In Rial: </span> {{fGroup.get('rialPipe').value | irc:'r'}}</p>
     <p><span>In Toman: </span> {{fGroup.get('tomanPipe').value | irc:'toman'}}</p>
     <p><span>National Code: </span> {{fGroup.get('irncode').value | nationalCode}}</p>
+    <p><span>Jalali Date:</span><span style="direction: rtl; color: #fff">{{this.date | jdate}}</span></p>
   </section>
 </div>
