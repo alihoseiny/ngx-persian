@@ -534,4 +534,21 @@ describe('JDate', () => {
     });
   });
 
+  xdescribe('addMonth', function() {
+    [
+      [new JDate(1398, 0, 1), 1, "1398-2-1"],
+      [new JDate(1398, 0, 1), 10, "1398-11-1"],
+      [new JDate(1398, 0, 1), 0, "1398-1-1"],
+      [new JDate(1398, 0, 1), 12, "1399-1-1"]
+    ].forEach(([jdate, increase_by, result]) => {
+      it(`should change month and year (if month overflows) to the increased value and set date to ${result} when increase value 
+      is ${increase_by}`, function() {
+        // @ts-ignore
+        jdate.addMonth(increase_by);
+        // @ts-ignore
+        expect(jdate.format('yyyy-m-d')).toBe(result);
+      });
+    });
+  });
+
 });

@@ -826,5 +826,13 @@ export class JDate implements Date{
   valueOf(): number {
     return this.getTime();
   }
+
+  addMonth(incValue: number): void {
+    // let newMonth: number = (this.getMonth() + incValue) % 11;
+    // let passedYears: number = this.getFullYear() + newMonth / 11;
+    // let newYear: number = newMonth === 0 ? ;
+    // this.setFullYear(newYear);
+    // this.setMonth(newMonth % 11);
+  }
 }
 
