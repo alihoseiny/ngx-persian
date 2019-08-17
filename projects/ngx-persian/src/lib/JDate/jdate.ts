@@ -96,7 +96,7 @@ export class JDate implements Date{
    * @example new JDate('11 دی 1348 00:00:00')
    * @example new JDate(-12600000)
    * @example new JDate(new Date(2018, 0, 1))
-   * @example new JDate(1397, 12, 25)
+   * @example new JDate(1397, 0, 25)
    * @example new JDate(1397, 11, 25, 12, 32, 45, 123)
    * @param jYear
    * @param jMonth Month number starting from 0 and should be LESSER than 12.

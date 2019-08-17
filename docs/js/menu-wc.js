@@ -44,11 +44,11 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <span class="icon ion-ios-paper"></span>LICENSE
                             </a>
                         </li>
-                        <li class="link">
-                            <a href="dependencies.html" data-type="chapter-link">
-                                <span class="icon ion-ios-list"></span>Dependencies
-                            </a>
-                        </li>
+                                <li class="link">
+                                    <a href="dependencies.html" data-type="chapter-link">
+                                        <span class="icon ion-ios-list"></span>Dependencies
+                                    </a>
+                                </li>
                     </ul>
                 </li>
                     <li class="chapter modules">
@@ -60,18 +60,18 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <span class="icon ion-ios-arrow-down"></span>
                             </div>
                         </a>
-                        <ul class="links collapse" ${ isNormalMode ? 'id="modules-links"' : 'id="xs-modules-links"' }>
+                        <ul class="links collapse " ${ isNormalMode ? 'id="modules-links"' : 'id="xs-modules-links"' }>
                             <li class="link">
                                 <a href="modules/NgxPersianModule.html" data-type="entity-link">NgxPersianModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#directives-links-module-NgxPersianModule-27092bdf446d3c61b1292385fa5309c2"' : 'data-target="#xs-directives-links-module-NgxPersianModule-27092bdf446d3c61b1292385fa5309c2"' }>
+                                        'data-target="#directives-links-module-NgxPersianModule-1423e56b53440eb50dbd2bb18cf708d7"' : 'data-target="#xs-directives-links-module-NgxPersianModule-1423e56b53440eb50dbd2bb18cf708d7"' }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-NgxPersianModule-27092bdf446d3c61b1292385fa5309c2"' :
-                                        'id="xs-directives-links-module-NgxPersianModule-27092bdf446d3c61b1292385fa5309c2"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-NgxPersianModule-1423e56b53440eb50dbd2bb18cf708d7"' :
+                                        'id="xs-directives-links-module-NgxPersianModule-1423e56b53440eb50dbd2bb18cf708d7"' }>
                                         <li class="link">
                                             <a href="directives/PersianLetterDirective.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules">PersianLetterDirective</a>
@@ -84,13 +84,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#pipes-links-module-NgxPersianModule-27092bdf446d3c61b1292385fa5309c2"' : 'data-target="#xs-pipes-links-module-NgxPersianModule-27092bdf446d3c61b1292385fa5309c2"' }>
+                                            'data-target="#pipes-links-module-NgxPersianModule-1423e56b53440eb50dbd2bb18cf708d7"' : 'data-target="#xs-pipes-links-module-NgxPersianModule-1423e56b53440eb50dbd2bb18cf708d7"' }>
                                             <span class="icon ion-md-add"></span>
                                             <span>Pipes</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-NgxPersianModule-27092bdf446d3c61b1292385fa5309c2"' :
-                                            'id="xs-pipes-links-module-NgxPersianModule-27092bdf446d3c61b1292385fa5309c2"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-NgxPersianModule-1423e56b53440eb50dbd2bb18cf708d7"' :
+                                            'id="xs-pipes-links-module-NgxPersianModule-1423e56b53440eb50dbd2bb18cf708d7"' }>
                                             <li class="link">
                                                 <a href="pipes/EnNumPipe.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">EnNumPipe</a>
@@ -123,7 +123,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <span>Classes</span>
                             <span class="icon ion-ios-arrow-down"></span>
                         </div>
-                        <ul class="links collapse" ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
+                        <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
                                 <a href="classes/InvalidJalaliDateError.html" data-type="entity-link">InvalidJalaliDateError</a>
                             </li>
@@ -151,7 +151,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <span>Injectables</span>
                                 <span class="icon ion-ios-arrow-down"></span>
                             </div>
-                            <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
+                            <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
                                 <li class="link">
                                     <a href="injectables/JalaliDateCalculatorService.html" data-type="entity-link">JalaliDateCalculatorService</a>
                                 </li>
@@ -179,7 +179,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <span>Interfaces</span>
                             <span class="icon ion-ios-arrow-down"></span>
                         </div>
-                        <ul class="links collapse" ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
+                        <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
                                 <a href="interfaces/PersianService.html" data-type="entity-link">PersianService</a>
                             </li>
@@ -198,7 +198,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <span>Miscellaneous</span>
                             <span class="icon ion-ios-arrow-down"></span>
                         </div>
-                        <ul class="links collapse" ${ isNormalMode ? 'id="miscellaneous-links"' : 'id="xs-miscellaneous-links"' }>
+                        <ul class="links collapse " ${ isNormalMode ? 'id="miscellaneous-links"' : 'id="xs-miscellaneous-links"' }>
                             <li class="link">
                                 <a href="miscellaneous/enumerations.html" data-type="entity-link">Enums</a>
                             </li>

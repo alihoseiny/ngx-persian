@@ -191,6 +191,9 @@ Recreating objects are safer than working with UTC methods.</p>
                                 <a href="#_renewGDate">_renewGDate</a>
                             </li>
                             <li>
+                                <a href="#addMonth">addMonth</a>
+                            </li>
+                            <li>
                                 <a href="#format">format</a>
                             </li>
                             <li>
@@ -438,6 +441,7 @@ Examples of all of those scenarios:</p>
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -452,6 +456,8 @@ Examples of all of those scenarios:</p>
                                                             Yes
                                                     </td>
                                                     
+                                                        <td>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>jMonth</td>
@@ -464,6 +470,10 @@ Examples of all of those scenarios:</p>
                                                             Yes
                                                     </td>
                                                     
+                                                        <td>
+                                                                <code><p>Month number starting from 0 and should be LESSER than 12.</p>
+</code>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>jDay</td>
@@ -476,6 +486,8 @@ Examples of all of those scenarios:</p>
                                                             Yes
                                                     </td>
                                                     
+                                                        <td>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>hours</td>
@@ -488,6 +500,8 @@ Examples of all of those scenarios:</p>
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>minutes</td>
@@ -500,6 +514,8 @@ Examples of all of those scenarios:</p>
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>seconds</td>
@@ -512,6 +528,8 @@ Examples of all of those scenarios:</p>
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>milliseconds</td>
@@ -524,6 +542,8 @@ Examples of all of those scenarios:</p>
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -541,15 +561,15 @@ Examples of all of those scenarios:</p>
 
                                         </div>
                                         <div>
-                                            <p>new JDate(new Date(2018, 1, 1))</p>
+                                            <p>new JDate(new Date(2018, 0, 1))</p>
 
                                         </div>
                                         <div>
-                                            <p>new JDate(1397, 12, 25)</p>
+                                            <p>new JDate(1397, 0, 25)</p>
 
                                         </div>
                                         <div>
-                                            <p>new JDate(1397, 12, 25, 12, 32, 45, 123)</p>
+                                            <p>new JDate(1397, 11, 25, 12, 32, 45, 123)</p>
 
                                         </div>
                             </div>
@@ -1327,6 +1347,76 @@ In bi-character pattern parts, missed digits will fill with zero.</p>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addMonth"></a>
+                    <span class="name">
+                        <b>
+                            addMonth
+                        </b>
+                        <a href="#addMonth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addMonth(incValue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="830"
+                            class="link-to-prism">projects/ngx-persian/src/lib/JDate/jdate.ts:830</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>incValue</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -5609,11 +5699,11 @@ export class JDate implements Date{
    * @example new JDate()
    * @example new JDate(&#x27;11 دی 1348 00:00:00&#x27;)
    * @example new JDate(-12600000)
-   * @example new JDate(new Date(2018, 1, 1))
-   * @example new JDate(1397, 12, 25)
-   * @example new JDate(1397, 12, 25, 12, 32, 45, 123)
+   * @example new JDate(new Date(2018, 0, 1))
+   * @example new JDate(1397, 0, 25)
+   * @example new JDate(1397, 11, 25, 12, 32, 45, 123)
    * @param jYear
-   * @param jMonth
+   * @param jMonth Month number starting from 0 and should be LESSER than 12.
    * @param jDay
    * @param hours
    * @param minutes
@@ -6340,6 +6430,14 @@ export class JDate implements Date{
   valueOf(): number {
     return this.getTime();
   }
+
+  addMonth(incValue: number): void {
+    // let newMonth: number &#x3D; (this.getMonth() + incValue) % 11;
+    // let passedYears: number &#x3D; this.getFullYear() + newMonth / 11;
+    // let newYear: number &#x3D; newMonth &#x3D;&#x3D;&#x3D; 0 ? ;
+    // this.setFullYear(newYear);
+    // this.setMonth(newMonth % 11);
+  }
 }
 
 </code></pre>
@@ -6348,6 +6446,7 @@ export class JDate implements Date{
 
 
 
+                   
 
 
 
