@@ -7,8 +7,15 @@ describe('JDate', () => {
     jDate = new JDate();
   });
 
-  it('should create an instance', () => {
-    expect(new JDate()).toBeTruthy();
+  describe('JDate Constructor', function() {
+    it('should create an instance', () => {
+      expect(new JDate()).toBeTruthy();
+    });
+
+    it('should create a valid JDate object from date and time values', () => {
+      const jalali_date = new JDate(1397, 11, 12, 12, 13, 14, 255);
+      expect(jalali_date.format("yyyy-mm-dd HH:MM:SS.l")).toBe("1397-12-12 12:13:14.255");
+    });
   });
 
   describe('pars', () => {
