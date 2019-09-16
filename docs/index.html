@@ -198,13 +198,14 @@ For example: <code>0011753646 | nationalCode</code> produces following text: <co
 <p><strong>Still have questions?</strong> see the <a href="https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test">related part of example app</a> or see: <a href="https://alihoseiny.github.io/ngx-persian/pipes/NationalCodePipe.html">related section in code document for NationalCodePipe</a>. </p>
 <p>Also you can see <a href="https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/nationalCode.pipe.spec.ts">unit tests of NationalCodePipe</a> for more examples of how input and outputs could be.</p>
 <h3 id="jdate">jdate</h3>
-<p>This pipe formats <a href="#jalali-date"><code>JDate</code></a> object and creates a human readable text with different pre-defiend formats. Also you can pass you custom format to it.</p>
+<p>This pipe formats <a href="#jalali-date"><code>JDate</code></a> object and creates a human readable text with different pre-defined formats. Also you can pass your custom format to it.
+If you pass instances of <code>Date</code> class those representing Georgian DateTime objects, this pipe first convert that object to an instance of <code>JDate</code> class, and then returns formatted Jalali datetime from it.</p>
 <p>You can pass Format name or custom format pattern as second parameter of this pipe.</p>
 <p>For using this pipe, firstly you need to import the pipe from the library in your module:</p>
 <p><code>import {JdatePipe} from &#39;ngx-persian&#39;;</code></p>
 <p>Then, like any other pipe, you need to <em>declare</em> the pipe in your module. For this, you should add following line in the <code>declarations</code> array of the <code>@NgModule</code> of your module:</p>
 <p><code>JdatePipe,</code></p>
-<p>You can use this pipe anywhere you like in your templates for formatting Jalali dates as <code>JDate</code> objects.
+<p>You can use this pipe anywhere you like in your templates for formatting Jalali dates as <code>JDate</code> objects or converting and then formatting Georgian dates as <code>Date</code> objects.
 For example: <code>dateObject | jdate</code> produces following text: <code>23 اردیبهشت 1397، 12:12 ب.ظ&#39;</code></p>
 <p>For changing formatting pattern, you can set second parameter like this:</p>
 <p><code>dateObject| jdate:&#39;small&#39;</code> That produces this result: <code>97/2/23 12:12 ب.ظ</code></p>
@@ -265,7 +266,7 @@ For example: <code>dateObject | jdate</code> produces following text: <code>23 �
 </tr>
 </tbody>
 </table>
-<p>Also instead of those patter names, you can set your desired pattern string as described in the <a href="">documents of format method of JDate object</a>.</p>
+<p>Also instead of those pattern names, you can set your desired pattern string as described in the <a href="">documents of format method of JDate object</a>.</p>
 <p><strong>Still have questions?</strong> see the <a href="https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test">related part of example app</a> or see: <a href="https://alihoseiny.github.io/ngx-persian/pipes/JdatePipe.html">related section in code document for JdatePipe</a>. </p>
 <p>Also you can see <a href="https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/jdate.pipe.spec.ts">unit tests of JdatePipe</a> for more examples of how input and outputs could be.</p>
 <h2 id="services">Services</h2>

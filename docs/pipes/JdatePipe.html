@@ -67,7 +67,8 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Formats JDate objects according to the given format.</p>
+                <p>Formats JDate objects or convert Date objects (or any instance of classes those implement that interface) to a <code>JDate</code> object and format
+that according to the given format.</p>
 <p>The result of this pipe is not reevaluated when the input is mutated. To avoid the need to reformat the date on every change-detection
 cycle, treat the date as an immutable object and change the reference when the pipe needs to run again.</p>
 <p>You can pass a format pattern string like <a href="https://alihoseiny.github.io/ngx-persian/classes/JDate.html#format">JDate format method</a></p>
@@ -135,8 +136,8 @@ cycle, treat the date as an immutable object and change the reference when the p
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">projects/ngx-persian/src/lib/Pipes/jdate.pipe.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">projects/ngx-persian/src/lib/Pipes/jdate.pipe.ts:61</a></div>
                 </td>
             </tr>
 
@@ -207,15 +208,15 @@ without any change.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>transform(value: <a href="../classes/JDate.html">JDate</a>, format: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>transform(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, format: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="72"
-                            class="link-to-prism">projects/ngx-persian/src/lib/Pipes/jdate.pipe.ts:72</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">projects/ngx-persian/src/lib/Pipes/jdate.pipe.ts:73</a></div>
                 </td>
             </tr>
 
@@ -241,7 +242,7 @@ without any change.</p>
                                 <tr>
                                     <td>value</td>
                                     <td>
-                                                <code><a href="../classes/JDate.html" target="_self" >JDate</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
                                     </td>
 
                                     <td>
@@ -252,7 +253,7 @@ without any change.</p>
                                     </td>
 
                                     <td>
-                                        <p>a Jalali Date object</p>
+                                        <p>a Jalali Date object or an instance of <code>Date</code> object or any class implementing that interface</p>
 
                                     </td>
                                 </tr>
@@ -316,7 +317,8 @@ enum FromatNames {
 }
 
 /**
- * Formats JDate objects according to the given format.
+ * Formats JDate objects or convert Date objects (or any instance of classes those implement that interface) to a &#x60;JDate&#x60; object and format
+ * that according to the given format.
  *
  * The result of this pipe is not reevaluated when the input is mutated. To avoid the need to reformat the date on every change-detection
  * cycle, treat the date as an immutable object and change the reference when the pipe needs to run again.
@@ -365,10 +367,14 @@ export class JdatePipe implements PipeTransform {
 
   /**
    * Formatting the date using &#x60;format&#x60; method of it with proper formatting pattern created from &#x60;format&#x60;
-   * @param value a Jalali Date object
+   * @param value a Jalali Date object or an instance of &#x60;Date&#x60; object or any class implementing that interface
    * @param format format name or format pattern string
    */
-  transform(value: JDate, format: string &#x3D; &#x27;mediumDate&#x27;): string {
+  transform(value: Date, format: string &#x3D; &#x27;mediumDate&#x27;): string {
+    if (!(value instanceof JDate)) {
+      value &#x3D; new JDate(value);
+    }
+    // @ts-ignore
     return value.format(JdatePipe.convertNameToFormat(format));
   }
 

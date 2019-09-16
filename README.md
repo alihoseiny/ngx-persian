@@ -193,7 +193,8 @@ You can see the example usage of this pipes in below GIF:
 Also you can see [unit tests of NationalCodePipe](https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/nationalCode.pipe.spec.ts) for more examples of how input and outputs could be.
 
 ### jdate
-This pipe formats [`JDate`](#jalali-date) object and creates a human readable text with different pre-defiend formats. Also you can pass you custom format to it.
+This pipe formats [`JDate`](#jalali-date) object and creates a human readable text with different pre-defined formats. Also you can pass your custom format to it.
+If you pass instances of `Date` class those representing Georgian DateTime objects, this pipe first convert that object to an instance of `JDate` class, and then returns formatted Jalali datetime from it.
 
 You can pass Format name or custom format pattern as second parameter of this pipe.
 
@@ -205,7 +206,7 @@ Then, like any other pipe, you need to _declare_ the pipe in your module. For th
 
 `JdatePipe,`
 
-You can use this pipe anywhere you like in your templates for formatting Jalali dates as `JDate` objects.
+You can use this pipe anywhere you like in your templates for formatting Jalali dates as `JDate` objects or converting and then formatting Georgian dates as `Date` objects.
 For example: ` dateObject | jdate` produces following text: `23 اردیبهشت 1397، 12:12 ب.ظ'`
 
 For changing formatting pattern, you can set second parameter like this:
@@ -226,7 +227,7 @@ Below you can see list of pre-defined formats:
 |mediumTime|`h:M:S t`|12:12:30 ب.ظ|
 |longTime|`h:M:S.l T`|12:12:30.300 بعد از ظهر|
 
-Also instead of those patter names, you can set your desired pattern string as described in the [documents of format method of JDate object]().
+Also instead of those pattern names, you can set your desired pattern string as described in the [documents of format method of JDate object]().
 
 **Still have questions?** see the [related part of example app](https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test) or see: [related section in code document for JdatePipe](https://alihoseiny.github.io/ngx-persian/pipes/JdatePipe.html). 
 

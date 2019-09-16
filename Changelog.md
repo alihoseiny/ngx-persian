@@ -3,8 +3,10 @@ List of changes of this library during time.
 
 You can get different version [here](https://www.npmjs.com/package/ngx-persian) or download them from npm command line.
 
-# V1.3.0
+# V1.3
 Add `jdate` pipe for formatting `JDate` objects.
+## V1.3.1
+Add `Date` object conversion to the `JDate` objects in the `jdate` before formatting the object.
 
 ## V1.2.0
 1. NationalCodeService for validating Iranian national code added.
