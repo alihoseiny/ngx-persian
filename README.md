@@ -1,4 +1,3 @@
-
 # NgxPersian
 ![npm](https://img.shields.io/npm/dt/ngx-persian.svg?style=popout-square)
 ![npm](https://img.shields.io/npm/v/ngx-persian.svg?style=popout-square)
@@ -13,6 +12,7 @@ You can use Tools provided by this library for:
 - Validating persian text with different options
 - Validating persian numbers for numeric inputs
 - Converting and validating Jalali Date and time like native javascript Date object
+- Formatting Jalali Dates using jdate pipe
 - Formatting currency values in Rial or Toman currency type with flexable options.
 - Validating and Formatting Iranian National Number
 - Validating phone numbers of Iranian Mobile operators.
@@ -27,6 +27,40 @@ There are many reasons for using this library For everyone who develops an Angul
 * It's alive! Many of other persian libraries have unanswered issues from 1-2 year ago.
 * Almost everything has been tested. There are more than 590 unit tests written for all parts. So you can use everything without any fear of breaking things down.
 * It's documented. Everything are clear and you can find anything you want from this document, code document and also unit test.
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents** 
+
+- [NgxPersian](#ngxpersian)
+  - [Why you should use this library?](#why-you-should-use-this-library)
+- [How to Install?](#how-to-install)
+- [Documents](#documents)
+  - [Pipes](#pipes)
+    - [faNum](#fanum)
+    - [enNum](#ennum)
+    - [irc](#irc)
+    - [nationalCode](#nationalcode)
+    - [jdate](#jdate)
+  - [Services](#services)
+    - [PersianNumberService](#persiannumberservice)
+    - [PersianLetterService](#persianletterservice)
+    - [MobilePhoneNumberService](#mobilephonenumberservice)
+    - [JalaliDateValidatorService](#jalalidatevalidatorservice)
+    - [JalaliDateCalculatorService](#jalalidatecalculatorservice)
+  - [Jalali Date](#jalali-date)
+  - [NationalCodeService](#nationalcodeservice)
+  - [Validators](#validators)
+    - [persianNumbersValidator](#persiannumbersvalidator)
+    - [persianNumbersValidator](#persiannumbersvalidator-1)
+  - [Directives](#directives)
+- [Contribution](#contribution)
+- [There is any problem?](#there-is-any-problem)
+- [Citations](#citations)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
 
 # How to Install?
 For installing this library, you can simply run following command in your Angular app root:
@@ -59,7 +93,7 @@ For example, if we want to convert non-english digits in a attribute named: `eng
 
 `{{englishTextDigit | faNum}}`
 
-## enNum
+### enNum
 This pipe replaces all the Persian Digits to English digits without any need for additional code or parameter.
 
 For using this pipe, firstly you need to import the pipe from the library in your module:
@@ -157,6 +191,47 @@ You can see the example usage of this pipes in below GIF:
 **Still have questions?** see the [related part of example app](https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test) or see: [related section in code document for NationalCodePipe](https://alihoseiny.github.io/ngx-persian/pipes/NationalCodePipe.html). 
 
 Also you can see [unit tests of NationalCodePipe](https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/nationalCode.pipe.spec.ts) for more examples of how input and outputs could be.
+
+### jdate
+This pipe formats [`JDate`](#jalali-date) object and creates a human readable text with different pre-defiend formats. Also you can pass you custom format to it.
+
+You can pass Format name or custom format pattern as second parameter of this pipe.
+
+For using this pipe, firstly you need to import the pipe from the library in your module:
+
+`import {JdatePipe} from 'ngx-persian';`
+
+Then, like any other pipe, you need to _declare_ the pipe in your module. For this, you should add following line in the `declarations` array of the `@NgModule` of your module:
+
+`JdatePipe,`
+
+You can use this pipe anywhere you like in your templates for formatting Jalali dates as `JDate` objects.
+For example: ` dateObject | jdate` produces following text: `23 اردیبهشت 1397، 12:12 ب.ظ'`
+
+For changing formatting pattern, you can set second parameter like this:
+
+`dateObject| jdate:'small'` That produces this result: `97/2/23 12:12 ب.ظ `
+
+Below you can see list of pre-defined formats:
+
+|Format name|Equivalent Pattern String|Example Result|
+|---|---|---|
+|short|`yy/m/d h:M t`|97/2/23 12:12 ب.ظ'|
+|shortDate|`yy/m/d h:M t`|97/2/23 12:12 ب.ظ|
+|medium|`d mmm yyyy، h:M t`|23 اردیبهشت 1397، 12:12 ب.ظ|
+|mediumDate|`d mmm yyyy، h:M t`|23 اردیبهشت 1397، 12:12 ب.ظ|
+|long|`d mmm yyyy، h:M:S T`|23 اردیبهشت 1397، 12:12:30 بعد از ظهر|
+|longDate|`d mmm yyyy، h:M:S T`|23 اردیبهشت 1397، 12:12:30 بعد از ظهر|
+|shortTime|`h:M t`|12:12 ب.ظ|
+|mediumTime|`h:M:S t`|12:12:30 ب.ظ|
+|longTime|`h:M:S.l T`|12:12:30.300 بعد از ظهر|
+
+Also instead of those patter names, you can set your desired pattern string as described in the [documents of format method of JDate object]().
+
+**Still have questions?** see the [related part of example app](https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test) or see: [related section in code document for JdatePipe](https://alihoseiny.github.io/ngx-persian/pipes/JdatePipe.html). 
+
+
+Also you can see [unit tests of JdatePipe](https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/jdate.pipe.spec.ts) for more examples of how input and outputs could be.
 
 ## Services
 We provide some useful Angular Services for data validation and conversion. You can _Inject_ Them anywhere you like using Angular DI.
