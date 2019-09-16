@@ -17,7 +17,8 @@ enum FromatNames {
 }
 
 /**
- * Formats JDate objects according to the given format.
+ * Formats JDate objects or convert Date objects (or any instance of classes those implement that interface) to a `JDate` object and format
+ * that according to the given format.
  *
  * The result of this pipe is not reevaluated when the input is mutated. To avoid the need to reformat the date on every change-detection
  * cycle, treat the date as an immutable object and change the reference when the pipe needs to run again.
@@ -66,7 +67,7 @@ export class JdatePipe implements PipeTransform {
 
   /**
    * Formatting the date using `format` method of it with proper formatting pattern created from `format`
-   * @param value a Jalali Date object
+   * @param value a Jalali Date object or an instance of `Date` object or any class implementing that interface
    * @param format format name or format pattern string
    */
   transform(value: Date, format: string = 'mediumDate'): string {
