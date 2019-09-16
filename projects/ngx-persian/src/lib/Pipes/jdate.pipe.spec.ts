@@ -13,21 +13,35 @@ describe('JdatePipe', () => {
     expect(pipe).toBeTruthy();
   });
 
-  describe('should return formatted text when format name passed as second parameter.', () => {
-    [
-      ['short', '97/2/23 12:12 ب.ظ'],
-      ['shortDate', '97/2/23 12:12 ب.ظ'],
-      ['medium', '23 اردیبهشت 1397، 12:12 ب.ظ'],
-      ['mediumDate', '23 اردیبهشت 1397، 12:12 ب.ظ'],
-      ['long', '23 اردیبهشت 1397، 12:12:30 بعد از ظهر'],
-      ['longDate', '23 اردیبهشت 1397، 12:12:30 بعد از ظهر'],
-      ['shortTime', '12:12 ب.ظ'],
-      ['mediumTime', '12:12:30 ب.ظ'],
-      ['longTime', '12:12:30.300 بعد از ظهر']
-    ].forEach(([format_str, expectedOutput]) => {
-      it(`should return formatted date (${expectedOutput}) string when format string is ${format_str}`, () => {
-        expect(pipe.transform(date, format_str)).toBe(expectedOutput);
-      });
+  [
+    ['short', '97/2/23 12:12 ب.ظ'],
+    ['shortDate', '97/2/23 12:12 ب.ظ'],
+    ['medium', '23 اردیبهشت 1397، 12:12 ب.ظ'],
+    ['mediumDate', '23 اردیبهشت 1397، 12:12 ب.ظ'],
+    ['long', '23 اردیبهشت 1397، 12:12:30 بعد از ظهر'],
+    ['longDate', '23 اردیبهشت 1397، 12:12:30 بعد از ظهر'],
+    ['shortTime', '12:12 ب.ظ'],
+    ['mediumTime', '12:12:30 ب.ظ'],
+    ['longTime', '12:12:30.300 بعد از ظهر']
+  ].forEach(([format_str, expectedOutput]) => {
+    it(`should return formatted date (${expectedOutput}) string when format string is ${format_str}`, () => {
+      expect(pipe.transform(date, format_str)).toBe(expectedOutput);
+    });
+  });
+
+  [
+    ['short', '97/2/23 12:12 ب.ظ'],
+    ['shortDate', '97/2/23 12:12 ب.ظ'],
+    ['medium', '23 اردیبهشت 1397، 12:12 ب.ظ'],
+    ['mediumDate', '23 اردیبهشت 1397، 12:12 ب.ظ'],
+    ['long', '23 اردیبهشت 1397، 12:12:30 بعد از ظهر'],
+    ['longDate', '23 اردیبهشت 1397، 12:12:30 بعد از ظهر'],
+    ['shortTime', '12:12 ب.ظ'],
+    ['mediumTime', '12:12:30 ب.ظ'],
+    ['longTime', '12:12:30.300 بعد از ظهر']
+  ].forEach(([format_str, expectedOutput]) => {
+    it(`should convert Date to JDate and return formatted date (${expectedOutput}) string when format string is ${format_str}`, () => {
+      expect(pipe.transform(date.getGeorgianDate(), format_str)).toBe(expectedOutput);
     });
   });
 

@@ -69,7 +69,11 @@ export class JdatePipe implements PipeTransform {
    * @param value a Jalali Date object
    * @param format format name or format pattern string
    */
-  transform(value: JDate, format: string = 'mediumDate'): string {
+  transform(value: Date, format: string = 'mediumDate'): string {
+    if (!(value instanceof JDate)) {
+      value = new JDate(value);
+    }
+    // @ts-ignore
     return value.format(JdatePipe.convertNameToFormat(format));
   }
 
