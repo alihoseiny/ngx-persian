@@ -37,7 +37,7 @@
     "@types/jasmine": "~3.4.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~12.7.5",
-    "codelyzer": "~5.1.0",
+    "codelyzer": "~5.2.0",
     "jasmine": "^2.99.0",
     "jasmine-core": "^3.3.0",
     "jasmine-spec-reporter": "~4.2.1",
@@ -54,5 +54,7 @@
     "tslint": "~5.20.0",
     "typescript": "~3.4.5"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
