@@ -51,7 +51,7 @@
     "ts-node": "~8.4.1",
     "tsickle": ">=0.36.0",
     "tslib": "^1.10.0",
-    "tslint": "~5.20.0",
+    "tslint": "~5.20.1",
     "typescript": "~3.4.5"
   },
   "publishConfig": {
