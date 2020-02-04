@@ -65,8 +65,10 @@ export class MobilePhoneNumberService {
    * Removes +98 from the phoneNumber and replaces it with a 0 character.
    * @param phoneNumber Digits in this string should be english digits.
    */
-  normalizePhoneNumber(phoneNumber: string): string {
-    return phoneNumber.replace('+98', '0');
+   normalizePhoneNumber(phoneNumber: string): string {
+    phoneNumber = phoneNumber.replace('+98', '0');
+    phoneNumber = phoneNumber.replace('+۹۸', '۰');
+    return phoneNumber;
   }
 
   /**
