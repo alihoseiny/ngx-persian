@@ -8,6 +8,8 @@ import {InvalidNationalCodeError} from './InvalidNationalCode.error';
   providedIn: 'root'
 })
 export class NationalCodeService {
+  private static persianNumbersTable = ['\u06F0', '\u06F1', '\u06F2', '\u06F3', '\u06F4', '\u06F5', '\u06F6', '\u06F7', '\u06F8', '\u06F9'];
+  private static englishNumbersTable = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
   /**
    *
@@ -53,6 +55,7 @@ export class NationalCodeService {
   isValid(nationalCode: number | string): boolean {
     if (!nationalCode) { return false; }
     nationalCode = nationalCode.toString();
+    nationalCode = this.toEnglish(nationalCode); // If input is persian number, Convert it to english Number
     if (this._is_repetitive(nationalCode)) { return false; }
     try {
       nationalCode = this.normalize(nationalCode); // Normalizing the input and checking input length validation implicitly.
@@ -70,5 +73,15 @@ export class NationalCodeService {
       desiredControlNum = 11 - reminder;
     }
     return desiredControlNum === controlNum;
+  }
+
+  private toEnglish(value: string): string {
+    let regex: RegExp;
+    for (let i = 0; i < NationalCodeService.englishNumbersTable.length; i++) {
+      // language=JSRegexp
+      regex = new RegExp(`[${NationalCodeService.persianNumbersTable[i]}]`, 'g');
+      value = value.replace(regex, NationalCodeService.englishNumbersTable[i]);
+    }
+    return value;
   }
 }
