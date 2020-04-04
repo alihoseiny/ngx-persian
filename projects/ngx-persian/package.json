@@ -2,7 +2,22 @@
   "name": "ngx-persian",
   "version": "1.3.1",
   "description": "A Full-featured library for newer versions on angular (2-7) for working with persian letters, digits, Date and time, Iran National Number and ...",
-  "keywords": ["Angular", "Persian", "Farsi", "Convert To Persian", "Jalali Date", "Khorshidi", "Shamsi", "Iran", "Phone number", "pipe", "Form validator", "National Number", "SSN", "National Code"],
+  "keywords": [
+    "Angular",
+    "Persian",
+    "Farsi",
+    "Convert To Persian",
+    "Jalali Date",
+    "Khorshidi",
+    "Shamsi",
+    "Iran",
+    "Phone number",
+    "pipe",
+    "Form validator",
+    "National Number",
+    "SSN",
+    "National Code"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -20,5 +35,8 @@
     "copy-files": "npm run copy-license && npm run copy-readme",
     "npm_pack": "cd ../../dist/ngx-persian && npm pack",
     "package": "npm run build_lib && npm run copy-files && npm run npm_pack"
+  },
+  "devDependencies": {
+    "karma-firefox-launcher": "^1.3.0"
   }
 }
