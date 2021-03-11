@@ -27,7 +27,9 @@ export class IRCurrencyPipe extends DecimalPipe implements PipeTransform {
    * @param digitInfo decimal pipe formatter
    * @example 1925100 -> 1,925,100 ریال
    */
-  transform(value: string | number, type: string = 'rial', digitInfo: string = '1.0-0') {
+  transform(value: number | string, type?: string, digitsInfo?: string, locale?: string): string | null;
+  transform(value: null | undefined, type?: string , digitsInfo?: string, locale?: string): null;
+  transform(value: number | string | null | undefined, type: string = 'rial', digitInfo: string = '1.0-0', locale?: string) {
     value = Number(value);
     type = type.toLowerCase();
     if (isNaN(value)) { throw new Error(`${value} is not a acceptable number`); }
