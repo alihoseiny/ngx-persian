@@ -4,24 +4,20 @@ import { AppRoutingModule } from './app-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { PipesTestComponent } from './pipes-test/pipes-test.component';
-import {EnNumPipe, FaNumPipe, IRCurrencyPipe, NationalCodePipe, JdatePipe} from 'ngx-persian';
 import { ValidatorFunctionsComponent } from './validator-functions/validator-functions.component';
+import {NgxPersianModule} from 'ngx-persian';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EnNumPipe,
-    FaNumPipe,
-    IRCurrencyPipe,
-    NationalCodePipe,
-    JdatePipe,
     PipesTestComponent,
     ValidatorFunctionsComponent,
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    NgxPersianModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
