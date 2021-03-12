@@ -10,7 +10,7 @@ export {FaNumPipe} from './lib/Pipes/faNum.pipe';
 export {IRCurrencyPipe} from './lib/Pipes/IRCurrency.pipe';
 export {JdatePipe} from './lib/Pipes/jdate.pipe';
 export {NationalCodePipe} from './lib/Pipes/nationalCode.pipe';
-export {JDate} from './lib/JDate/jdate'
+export {JDate} from './lib/JDate/jdate';
 export {JalaliDateCalculatorService} from './lib/JDate/jalali-date-calculator.service';
 export {JalaliDateValidatorService} from './lib/JDate/jalali-date-validator.service';
 export {persianLettersValidator, persianNumbersValidator} from './lib/Validators/persian-validators';

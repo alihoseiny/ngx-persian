@@ -23,9 +23,9 @@ describe('JdatePipe', () => {
     ['shortTime', '12:12 ب.ظ'],
     ['mediumTime', '12:12:30 ب.ظ'],
     ['longTime', '12:12:30.300 بعد از ظهر']
-  ].forEach(([format_str, expectedOutput]) => {
-    it(`should return formatted date (${expectedOutput}) string when format string is ${format_str}`, () => {
-      expect(pipe.transform(date, format_str)).toBe(expectedOutput);
+  ].forEach(([formatStr, expectedOutput]) => {
+    it(`should return formatted date (${expectedOutput}) string when format string is ${formatStr}`, () => {
+      expect(pipe.transform(date, formatStr)).toBe(expectedOutput);
     });
   });
 
@@ -39,9 +39,9 @@ describe('JdatePipe', () => {
     ['shortTime', '12:12 ب.ظ'],
     ['mediumTime', '12:12:30 ب.ظ'],
     ['longTime', '12:12:30.300 بعد از ظهر']
-  ].forEach(([format_str, expectedOutput]) => {
-    it(`should convert Date to JDate and return formatted date (${expectedOutput}) string when format string is ${format_str}`, () => {
-      expect(pipe.transform(date.getGeorgianDate(), format_str)).toBe(expectedOutput);
+  ].forEach(([formatStr, expectedOutput]) => {
+    it(`should convert Date to JDate and return formatted date (${expectedOutput}) string when format string is ${formatStr}`, () => {
+      expect(pipe.transform(date.getGeorgianDate(), formatStr)).toBe(expectedOutput);
     });
   });
 

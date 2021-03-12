@@ -30,7 +30,7 @@ describe('MobilePhoneNumberService', () => {
     });
 
 
-    const baseNumbers = "01234567891";
+    const baseNumbers = '01234567891';
     for (const operator of Object.keys(MobileCodes)) {  // Looping through operators for getting all codes.
       for (const code of MobileCodes[operator]) {   // Looping through codes for creating all possible phone numbers with
         const number = code + baseNumbers.substring(code.length); // A fake phone number with desired code and correct pattern
@@ -60,7 +60,7 @@ describe('MobilePhoneNumberService', () => {
     });
 
 
-    const baseNumbers = "01234567891";
+    const baseNumbers = '01234567891';
     for (const operator of Object.keys(MobileCodes)) {  // Looping through operators for getting all codes.
       for (const code of MobileCodes[operator]) {   // Looping through codes for creating all possible phone numbers with
         const number = code + baseNumbers.substring(code.length); // A fake phone number with desired code and correct pattern
@@ -117,7 +117,7 @@ describe('MobilePhoneNumberService', () => {
       });
     });
 
-    const baseNumbers = "01234567891";
+    const baseNumbers = '01234567891';
     for (const operator of Object.keys(MobileCodes)) {  // Looping through operators for getting all codes.
       for (const code of MobileCodes[operator]) {   // Looping through codes for creating all possible phone numbers with
         const number = code + baseNumbers.substring(code.length); // A fake phone number with desired code and correct pattern

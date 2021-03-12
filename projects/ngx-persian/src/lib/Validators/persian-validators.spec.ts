@@ -94,7 +94,8 @@ class NgPersianTestTComponent {
     this.form = new FormGroup({
       persianNumber: new FormControl('', [persianNumbersValidator()]),
       persianLetter: new FormControl('', [persianLettersValidator()]),
-      persianLetterAllOptions: new FormControl('', [persianLettersValidator({whitespaces: true, symbols: true, persianDigits: true, enDigits: true})]),
+      persianLetterAllOptions: new FormControl('',
+        [persianLettersValidator({whitespaces: true, symbols: true, persianDigits: true, enDigits: true})]),
     });
   }
 }

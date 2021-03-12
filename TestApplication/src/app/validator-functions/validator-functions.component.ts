@@ -21,7 +21,7 @@ export class ValidatorFunctionsComponent implements OnInit {
       persianLettersWithEnglishNums: new FormControl('', persianLettersValidator({enDigits: true})),
       persianLettersWithPersianNums: new FormControl('', persianLettersValidator({persianDigits: true})),
       persianLettersWithSymbols: new FormControl('', persianLettersValidator({symbols: true})),
-    })
+    });
   }
 
 }

@@ -19,7 +19,7 @@ describe('NationalCodePipe', () => {
     null
   ].forEach(input => {
     it(`should return an empty string when input (${input}) is not an acceptable national code.`, () => {
-      expect(nationalCode.transform(input)).toBe('')
+      expect(nationalCode.transform(input)).toBe('');
     });
   });
 });

@@ -11,12 +11,12 @@ import {JDate} from 'ngx-persian';
 export class PipesTestComponent implements OnInit {
 
   fGroup: FormGroup;
-  date: JDate;
+  jalaliDate: JDate;
 
   constructor() {}
 
   ngOnInit() {
-    this.date = new JDate();
+    this.jalaliDate = new JDate();
     console.log(new JDate(new Date()));
     this.fGroup = new FormGroup({
       englishPipe: new FormControl(''),
@@ -24,7 +24,7 @@ export class PipesTestComponent implements OnInit {
       tomanPipe: new FormControl(''),
       rialPipe: new FormControl(''),
       irncode: new FormControl(''),
-    })
+    });
   }
 
 }
