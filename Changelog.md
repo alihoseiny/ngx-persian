@@ -3,10 +3,29 @@ List of changes of this library during time.
 
 You can get different version [here](https://www.npmjs.com/package/ngx-persian) or download them from npm command line.
 
-# V1.3
-Add `jdate` pipe for formatting `JDate` objects.
-## V1.3.1
+# V1.3.2
+## Improvement
+- ngx-persian updated to Angular 11.
+- TestApplication updated to Angular 11.
+- `compilerOptions` added to the tsconfig file for targeting es5 and supporting
+  experimental features. Without the later, new version of typescript raises error.
+- `function`s in the `describe`s and test cases replaced by arrow functions.
+- In the string literals, double quotation replaced by single quotation.
+- Missing semicolons added.
+- Long lines broken for meeting line max length constraint.
+- radix value added to the `parsInt` calls.
+- `getVarDate` field added to the `JDate` for making it compatible with the
+  `Date` interface.
+
+## Features
+- `addMonth` method added to the `JDate` class.
+
+# V1.3.1
 Add `Date` object conversion to the `JDate` objects in the `jdate` before formatting the object.
+
+# V1.3
+## Features
+- Add `jdate` pipe for formatting `JDate` objects.
 
 ## V1.2.0
 1. NationalCodeService for validating Iranian national code added.

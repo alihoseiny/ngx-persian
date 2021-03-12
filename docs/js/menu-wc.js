@@ -65,13 +65,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/NgxPersianModule.html" data-type="entity-link">NgxPersianModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#directives-links-module-NgxPersianModule-1423e56b53440eb50dbd2bb18cf708d7"' : 'data-target="#xs-directives-links-module-NgxPersianModule-1423e56b53440eb50dbd2bb18cf708d7"' }>
+                                        'data-target="#directives-links-module-NgxPersianModule-dc6359b4098884159c8ef1d92039ec6a"' : 'data-target="#xs-directives-links-module-NgxPersianModule-dc6359b4098884159c8ef1d92039ec6a"' }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-NgxPersianModule-1423e56b53440eb50dbd2bb18cf708d7"' :
-                                        'id="xs-directives-links-module-NgxPersianModule-1423e56b53440eb50dbd2bb18cf708d7"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-NgxPersianModule-dc6359b4098884159c8ef1d92039ec6a"' :
+                                        'id="xs-directives-links-module-NgxPersianModule-dc6359b4098884159c8ef1d92039ec6a"' }>
                                         <li class="link">
                                             <a href="directives/PersianLetterDirective.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules">PersianLetterDirective</a>
@@ -84,13 +84,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#pipes-links-module-NgxPersianModule-1423e56b53440eb50dbd2bb18cf708d7"' : 'data-target="#xs-pipes-links-module-NgxPersianModule-1423e56b53440eb50dbd2bb18cf708d7"' }>
+                                            'data-target="#pipes-links-module-NgxPersianModule-dc6359b4098884159c8ef1d92039ec6a"' : 'data-target="#xs-pipes-links-module-NgxPersianModule-dc6359b4098884159c8ef1d92039ec6a"' }>
                                             <span class="icon ion-md-add"></span>
                                             <span>Pipes</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-NgxPersianModule-1423e56b53440eb50dbd2bb18cf708d7"' :
-                                            'id="xs-pipes-links-module-NgxPersianModule-1423e56b53440eb50dbd2bb18cf708d7"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-NgxPersianModule-dc6359b4098884159c8ef1d92039ec6a"' :
+                                            'id="xs-pipes-links-module-NgxPersianModule-dc6359b4098884159c8ef1d92039ec6a"' }>
                                             <li class="link">
                                                 <a href="pipes/EnNumPipe.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">EnNumPipe</a>
