@@ -64,7 +64,7 @@ export class NationalCodeService {
       multiplicationResult += parseInt(nationalCode.charAt(i), 10)  * (10 - i);
     }
     const reminder = multiplicationResult % 11;
-    const controlNum = parseInt(nationalCode.charAt(9));
+    const controlNum = parseInt(nationalCode.charAt(9), 10);
     let desiredControlNum =  reminder;
     if (reminder > 1) {
       desiredControlNum = 11 - reminder;

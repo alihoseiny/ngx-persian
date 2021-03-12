@@ -13,5 +13,9 @@
     {
       "path": "./projects/ngx-persian/tsconfig.spec.json"
     }
-  ]
+  ],
+  "compilerOptions": {
+    "target": "es5",
+    "experimentalDecorators": true
+  }
 }

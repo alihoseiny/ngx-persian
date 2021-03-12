@@ -121,6 +121,6 @@ describe('NationalCodeService', () => {
     it(`should return true when input (${input}) is a valid national code.`, () => {
       expect(nationalCodeService.isValid(input)).toBeTruthy();
     });
-  })
+  });
 
 });

@@ -14,6 +14,93 @@ import {JalaliDateValidatorService} from './jalali-date-validator.service';
  * Recreating objects are safer than working with UTC methods.
  */
 export class JDate implements Date{
+  /**
+   * For creating a JDate object, you have 5 different options.
+   *
+   * 1- If you want to have current date and time, you can simply call new JDate() without any parameter.
+   *
+   * 2- If you want to create JDate object from a jalali date string as described in the `pars` method document, you can pass that string as
+   *    first parameter and leave others empty.
+   *
+   * 3 - If you want to create JDate object from number of passed milliseconds from UNIX epoch (for example creating a Jalali date object
+   *     from result of getTime method of another Date object), you can pass the number as first parameter and leave others alone.
+   *
+   * 4 - If you want to create JDate object from a Georgian Date object, you can simply pass that Date object as first parameter and leave
+   *     others empty.
+   *
+   * 5- If you want to create JDate object from date and time values, you can simply fill corresponding parameters of each date and time
+   * value to the constructor. You don't have to fill all of the parameters. only those you need. other parameters will fill with zero.
+   * Examples of all of those scenarios:
+   *
+   * @example new JDate()
+   * @example new JDate('11 دی 1348 00:00:00')
+   * @example new JDate(-12600000)
+   * @example new JDate(new Date(2018, 0, 1))
+   * @example new JDate(1397, 0, 25)
+   * @example new JDate(1397, 11, 25, 12, 32, 45, 123)
+   * @param jYear jalai
+   * @param jMonth Month number starting from 0 and should be LESSER than 12.
+   * @param jDay
+   * @param hours
+   * @param minutes
+   * @param seconds
+   * @param milliseconds
+   * @throws InvalidJalaliDateError
+   */
+  constructor(jYear?: number | string | Date, jMonth?: number, jDay?: number, hours: number = 0, minutes: number = 0,
+              seconds: number = 0, milliseconds: number = 0) {
+    if (!jYear) {
+      this._createFromDate(new Date());
+    } else if (typeof jYear === 'string' && jMonth === undefined) {
+      this._createFromDate(new Date(JDate.parse(jYear)));
+    } else if (typeof jYear === 'number' && jMonth === undefined) {
+      this._createFromDate(new Date(jYear));
+    } else if (jYear instanceof Date && jMonth === undefined) {
+      this._createFromDate(jYear);
+    }
+    else {
+      // @ts-ignore
+      this._g_date = this._calculator.convertToGeorgian(jYear, jMonth, jDay);
+      // @ts-ignore
+      this._jalaliYear = jYear;
+      this._jMonth = jMonth;
+      this._jDay = jDay;
+      this._g_date.setHours(hours, minutes, seconds, milliseconds);
+    }
+    this._check_date_validity();
+  }
+
+  getVarDate: () => any;
+
+  /**
+   * Sets Jalali year value to the input parameter and recalculates gDate attribute.
+   * @param value full Jalali year like 1397
+   */
+  private set jalaliYear(value: number) {
+    this._jalaliYear = value;
+    this._check_date_validity();
+    this._renewGDate();
+  }
+
+  /**
+   * Sets Jalali month value to the input parameter and recalculates gDate attribute.
+   * @param value month number starting from zero
+   */
+  private set jMonth(value: number) {
+    this._jMonth = value;
+    this._check_date_validity();
+    this._renewGDate();
+  }
+
+  /**
+   * Sets Jalali day value to the input parameter and recalculates gDate attribute.
+   * @param value day number starting from 1.
+   */
+  private set jDay(value: number) {
+    this._jDay = value;
+    this._check_date_validity();
+    this._renewGDate();
+  }
 
   private static EN_MONTHS = ['Farvardin', 'Ordibehesht', 'Khordad', 'Tir', 'Mordad', 'Shahrivar', 'Mehr', 'Aban', 'Azar', 'Dey', 'Behman', 'Esfand'];
   private static FA_MONTHS = ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند'];
@@ -24,8 +111,8 @@ export class JDate implements Date{
   private static SHORT_BEFORE_NOON = 'ق.ظ';
   private static SHORT_AFTER_NOON = 'ب.ظ';
 
-  private _gDate: Date;
-  private _jYear: number;
+  private _g_date: Date;
+  private _jalaliYear: number;
   private _jMonth: number;
   private _jDay: number;
   private _calculator: JalaliDateCalculatorService = new JalaliDateCalculatorService(new JalaliDateValidatorService());
@@ -59,112 +146,29 @@ export class JDate implements Date{
     const calculator = new JalaliDateCalculatorService(new JalaliDateValidatorService());
     const dateArray = dateString.split(' ');
     if (dateArray.length < 3) { throw new InvalidJalaliDateError(); }
-    const day = parseInt(dateArray[0]);
+    const day = parseInt(dateArray[0], 10);
     let month = JDate.FA_MONTHS.indexOf(dateArray[1]);
     if (month === -1) { month = JDate.EN_MONTHS.indexOf(dateArray[1]); }
     if (month === -1) { throw new InvalidJalaliDateError(); }
-    const year = parseInt(dateArray[2]);
+    const year = parseInt(dateArray[2], 10);
     const timeArray = dateArray.length > 3 ? dateArray[3].split(':') : ['0', '0', '0'];
-    const hour = parseInt(timeArray[0]);
-    const min = parseInt(timeArray[1]);
-    const sec = parseInt(timeArray[2]);
+    const hour = parseInt(timeArray[0], 10);
+    const min = parseInt(timeArray[1], 10);
+    const sec = parseInt(timeArray[2], 10);
     const gDate = calculator.convertToGeorgian(year, month, day);
     gDate.setHours(hour, min, sec);
     return gDate.getTime();
   }
 
-
-  /**
-   * For creating a JDate object, you have 5 different options.
-   *
-   * 1- If you want to have current date and time, you can simply call new JDate() without any parameter.
-   *
-   * 2- If you want to create JDate object from a jalali date string as described in the `pars` method document, you can pass that string as
-   *    first parameter and leave others empty.
-   *
-   * 3 - If you want to create JDate object from number of passed milliseconds from UNIX epoch (for example creating a Jalali date object
-   *     from result of getTime method of another Date object), you can pass the number as first parameter and leave others alone.
-   *
-   * 4 - If you want to create JDate object from a Georgian Date object, you can simply pass that Date object as first parameter and leave
-   *     others empty.
-   *
-   * 5- If you want to create JDate object from date and time values, you can simply fill corresponding parameters of each date and time
-   * value to the constructor. You don't have to fill all of the parameters. only those you need. other parameters will fill with zero.
-   * Examples of all of those scenarios:
-   *
-   * @example new JDate()
-   * @example new JDate('11 دی 1348 00:00:00')
-   * @example new JDate(-12600000)
-   * @example new JDate(new Date(2018, 0, 1))
-   * @example new JDate(1397, 0, 25)
-   * @example new JDate(1397, 11, 25, 12, 32, 45, 123)
-   * @param jYear
-   * @param jMonth Month number starting from 0 and should be LESSER than 12.
-   * @param jDay
-   * @param hours
-   * @param minutes
-   * @param seconds
-   * @param milliseconds
-   * @throws InvalidJalaliDateError
-   */
-  constructor(jYear?: number | string | Date, jMonth?: number, jDay?: number, hours: number = 0, minutes: number = 0,
-              seconds: number = 0, milliseconds: number = 0) {
-    if (!jYear) {
-      this._createFromDate(new Date());
-    } else if (typeof jYear === 'string' && jMonth === undefined) {
-      this._createFromDate(new Date(JDate.parse(jYear)));
-    } else if (typeof jYear === 'number' && jMonth === undefined) {
-      this._createFromDate(new Date(jYear));
-    } else if (jYear instanceof Date && jMonth === undefined) {
-      this._createFromDate(jYear);
+  toLocaleString(locales?: string | string[], options?: Intl.DateTimeFormatOptions): string {
+        throw new Error('Method not implemented.');
     }
-    else {
-      // @ts-ignore
-      this._gDate = this._calculator.convertToGeorgian(jYear, jMonth, jDay);
-      // @ts-ignore
-      this._jYear = jYear;
-      this._jMonth = jMonth;
-      this._jDay = jDay;
-      this._gDate.setHours(hours, minutes, seconds, milliseconds);
-    }
-    this._check_date_validity();
-  }
 
   /**
    * This method recalculates the gDate value with private attributes those storing Jalali date parts.
    */
   private _renewGDate(): void {
-    this._gDate = this._calculator.convertToGeorgian(this._jYear, this._jMonth, this._jDay);
-  }
-
-  /**
-   * Sets Jalali year value to the input parameter and recalculates gDate attribute.
-   * @param value full Jalali year like 1397
-   */
-  private set jYear(value: number) {
-    this._jYear = value;
-    this._check_date_validity();
-    this._renewGDate();
-  }
-
-  /**
-   * Sets Jalali month value to the input parameter and recalculates gDate attribute.
-   * @param value month number starting from zero
-   */
-  private set jMonth(value: number) {
-    this._jMonth = value;
-    this._check_date_validity();
-    this._renewGDate();
-  }
-
-  /**
-   * Sets Jalali day value to the input parameter and recalculates gDate attribute.
-   * @param value day number starting from 1.
-   */
-  private set jDay(value: number) {
-    this._jDay = value;
-    this._check_date_validity();
-    this._renewGDate();
+    this._g_date = this._calculator.convertToGeorgian(this._jalaliYear, this._jMonth, this._jDay);
   }
 
   /**
@@ -173,30 +177,30 @@ export class JDate implements Date{
    * @throws InvalidJalaliDateError
    */
   private _check_date_validity(): void{
-    if (!this._calculator.validator.isValidJDate(this._jYear, this._jMonth, this._jDay)) { throw new InvalidJalaliDateError(); }
+    if (!this._calculator.validator.isValidJDate(this._jalaliYear, this._jMonth, this._jDay)) { throw new InvalidJalaliDateError(); }
   }
 
   /**
    * Calculates Jalali year from Georgian Date object and sets the attributes of the object to proper values.
-   * @param gDate
+   * @param gDate: The default JS Date object.
    */
   private _createFromDate(gDate: Date) {
     const conversionResult = this._calculator.convertToJalali(gDate);
-    this._jYear = conversionResult.year;
+    this._jalaliYear = conversionResult.year;
     this._jMonth = conversionResult.month;
     this._jDay = conversionResult.day;
-    this._gDate = gDate;
+    this._g_date = gDate;
   }
 
-  [Symbol.toPrimitive](hint: "default"): string;
+  [Symbol.toPrimitive](hint: 'default'): string;
 
-  [Symbol.toPrimitive](hint: "string"): string;
+  [Symbol.toPrimitive](hint: 'string'): string;
 
-  [Symbol.toPrimitive](hint: "number"): number;
+  [Symbol.toPrimitive](hint: 'number'): number;
 
   [Symbol.toPrimitive](hint: string): string | number;
 
-  [Symbol.toPrimitive](hint: "default" | "string" | "number" | string): string | number {
+  [Symbol.toPrimitive](hint: 'default' | 'string' | 'number' | string): string | number {
     return undefined;
   }
 
@@ -204,7 +208,7 @@ export class JDate implements Date{
    * @return a regular javascript Date object representing Georgian date corresponding to the Jalili date of the JDate object.
    */
   getGeorgianDate(): Date {
-    return this._gDate;
+    return this._g_date;
   }
 
   /**
@@ -218,16 +222,16 @@ export class JDate implements Date{
    *  @return the day of the week for the specified date according to local time, where 0 represents Friday and 6 is Thursday.
    */
   getDay(): number {
-    return (this._gDate.getDay() + 2) % 7;
+    return (this._g_date.getDay() + 2) % 7;
   }
 
   /**
    * @return the year (4 digits for years greater than 999) of the specified date according to local time
    * @example 1397
    * @example 100
-   * */
+   */
   getFullYear(): number {
-    return this._jYear;
+    return this._jalaliYear;
   }
 
   /**
@@ -235,7 +239,7 @@ export class JDate implements Date{
    * @example 10
    */
   getHours(): number {
-    return this._gDate.getHours();
+    return this._g_date.getHours();
   }
 
   /**
@@ -251,14 +255,14 @@ export class JDate implements Date{
    * @return the milliseconds in the specified date according to local time.
    */
   getMilliseconds(): number {
-    return this._gDate.getMilliseconds();
+    return this._g_date.getMilliseconds();
   }
 
   /**
    * @Return the minutes in the specified date according to local time.
    */
   getMinutes(): number {
-    return this._gDate.getMinutes();
+    return this._g_date.getMinutes();
   }
 
   /**
@@ -273,7 +277,7 @@ export class JDate implements Date{
    * @return the seconds in the specified date according to local time.
    */
   getSeconds(): number {
-    return this._gDate.getSeconds();
+    return this._g_date.getSeconds();
   }
 
   /**
@@ -282,11 +286,12 @@ export class JDate implements Date{
    * getTime() always uses UTC for time representation. For example, a client browser in one timezone, getTime() will be the same as a
    * client browser in any other timezone.
    *
-   *You can use this method to help assign a date and time to another Date object. This method is functionally equivalent to the valueOf() method.
+   *You can use this method to help assign a date and time to another Date object. This method is functionally equivalent to the
+   *  valueOf() method.
    * @return the number of milliseconds since the Unix Epoch.
    */
   getTime(): number {
-    return this._gDate.getTime();
+    return this._g_date.getTime();
   }
 
   /**
@@ -295,7 +300,7 @@ export class JDate implements Date{
    * @todo add implementation
    */
   getTimezoneOffset(): number {
-    return this._gDate.getTimezoneOffset();
+    return this._g_date.getTimezoneOffset();
   }
 
   /**
@@ -304,7 +309,7 @@ export class JDate implements Date{
    * @todo add implementation
    */
   getUTCDate(): number {
-    return this._gDate.getUTCDate();
+    return this._g_date.getUTCDate();
   }
 
   /**
@@ -313,7 +318,7 @@ export class JDate implements Date{
    * @todo add implementation
    */
   getUTCDay(): number {
-    return this._gDate.getUTCDay();
+    return this._g_date.getUTCDay();
   }
 
   /**
@@ -322,7 +327,7 @@ export class JDate implements Date{
    * @todo add implementation
    */
   getUTCFullYear(): number {
-    return this._gDate.getUTCFullYear();
+    return this._g_date.getUTCFullYear();
   }
 
   /**
@@ -330,7 +335,7 @@ export class JDate implements Date{
    * @todo add implementation
    */
   getUTCHours(): number {
-    return this._gDate.getUTCHours();
+    return this._g_date.getUTCHours();
   }
 
   /**
@@ -338,7 +343,7 @@ export class JDate implements Date{
    * @todo add implementation
    */
   getUTCMilliseconds(): number {
-    return this._gDate.getUTCMilliseconds();
+    return this._g_date.getUTCMilliseconds();
   }
 
   /**
@@ -346,7 +351,7 @@ export class JDate implements Date{
    * @todo add implementation
    */
   getUTCMinutes(): number {
-    return this._gDate.getUTCMinutes();
+    return this._g_date.getUTCMinutes();
   }
 
   /**
@@ -355,7 +360,7 @@ export class JDate implements Date{
    * @todo add implementation
    */
   getUTCMonth(): number {
-    return this._gDate.getUTCMonth();
+    return this._g_date.getUTCMonth();
   }
 
   /**
@@ -363,7 +368,7 @@ export class JDate implements Date{
    * @todo add implementation
    */
   getUTCSeconds(): number {
-    return this._gDate.getUTCSeconds();
+    return this._g_date.getUTCSeconds();
   }
 
   /**
@@ -383,7 +388,7 @@ export class JDate implements Date{
    * @param date number of day starting from 1
    */
   setFullYear(year: number, month?: number, date?: number): number {
-    this.jYear = year;
+    this.jalaliYear = year;
     if (month) { this.jMonth = month; }
     if (date) {this.jDay = date; }
     return this.getTime();
@@ -399,7 +404,7 @@ export class JDate implements Date{
    * @return The number of milliseconds between January 1, 1970 00:00:00 UTC and the updated date.
    */
   setHours(hours: number, min?: number, sec?: number, ms?: number): number {
-    this._gDate.setHours(hours);
+    this._g_date.setHours(hours);
     if (min !== undefined) { this.setMinutes(min); }
     if (sec !== undefined) { this.setSeconds(sec); }
     if (ms !== undefined) { this.setMilliseconds(ms); }
@@ -412,7 +417,7 @@ export class JDate implements Date{
    * @return The number of milliseconds between 1 January 1970 00:00:00 UTC and the updated date.
    */
   setMilliseconds(ms: number): number {
-    this._gDate.setMilliseconds(ms);
+    this._g_date.setMilliseconds(ms);
     return this.getTime();
   }
 
@@ -424,8 +429,8 @@ export class JDate implements Date{
    * @return The number of milliseconds between 1 January 1970 00:00:00 UTC and the updated date.
    */
   setMinutes(min: number, sec?: number, ms?: number): number {
-    this._gDate.setMinutes(min);
-    if(sec !== undefined) { this.setSeconds(sec); }
+    this._g_date.setMinutes(min);
+    if (sec !== undefined) { this.setSeconds(sec); }
     if (ms !== undefined) { this.setMilliseconds(ms); }
     return this.getTime();
   }
@@ -449,7 +454,7 @@ export class JDate implements Date{
    * @return The number of milliseconds between 1 January 1970 00:00:00 UTC and the updated date.
    */
   setSeconds(sec: number, ms?: number): number {
-    this._gDate.setSeconds(sec);
+    this._g_date.setSeconds(sec);
     if (ms !== undefined) { this.setMilliseconds(ms); }
     return this.getTime();
   }
@@ -472,8 +477,8 @@ export class JDate implements Date{
    * @todo add implementation
    */
   setUTCDate(date: number): number {
-    this._gDate.setUTCDate(date);
-    this._createFromDate(this._gDate);
+    this._g_date.setUTCDate(date);
+    this._createFromDate(this._g_date);
     return this.getTime();
   }
 
@@ -487,8 +492,8 @@ export class JDate implements Date{
    * @todo add implementation
    */
   setUTCFullYear(year: number, month?: number, date?: number): number {
-    this._gDate.setUTCFullYear(year, month, date);
-    this._createFromDate(this._gDate);
+    this._g_date.setUTCFullYear(year, month, date);
+    this._createFromDate(this._g_date);
     return this.getTime();
   }
 
@@ -506,8 +511,8 @@ export class JDate implements Date{
    * @todo add implementation
    */
   setUTCHours(hours: number, min?: number, sec?: number, ms?: number): number {
-    this._gDate.setUTCHours(hours, min, sec, ms);
-    this._createFromDate(this._gDate);
+    this._g_date.setUTCHours(hours, min, sec, ms);
+    this._createFromDate(this._g_date);
     return this.getTime();
   }
 
@@ -520,8 +525,8 @@ export class JDate implements Date{
    * @todo add implementation
    */
   setUTCMilliseconds(ms: number): number {
-    this._gDate.setUTCMilliseconds(ms);
-    this._createFromDate(this._gDate);
+    this._g_date.setUTCMilliseconds(ms);
+    this._createFromDate(this._g_date);
     return this.getTime();
   }
 
@@ -538,8 +543,8 @@ export class JDate implements Date{
    * @todo add implementation
    */
   setUTCMinutes(min: number, sec?: number, ms?: number): number {
-    this._gDate.setUTCMinutes(min, sec, ms);
-    this._createFromDate(this._gDate);
+    this._g_date.setUTCMinutes(min, sec, ms);
+    this._createFromDate(this._g_date);
     return this.getTime();
   }
 
@@ -553,8 +558,8 @@ export class JDate implements Date{
    * @todo add implementation
    */
   setUTCMonth(month: number, date?: number): number {
-    this._gDate.setUTCMonth(month, date);
-    this._createFromDate(this._gDate);
+    this._g_date.setUTCMonth(month, date);
+    this._createFromDate(this._g_date);
     return this.getTime();
   }
 
@@ -567,8 +572,8 @@ export class JDate implements Date{
    * @todo add implementation
    */
   setUTCSeconds(sec: number, ms?: number): number {
-    this._gDate.setUTCSeconds(sec, ms);
-    this._createFromDate(this._gDate);
+    this._g_date.setUTCSeconds(sec, ms);
+    this._createFromDate(this._g_date);
     return this.getTime();
   }
 
@@ -599,7 +604,8 @@ export class JDate implements Date{
 
   /**
    * Returns time marker of object time. all hour numbers lesser than 12 are before noon and all greater than 12 are after noon.
-   * @param shortVersion controls output. if be true, output will be in short format like: ب.ظ if be false, output will be in complete format like: بعد از ظهر
+   * @param shortVersion controls output. if be true, output will be in short format like: ب.ظ if be false, output will be in complete
+   *        format like: بعد از ظهر
    * @return time marker for showing if time is before noon or after it
    */
   getTimeMarker(shortVersion: boolean = false): string {
@@ -644,7 +650,7 @@ export class JDate implements Date{
       .replace(/\bdddd\b/g, JDate.EN_DAYS_OF_WEEK[this.getDay()])
       .replace(/\bddd\b/g, JDate.DAYS_OF_WEEK[this.getDay()])
       .replace(/\bdd\b/g, JDate.zeroPadding(this.getDate(), 2))
-      .replace(/\bd\b/g, this.getDate().toString())
+      .replace(/\bd\b/g, this.getDate().toString());
   }
 
   /**
@@ -760,7 +766,6 @@ export class JDate implements Date{
   /**
    * @return a string representation of the Date object.
    * [see toString method]{@link toString}
-   * @param key
    */
   toJSON(key?: any): string {
     return this.toString();
@@ -770,7 +775,7 @@ export class JDate implements Date{
    * returns formatted date with following pattern: 'ddd mmm d yyyy HH:MM:SS'
    */
   toString(): string {
-    return this.format('ddd mmm d yyyy HH:MM:SS')
+    return this.format('ddd mmm d yyyy HH:MM:SS');
   }
 
   /**
@@ -784,9 +789,8 @@ export class JDate implements Date{
    * @return a string with a language sensitive representation of the date portion of this date.
    */
   toLocaleDateString(): string;
-  toLocaleDateString(locales?: string | string[], options?: Intl.DateTimeFormatOptions): string;
   toLocaleDateString(locales?: string | string[], options?: Intl.DateTimeFormatOptions): string {
-    return this._gDate.toLocaleDateString(locales, options);
+    return this._g_date.toLocaleDateString(locales, options);
   }
 
   /**
@@ -794,28 +798,29 @@ export class JDate implements Date{
    * [For more information see javascript Date object documentation about this method]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString}
    */
   toLocaleTimeString(): string;
-  toLocaleTimeString(locales?: string | string[], options?: Intl.DateTimeFormatOptions): string;
   toLocaleTimeString(locales?: string | string[], options?: Intl.DateTimeFormatOptions): string {
-    return this._gDate.toLocaleTimeString(locales, options);
+    return this._g_date.toLocaleTimeString(locales, options);
   }
 
   /**
    * @return toTimeString of Georgian date
    *
-   * [For more information see javascript Date object documentation about this method]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toTimeString}
+   * [For more information see javascript Date object documentation about this
+   * method]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toTimeString}
    */
   toTimeString(): string {
-    return this._gDate.toTimeString();
+    return this._g_date.toTimeString();
   }
 
   /**
    * @return toUTCString of Georgian date.
    *
-   * [For more information see javascript Date object documentation about this method]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString}
+   * [For more information see javascript Date object documentation about this
+   * method]{@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString}
    * @todo add implementation
    */
   toUTCString(): string {
-    return this._gDate.toUTCString();
+    return this._g_date.toUTCString();
   }
 
   /**
@@ -828,11 +833,11 @@ export class JDate implements Date{
   }
 
   addMonth(incValue: number): void {
-    // let newMonth: number = (this.getMonth() + incValue) % 11;
-    // let passedYears: number = this.getFullYear() + newMonth / 11;
-    // let newYear: number = newMonth === 0 ? ;
-    // this.setFullYear(newYear);
-    // this.setMonth(newMonth % 11);
+    const numberOfMonths = this.getMonth() + incValue;
+    const newMonth: number = (numberOfMonths) % 12;
+    const newYear: number = this.getFullYear() + Math.trunc(numberOfMonths / 12);
+    this.setFullYear(newYear);
+    this.setMonth(newMonth);
   }
 }
 

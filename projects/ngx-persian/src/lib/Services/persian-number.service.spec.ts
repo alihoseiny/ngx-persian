@@ -86,9 +86,9 @@ describe('PersianNumberService', () => {
       });
     });
 
-      it(`should return true when all characters in the input are persian numbers`, () => {
+    it(`should return true when all characters in the input are persian numbers`, () => {
         expect(persianNumberService.isPersian('۲۳۴۶۷۸۹۰۹۸۷۶۳۲۱')).toBeTruthy();
-      });
+    });
 
   });
 

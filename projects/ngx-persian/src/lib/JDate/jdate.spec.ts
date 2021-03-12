@@ -7,14 +7,14 @@ describe('JDate', () => {
     jDate = new JDate();
   });
 
-  describe('JDate Constructor', function() {
+  describe('JDate Constructor', () => {
     it('should create an instance', () => {
       expect(new JDate()).toBeTruthy();
     });
 
     it('should create a valid JDate object from date and time values', () => {
-      const jalali_date = new JDate(1397, 11, 12, 12, 13, 14, 255);
-      expect(jalali_date.format("yyyy-mm-dd HH:MM:SS.l")).toBe("1397-12-12 12:13:14.255");
+      const jalayDate = new JDate(1397, 11, 12, 12, 13, 14, 255);
+      expect(jalayDate.format('yyyy-mm-dd HH:MM:SS.l')).toBe('1397-12-12 12:13:14.255');
     });
   });
 
@@ -161,7 +161,7 @@ describe('JDate', () => {
   describe('setDate', () => {
     [
       [new JDate('29 دی 1348 00:00:00'), 11, -12600000],
-      [new JDate('03 Dey 1348 00:00:00'),11,  -12600000],
+      [new JDate('03 Dey 1348 00:00:00'), 11,  -12600000],
     ].forEach(([jDateObj, newDate, time]) => {
       it('should return number of milliseconds since the unix epoch', () => {
         // @ts-ignore
@@ -175,7 +175,7 @@ describe('JDate', () => {
   describe('setFullYear', () => {
     [
       [new JDate('11 دی 1397 00:00:00'), 1348, -12600000],
-      [new JDate('11 Dey 1400 00:00:00'),1348,  -12600000],
+      [new JDate('11 Dey 1400 00:00:00'), 1348,  -12600000],
     ].forEach(([jDateObj, newYear, time]) => {
       it('should return number of milliseconds since the unix epoch', () => {
         // @ts-ignore
@@ -541,17 +541,18 @@ describe('JDate', () => {
     });
   });
 
-  xdescribe('addMonth', function() {
+  describe('addMonth', () => {
     [
-      [new JDate(1398, 0, 1), 1, "1398-2-1"],
-      [new JDate(1398, 0, 1), 10, "1398-11-1"],
-      [new JDate(1398, 0, 1), 0, "1398-1-1"],
-      [new JDate(1398, 0, 1), 12, "1399-1-1"]
-    ].forEach(([jdate, increase_by, result]) => {
-      it(`should change month and year (if month overflows) to the increased value and set date to ${result} when increase value 
-      is ${increase_by}`, function() {
+      [new JDate(1398, 0, 1), 1, '1398-2-1'],
+      [new JDate(1398, 0, 1), 10, '1398-11-1'],
+      [new JDate(1398, 0, 1), 0, '1398-1-1'],
+      [new JDate(1398, 0, 1), 12, '1399-1-1'],
+      [new JDate(1398, 11, 1), 12, '1399-12-1'],
+    ].forEach(([jdate, increaseBy, result]) => {
+      it(`should change month and year (if month overflows) to the increased value and set date to ${result} when increase value
+      is ${increaseBy}`, () => {
         // @ts-ignore
-        jdate.addMonth(increase_by);
+        jdate.addMonth(increaseBy);
         // @ts-ignore
         expect(jdate.format('yyyy-m-d')).toBe(result);
       });
