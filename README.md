@@ -807,7 +807,7 @@ There are many ways to create a Jalali Date object for your convenience.
  4. Creating `JDate` object from a Georgian Date object and convert that date to the Jalali date effortlessly: `new JDate(new Date(2018, 1, 1))`
  5. Creating JDate object from date and time values: `new JDate(1397, 12, 25)` or `new JDate(1397, 12, 25, 12, 32, 45, 123)`
 
-As I said, This class implements entire `Date` object, so there are many methods and you can do anything you could do with javascript `Date` , 
+As I said, This class implements entire `Date` object, so there are many methods, and you can do anything you could do with javascript `Date` ,
 plus some additional methods for simpler use like [`format` method](https://alihoseiny.github.io/ngx-persian/classes/JDate.html#format) that formats date and time in desired pattern.
 
 [**You can see complete document of all methods of this class by clicking on this text**.](https://alihoseiny.github.io/ngx-persian/classes/JDate.html)

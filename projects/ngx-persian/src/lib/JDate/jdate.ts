@@ -832,6 +832,13 @@ export class JDate implements Date{
     return this.getTime();
   }
 
+  /**
+   * Calculates the date value of the next `incValue` months and updates the current instance of the `JDate` to the new date.
+   * This method will not consider month as number of days. So, only the month value of the instance will change. Unless the
+   * added value is greater than the number of months remained to the end of the year. In that case, the year value will
+   * increase according to the extra months.
+   * @param incValue: A positive integer that shows the number of the months we want to add to the current date
+   */
   addMonth(incValue: number): void {
     const numberOfMonths = this.getMonth() + incValue;
     const newMonth: number = (numberOfMonths) % 12;
