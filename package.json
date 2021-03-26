@@ -25,7 +25,7 @@
     "core-js": "^2.6.9",
     "rxjs": "~6.6.6",
     "tslib": "^2.0.0",
-    "typedoc": "^0.17.7",
+    "typedoc": "^0.20.34",
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
