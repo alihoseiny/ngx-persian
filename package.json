@@ -10,7 +10,9 @@
     "e2e": "ng e2e",
     "compodoc": "compodoc",
     "generate-docs": "compodoc -p projects/ngx-persian/tsconfig.lib.json -d docs",
-    "serve-docs": "compodoc -s projects/ngx-persian/tsconfig.lib.json -d docs"
+    "serve-docs": "compodoc -s projects/ngx-persian/tsconfig.lib.json -d docs",
+    "build:prod": "ng build --prod",
+    "test:prod": "ng test --browsers=ChromeHeadless --watch=false --code-coverage"
   },
   "private": true,
   "dependencies": {
