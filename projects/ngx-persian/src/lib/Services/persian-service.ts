@@ -3,9 +3,9 @@
  */
 export interface PersianService {
 
-  isPersian(value: string): boolean;
+    isPersian(value: string): boolean;
 
-  toPersian(value: string | number): string;
+    toPersian(value: string | number): string;
 
-  containsPersian(value: string): boolean;
+    containsPersian(value: string): boolean;
 }

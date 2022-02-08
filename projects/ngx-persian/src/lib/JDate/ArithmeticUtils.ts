@@ -2,12 +2,12 @@
  * This function removes fraction part of the number if exists. So, for example, it will turn -145,455 to -145 and
  * 145,455 to 145.
  */
-export function round(x: number): number {
-  if (x < 0) {
-    return Math.ceil(x);
-  } else {
-    return Math.floor(x);
-  }
+export function round(x: number): number {      // eslint-disable-line prefer-arrow/prefer-arrow-functions
+    if (x < 0) {
+        return Math.ceil(x);
+    } else {
+        return Math.floor(x);
+    }
 }
 
 /**
@@ -15,13 +15,13 @@ export function round(x: number): number {
  *
  * For example: div (10, 3) is equal to 3.
  */
-export function div(num1: number, num2: number): number {
-  return round(num1 / num2);
+export function div(num1: number, num2: number): number {      // eslint-disable-line prefer-arrow/prefer-arrow-functions
+    return round(num1 / num2);
 }
 
 /**
  * This function return arithmetic mod result of two inputs as a integer.
  */
-export function mod(num1: number, num2: number): number {
-  return num1 - div(num1, num2) * num2;
+export function mod(num1: number, num2: number): number {      // eslint-disable-line prefer-arrow/prefer-arrow-functions
+    return num1 - (div(num1, num2) * num2);
 }

@@ -3,7 +3,7 @@
  * Numbers could be in any calendar.
  */
 export interface SimpleDateInterface {
-  year: number;
-  month: number;
-  day: number;
+    year: number;
+    month: number;
+    day: number;
 }

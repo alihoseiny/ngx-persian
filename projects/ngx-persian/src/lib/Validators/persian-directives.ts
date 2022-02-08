@@ -10,19 +10,20 @@ import {PLOptions} from '../Services/persian-letter.service';
  * [For more information also see persianNumbersValidator]{@link persianNumbersValidator}
  */
 @Directive({
-  selector: 'PersianNumbersDirective',
-  providers: [{provide: NG_VALIDATORS, useExisting: PersianNumbersDirective}]
+    selector: '[ngxPersianNumbersDirective]',
+    providers: [{provide: NG_VALIDATORS, useExisting: PersianNumbersDirective}]         // eslint-disable-line no-use-before-define
 })
 export class PersianNumbersDirective implements Validator {
 
-  /**
-   * Only a wrapper for persianNumbersValidator validator function.
-   * @param control
-   * @return null for success or ValidationError for invalid inputs
-   */
-  validate(control: AbstractControl): {[key: string]: any} | null {
-    return persianNumbersValidator()(control);
-  }
+    /**
+     * Only a wrapper for persianNumbersValidator validator function.
+     *
+     * @param control
+     * @return null for success or ValidationError for invalid inputs
+     */
+    validate(control: AbstractControl): { [key: string]: any } | null {
+        return persianNumbersValidator()(control);
+    }
 }
 
 /**
@@ -31,19 +32,20 @@ export class PersianNumbersDirective implements Validator {
  * [For more information also see persianLettersValidator]{@link persianLettersValidator}
  */
 @Directive({
-  selector: 'persianLettersValidator',
-  providers: [{provide: NG_VALIDATORS, useExisting: PersianLetterDirective}]
+    selector: '[ngxPersianLettersValidator]',
+    providers: [{provide: NG_VALIDATORS, useExisting: PersianLetterDirective}]         // eslint-disable-line no-use-before-define
 })
 export class PersianLetterDirective implements Validator {
 
-  @Input('PersianLetterDirective') options: PLOptions;
+    @Input('PersianLetterDirective') options!: PLOptions;        // eslint-disable-line @angular-eslint/no-input-rename
 
-  /**
-   * Only a wrapper for persianLettersValidator validator function.
-   * @param control
-   * @return null for success or ValidationError for invalid inputs
-   */
-  validate(control: AbstractControl): {[key: string]: any} | null {
-    return persianLettersValidator(this.options)(control);
-  }
+    /**
+     * Only a wrapper for persianLettersValidator validator function.
+     *
+     * @param control
+     * @return null for success or ValidationError for invalid inputs
+     */
+    validate(control: AbstractControl): { [key: string]: any } | null {
+        return persianLettersValidator(this.options)(control);
+    }
 }

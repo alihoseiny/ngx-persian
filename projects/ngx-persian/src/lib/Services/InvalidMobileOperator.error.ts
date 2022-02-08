@@ -2,16 +2,7 @@
  * This error will throw when there is no valid mobile operator for inputted mobile phone number.
  */
 export class InvalidMobileOperatorError extends Error {
-  constructor(...params) {
-    super(...params);
-
-    // Maintains proper stack trace for where our error was thrown (only available on V8)
-    // @ts-ignore
-    if (Error.captureStackTrace) {
-      // @ts-ignore
-      Error.captureStackTrace(this, InvalidMobileOperatorError);
+    constructor() {
+        super('Operator of this number is not recognizable.');
     }
-
-    this.message = 'Operator of this number is not recognizable.';
-  }
 }
