@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/ngx-persian",
       "sourceRoot": "projects/ngx-persian/src",
-      "prefix": "ngx-persian",
+      "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

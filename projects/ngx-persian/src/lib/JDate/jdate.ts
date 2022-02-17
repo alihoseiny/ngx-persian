@@ -185,21 +185,21 @@ export class JDate implements Date {
      * @return a regular javascript Date object representing Georgian date corresponding to the Jalili date of the JDate object.
      */
     getGeorgianDate(): Date {
-        return <Date>this._gregorianDate;
+        return this._gregorianDate as Date;
     }
 
     /**
      * @return the day of the month for the specified date according to local time.
      */
     getDate(): number {
-        return <number>this._jDay;
+        return this._jDay as number;
     }
 
     /**
      *  @return the day of the week for the specified date according to local time, where 0 represents Friday and 6 is Thursday.
      */
     getDay(): number {
-        if (!this._gregorianDate) {
+        if (this._gregorianDate === undefined) {
             throw InvalidJalaliDateError;
         }
         return (this._gregorianDate.getDay() + 2) % 7;
@@ -263,7 +263,7 @@ export class JDate implements Date {
      * where zero indicates the first month of the year.
      */
     getMonth(): number {
-        if (!this._jMonth) {
+        if (this._jMonth === undefined) {
             throw InvalidJalaliDateError;
         }
         return this._jMonth;
@@ -867,22 +867,6 @@ export class JDate implements Date {
     }
 
     /**
-     * Calculates the date value of the next `incValue` months and updates the current instance of the `JDate` to the new date.
-     * This method will not consider month as number of days. So, only the month value of the instance will change. Unless the
-     * added value is greater than the number of months remained to the end of the year. In that case, the year value will
-     * increase according to the extra months.
-     *
-     * @param incValue: A positive integer that shows the number of the months we want to add to the current date
-     */
-    addMonth(incValue: number): void {
-        const numberOfMonths = this.getMonth() + incValue;
-        const newMonth: number = (numberOfMonths) % 12;
-        const newYear: number = this.getFullYear() + Math.trunc(numberOfMonths / 12);
-        this.setFullYear(newYear);
-        this.setMonth(newMonth);
-    }
-
-    /**
      * This method recalculates the gDate value with private attributes those storing Jalali date parts.
      */
     private _renewGDate(): void {
@@ -899,8 +883,8 @@ export class JDate implements Date {
      * @throws InvalidJalaliDateError
      */
     private _checkDateIsValid(): void {
-        if (!this._jalaliYear || !this._jMonth || !this._jDay) {
-            throw InvalidJalaliDateError;
+        if (this._jalaliYear === undefined|| this._jMonth === undefined || this._jDay === undefined) {
+            throw new InvalidJalaliDateError();
         }
         if (!this._calculator.validator.isValidJDate(this._jalaliYear, this._jMonth, this._jDay)) {
             throw new InvalidJalaliDateError();

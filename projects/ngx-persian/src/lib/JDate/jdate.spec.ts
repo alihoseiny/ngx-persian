@@ -7,13 +7,13 @@ describe('JDate', () => {
             expect(new JDate()).toBeTruthy();
         });
 
-        // it('should create a valid JDate object from date and time values', () => {
-        //     const jalalyDate = new JDate(1397, 11, 12, 12, 13, 14, 255);
-        //     expect(jalalyDate.format('yyyy-mm-dd HH:MM:SS.l')).toBe('1397-12-12 12:13:14.255');
-        // });
+        it('should create a valid JDate object from date and time values', () => {
+            const jalalyDate = new JDate(1397, 11, 12, 12, 13, 14, 255);
+            expect(jalalyDate.format('yyyy-mm-dd HH:MM:SS.l')).toBe('1397-12-12 12:13:14.255');
+        });
     });
 
-    xdescribe('pars', () => {
+    describe('pars', () => {
         [
             ['11 دی 1348 00:00:00', -12600000],
             ['11 Dey 1348 00:00:00', -12600000]
@@ -33,7 +33,7 @@ describe('JDate', () => {
         });
     });
 
-    xdescribe('getDate', () => {
+    describe('getDate', () => {
         [
             [new JDate(1397, 11, 29), 29],
             [new JDate('11 دی 1348 00:12:00'), 11],
@@ -46,7 +46,7 @@ describe('JDate', () => {
         });
     });
 
-    xdescribe('getDay', () => {
+    describe('getDay', () => {
         [
             [new JDate(1397, 11, 24), 0],
             [new JDate(1397, 2, 19), 1],
@@ -63,7 +63,7 @@ describe('JDate', () => {
         });
     });
 
-    xdescribe('getFullYear', () => {
+    describe('getFullYear', () => {
         [
             [new JDate(1397, 11, 29), 1397],
             [new JDate('11 دی 1348 00:12:00'), 1348],
@@ -76,7 +76,7 @@ describe('JDate', () => {
         });
     });
 
-    xdescribe('getHours', () => {
+    describe('getHours', () => {
         [
             [new JDate(1397, 11, 29), 0],
             [new JDate('11 دی 1348 00:12:00'), 0],
@@ -89,7 +89,7 @@ describe('JDate', () => {
         });
     });
 
-    xdescribe('getMilliseconds', () => {
+    describe('getMilliseconds', () => {
         [
             [new JDate(1397, 11, 29), 0],
             [new JDate('11 دی 1348 00:12:00'), 0],
@@ -102,7 +102,7 @@ describe('JDate', () => {
         });
     });
 
-    xdescribe('getMinutes', () => {
+    describe('getMinutes', () => {
         [
             [new JDate(1397, 11, 29), 0],
             [new JDate('11 دی 1348 00:12:00'), 12],
@@ -115,7 +115,7 @@ describe('JDate', () => {
         });
     });
 
-    xdescribe('getMonth', () => {
+    describe('getMonth', () => {
         [
             [new JDate('30 اسفند 1375 13:54:58'), 11],
             [new JDate(1397, 0, 1), 0],
@@ -128,7 +128,7 @@ describe('JDate', () => {
         });
     });
 
-    xdescribe('getSeconds', () => {
+    describe('getSeconds', () => {
         [
             [new JDate('30 اسفند 1375 13:54:58'), 58],
             [new JDate(1397, 0, 1), 0],
@@ -141,7 +141,7 @@ describe('JDate', () => {
         });
     });
 
-    xdescribe('getTime', () => {
+    describe('getTime', () => {
         [
             [new JDate('11 دی 1348 00:00:00'), -12600000],
             [new JDate('11 Dey 1348 00:00:00'), -12600000]
@@ -153,7 +153,7 @@ describe('JDate', () => {
         });
     });
 
-    xdescribe('setDate', () => {
+    describe('setDate', () => {
         [
             [new JDate('29 دی 1348 00:00:00'), 11, -12600000],
             [new JDate('03 Dey 1348 00:00:00'), 11, -12600000]
@@ -167,7 +167,7 @@ describe('JDate', () => {
         });
     });
 
-    xdescribe('setFullYear', () => {
+    describe('setFullYear', () => {
         [
             [new JDate('11 دی 1397 00:00:00'), 1348, -12600000],
             [new JDate('11 Dey 1400 00:00:00'), 1348, -12600000]
@@ -192,7 +192,7 @@ describe('JDate', () => {
 
     });
 
-    xdescribe('setHours', () => {
+    describe('setHours', () => {
         [
             [new JDate('11 دی 1348 01:00:00'), 0, -12600000],
             [new JDate('11 Dey 1348 23:00:00'), 0, -12600000]
@@ -255,7 +255,7 @@ describe('JDate', () => {
 
     });
 
-    xdescribe('setMilliseconds', () => {
+    describe('setMilliseconds', () => {
         [
             [new JDate('11 دی 1348 00:00:00'), 0, -12600000],
             [new JDate('11 Dey 1348 00:00:00'), 0, -12600000]
@@ -269,7 +269,7 @@ describe('JDate', () => {
         });
     });
 
-    xdescribe('setMinutes', () => {
+    describe('setMinutes', () => {
 
         [
             [new JDate('11 دی 1348 00:20:00'), 0, -12600000],
@@ -315,7 +315,7 @@ describe('JDate', () => {
 
     });
 
-    xdescribe('setMonth', () => {
+    describe('setMonth', () => {
 
         [
             [new JDate('11 اسفند 1348 00:00:00'), 9, -12600000],
@@ -346,7 +346,7 @@ describe('JDate', () => {
 
     });
 
-    xdescribe('setSeconds', () => {
+    describe('setSeconds', () => {
 
         [
             [new JDate('11 دی 1348 00:00:03'), 0, -12600000],
@@ -376,7 +376,7 @@ describe('JDate', () => {
 
     });
 
-    xdescribe('setTime', () => {
+    describe('setTime', () => {
 
         [
             [new JDate('11 دی 1348 00:00:00'), -12600000],
@@ -393,7 +393,7 @@ describe('JDate', () => {
 
     });
 
-    xdescribe('getNameOfTheDay', () => {
+    describe('getNameOfTheDay', () => {
         [
             [new JDate(1397, 11, 24), 'جمعه'],
             [new JDate(1397, 2, 19), 'شنبه'],
@@ -410,7 +410,7 @@ describe('JDate', () => {
         });
     });
 
-    xdescribe('getNameOfTheMonth', () => {
+    describe('getNameOfTheMonth', () => {
         [
             [new JDate('30 اسفند 1375 13:54:58'), 'اسفند'],
             [new JDate(1397, 0, 1), 'فروردین'],
@@ -423,7 +423,7 @@ describe('JDate', () => {
         });
     });
 
-    xdescribe('toDateString', () => {
+    describe('toDateString', () => {
         [
             [new JDate('30 Esfand 1375 13:54:58'), 'پنج‌شنبه اسفند 30 1375'],
             [new JDate(1397, 0, 1), 'چهارشنبه فروردین 1 1397'],
@@ -436,7 +436,7 @@ describe('JDate', () => {
         });
     });
 
-    xdescribe('getHours12hourClock', () => {
+    describe('getHours12hourClock', () => {
         [[new JDate(1397, 1, 1, 12), 12],
             [new JDate(1397, 1, 1, 13), 1],
             [new JDate(1397, 1, 1, 14), 2],
@@ -469,7 +469,7 @@ describe('JDate', () => {
         });
     });
 
-    xdescribe('getTimeMarker', () => {
+    describe('getTimeMarker', () => {
         [
             [new JDate(1397, 1, 1, 0), false, 'قبل از ظهر'],
             [new JDate(1397, 1, 1, 5), false, 'قبل از ظهر'],
@@ -487,7 +487,7 @@ describe('JDate', () => {
         });
     });
 
-    xdescribe('format', () => {
+    describe('format', () => {
         [
             [new JDate(1397, 11, 25, 11, 31, 30, 158), 'yyyy-mm-dd', '1397-12-25'],
             [new JDate(1397, 0, 1, 11, 31, 30, 158), 'yyyy-m-d', '1397-1-1'],
@@ -524,7 +524,7 @@ describe('JDate', () => {
         });
     });
 
-    xdescribe('toISOString', () => {
+    describe('toISOString', () => {
         [
             [new JDate(1397, 11, 12, 12, 12, 12, 0), '1397-12-12T12:12:12.0Z'],
             [new JDate(1397, 0, 5, 1, 2, 9, 123), '1397-01-05T01:02:09.123Z']
@@ -535,23 +535,4 @@ describe('JDate', () => {
             });
         });
     });
-
-    xdescribe('addMonth', () => {
-        [
-            [new JDate(1398, 0, 1), 1, '1398-2-1'],
-            [new JDate(1398, 0, 1), 10, '1398-11-1'],
-            [new JDate(1398, 0, 1), 0, '1398-1-1'],
-            [new JDate(1398, 0, 1), 12, '1399-1-1'],
-            [new JDate(1398, 11, 1), 12, '1399-12-1']
-        ].forEach(([jdate, increaseBy, result]) => {
-            it(`should change month and year (if month overflows) to the increased value and set date to ${result} when increase value
-      is ${increaseBy}`, () => {
-                // @ts-ignore
-                jdate.addMonth(increaseBy);
-                // @ts-ignore
-                expect(jdate.format('yyyy-m-d')).toBe(result);
-            });
-        });
-    });
-
 });

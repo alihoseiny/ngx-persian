@@ -121,6 +121,7 @@
                 "valid-typeof": "error",
                 "semi": "error",
                 "quotes": [2, "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
+                "capitalized-comments": "off",
                 "@angular-eslint/directive-selector": [
                     "error",
                     {

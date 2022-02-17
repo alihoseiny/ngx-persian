@@ -1,16 +1,16 @@
 {
   "name": "ngx-persian",
-  "version": "1.3.2",
+  "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "lint": "ng lint",
     "compodoc": "compodoc",
     "generate-docs": "compodoc -p projects/ngx-persian/tsconfig.lib.json -d docs",
-    "serve-docs": "compodoc -s projects/ngx-persian/tsconfig.lib.json -d docs",
-    "lint": "ng lint"
+    "serve-docs": "compodoc -s projects/ngx-persian/tsconfig.lib.json -d docs"
   },
   "private": true,
   "dependencies": {
@@ -22,25 +22,26 @@
     "@angular/platform-browser": "~13.1.0",
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
-    "eslint-plugin-jsdoc": "^37.6.1",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsdoc": "^37.9.2",
     "eslint-plugin-prefer-arrow": "^1.2.3",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~13.1.2",
-    "@angular-eslint/builder": "13.0.1",
-    "@angular-eslint/eslint-plugin": "13.0.1",
-    "@angular-eslint/eslint-plugin-template": "13.0.1",
-    "@angular-eslint/schematics": "13.0.1",
-    "@angular-eslint/template-parser": "13.0.1",
+    "@angular-devkit/build-angular": "~13.1.4",
+    "@angular-eslint/builder": "13.1.0",
+    "@angular-eslint/eslint-plugin": "13.1.0",
+    "@angular-eslint/eslint-plugin-template": "13.1.0",
+    "@angular-eslint/schematics": "13.1.0",
+    "@angular-eslint/template-parser": "13.1.0",
     "@angular/cli": "~13.1.2",
     "@angular/compiler-cli": "~13.1.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
-    "@typescript-eslint/eslint-plugin": "5.3.0",
-    "@typescript-eslint/parser": "5.3.0",
+    "@typescript-eslint/eslint-plugin": "5.11.0",
+    "@typescript-eslint/parser": "5.11.0",
     "eslint": "^8.2.0",
     "jasmine-core": "~3.10.0",
     "karma": "~6.3.0",
@@ -50,8 +51,5 @@
     "karma-jasmine-html-reporter": "~1.7.0",
     "ng-packagr": "^13.0.0",
     "typescript": "~4.5.2"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   }
 }

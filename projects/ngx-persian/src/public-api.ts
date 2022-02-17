@@ -12,8 +12,8 @@ export {JalaliDateValidatorService} from './lib/JDate/jalali-date-validator.serv
 export {MobileCodes, MobilePhoneNumberService, operatorsNames} from './lib/Services/mobile-phone-number.service';
 export {NationalCodeService} from './lib/Services/national-code.service';
 export {PersianLetterDirective, PersianNumbersDirective} from './lib/Validators/persian-directives';
-export {FaNumPipe} from './lib/Pipes/faNum.pipe'
-export {EnNumPipe} from './lib/Pipes/enNum.pipe'
-export {IRCurrencyPipe, IRCurrencies} from './lib/Pipes/IRCurrency.pipe'
-export {NationalCodePipe} from './lib/Pipes/nationalCode.pipe'
-export {JdatePipe} from './lib/Pipes/jdate.pipe'
+export {FaNumPipe} from './lib/Pipes/faNum.pipe';
+export {EnNumPipe} from './lib/Pipes/enNum.pipe';
+export {IRCurrencyPipe, IRCurrencies} from './lib/Pipes/IRCurrency.pipe';
+export {NationalCodePipe} from './lib/Pipes/nationalCode.pipe';
+export {JdatePipe} from './lib/Pipes/jdate.pipe';
