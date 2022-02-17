@@ -1,19 +1,19 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 import {JDate} from '../JDate/jdate';
 
 /**
  * Pre-defined formats date formats those can use for formatting JDate objects with jdate pipe.
  */
-enum FromatNames {
-  'short' = 'yy/m/d h:M t',
-  'shortDate' = 'yy/m/d h:M t',
-  'medium' = 'd mmm yyyy، h:M t',
-  'mediumDate' = 'd mmm yyyy، h:M t',
-  'long' = 'd mmm yyyy، h:M:S T',
-  'longDate' = 'd mmm yyyy، h:M:S T',
-  'shortTime' = 'h:M t',
-  'mediumTime' = 'h:M:S t',
-  'longTime' = 'h:M:S.l T',
+enum JDateFormat {            // eslint-disable-line no-shadow
+    SHORT = 'yy/m/d h:M t',
+    SHORT_DATE = 'yy/m/d h:M t',
+    MEDIUM = 'd mmm yyyy، h:M t',
+    MEDIUM_DATE = 'd mmm yyyy، h:M t',
+    LONG = 'd mmm yyyy، h:M:S T',
+    LONG_DATE = 'd mmm yyyy، h:M:S T',
+    SHORT_TIME = 'h:M t',
+    MEDIUM_TIME = 'h:M:S t',
+    LONG_TIME = 'h:M:S.l T',
 }
 
 /**
@@ -27,55 +27,58 @@ enum FromatNames {
  *
  * Also you can use pre-defined format names described below:
  *
- *        'short': equivalent to yy/m/d h:M t {@example '97/2/23 12:12 ب.ظ'}
+ *        'SHORT': equivalent to yy/m/d h:M t {@example '97/2/23 12:12 ب.ظ'}
  *
- *        'shortDate': same as short
+ *        'SHORT_DATE': same as short
  *
- *        'medium': equivalent to 'd mmm yyyy، h:M t' {@example '23 اردیبهشت 1397، 12:12 ب.ظ'}
+ *        'MEDIUM': equivalent to 'd mmm yyyy، h:M t' {@example '23 اردیبهشت 1397، 12:12 ب.ظ'}
  *
- *        'mediumDate': same as medium
+ *        'MEDIUM_DATE': same as medium
  *
- *        'long': equivalent to 'd mmm yyyy، h:M:S T' {@example '23 اردیبهشت 1397، 12:12:30 بعد از ظهر'}
+ *        'LONG': equivalent to 'd mmm yyyy، h:M:S T' {@example '23 اردیبهشت 1397، 12:12:30 بعد از ظهر'}
  *
- *        'longDate': same as long
+ *        'LONG_DATE': same as long
  *
- *        'shortTime': equivalent to 'h:M t' {@example '12:12 ب.ظ'}
+ *        'SHORT_TIME': equivalent to 'h:M t' {@example '12:12 ب.ظ'}
  *
- *        'mediumTime': equivalent to 'h:M:S t' {@example '12:12:30 ب.ظ'}
+ *        'MEDIUM_TIME': equivalent to 'h:M:S t' {@example '12:12:30 ب.ظ'}
  *
- *        'longTime': equivalent to 'h:M:S.l T' {@example '12:12:30.300 بعد از ظهر'}
+ *        'LONG_TIME': equivalent to 'h:M:S.l T' {@example '12:12:30.300 بعد از ظهر'}
  *
  *  Default format is `medium`.
  */
 @Pipe({
-  name: 'jdate'
+    name: 'jdate'
 })
 export class JdatePipe implements PipeTransform {
 
-  /**
-   * Checks if `formatName` is in the `FromatNames` enum. If it is, returns related format string. Else returns `formatName` string
-   * without any change.
-   * @param formatName format name or format pattern string
-   * @return formatting pattern string
-   */
-  private static convertNameToFormat(formatName: string): string {
-    if (!FromatNames[formatName]) {
-      return formatName
+    /**
+     * Checks if `formatName` is in the `FormatNames` enum. If it is, returns related format string. Else returns `formatName` string
+     * without any change.
+     *
+     * @param formatName format name or format pattern string
+     * @return formatting pattern string
+     */
+    private static convertNameToFormat(formatName: keyof typeof JDateFormat): string {
+        if (!JDateFormat[formatName]) {
+            return formatName;
+        }
+        return JDateFormat[formatName];
     }
-    return FromatNames[formatName];
-  }
 
-  /**
-   * Formatting the date using `format` method of it with proper formatting pattern created from `format`
-   * @param value a Jalali Date object or an instance of `Date` object or any class implementing that interface
-   * @param format format name or format pattern string
-   */
-  transform(value: Date, format: string = 'mediumDate'): string {
-    if (!(value instanceof JDate)) {
-      value = new JDate(value);
+    /**
+     * Formatting the date using `format` method of it with proper formatting pattern created from `format`
+     *
+     * @param value a Jalali Date object or an instance of `Date` object or any class implementing that interface
+     * @param format format name or format pattern string
+     */
+    transform(value: Date, format: string = 'MEDIUM_DATE'): string {
+        let inputValue = value;
+        if (!(inputValue instanceof JDate)) {
+            inputValue = new JDate(inputValue);
+        }
+        // @ts-ignore
+        return inputValue.format(JdatePipe.convertNameToFormat(format));
     }
-    // @ts-ignore
-    return value.format(JdatePipe.convertNameToFormat(format));
-  }
 
 }

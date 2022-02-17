@@ -1,6 +1,5 @@
 'use strict';
 
-
 customElements.define('compodoc-menu', class extends HTMLElement {
     constructor() {
         super();
@@ -62,54 +61,47 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </a>
                         <ul class="links collapse " ${ isNormalMode ? 'id="modules-links"' : 'id="xs-modules-links"' }>
                             <li class="link">
-                                <a href="modules/NgxPersianModule.html" data-type="entity-link">NgxPersianModule</a>
+                                <a href="modules/NgxPersianModule.html" data-type="entity-link" >NgxPersianModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#directives-links-module-NgxPersianModule-dc6359b4098884159c8ef1d92039ec6a"' : 'data-target="#xs-directives-links-module-NgxPersianModule-dc6359b4098884159c8ef1d92039ec6a"' }>
+                                        'data-target="#directives-links-module-NgxPersianModule-715c8cd33a0d84484443a47a9099b6adc1bfa402690392e05778a22fdb41e8a19e499c0bb65f529516b2016588bc7d4586a93fe9439806c3e971dee0ee785fb6"' : 'data-target="#xs-directives-links-module-NgxPersianModule-715c8cd33a0d84484443a47a9099b6adc1bfa402690392e05778a22fdb41e8a19e499c0bb65f529516b2016588bc7d4586a93fe9439806c3e971dee0ee785fb6"' }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-NgxPersianModule-dc6359b4098884159c8ef1d92039ec6a"' :
-                                        'id="xs-directives-links-module-NgxPersianModule-dc6359b4098884159c8ef1d92039ec6a"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-NgxPersianModule-715c8cd33a0d84484443a47a9099b6adc1bfa402690392e05778a22fdb41e8a19e499c0bb65f529516b2016588bc7d4586a93fe9439806c3e971dee0ee785fb6"' :
+                                        'id="xs-directives-links-module-NgxPersianModule-715c8cd33a0d84484443a47a9099b6adc1bfa402690392e05778a22fdb41e8a19e499c0bb65f529516b2016588bc7d4586a93fe9439806c3e971dee0ee785fb6"' }>
                                         <li class="link">
-                                            <a href="directives/PersianLetterDirective.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">PersianLetterDirective</a>
+                                            <a href="directives/PersianLetterDirective.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >PersianLetterDirective</a>
                                         </li>
                                         <li class="link">
-                                            <a href="directives/PersianNumbersDirective.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">PersianNumbersDirective</a>
+                                            <a href="directives/PersianNumbersDirective.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >PersianNumbersDirective</a>
                                         </li>
                                     </ul>
                                 </li>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#pipes-links-module-NgxPersianModule-dc6359b4098884159c8ef1d92039ec6a"' : 'data-target="#xs-pipes-links-module-NgxPersianModule-dc6359b4098884159c8ef1d92039ec6a"' }>
+                                            'data-target="#pipes-links-module-NgxPersianModule-715c8cd33a0d84484443a47a9099b6adc1bfa402690392e05778a22fdb41e8a19e499c0bb65f529516b2016588bc7d4586a93fe9439806c3e971dee0ee785fb6"' : 'data-target="#xs-pipes-links-module-NgxPersianModule-715c8cd33a0d84484443a47a9099b6adc1bfa402690392e05778a22fdb41e8a19e499c0bb65f529516b2016588bc7d4586a93fe9439806c3e971dee0ee785fb6"' }>
                                             <span class="icon ion-md-add"></span>
                                             <span>Pipes</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-NgxPersianModule-dc6359b4098884159c8ef1d92039ec6a"' :
-                                            'id="xs-pipes-links-module-NgxPersianModule-dc6359b4098884159c8ef1d92039ec6a"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="pipes-links-module-NgxPersianModule-715c8cd33a0d84484443a47a9099b6adc1bfa402690392e05778a22fdb41e8a19e499c0bb65f529516b2016588bc7d4586a93fe9439806c3e971dee0ee785fb6"' :
+                                            'id="xs-pipes-links-module-NgxPersianModule-715c8cd33a0d84484443a47a9099b6adc1bfa402690392e05778a22fdb41e8a19e499c0bb65f529516b2016588bc7d4586a93fe9439806c3e971dee0ee785fb6"' }>
                                             <li class="link">
-                                                <a href="pipes/EnNumPipe.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">EnNumPipe</a>
+                                                <a href="pipes/EnNumPipe.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >EnNumPipe</a>
                                             </li>
                                             <li class="link">
-                                                <a href="pipes/FaNumPipe.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">FaNumPipe</a>
+                                                <a href="pipes/FaNumPipe.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FaNumPipe</a>
                                             </li>
                                             <li class="link">
-                                                <a href="pipes/IRCurrencyPipe.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">IRCurrencyPipe</a>
+                                                <a href="pipes/IRCurrencyPipe.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >IRCurrencyPipe</a>
                                             </li>
                                             <li class="link">
-                                                <a href="pipes/JdatePipe.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">JdatePipe</a>
+                                                <a href="pipes/JdatePipe.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >JdatePipe</a>
                                             </li>
                                             <li class="link">
-                                                <a href="pipes/NationalCodePipe.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">NationalCodePipe</a>
+                                                <a href="pipes/NationalCodePipe.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >NationalCodePipe</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -125,22 +117,22 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
-                                <a href="classes/InvalidJalaliDateError.html" data-type="entity-link">InvalidJalaliDateError</a>
+                                <a href="classes/InvalidJalaliDateError.html" data-type="entity-link" >InvalidJalaliDateError</a>
                             </li>
                             <li class="link">
-                                <a href="classes/InvalidMobileOperatorError.html" data-type="entity-link">InvalidMobileOperatorError</a>
+                                <a href="classes/InvalidMobileOperatorError.html" data-type="entity-link" >InvalidMobileOperatorError</a>
                             </li>
                             <li class="link">
-                                <a href="classes/InvalidMobilePhoneNumberError.html" data-type="entity-link">InvalidMobilePhoneNumberError</a>
+                                <a href="classes/InvalidMobilePhoneNumberError.html" data-type="entity-link" >InvalidMobilePhoneNumberError</a>
                             </li>
                             <li class="link">
-                                <a href="classes/InvalidNationalCodeError.html" data-type="entity-link">InvalidNationalCodeError</a>
+                                <a href="classes/InvalidNationalCodeError.html" data-type="entity-link" >InvalidNationalCodeError</a>
                             </li>
                             <li class="link">
-                                <a href="classes/InvalidServiceInputError.html" data-type="entity-link">InvalidServiceInputError</a>
+                                <a href="classes/InvalidServiceInputError.html" data-type="entity-link" >InvalidServiceInputError</a>
                             </li>
                             <li class="link">
-                                <a href="classes/JDate.html" data-type="entity-link">JDate</a>
+                                <a href="classes/JDate.html" data-type="entity-link" >JDate</a>
                             </li>
                         </ul>
                     </li>
@@ -153,22 +145,22 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </div>
                             <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
                                 <li class="link">
-                                    <a href="injectables/JalaliDateCalculatorService.html" data-type="entity-link">JalaliDateCalculatorService</a>
+                                    <a href="injectables/JalaliDateCalculatorService.html" data-type="entity-link" >JalaliDateCalculatorService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/JalaliDateValidatorService.html" data-type="entity-link">JalaliDateValidatorService</a>
+                                    <a href="injectables/JalaliDateValidatorService.html" data-type="entity-link" >JalaliDateValidatorService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/MobilePhoneNumberService.html" data-type="entity-link">MobilePhoneNumberService</a>
+                                    <a href="injectables/MobilePhoneNumberService.html" data-type="entity-link" >MobilePhoneNumberService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/NationalCodeService.html" data-type="entity-link">NationalCodeService</a>
+                                    <a href="injectables/NationalCodeService.html" data-type="entity-link" >NationalCodeService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/PersianLetterService.html" data-type="entity-link">PersianLetterService</a>
+                                    <a href="injectables/PersianLetterService.html" data-type="entity-link" >PersianLetterService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/PersianNumberService.html" data-type="entity-link">PersianNumberService</a>
+                                    <a href="injectables/PersianNumberService.html" data-type="entity-link" >PersianNumberService</a>
                                 </li>
                             </ul>
                         </li>
@@ -181,13 +173,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
-                                <a href="interfaces/PersianService.html" data-type="entity-link">PersianService</a>
+                                <a href="interfaces/PersianService.html" data-type="entity-link" >PersianService</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/PLOptions.html" data-type="entity-link">PLOptions</a>
+                                <a href="interfaces/PLOptions.html" data-type="entity-link" >PLOptions</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/SimpleDateInterface.html" data-type="entity-link">SimpleDateInterface</a>
+                                <a href="interfaces/SimpleDateInterface.html" data-type="entity-link" >SimpleDateInterface</a>
                             </li>
                         </ul>
                     </li>

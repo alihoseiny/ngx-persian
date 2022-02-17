@@ -1,6 +1,6 @@
 {
   "name": "ngx-persian",
-  "version": "1.3.2",
+  "version": "2.0.0",
   "description": "A Full-featured library for newer versions on angular (2-7) for working with persian letters, digits, Date and time, Iran National Number and ...",
   "keywords": [
     "Angular",
@@ -25,21 +25,19 @@
   },
   "homepage": "https://alihoseiny.github.io/ngx-persian/",
   "peerDependencies": {
-    "@angular/common": "^7.2.0",
-    "@angular/core": "^7.2.0"
-  },
-  "scripts": {
-    "build_lib": "ng build ngx-persian",
-    "copy-license": "cp ../../LICENSE ../../dist/ngx-persian",
-    "copy-readme": "cp ../../README.md ../../dist/ngx-persian",
-    "copy-files": "npm run copy-license && npm run copy-readme",
-    "npm_pack": "cd ../../dist/ngx-persian && npm pack",
-    "package": "npm run build_lib && npm run copy-files && npm run npm_pack"
-  },
-  "devDependencies": {
-    "karma-firefox-launcher": "^1.3.0"
+    "@angular/common": "^13.1.0",
+    "@angular/core": "^13.1.0"
   },
   "dependencies": {
-    "tslib": "^2.0.0"
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+        "@angular-eslint/eslint-plugin": "^13.0.1",
+        "@angular-eslint/schematics": "^13.0.1",
+        "eslint-plugin-import": "^2.25.4",
+        "eslint-plugin-jasmine": "^4.1.3",
+        "eslint-plugin-sonarjs": "^0.11.0",
+        "eslint-plugin-switch-case": "^1.1.2",
+        "eslint-plugin-unicorn": "^40.0.0"
   }
 }

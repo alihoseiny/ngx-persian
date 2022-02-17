@@ -8,7 +8,7 @@
 A full featured tool set for Persian Applications Created by Angular (v > 2) containing Pipes, Services, Directives and javascript Similar Date object for working with Jalali Date.
 
 You can use Tools provided by this library for:
-- Converting English numbers to Persian numbers and vise versa 
+- Converting English numbers to Persian numbers and vise versa
 - Validating persian text with different options
 - Validating persian numbers for numeric inputs
 - Converting and validating Jalali Date and time like native javascript Date object
@@ -30,7 +30,7 @@ There are many reasons for using this library For everyone who develops an Angul
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents** 
+**Table of Contents**
 
 - [NgxPersian](#ngxpersian)
   - [Why you should use this library?](#why-you-should-use-this-library)
@@ -113,11 +113,11 @@ You can see the example usage of these pipes in below GIF:
 
 ![faNum and enNum pipes](https://github.com/alihoseiny/ngx-persian/raw/master/Usage%20Examples/faNum%20and%20enNum%20pipes.gif "Animation of faNum and enNum pipes usage")
 
-**Still have questions?** see the [related part of example app](https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test) or see: [related section in code document for EnNumPipe](https://alihoseiny.github.io/ngx-persian/pipes/EnNumPipe.html) or see: [related section in code document for FaNumPipe](https://alihoseiny.github.io/ngx-persian/pipes/FaNumPipe.html). 
+**Still have questions?** see the [related part of example app](https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test) or see: [related section in code document for EnNumPipe](https://alihoseiny.github.io/ngx-persian/pipes/EnNumPipe.html) or see: [related section in code document for FaNumPipe](https://alihoseiny.github.io/ngx-persian/pipes/FaNumPipe.html).
 
-Also you can see [unit tests of FaNumPipe](https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/faNum.pipe.spec.ts) and [unit tests of EnNumPipe](https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/enNum.pipe.spec.ts) for more examples of how input and outputs could be. 
+Also you can see [unit tests of FaNumPipe](https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/faNum.pipe.spec.ts) and [unit tests of EnNumPipe](https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/enNum.pipe.spec.ts) for more examples of how input and outputs could be.
 ### irc
-This pipe formats currency values for two popular currency types in Iran: Rian and Toman.
+This pipe formats currency values for two popular currency types in Iran: Rial and Toman.
 
 This pipes accepts one optional parameter for declaring currency type And get's this value as first parameter.
 
@@ -125,10 +125,10 @@ Possible values for currency type parameter:
 
 |Value|Output currency type|
 |---|---|
-|r|ریال|
-|rial|ریال|
-|t|تومان|
-|toman|تومان|
+|R|ریال|
+|RIAL|ریال|
+|T|تومان|
+|TOMAN|تومان|
 
 The default value is `r`, so if you don't set any currency type, this pipe will consider that you've chosen rial currency type.
 
@@ -147,7 +147,7 @@ For example, For converting a digit to rial:
 
 You can pass currency type parameter as below:
 
-`{{13750 | irc:'t'}}`
+`{{13750 | irc:'T'}}`
 
 The output will be like:
 `137,750 تومان`
@@ -156,15 +156,13 @@ You can see the example usage of this pipes in below GIF:
 
 ![IR Currency pipe for formatting currency values in rial or toman](https://github.com/alihoseiny/ngx-persian/raw/master/Usage%20Examples/IRCurrency-toman.gif "IR Currency pipe for formatting currency values in rial or toman")
 
-Also this pipes inherits the [Angular decimal pipe](https://angular.io/api/common/DecimalPipe). So you can choose different formatting styles for numeric part of formatted currency value and pass yor pattern as second parameter of the pipe.
-
 For example, below code recreates default behaviour of the pipe (Grouping each 3 digit from right):
 
-`{{13750 | irc:'r':'1.0-0'}}`
+`{{13750 | irc:'R'}}`
 
 In regular uses, you never need to pass the second parameter, but it's here for more special usages.
 
-**Still have questions?** see the [related part of example app](https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test) or see: [related section in code document for IRCurrencyPipe](https://alihoseiny.github.io/ngx-persian/pipes/IRCurrencyPipe.html). 
+**Still have questions?** see the [related part of example app](https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test) or see: [related section in code document for IRCurrencyPipe](https://alihoseiny.github.io/ngx-persian/pipes/IRCurrencyPipe.html).
 
 Also you can see [unit tests of IRCurrencyPipe](https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/IRCurrency.pipe.spec.ts) for more examples of how input and outputs could be.
 
@@ -188,7 +186,7 @@ You can see the example usage of this pipes in below GIF:
 
 ![Iranian national code formatter pipe](https://github.com/alihoseiny/ngx-persian/raw/master/Usage%20Examples/NationalCodePipe.gif "Iranian national number formatter pipe")
 
-**Still have questions?** see the [related part of example app](https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test) or see: [related section in code document for NationalCodePipe](https://alihoseiny.github.io/ngx-persian/pipes/NationalCodePipe.html). 
+**Still have questions?** see the [related part of example app](https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test) or see: [related section in code document for NationalCodePipe](https://alihoseiny.github.io/ngx-persian/pipes/NationalCodePipe.html).
 
 Also you can see [unit tests of NationalCodePipe](https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/nationalCode.pipe.spec.ts) for more examples of how input and outputs could be.
 
@@ -211,25 +209,25 @@ For example: ` dateObject | jdate` produces following text: `23 اردیبهشت
 
 For changing formatting pattern, you can set second parameter like this:
 
-`dateObject| jdate:'small'` That produces this result: `97/2/23 12:12 ب.ظ `
+`dateObject| jdate:'SHORT'` That produces this result: `97/2/23 12:12 ب.ظ `
 
 Below you can see list of pre-defined formats:
 
 |Format name|Equivalent Pattern String|Example Result|
 |---|---|---|
-|short|`yy/m/d h:M t`|97/2/23 12:12 ب.ظ'|
-|shortDate|`yy/m/d h:M t`|97/2/23 12:12 ب.ظ|
-|medium|`d mmm yyyy، h:M t`|23 اردیبهشت 1397، 12:12 ب.ظ|
-|mediumDate|`d mmm yyyy، h:M t`|23 اردیبهشت 1397، 12:12 ب.ظ|
-|long|`d mmm yyyy، h:M:S T`|23 اردیبهشت 1397، 12:12:30 بعد از ظهر|
-|longDate|`d mmm yyyy، h:M:S T`|23 اردیبهشت 1397، 12:12:30 بعد از ظهر|
-|shortTime|`h:M t`|12:12 ب.ظ|
-|mediumTime|`h:M:S t`|12:12:30 ب.ظ|
-|longTime|`h:M:S.l T`|12:12:30.300 بعد از ظهر|
+|SHORT|`yy/m/d h:M t`|97/2/23 12:12 ب.ظ'|
+|SHORT_DATE|`yy/m/d h:M t`|97/2/23 12:12 ب.ظ|
+|MEDIUM|`d mmm yyyy، h:M t`|23 اردیبهشت 1397، 12:12 ب.ظ|
+|MEDIUM_DATE|`d mmm yyyy، h:M t`|23 اردیبهشت 1397، 12:12 ب.ظ|
+|LONG|`d mmm yyyy، h:M:S T`|23 اردیبهشت 1397، 12:12:30 بعد از ظهر|
+|LONG_DATE|`d mmm yyyy، h:M:S T`|23 اردیبهشت 1397، 12:12:30 بعد از ظهر|
+|SHORT_TIME|`h:M t`|12:12 ب.ظ|
+|MEDIUM_TIME|`h:M:S t`|12:12:30 ب.ظ|
+|LONG_TIME|`h:M:S.l T`|12:12:30.300 بعد از ظهر|
 
 Also instead of those pattern names, you can set your desired pattern string as described in the [documents of format method of JDate object]().
 
-**Still have questions?** see the [related part of example app](https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test) or see: [related section in code document for JdatePipe](https://alihoseiny.github.io/ngx-persian/pipes/JdatePipe.html). 
+**Still have questions?** see the [related part of example app](https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test) or see: [related section in code document for JdatePipe](https://alihoseiny.github.io/ngx-persian/pipes/JdatePipe.html).
 
 
 Also you can see [unit tests of JdatePipe](https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/jdate.pipe.spec.ts) for more examples of how input and outputs could be.
@@ -371,13 +369,13 @@ You can see possible properties of the options object, their meaning and their d
 |enDigits|If sets to `true`, accept english digits plus persian letters|`false`|
 |symbols|Accepts certain symbols plus persian letters. |`true`|
 |       |Symbols list:                                 ||                                             ||
-|       |  ?$-/:؟!~"'^_-[]{}()%&*><; 
+|       |  ?$-/:؟!~"'^_-[]{}()%&*><;
 |whitespaces|If sets to `true`, accepts whitespace characters plus persian letters.|`true`|
 
 You can use any combination of those parameters for getting the result you want.
 
 You only need to pass parameters of options those are different from default value. Missing properties will fill with default values.
- 
+
 
 Example:
 ```typescript
@@ -419,7 +417,7 @@ Now you can use it like other attributes of your class with `this` keyword.
 So lets digging deep to the class and see what its methods do:
 
 #### isPhoneNumberPatternValid
- This method only checks if phoneNumber follows valid pattern. means starting by `+98` or `0`, then a `9` digit and then 9 digits. This method will not check validity of the phoneNumber code and can accept invalid strings those only locking like phone numbers and in reality are not a valid phone number.
+This method only checks if phoneNumber follows valid pattern. means starting by `+98` or `0`, then a `9` digit and then 9 digits. This method will not check validity of the phoneNumber code and can accept invalid strings those only locking like phone numbers and in reality are not a valid phone number.
 
 Example:
 ```typescript
@@ -451,18 +449,18 @@ Supporting Mobile operator companies are listed in table below:
 
 |Operator Name in English|نام فارسی اپراتور|
 |---|---|
-|irancell|ایرانسل|
-|mci|همراه اول|
-|talia|تالیا|
-|rightel|رایتل|
-|spadan|اسپادان|
-|tkc|شبکه مستقل تلفن همراه کیش|
-|shatel|شاتل|
-|aptel|آپتل|
-|azartel|آذرتل|
-|samantel|سامانتل|
-|lotustel|لوتوس‌تل|
-|anarestan|انارستان|
+|IRANCELL|ایرانسل|
+|MCI|همراه اول|
+|TALIA|تالیا|
+|RIGHTEL|رایتل|
+|SPADAN|اسپادان|
+|TKC|شبکه مستقل تلفن همراه کیش|
+|SHATEL|شاتل|
+|APTEL|آپتل|
+|AZARTEL|آذرتل|
+|SAMANTEL|سامانتل|
+|LOTUSTEL|لوتوس‌تل|
+|ANARESTAN|انارستان|
 
 We've provided an enum named `operatorsNames` you can see it [here](https://alihoseiny.github.io/ngx-persian/miscellaneous/enumerations.html#operatorsNames).
 
@@ -627,13 +625,13 @@ console.log(this.jalaliDateValidatorService.jMonthLength(1375, 11));
 console.log(this.jalaliDateValidatorService.jMonthLength(1397, 0));
 // Expected output: 31
 ```
-For more information you can see the [related part of code document about jMonthLength method](https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateValidatorService.html#jMonthLength). 
+For more information you can see the [related part of code document about jMonthLength method](https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateValidatorService.html#jMonthLength).
 Also for more examples, you can see the [unit tests of the jMonthLength method](https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-validator.service.spec.ts#L91).
 
 #### numOfJLeapYears
 Return number of leap years passed from base year until given Jalali year.
 
-For more information you can see the [related part of code document about numOfJLeapYears method](https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateValidatorService.html#numOfJLeapYears). 
+For more information you can see the [related part of code document about numOfJLeapYears method](https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateValidatorService.html#numOfJLeapYears).
 Also for more examples, you can see the [unit tests of the numOfJLeapYears method](https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-validator.service.spec.ts#L113).
 
 ### JalaliDateCalculatorService
@@ -671,7 +669,7 @@ this.jalaliDateCalculator.convertToGeorgian(1397, 11, 22);
 // Expecting output of this line is: Date(2019, 2, 13);
 ``` 
 
-For more information you can see the [related part of code document about convertToGeorgian method](https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#convertToGeorgian). 
+For more information you can see the [related part of code document about convertToGeorgian method](https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#convertToGeorgian).
 Also for more examples, you can see the [unit tests of the convertToGeorgian method](https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.spec.ts#L139).
 
 #### convertToJalali
@@ -688,7 +686,7 @@ console.log(jalali.year); // Expected output: 1397
 console.log(jalali.month) // Expected output: 11
 console.log(jalali.day) // Expected output: 22
 ```
-For more information you can see the [related part of code document about convertToJalali method](https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#convertToJalali). 
+For more information you can see the [related part of code document about convertToJalali method](https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#convertToJalali).
 Also for more examples, you can see the [unit tests of the convertToJalali method](https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.spec.ts#L122).
 
 #### createGDateFromDays
@@ -699,7 +697,7 @@ Example:
 console.log(this.jalaliDateCalculator.createGDateFromDays(2458736));
 // Expected output: Date(2019, 8, 9)
 ```
-For more information you can see the [related part of code document about createGDateFromDays method](https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#createGDateFromDays). 
+For more information you can see the [related part of code document about createGDateFromDays method](https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#createGDateFromDays).
 Also for more examples, you can see the [unit tests of the createGDateFromDays method](https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.spec.ts#L28).
 
 #### firstDayOfJYearInMarch
@@ -712,7 +710,7 @@ Example:
 console.log(this.jalaliDateCalculator.firstDayOfJYearInMarch(1398));
 // Expected output: 21
 ```
-For more information you can see the [related part of code document about firstDayOfJYearInMarch method](https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#firstDayOfJYearInMarch). 
+For more information you can see the [related part of code document about firstDayOfJYearInMarch method](https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#firstDayOfJYearInMarch).
 Also for more examples, you can see the [unit tests of the firstDayOfJYearInMarch method](https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.spec.ts#L108).
 
 #### georgianYearToJalaliYear
@@ -746,7 +744,7 @@ const dateObj = new Date(2019, 8, 9);
 console.log(this.jalaliDateCalculator.numberOfPassedGDays(dateObj));
 // Expected output: 2458736
 ```
-For more information you can see the [related part of code document about numberOfPassedGDays method](https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#numberOfPassedGDays). 
+For more information you can see the [related part of code document about numberOfPassedGDays method](https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#numberOfPassedGDays).
 Also for more examples, you can see the [unit tests of the numberOfPassedGDays method](https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.spec.ts#L10).
 
 #### numberOfPassedJDays
@@ -764,7 +762,7 @@ Example:
 console.log(this.jalaliDateCalculator.numberOfPassedJDays(1397, 0, 1));
 // Expected output: 2458199
 ```
-For more information you can see the [related part of code document about numberOfPassedJDays method](https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#numberOfPassedJDays). 
+For more information you can see the [related part of code document about numberOfPassedJDays method](https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#numberOfPassedJDays).
 Also for more examples, you can see the [unit tests of the numberOfPassedJDays method](https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.spec.ts#L61).
 
 #### numOfGLeapYears
@@ -776,7 +774,7 @@ Example:
 console.log(this.jalaliDateCalculator.numOfGLeapYears(2018));
 // Expected output: 339
 ```
-For more information you can see the [related part of code document about numOfGLeapYears method](https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#numOfGLeapYears). 
+For more information you can see the [related part of code document about numOfGLeapYears method](https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#numOfGLeapYears).
 Also for more examples, you can see the [unit tests of the numOfGLeapYears method](https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.spec.ts#L93).
 
 ## Jalali Date
@@ -801,11 +799,11 @@ For using `JDate`, you only need to import it in the file you are working on it:
 There are many ways to create a Jalali Date object for your convenience.
 1. getting current date and time by creating an instance without any parameter: `new JDate()`
 2. Creating `JDate` object from a jalali date string as described in the
- [`pars` method document](https://alihoseiny.github.io/ngx-persian/classes/JDate.html#parse), you can pass that string as
- first parameter and leave others empty. `new JDate('11 دی 1348 00:00:00')`
- 3. Creating `JDate` object from number of passed milliseconds from UNIX epoch: `new JDate(-12600000)`
- 4. Creating `JDate` object from a Georgian Date object and convert that date to the Jalali date effortlessly: `new JDate(new Date(2018, 1, 1))`
- 5. Creating JDate object from date and time values: `new JDate(1397, 12, 25)` or `new JDate(1397, 12, 25, 12, 32, 45, 123)`
+   [`pars` method document](https://alihoseiny.github.io/ngx-persian/classes/JDate.html#parse), you can pass that string as
+   first parameter and leave others empty. `new JDate('11 دی 1348 00:00:00')`
+3. Creating `JDate` object from number of passed milliseconds from UNIX epoch: `new JDate(-12600000)`
+4. Creating `JDate` object from a Georgian Date object and convert that date to the Jalali date effortlessly: `new JDate(new Date(2018, 1, 1))`
+5. Creating JDate object from date and time values: `new JDate(1397, 12, 25)` or `new JDate(1397, 12, 25, 12, 32, 45, 123)`
 
 As I said, This class implements entire `Date` object, so there are many methods, and you can do anything you could do with javascript `Date` ,
 plus some additional methods for simpler use like [`format` method](https://alihoseiny.github.io/ngx-persian/classes/JDate.html#format) that formats date and time in desired pattern.
@@ -895,7 +893,7 @@ You can see the example usage in below GIF:
 
 **Still have questions?** see the [related part of example app](https://github.com/alihoseiny/ngx-persian/blob/master/TestApplication/src/app/validator-functions/validator-functions.component.ts)
 
-For more information you can see the [related part of code document about persianNumbersValidator](https://alihoseiny.github.io/ngx-persian/miscellaneous/functions.html#persianNumbersValidator). 
+For more information you can see the [related part of code document about persianNumbersValidator](https://alihoseiny.github.io/ngx-persian/miscellaneous/functions.html#persianNumbersValidator).
 Also for more examples, you can see the [unit tests of the persianNumbersValidator](https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Validators/persian-validators.spec.ts#L24).
 
 ### persianNumbersValidator
@@ -949,7 +947,7 @@ You can validate inputs with any combination of these options.
 
 **Still have questions?** see the [related part of example app](https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/validator-functions)
 
-For more information you can see the [related part of code document about persianLettersValidator](https://alihoseiny.github.io/ngx-persian/miscellaneous/functions.html#persianLettersValidator). 
+For more information you can see the [related part of code document about persianLettersValidator](https://alihoseiny.github.io/ngx-persian/miscellaneous/functions.html#persianLettersValidator).
 Also for more examples, you can see the [unit tests of the persianLettersValidator](https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Validators/persian-validators.spec.ts#L49).
 
 ## Directives

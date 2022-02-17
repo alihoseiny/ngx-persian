@@ -8,11 +8,10 @@
 /bazel-out
 
 # dependencies
-**/node_modules
+/node_modules
 
 # profiling files
-chrome-profiler-events.json
-speed-measure-plugin.json
+chrome-profiler-events*.json
 
 # IDEs and editors
 /.idea
@@ -22,10 +21,9 @@ speed-measure-plugin.json
 *.launch
 .settings/
 *.sublime-workspace
-**/.editorconfig
 
 # IDE - VSCode
-**/.vscode/*
+.vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -33,7 +31,8 @@ speed-measure-plugin.json
 .history/*
 
 # misc
-**/.sass-cache
+/.angular/cache
+/.sass-cache
 /connect.lock
 /coverage
 /libpeerconnection.log
@@ -45,7 +44,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-
-# Others
-**/.distngx-persian
-**/package-lock.json

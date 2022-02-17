@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
 
@@ -35,9 +36,10 @@
 
 
 
+
 <ol class="breadcrumb">
   <li>Directives</li>
-  <li>PersianLetterDirective</li>
+  <li >PersianLetterDirective</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -57,6 +59,7 @@
         <p class="comment">
             <code>projects/ngx-persian/src/lib/Validators/persian-directives.ts</code>
         </p>
+
 
             <p class="comment">
                 <h3>Description</h3>
@@ -78,7 +81,7 @@ For setting options value, you can simply set PersianLetterDirective property eq
 
         <section>
             <h3>Metadata</h3>
-            <table class="table table-sm table-hover">
+            <table class="table table-sm table-hover metadata">
                 <tbody>
                     <tr>
                         <td class="col-md-3">Providers</td>
@@ -91,7 +94,7 @@ For setting options value, you can simply set PersianLetterDirective property eq
 
                     <tr>
                         <td class="col-md-3">Selector</td>
-                        <td class="col-md-9"><code>persianLettersValidator</code></td>
+                        <td class="col-md-9"><code>[ngxPersianLettersValidator]</code></td>
                     </tr>
 
                 </tbody>
@@ -112,7 +115,7 @@ For setting options value, you can simply set PersianLetterDirective property eq
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#validate">validate</a>
+                                <a href="#validate" >validate</a>
                             </li>
                         </ul>
                     </td>
@@ -127,7 +130,7 @@ For setting options value, you can simply set PersianLetterDirective property eq
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#PersianLetterDirective">PersianLetterDirective</a>
+                                <a href="#PersianLetterDirective" >PersianLetterDirective</a>
                             </li>
                         </ul>
                     </td>
@@ -159,7 +162,7 @@ For setting options value, you can simply set PersianLetterDirective property eq
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">projects/ngx-persian/src/lib/Validators/persian-directives.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">projects/ngx-persian/src/lib/Validators/persian-directives.ts:40</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -179,9 +182,7 @@ For setting options value, you can simply set PersianLetterDirective property eq
                 <td class="col-md-4">
                     <a name="validate"></a>
                     <span class="name">
-                        <b>
-                            validate
-                        </b>
+                        <span ><b>validate</b></span>
                         <a href="#validate"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -195,8 +196,8 @@ For setting options value, you can simply set PersianLetterDirective property eq
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">projects/ngx-persian/src/lib/Validators/persian-directives.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">projects/ngx-persian/src/lib/Validators/persian-directives.ts:48</a></div>
                 </td>
             </tr>
 
@@ -208,6 +209,7 @@ For setting options value, you can simply set PersianLetterDirective property eq
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -265,19 +267,20 @@ import {PLOptions} from &#x27;../Services/persian-letter.service&#x27;;
  * [For more information also see persianNumbersValidator]{@link persianNumbersValidator}
  */
 @Directive({
-  selector: &#x27;PersianNumbersDirective&#x27;,
-  providers: [{provide: NG_VALIDATORS, useExisting: PersianNumbersDirective}]
+    selector: &#x27;[ngxPersianNumbersDirective]&#x27;,
+    providers: [{provide: NG_VALIDATORS, useExisting: PersianNumbersDirective}]         // eslint-disable-line no-use-before-define
 })
 export class PersianNumbersDirective implements Validator {
 
-  /**
-   * Only a wrapper for persianNumbersValidator validator function.
-   * @param control
-   * @return null for success or ValidationError for invalid inputs
-   */
-  validate(control: AbstractControl): {[key: string]: any} | null {
-    return persianNumbersValidator()(control);
-  }
+    /**
+     * Only a wrapper for persianNumbersValidator validator function.
+     *
+     * @param control
+     * @return null for success or ValidationError for invalid inputs
+     */
+    validate(control: AbstractControl): { [key: string]: any } | null {
+        return persianNumbersValidator()(control);
+    }
 }
 
 /**
@@ -286,21 +289,22 @@ export class PersianNumbersDirective implements Validator {
  * [For more information also see persianLettersValidator]{@link persianLettersValidator}
  */
 @Directive({
-  selector: &#x27;persianLettersValidator&#x27;,
-  providers: [{provide: NG_VALIDATORS, useExisting: PersianLetterDirective}]
+    selector: &#x27;[ngxPersianLettersValidator]&#x27;,
+    providers: [{provide: NG_VALIDATORS, useExisting: PersianLetterDirective}]         // eslint-disable-line no-use-before-define
 })
 export class PersianLetterDirective implements Validator {
 
-  @Input(&#x27;PersianLetterDirective&#x27;) options: PLOptions;
+    @Input(&#x27;PersianLetterDirective&#x27;) options!: PLOptions;        // eslint-disable-line @angular-eslint/no-input-rename
 
-  /**
-   * Only a wrapper for persianLettersValidator validator function.
-   * @param control
-   * @return null for success or ValidationError for invalid inputs
-   */
-  validate(control: AbstractControl): {[key: string]: any} | null {
-    return persianLettersValidator(this.options)(control);
-  }
+    /**
+     * Only a wrapper for persianLettersValidator validator function.
+     *
+     * @param control
+     * @return null for success or ValidationError for invalid inputs
+     */
+    validate(control: AbstractControl): { [key: string]: any } | null {
+        return persianLettersValidator(this.options)(control);
+    }
 }
 </code></pre>
     </div>
@@ -314,14 +318,14 @@ export class PersianLetterDirective implements Validator {
 
 
 
-                   
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -333,6 +337,15 @@ export class PersianLetterDirective implements Validator {
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'directive';
@@ -342,9 +355,9 @@ export class PersianLetterDirective implements Validator {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+
        <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

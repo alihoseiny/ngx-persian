@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
 
@@ -36,9 +37,10 @@
 
 
 
+
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>NationalCodeService</li>
+  <li >NationalCodeService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,6 +60,7 @@
         <p class="comment">
             <code>projects/ngx-persian/src/lib/Services/national-code.service.ts</code>
         </p>
+
 
             <p class="comment">
                 <h3>Description</h3>
@@ -84,13 +87,13 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#_is_repetitive">_is_repetitive</a>
+                                <a href="#_isRepetitive" >_isRepetitive</a>
                             </li>
                             <li>
-                                <a href="#isValid">isValid</a>
+                                <a href="#isValid" >isValid</a>
                             </li>
                             <li>
-                                <a href="#normalize">normalize</a>
+                                <a href="#normalize" >normalize</a>
                             </li>
                         </ul>
                     </td>
@@ -114,28 +117,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="_is_repetitive"></a>
+                    <a name="_isRepetitive"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Private</span>
-                            _is_repetitive
-                        </b>
-                        <a href="#_is_repetitive"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Private</span>
+                        <span ><b>_isRepetitive</b></span>
+                        <a href="#_isRepetitive"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>_is_repetitive(input: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>_isRepetitive(input: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">projects/ngx-persian/src/lib/Services/national-code.service.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">projects/ngx-persian/src/lib/Services/national-code.service.ts:76</a></div>
                 </td>
             </tr>
 
@@ -147,6 +148,7 @@
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -191,9 +193,7 @@
                 <td class="col-md-4">
                     <a name="isValid"></a>
                     <span class="name">
-                        <b>
-                            isValid
-                        </b>
+                        <span ><b>isValid</b></span>
                         <a href="#isValid"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -207,8 +207,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">projects/ngx-persian/src/lib/Services/national-code.service.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">projects/ngx-persian/src/lib/Services/national-code.service.ts:43</a></div>
                 </td>
             </tr>
 
@@ -222,6 +222,7 @@ normalize input before, but this will not make any bad effect.</p>
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -265,9 +266,7 @@ normalize input before, but this will not make any bad effect.</p>
                 <td class="col-md-4">
                     <a name="normalize"></a>
                     <span class="name">
-                        <b>
-                            normalize
-                        </b>
+                        <span ><b>normalize</b></span>
                         <a href="#normalize"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -281,8 +280,8 @@ normalize input before, but this will not make any bad effect.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">projects/ngx-persian/src/lib/Services/national-code.service.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">projects/ngx-persian/src/lib/Services/national-code.service.ts:22</a></div>
                 </td>
             </tr>
 
@@ -296,6 +295,7 @@ normalize input before, but this will not make any bad effect.</p>
 
                     <div class="io-description">
                         <b>Parameters :</b>
+                        
                         <table class="params">
                             <thead>
                                 <tr>
@@ -345,79 +345,93 @@ normalize input before, but this will not make any bad effect.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
 import {InvalidNationalCodeError} from &#x27;./InvalidNationalCode.error&#x27;;
 
 /**
  * For validating Iranian National code (number), you can use this service in your components or every other places using DI or not.
  */
 @Injectable({
-  providedIn: &#x27;root&#x27;
+    providedIn: &#x27;root&#x27;
 })
 export class NationalCodeService {
+    /**
+     * This method adds zero character at the beginning of the input until the length of the result reach to 10.
+     *
+     * This method removes spaces from right and left sides of the input.
+     *
+     * ATTENTION: This method doesn&#x27;t any validation about correctness of the input if it has correct length (between 8 and 10).
+     *
+     * @param nationalCode a number with at most 10 digits or a string with at most 10 character.
+     * @return a string with length equal to 10.
+     * @throws InvalidNationalCodeError when length of the input value is greater than 10.
+     */
+    normalize(nationalCode: number | string): string {
+        if (!nationalCode) {
+            throw new InvalidNationalCodeError();
+        }
+        let normalizedNationalCode&#x3D; nationalCode.toString();
+        normalizedNationalCode &#x3D; normalizedNationalCode.trim();
+        const nationalCodeLength &#x3D; normalizedNationalCode.length;
+        if (nationalCodeLength &gt; 10 || nationalCodeLength &lt; 8) {
+            throw new InvalidNationalCodeError(normalizedNationalCode);
+        }
+        return &#x27;0&#x27;.repeat(10 - nationalCodeLength) + normalizedNationalCode;
+    }
 
-  /**
-   *
-   * [We are using for loop instead of match or split because it has better performance according to this link]{@link https://stackoverflow.com/a/46312614/5400597}
-   * @return true if all characters of the &#x60;input&#x60; are equal and input length is greater than 1. Otherwise returns false.
-   * @param input
-   */
-  private _is_repetitive(input: string): boolean {
-    if (input.length &lt; 2) { return false; }
-    const firstChar &#x3D; input.charAt(0);
-    for (let i &#x3D; 1; i &lt; input.length; i++) {
-      if (input.charAt(i) !&#x3D;&#x3D; firstChar) { return false; }
+    /**
+     * This method first normalizes the input using &#x60;normalize&#x60; method and implicitly checks input length, So you DO NOT NEED to
+     * normalize input before, but this will not make any bad effect.
+     *
+     * [Then checking validation of the input using algorithm described in this link]{@link http://www.aliarash.com/article/codemeli/codemeli.htm}
+     *
+     * @param nationalCode
+     */
+    isValid(nationalCode: number | string): boolean {
+        if (!nationalCode) {
+            return false;
+        }
+        let NormalizedNationalCode &#x3D; nationalCode.toString();
+        if (this._isRepetitive(NormalizedNationalCode)) {
+            return false;
+        }
+        try {
+            NormalizedNationalCode &#x3D; this.normalize(NormalizedNationalCode); // Normalizing the input and checking input length validation implicitly.
+        } catch (e) {
+            return false; // Input length is not in the valid range.
+        }
+        let multiplicationResult &#x3D; 0;
+        for (let i &#x3D; 0; i &lt; 9; i++) {
+            multiplicationResult +&#x3D; parseInt(NormalizedNationalCode.charAt(i), 10) * (10 - i);
+        }
+        const reminder &#x3D; multiplicationResult % 11;
+        const controlNum &#x3D; parseInt(NormalizedNationalCode.charAt(9), 10);
+        let desiredControlNum &#x3D; reminder;
+        if (reminder &gt; 1) {
+            desiredControlNum &#x3D; 11 - reminder;
+        }
+        return desiredControlNum &#x3D;&#x3D;&#x3D; controlNum;
     }
-    return true;
-  }
 
-  /**
-   * This method adds zero character at the beginning of the input until the length of the result reach to 10.
-   *
-   * This method removes spaces from right and left sides of the input.
-   *
-   * ATTENTION: This method doesn&#x27;t any validation about correctness of the input if it has correct length (between 8 and 10).
-   * @param nationalCode a number with at most 10 digits or a string with at most 10 character.
-   * @return a string with length equal to 10.
-   * @throws InvalidNationalCodeError when length of the input value is greater than 10.
-   */
-  normalize(nationalCode: number | string): string {
-    if (! nationalCode) { throw new InvalidNationalCodeError(); }
-    nationalCode &#x3D; nationalCode.toString();
-    nationalCode &#x3D; nationalCode.trim();
-    const nationalCodeLength &#x3D; nationalCode.length;
-    if (nationalCodeLength &gt; 10 || nationalCodeLength &lt; 8) { throw new InvalidNationalCodeError(nationalCode); }
-    return &#x27;0&#x27;.repeat(10 - nationalCodeLength) + nationalCode;
-  }
-
-  /**
-   * This method first normalizes the input using &#x60;normalize&#x60; method and implicitly checks input length, So you DO NOT NEED to
-   * normalize input before, but this will not make any bad effect.
-   *
-   * [Then checking validation of the input using algorithm described in this link]{@link http://www.aliarash.com/article/codemeli/codemeli.htm}
-   * @param nationalCode
-   */
-  isValid(nationalCode: number | string): boolean {
-    if (!nationalCode) { return false; }
-    nationalCode &#x3D; nationalCode.toString();
-    if (this._is_repetitive(nationalCode)) { return false; }
-    try {
-      nationalCode &#x3D; this.normalize(nationalCode); // Normalizing the input and checking input length validation implicitly.
-    } catch (e) {
-      return false; // Input length is not in the valid range.
+    /**
+     *
+     * [We are using for loop instead of match or split because it has better performance according to this link]{@link https://stackoverflow.com/a/46312614/5400597}
+     *
+     * @return true if all characters of the &#x60;input&#x60; are equal and input length is greater than 1. Otherwise returns false.
+     * @param input
+     */
+    private _isRepetitive(input: string): boolean {
+        if (input.length &lt; 2) {
+            return false;
+        }
+        const firstChar &#x3D; input.charAt(0);
+        for (let i &#x3D; 1; i &lt; input.length; i++) {
+            if (input.charAt(i) !&#x3D;&#x3D; firstChar) {
+                return false;
+            }
+        }
+        return true;
     }
-    let multiplicationResult &#x3D; 0;
-    for (let i &#x3D; 0; i &lt; 9; i++) {
-      multiplicationResult +&#x3D; parseInt(nationalCode.charAt(i), 10)  * (10 - i);
-    }
-    const reminder &#x3D; multiplicationResult % 11;
-    const controlNum &#x3D; parseInt(nationalCode.charAt(9), 10);
-    let desiredControlNum &#x3D;  reminder;
-    if (reminder &gt; 1) {
-      desiredControlNum &#x3D; 11 - reminder;
-    }
-    return desiredControlNum &#x3D;&#x3D;&#x3D; controlNum;
-  }
 }
 </code></pre>
     </div>
@@ -430,14 +444,14 @@ export class NationalCodeService {
 
 
 
-                   
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -449,6 +463,15 @@ export class NationalCodeService {
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
@@ -458,9 +481,9 @@ export class NationalCodeService {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+
        <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

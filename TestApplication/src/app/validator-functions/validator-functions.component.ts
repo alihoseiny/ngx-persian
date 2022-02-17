@@ -11,9 +11,7 @@ export class ValidatorFunctionsComponent implements OnInit {
 
   fGroup: FormGroup;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
     this.fGroup = new FormGroup({
       onlyPersianNumbers: new FormControl('', [persianNumbersValidator()]),
       onlyPersianLetters: new FormControl('', [persianLettersValidator()]),
@@ -22,6 +20,9 @@ export class ValidatorFunctionsComponent implements OnInit {
       persianLettersWithPersianNums: new FormControl('', persianLettersValidator({persianDigits: true})),
       persianLettersWithSymbols: new FormControl('', persianLettersValidator({symbols: true})),
     });
+  }
+
+  ngOnInit() {
   }
 
 }

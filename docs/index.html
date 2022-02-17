@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-	      <link rel="stylesheet" href="./styles/style.css">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
     </head>
     <body>
 
@@ -38,7 +39,7 @@
 <p>A full featured tool set for Persian Applications Created by Angular (v &gt; 2) containing Pipes, Services, Directives and javascript Similar Date object for working with Jalali Date.</p>
 <p>You can use Tools provided by this library for:</p>
 <ul>
-<li>Converting English numbers to Persian numbers and vise versa </li>
+<li>Converting English numbers to Persian numbers and vise versa</li>
 <li>Validating persian text with different options</li>
 <li>Validating persian numbers for numeric inputs</li>
 <li>Converting and validating Jalali Date and time like native javascript Date object</li>
@@ -61,7 +62,7 @@
 </ul>
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-<p><strong>Table of Contents</strong> </p>
+<p><strong>Table of Contents</strong></p>
 <ul>
 <li><a href="#ngxpersian">NgxPersian</a><ul>
 <li><a href="#why-you-should-use-this-library">Why you should use this library?</a></li>
@@ -132,10 +133,10 @@
 <code>{{persianTextDigit | enNum}}</code></p>
 <p>You can see the example usage of these pipes in below GIF:</p>
 <p><img src="https://github.com/alihoseiny/ngx-persian/raw/master/Usage%20Examples/faNum%20and%20enNum%20pipes.gif" alt="faNum and enNum pipes" class="img-responsive" title="Animation of faNum and enNum pipes usage"></p>
-<p><strong>Still have questions?</strong> see the <a href="https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test">related part of example app</a> or see: <a href="https://alihoseiny.github.io/ngx-persian/pipes/EnNumPipe.html">related section in code document for EnNumPipe</a> or see: <a href="https://alihoseiny.github.io/ngx-persian/pipes/FaNumPipe.html">related section in code document for FaNumPipe</a>. </p>
-<p>Also you can see <a href="https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/faNum.pipe.spec.ts">unit tests of FaNumPipe</a> and <a href="https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/enNum.pipe.spec.ts">unit tests of EnNumPipe</a> for more examples of how input and outputs could be. </p>
+<p><strong>Still have questions?</strong> see the <a href="https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test">related part of example app</a> or see: <a href="https://alihoseiny.github.io/ngx-persian/pipes/EnNumPipe.html">related section in code document for EnNumPipe</a> or see: <a href="https://alihoseiny.github.io/ngx-persian/pipes/FaNumPipe.html">related section in code document for FaNumPipe</a>.</p>
+<p>Also you can see <a href="https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/faNum.pipe.spec.ts">unit tests of FaNumPipe</a> and <a href="https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/enNum.pipe.spec.ts">unit tests of EnNumPipe</a> for more examples of how input and outputs could be.</p>
 <h3 id="irc">irc</h3>
-<p>This pipe formats currency values for two popular currency types in Iran: Rian and Toman.</p>
+<p>This pipe formats currency values for two popular currency types in Iran: Rial and Toman.</p>
 <p>This pipes accepts one optional parameter for declaring currency type And get&#39;s this value as first parameter.</p>
 <p>Possible values for currency type parameter:</p>
 <table class="table table-bordered compodoc-table">
@@ -147,19 +148,19 @@
 </thead>
 <tbody>
 <tr>
-<td>r</td>
+<td>R</td>
 <td>ریال</td>
 </tr>
 <tr>
-<td>rial</td>
+<td>RIAL</td>
 <td>ریال</td>
 </tr>
 <tr>
-<td>t</td>
+<td>T</td>
 <td>تومان</td>
 </tr>
 <tr>
-<td>toman</td>
+<td>TOMAN</td>
 <td>تومان</td>
 </tr>
 </tbody>
@@ -173,16 +174,15 @@
 <p>For example, For converting a digit to rial:
 <code>{{13750 | irc}}</code> output will be: <code>13,750 ریال</code></p>
 <p>You can pass currency type parameter as below:</p>
-<p><code>{{13750 | irc:&#39;t&#39;}}</code></p>
+<p><code>{{13750 | irc:&#39;T&#39;}}</code></p>
 <p>The output will be like:
 <code>137,750 تومان</code></p>
 <p>You can see the example usage of this pipes in below GIF:</p>
 <p><img src="https://github.com/alihoseiny/ngx-persian/raw/master/Usage%20Examples/IRCurrency-toman.gif" alt="IR Currency pipe for formatting currency values in rial or toman" class="img-responsive" title="IR Currency pipe for formatting currency values in rial or toman"></p>
-<p>Also this pipes inherits the <a href="https://angular.io/api/common/DecimalPipe">Angular decimal pipe</a>. So you can choose different formatting styles for numeric part of formatted currency value and pass yor pattern as second parameter of the pipe.</p>
 <p>For example, below code recreates default behaviour of the pipe (Grouping each 3 digit from right):</p>
-<p><code>{{13750 | irc:&#39;r&#39;:&#39;1.0-0&#39;}}</code></p>
+<p><code>{{13750 | irc:&#39;R&#39;}}</code></p>
 <p>In regular uses, you never need to pass the second parameter, but it&#39;s here for more special usages.</p>
-<p><strong>Still have questions?</strong> see the <a href="https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test">related part of example app</a> or see: <a href="https://alihoseiny.github.io/ngx-persian/pipes/IRCurrencyPipe.html">related section in code document for IRCurrencyPipe</a>. </p>
+<p><strong>Still have questions?</strong> see the <a href="https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test">related part of example app</a> or see: <a href="https://alihoseiny.github.io/ngx-persian/pipes/IRCurrencyPipe.html">related section in code document for IRCurrencyPipe</a>.</p>
 <p>Also you can see <a href="https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/IRCurrency.pipe.spec.ts">unit tests of IRCurrencyPipe</a> for more examples of how input and outputs could be.</p>
 <h3 id="nationalcode">nationalCode</h3>
 <p>This pipe formats a 10-digit string to national code format like:</p>
@@ -195,7 +195,7 @@
 For example: <code>0011753646 | nationalCode</code> produces following text: <code>001-175364-6</code></p>
 <p>You can see the example usage of this pipes in below GIF:</p>
 <p><img src="https://github.com/alihoseiny/ngx-persian/raw/master/Usage%20Examples/NationalCodePipe.gif" alt="Iranian national code formatter pipe" class="img-responsive" title="Iranian national number formatter pipe"></p>
-<p><strong>Still have questions?</strong> see the <a href="https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test">related part of example app</a> or see: <a href="https://alihoseiny.github.io/ngx-persian/pipes/NationalCodePipe.html">related section in code document for NationalCodePipe</a>. </p>
+<p><strong>Still have questions?</strong> see the <a href="https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test">related part of example app</a> or see: <a href="https://alihoseiny.github.io/ngx-persian/pipes/NationalCodePipe.html">related section in code document for NationalCodePipe</a>.</p>
 <p>Also you can see <a href="https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/nationalCode.pipe.spec.ts">unit tests of NationalCodePipe</a> for more examples of how input and outputs could be.</p>
 <h3 id="jdate">jdate</h3>
 <p>This pipe formats <a href="#jalali-date"><code>JDate</code></a> object and creates a human readable text with different pre-defined formats. Also you can pass your custom format to it.
@@ -206,9 +206,9 @@ If you pass instances of <code>Date</code> class those representing Georgian Dat
 <p>Then, like any other pipe, you need to <em>declare</em> the pipe in your module. For this, you should add following line in the <code>declarations</code> array of the <code>@NgModule</code> of your module:</p>
 <p><code>JdatePipe,</code></p>
 <p>You can use this pipe anywhere you like in your templates for formatting Jalali dates as <code>JDate</code> objects or converting and then formatting Georgian dates as <code>Date</code> objects.
-For example: <code>dateObject | jdate</code> produces following text: <code>23 اردیبهشت 1397، 12:12 ب.ظ&#39;</code></p>
+For example: <code> dateObject | jdate</code> produces following text: <code>23 اردیبهشت 1397، 12:12 ب.ظ&#39;</code></p>
 <p>For changing formatting pattern, you can set second parameter like this:</p>
-<p><code>dateObject| jdate:&#39;small&#39;</code> That produces this result: <code>97/2/23 12:12 ب.ظ</code></p>
+<p><code>dateObject| jdate:&#39;SHORT&#39;</code> That produces this result: <code>97/2/23 12:12 ب.ظ </code></p>
 <p>Below you can see list of pre-defined formats:</p>
 <table class="table table-bordered compodoc-table">
 <thead>
@@ -220,54 +220,54 @@ For example: <code>dateObject | jdate</code> produces following text: <code>23 �
 </thead>
 <tbody>
 <tr>
-<td>short</td>
+<td>SHORT</td>
 <td><code>yy/m/d h:M t</code></td>
 <td>97/2/23 12:12 ب.ظ&#39;</td>
 </tr>
 <tr>
-<td>shortDate</td>
+<td>SHORT_DATE</td>
 <td><code>yy/m/d h:M t</code></td>
 <td>97/2/23 12:12 ب.ظ</td>
 </tr>
 <tr>
-<td>medium</td>
+<td>MEDIUM</td>
 <td><code>d mmm yyyy، h:M t</code></td>
 <td>23 اردیبهشت 1397، 12:12 ب.ظ</td>
 </tr>
 <tr>
-<td>mediumDate</td>
+<td>MEDIUM_DATE</td>
 <td><code>d mmm yyyy، h:M t</code></td>
 <td>23 اردیبهشت 1397، 12:12 ب.ظ</td>
 </tr>
 <tr>
-<td>long</td>
+<td>LONG</td>
 <td><code>d mmm yyyy، h:M:S T</code></td>
 <td>23 اردیبهشت 1397، 12:12:30 بعد از ظهر</td>
 </tr>
 <tr>
-<td>longDate</td>
+<td>LONG_DATE</td>
 <td><code>d mmm yyyy، h:M:S T</code></td>
 <td>23 اردیبهشت 1397، 12:12:30 بعد از ظهر</td>
 </tr>
 <tr>
-<td>shortTime</td>
+<td>SHORT_TIME</td>
 <td><code>h:M t</code></td>
 <td>12:12 ب.ظ</td>
 </tr>
 <tr>
-<td>mediumTime</td>
+<td>MEDIUM_TIME</td>
 <td><code>h:M:S t</code></td>
 <td>12:12:30 ب.ظ</td>
 </tr>
 <tr>
-<td>longTime</td>
+<td>LONG_TIME</td>
 <td><code>h:M:S.l T</code></td>
 <td>12:12:30.300 بعد از ظهر</td>
 </tr>
 </tbody>
 </table>
 <p>Also instead of those pattern names, you can set your desired pattern string as described in the <a href="">documents of format method of JDate object</a>.</p>
-<p><strong>Still have questions?</strong> see the <a href="https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test">related part of example app</a> or see: <a href="https://alihoseiny.github.io/ngx-persian/pipes/JdatePipe.html">related section in code document for JdatePipe</a>. </p>
+<p><strong>Still have questions?</strong> see the <a href="https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test">related part of example app</a> or see: <a href="https://alihoseiny.github.io/ngx-persian/pipes/JdatePipe.html">related section in code document for JdatePipe</a>.</p>
 <p>Also you can see <a href="https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/jdate.pipe.spec.ts">unit tests of JdatePipe</a> for more examples of how input and outputs could be.</p>
 <h2 id="services">Services</h2>
 <p>We provide some useful Angular Services for data validation and conversion. You can <em>Inject</em> Them anywhere you like using Angular DI.</p>
@@ -412,7 +412,7 @@ if (this.persianLetterService.isPersian(&#39;متن فارسی با فاصله �
 <p>Now you can use it like other attributes of your class with <code>this</code> keyword.</p>
 <p>So lets digging deep to the class and see what its methods do:</p>
 <h4 id="isphonenumberpatternvalid">isPhoneNumberPatternValid</h4>
-<p> This method only checks if phoneNumber follows valid pattern. means starting by <code>+98</code> or <code>0</code>, then a <code>9</code> digit and then 9 digits. This method will not check validity of the phoneNumber code and can accept invalid strings those only locking like phone numbers and in reality are not a valid phone number.</p>
+<p>This method only checks if phoneNumber follows valid pattern. means starting by <code>+98</code> or <code>0</code>, then a <code>9</code> digit and then 9 digits. This method will not check validity of the phoneNumber code and can accept invalid strings those only locking like phone numbers and in reality are not a valid phone number.</p>
 <p>Example:</p>
 <div><pre class="line-numbers"><code class="language-typescript">if (this.mobilePhoneNumberService.isPhoneNumberPatternValid(&#39;09357413028&#39;)) {
   console.log(&#39;phone number follows correct pattern&#39;);
@@ -438,51 +438,51 @@ if (!this.mobilePhoneNumberService.isPhoneNumberPatternValid(&#39;912475&#39;)) 
 </thead>
 <tbody>
 <tr>
-<td>irancell</td>
+<td>IRANCELL</td>
 <td>ایرانسل</td>
 </tr>
 <tr>
-<td>mci</td>
+<td>MCI</td>
 <td>همراه اول</td>
 </tr>
 <tr>
-<td>talia</td>
+<td>TALIA</td>
 <td>تالیا</td>
 </tr>
 <tr>
-<td>rightel</td>
+<td>RIGHTEL</td>
 <td>رایتل</td>
 </tr>
 <tr>
-<td>spadan</td>
+<td>SPADAN</td>
 <td>اسپادان</td>
 </tr>
 <tr>
-<td>tkc</td>
+<td>TKC</td>
 <td>شبکه مستقل تلفن همراه کیش</td>
 </tr>
 <tr>
-<td>shatel</td>
+<td>SHATEL</td>
 <td>شاتل</td>
 </tr>
 <tr>
-<td>aptel</td>
+<td>APTEL</td>
 <td>آپتل</td>
 </tr>
 <tr>
-<td>azartel</td>
+<td>AZARTEL</td>
 <td>آذرتل</td>
 </tr>
 <tr>
-<td>samantel</td>
+<td>SAMANTEL</td>
 <td>سامانتل</td>
 </tr>
 <tr>
-<td>lotustel</td>
+<td>LOTUSTEL</td>
 <td>لوتوس‌تل</td>
 </tr>
 <tr>
-<td>anarestan</td>
+<td>ANARESTAN</td>
 <td>انارستان</td>
 </tr>
 </tbody>
@@ -578,7 +578,7 @@ if (!this.jalaliDateValidatorService.isValidJYear(3179)) {
 } </code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateValidatorService.html#isValidJYear">related part of code document about isValidJYear method</a>. Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-validator.service.spec.ts#L83">unit tests of the isValidJYear method</a>.</p>
 <h4 id="jmonthlength">jMonthLength</h4>
 <p>Returns number of days in a given month counting from 1.
-<code>jMonthLength(jYear: number, jMonth: number)</code></p>
+<code> jMonthLength(jYear: number, jMonth: number)</code></p>
 <p><code>jYear</code> is Jalali year number and <code>jMonth</code> is month number starts from zero.</p>
 <p>output is number of days in given month. First six months of the year have 31 days. 5 next months have 30 days and last month maybe has 29 or 30 days.</p>
 <p>Example:</p>
@@ -586,11 +586,11 @@ if (!this.jalaliDateValidatorService.isValidJYear(3179)) {
 // Expected output: 30
 
 console.log(this.jalaliDateValidatorService.jMonthLength(1397, 0));
-// Expected output: 31</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateValidatorService.html#jMonthLength">related part of code document about jMonthLength method</a>. 
+// Expected output: 31</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateValidatorService.html#jMonthLength">related part of code document about jMonthLength method</a>.
 Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-validator.service.spec.ts#L91">unit tests of the jMonthLength method</a>.</p>
 <h4 id="numofjleapyears">numOfJLeapYears</h4>
 <p>Return number of leap years passed from base year until given Jalali year.</p>
-<p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateValidatorService.html#numOfJLeapYears">related part of code document about numOfJLeapYears method</a>. 
+<p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateValidatorService.html#numOfJLeapYears">related part of code document about numOfJLeapYears method</a>.
 Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-validator.service.spec.ts#L113">unit tests of the numOfJLeapYears method</a>.</p>
 <h3 id="jalalidatecalculatorservice">JalaliDateCalculatorService</h3>
 <p>This service converts Georgian date to Jalali and vase versa. You can use all of the methods as static methods.</p>
@@ -611,7 +611,7 @@ this method looking like:</p>
 <code>jDay</code> in day number starting from one.</p>
 <p>Example:</p>
 <div><pre class="line-numbers"><code class="language-typescript">this.jalaliDateCalculator.convertToGeorgian(1397, 11, 22);
-// Expecting output of this line is: Date(2019, 2, 13);</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#convertToGeorgian">related part of code document about convertToGeorgian method</a>. 
+// Expecting output of this line is: Date(2019, 2, 13);</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#convertToGeorgian">related part of code document about convertToGeorgian method</a>.
 Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.spec.ts#L139">unit tests of the convertToGeorgian method</a>.</p>
 <h4 id="converttojalali">convertToJalali</h4>
 <p>This method converts Georgian date to the jalali date. Output is an object implementing <a href="https://alihoseiny.github.io/ngx-persian/interfaces/SimpleDateInterface.html">SimpleDateInterface</a>.</p>
@@ -621,20 +621,20 @@ Also for more examples, you can see the <a href="https://github.com/alihoseiny/n
 <div><pre class="line-numbers"><code class="language-typescript">const jalali = this.jalaliDateCalculator.convertToJalali(new Date(2019, 2, 13));
 console.log(jalali.year); // Expected output: 1397
 console.log(jalali.month) // Expected output: 11
-console.log(jalali.day) // Expected output: 22</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#convertToJalali">related part of code document about convertToJalali method</a>. 
+console.log(jalali.day) // Expected output: 22</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#convertToJalali">related part of code document about convertToJalali method</a>.
 Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.spec.ts#L122">unit tests of the convertToJalali method</a>.</p>
 <h4 id="creategdatefromdays">createGDateFromDays</h4>
 <p>Creates a javascript Date object from number of passed days in Georgian calendar representing Georgian date.</p>
 <p>Example:</p>
 <div><pre class="line-numbers"><code class="language-typescript">console.log(this.jalaliDateCalculator.createGDateFromDays(2458736));
-// Expected output: Date(2019, 8, 9)</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#createGDateFromDays">related part of code document about createGDateFromDays method</a>. 
+// Expected output: Date(2019, 8, 9)</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#createGDateFromDays">related part of code document about createGDateFromDays method</a>.
 Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.spec.ts#L28">unit tests of the createGDateFromDays method</a>.</p>
 <h4 id="firstdayofjyearinmarch">firstDayOfJYearInMarch</h4>
 <p>First day of the Farvardin month in Jalali calendar is in March month. This method returns the day number of starting day of new jalali year in March.</p>
 <p>The day number starts from 1 not zero and is equal to the real numbers in the calendar.</p>
 <p>Example:</p>
 <div><pre class="line-numbers"><code class="language-typescript">console.log(this.jalaliDateCalculator.firstDayOfJYearInMarch(1398));
-// Expected output: 21</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#firstDayOfJYearInMarch">related part of code document about firstDayOfJYearInMarch method</a>. 
+// Expected output: 21</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#firstDayOfJYearInMarch">related part of code document about firstDayOfJYearInMarch method</a>.
 Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.spec.ts#L108">unit tests of the firstDayOfJYearInMarch method</a>.</p>
 <h4 id="georgianyeartojalaliyear">georgianYearToJalaliYear</h4>
 <p>Converts georgian year to the jalali year. Output year is the jalali year that start within the Georgian year.</p>
@@ -652,25 +652,25 @@ Also for more examples, you can see the <a href="https://github.com/alihoseiny/n
 <p>Example:</p>
 <div><pre class="line-numbers"><code class="language-typescript">const dateObj = new Date(2019, 8, 9);
 console.log(this.jalaliDateCalculator.numberOfPassedGDays(dateObj));
-// Expected output: 2458736</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#numberOfPassedGDays">related part of code document about numberOfPassedGDays method</a>. 
+// Expected output: 2458736</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#numberOfPassedGDays">related part of code document about numberOfPassedGDays method</a>.
 Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.spec.ts#L10">unit tests of the numberOfPassedGDays method</a>.</p>
 <h4 id="numberofpassedjdays">numberOfPassedJDays</h4>
 <p>Returns number of passed days from source day in jalali calendar to the given jalali date.</p>
 <p>method declaration:
-<code>numberOfPassedJDays(jYear: number, jMonth: number, jDay: number)</code></p>
+<code>numberOfPassedJDays(jYear: number, jMonth: number, jDay: number) </code></p>
 <p><code>jYear</code> is a full Jalali year like 1397.
 <code>jMonth</code> is month number starting from zero.
 <code>jDay</code> in day number starting from one.</p>
 <p>Example:</p>
 <div><pre class="line-numbers"><code class="language-typescript">console.log(this.jalaliDateCalculator.numberOfPassedJDays(1397, 0, 1));
-// Expected output: 2458199</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#numberOfPassedJDays">related part of code document about numberOfPassedJDays method</a>. 
+// Expected output: 2458199</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#numberOfPassedJDays">related part of code document about numberOfPassedJDays method</a>.
 Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.spec.ts#L61">unit tests of the numberOfPassedJDays method</a>.</p>
 <h4 id="numofgleapyears">numOfGLeapYears</h4>
 <p>This function returns number of passed leap years from AD 621 until <code>targetGYear</code>.</p>
 <p>Example:
 Example:</p>
 <div><pre class="line-numbers"><code class="language-typescript">console.log(this.jalaliDateCalculator.numOfGLeapYears(2018));
-// Expected output: 339</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#numOfGLeapYears">related part of code document about numOfGLeapYears method</a>. 
+// Expected output: 339</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#numOfGLeapYears">related part of code document about numOfGLeapYears method</a>.
 Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.spec.ts#L93">unit tests of the numOfGLeapYears method</a>.</p>
 <h2 id="jalali-date">Jalali Date</h2>
 <p>We always had problems with Jalali dates. Built-in javascript <code>Date</code> object created for Georgian date and everything has been built for that object.</p>
@@ -688,14 +688,12 @@ Also for more examples, you can see the <a href="https://github.com/alihoseiny/n
 <li>getting current date and time by creating an instance without any parameter: <code>new JDate()</code></li>
 <li>Creating <code>JDate</code> object from a jalali date string as described in the
 <a href="https://alihoseiny.github.io/ngx-persian/classes/JDate.html#parse"><code>pars</code> method document</a>, you can pass that string as
-first parameter and leave others empty. <code>new JDate(&#39;11 دی 1348 00:00:00&#39;)</code><ol start="3">
+first parameter and leave others empty. <code>new JDate(&#39;11 دی 1348 00:00:00&#39;)</code></li>
 <li>Creating <code>JDate</code> object from number of passed milliseconds from UNIX epoch: <code>new JDate(-12600000)</code></li>
 <li>Creating <code>JDate</code> object from a Georgian Date object and convert that date to the Jalali date effortlessly: <code>new JDate(new Date(2018, 1, 1))</code></li>
 <li>Creating JDate object from date and time values: <code>new JDate(1397, 12, 25)</code> or <code>new JDate(1397, 12, 25, 12, 32, 45, 123)</code></li>
 </ol>
-</li>
-</ol>
-<p>As I said, This class implements entire <code>Date</code> object, so there are many methods, and you can do anything you could do with javascript <code>Date</code> , 
+<p>As I said, This class implements entire <code>Date</code> object, so there are many methods, and you can do anything you could do with javascript <code>Date</code> ,
 plus some additional methods for simpler use like <a href="https://alihoseiny.github.io/ngx-persian/classes/JDate.html#format"><code>format</code> method</a> that formats date and time in desired pattern.</p>
 <p><a href="https://alihoseiny.github.io/ngx-persian/classes/JDate.html"><strong>You can see complete document of all methods of this class by clicking on this text</strong>.</a></p>
 <p><a href="https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/JDate/jdate.spec.ts">Also you can get more clear vision of each method by viewing unit test of JDate class here.</a></p>
@@ -750,7 +748,7 @@ console.log(this.isValid(7731689951));
 You can see the example usage in below GIF:
 <img src="https://github.com/alihoseiny/ngx-persian/raw/master/Usage%20Examples/persianNumbersValidator.gif" alt="Angular form persian number validator" class="img-responsive" title="Angular form persian number validator"></p>
 <p><strong>Still have questions?</strong> see the <a href="https://github.com/alihoseiny/ngx-persian/blob/master/TestApplication/src/app/validator-functions/validator-functions.component.ts">related part of example app</a></p>
-<p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/miscellaneous/functions.html#persianNumbersValidator">related part of code document about persianNumbersValidator</a>. 
+<p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/miscellaneous/functions.html#persianNumbersValidator">related part of code document about persianNumbersValidator</a>.
 Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Validators/persian-validators.spec.ts#L24">unit tests of the persianNumbersValidator</a>.</p>
 <h3 id="persiannumbersvalidator-1">persianNumbersValidator</h3>
 <p>Reactive form validator that checks form control value contains only persian numbers.</p>
@@ -781,7 +779,7 @@ Also for more examples, you can see the <a href="https://github.com/alihoseiny/n
 <img src="https://github.com/alihoseiny/ngx-persian/raw/master/Usage%20Examples/persianLettersValidator-letters%20and%20symbols.gif" alt="Angular form persian letters and symbols validator" class="img-responsive" title="Angular form persian letters and symbols validator"></p>
 <p>You can validate inputs with any combination of these options.</p>
 <p><strong>Still have questions?</strong> see the <a href="https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/validator-functions">related part of example app</a></p>
-<p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/miscellaneous/functions.html#persianLettersValidator">related part of code document about persianLettersValidator</a>. 
+<p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/miscellaneous/functions.html#persianLettersValidator">related part of code document about persianLettersValidator</a>.
 Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Validators/persian-validators.spec.ts#L49">unit tests of the persianLettersValidator</a>.</p>
 <h2 id="directives">Directives</h2>
 <p>For template-driven forms, we also provided Two directives those using above validator functions.</p>
@@ -827,14 +825,15 @@ For generating documents, you should run following command in the <em>project</e
 
 
 
-                   
+
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -846,6 +845,15 @@ For generating documents, you should run following command in the <em>project</e
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
@@ -855,9 +863,9 @@ For generating documents, you should run following command in the <em>project</e
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+
        <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 

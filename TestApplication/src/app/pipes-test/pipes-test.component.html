@@ -1,7 +1,6 @@
 <div class="container">
   <h2>Pipes</h2>
   <h1>Ngx-persian</h1>
-  {{jalaliDate | date}}
   <form [formGroup]="fGroup" id="join-us">
     <div class="fields">
       <span>
@@ -27,11 +26,11 @@
     </div>
 </form>
   <section id="results">
-    <p><span>Persian To English:</span> {{fGroup.get('englishPipe').value | enNum}}</p>
-    <p><span>English and Arabic to Persian:</span> {{fGroup.get('persianPipe').value | faNum}}</p>
-    <p><span>In Rial: </span> {{fGroup.get('rialPipe').value | irc:'r'}}</p>
-    <p><span>In Toman: </span> {{fGroup.get('tomanPipe').value | irc:'toman'}}</p>
-    <p><span>National Code: </span> {{fGroup.get('irncode').value | nationalCode}}</p>
-    <p><span>Jalali Date:</span><span style="direction: rtl; color: #fff">{{this.jalaliDate | jdate}}</span></p>
+    <p><span>Persian To English:</span> {{englishDigits | enNum}}</p>
+    <p><span>English and Arabic to Persian:</span> {{persianDigits | faNum}}</p>
+    <p><span>In Rial: </span> {{rialPrice | irc:'R'}}</p>
+    <p><span>In Toman: </span> {{tomanPrice | irc:'TOMAN'}}</p>
+    <p><span>National Code: </span> {{nationalCode | nationalCode}}</p>
+    <p><span>Jalali Date:</span><span style="direction: rtl; color: #fff">&nbsp;&nbsp;{{this.date | jdate}}&nbsp;&nbsp;</span></p>
   </section>
 </div>
