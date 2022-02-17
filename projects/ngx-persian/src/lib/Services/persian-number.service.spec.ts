@@ -1,7 +1,6 @@
 import {TestBed} from '@angular/core/testing';
 
 import {PersianNumberService} from './persian-number.service';
-import {InvalidServiceInputError} from './InvalidServiceInput.error';
 
 describe('PersianNumberService', () => {
     let persianNumberService: PersianNumberService;

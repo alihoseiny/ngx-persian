@@ -46,7 +46,7 @@ describe('NationalCodeService', () => {
     });
 
     describe('isValid', () => {
-           it('Should return false when input is an empty string', () => {
+        it('Should return false when input is an empty string', () => {
             expect(nationalCodeService.isValid('')).toBeFalsy();
         });
     });
