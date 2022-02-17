@@ -17,3 +17,4 @@ export {EnNumPipe} from './lib/Pipes/enNum.pipe';
 export {IRCurrencyPipe, IRCurrencies} from './lib/Pipes/IRCurrency.pipe';
 export {NationalCodePipe} from './lib/Pipes/nationalCode.pipe';
 export {JdatePipe} from './lib/Pipes/jdate.pipe';
+export {persianNumbersValidator, persianLettersValidator} from './lib/Validators/persian-validators'

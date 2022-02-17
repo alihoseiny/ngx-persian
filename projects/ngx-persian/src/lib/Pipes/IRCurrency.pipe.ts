@@ -1,5 +1,4 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {DecimalPipe} from '@angular/common';
 
 export enum IRCurrencies {      // eslint-disable-line no-shadow
     RIAL = 'ریال',
@@ -16,27 +15,21 @@ export enum IRCurrencies {      // eslint-disable-line no-shadow
  *
  *      T or TOMAN for تومان
  *
- *  This pipe extends DecimalPipe, so as second parameter, you can enter your desired formatting string. Default formatter is: 1.0-0
+ *  This pipe formats numbers like: 123,456,123
  */
 @Pipe({name: 'irc'})
 export class IRCurrencyPipe implements PipeTransform {
-
-    constructor(private decimalPipe: DecimalPipe) {
-    }
-
     /**
      * @param value a number of a string only contains digits
      * @param type currency type
-     * @param digitInfo decimal pipe formatter
      * @example 1925100 -> 1,925,100 ریال
      */
     // transform(value: number | string, type?: keyof IRCurrencies, digitsInfo?: string): string | null;
-    transform(value: number | string | null | undefined, type: keyof typeof IRCurrencies = 'RIAL' as keyof typeof IRCurrencies, digitInfo: string = '1.0-0'): string {
+    transform(value: number | string | null | undefined, type: keyof typeof IRCurrencies = 'RIAL' as keyof typeof IRCurrencies): string {
         const numericValue = Number(value);
-        // const currencyType = type.toLowerCase();
         if (isNaN(numericValue)) {
-            throw new Error(`${value} is not a acceptable number`);
+            throw new Error(`NaN is not a acceptable number`);
         }
-        return this.decimalPipe.transform(numericValue, digitInfo) + ' ' + IRCurrencies[type];
+        return `${numericValue.toLocaleString('en-US')} ${IRCurrencies[type]}`
     }
 }
