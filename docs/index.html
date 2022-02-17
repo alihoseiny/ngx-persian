@@ -1,0 +1,892 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ngx-persian documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">ngx-persian documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<h1 id="ngxpersian">NgxPersian</h1>
+<p><img src="https://img.shields.io/npm/dt/ngx-persian.svg?style=popout-square" alt="npm" class="img-responsive">
+<img src="https://img.shields.io/npm/v/ngx-persian.svg?style=popout-square" alt="npm" class="img-responsive">
+<img src="https://img.shields.io/badge/documentation-73%25-blueviolet.svg?style=popout-square" alt="documentation" class="img-responsive">
+<img src="https://img.shields.io/badge/Test%20Coverage-90%25-success.svg?style=popout-square" alt="test coverage" class="img-responsive"></p>
+<p>A full featured tool set for Persian Applications Created by Angular (v &gt; 2) containing Pipes, Services, Directives and javascript Similar Date object for working with Jalali Date.</p>
+<p>You can use Tools provided by this library for:</p>
+<ul>
+<li>Converting English numbers to Persian numbers and vise versa</li>
+<li>Validating persian text with different options</li>
+<li>Validating persian numbers for numeric inputs</li>
+<li>Converting and validating Jalali Date and time like native javascript Date object</li>
+<li>Formatting Jalali Dates using jdate pipe</li>
+<li>Formatting currency values in Rial or Toman currency type with flexable options.</li>
+<li>Validating and Formatting Iranian National Number</li>
+<li>Validating phone numbers of Iranian Mobile operators.</li>
+<li>Getting operator name of a phone number in English or Persian</li>
+<li>Validating reactive and template-base form inputs for persian numbers or texts.</li>
+</ul>
+<h2 id="why-you-should-use-this-library">Why you should use this library?</h2>
+<p>There are many reasons for using this library For everyone who develops an Angular application for people living in Iran:</p>
+<ul>
+<li>You can find almost everything you need in a signle library and don&#39;t need to install thousand of different libraries.</li>
+<li>It&#39;s developed for recent version of angular (v4 to v7) and is not out ot date like most of other libraries.</li>
+<li>We solved problems in Angular way, not like most of other libraries those only glued a js solution to the Angular and Typescript.</li>
+<li>It&#39;s alive! Many of other persian libraries have unanswered issues from 1-2 year ago.</li>
+<li>Almost everything has been tested. There are more than 590 unit tests written for all parts. So you can use everything without any fear of breaking things down.</li>
+<li>It&#39;s documented. Everything are clear and you can find anything you want from this document, code document and also unit test.</li>
+</ul>
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<p><strong>Table of Contents</strong></p>
+<ul>
+<li><a href="#ngxpersian">NgxPersian</a><ul>
+<li><a href="#why-you-should-use-this-library">Why you should use this library?</a></li>
+</ul>
+</li>
+<li><a href="#how-to-install">How to Install?</a></li>
+<li><a href="#documents">Documents</a><ul>
+<li><a href="#pipes">Pipes</a><ul>
+<li><a href="#fanum">faNum</a></li>
+<li><a href="#ennum">enNum</a></li>
+<li><a href="#irc">irc</a></li>
+<li><a href="#nationalcode">nationalCode</a></li>
+<li><a href="#jdate">jdate</a></li>
+</ul>
+</li>
+<li><a href="#services">Services</a><ul>
+<li><a href="#persiannumberservice">PersianNumberService</a></li>
+<li><a href="#persianletterservice">PersianLetterService</a></li>
+<li><a href="#mobilephonenumberservice">MobilePhoneNumberService</a></li>
+<li><a href="#jalalidatevalidatorservice">JalaliDateValidatorService</a></li>
+<li><a href="#jalalidatecalculatorservice">JalaliDateCalculatorService</a></li>
+</ul>
+</li>
+<li><a href="#jalali-date">Jalali Date</a></li>
+<li><a href="#nationalcodeservice">NationalCodeService</a></li>
+<li><a href="#validators">Validators</a><ul>
+<li><a href="#persiannumbersvalidator">persianNumbersValidator</a></li>
+<li><a href="#persiannumbersvalidator-1">persianNumbersValidator</a></li>
+</ul>
+</li>
+<li><a href="#directives">Directives</a></li>
+</ul>
+</li>
+<li><a href="#contribution">Contribution</a></li>
+<li><a href="#there-is-any-problem">There is any problem?</a></li>
+<li><a href="#citations">Citations</a></li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
+
+<h1 id="how-to-install">How to Install?</h1>
+<p>For installing this library, you can simply run following command in your Angular app root:</p>
+<p><code>npm install ngx-persian --save</code></p>
+<p>For installing the library globally, you can run following command instead:</p>
+<p><code>npm install ngx-persian -g</code></p>
+<h1 id="documents">Documents</h1>
+<p>Short documentation of the library is here. For more detailed documents, you can see the <a href="https://alihoseiny.github.io/ngx-persian/">code document</a>.</p>
+<h2 id="pipes">Pipes</h2>
+<p>We are using pipes for formatting values in the templates. We Have 4 Different pipes in the <strong>ngx-persian</strong> for formatting stuff needed by the persian app developers:</p>
+<h3 id="fanum">faNum</h3>
+<p>This pipe replaces all the English and Arabic digits to the Persian Digits without any need for additional code or parameter.</p>
+<p>For using this pipe, firstly you need to import the pipe from the library in your module:</p>
+<p><code>import {FaNumPipe} from &#39;ngx-persian&#39;;</code></p>
+<p>Then, like any other pipe, you need to <em>declare</em> the pipe in your module. For this, you should add following line in the <code>declarations</code> array of the <code>@NgModule</code> of your module:</p>
+<p><code>FaNumPipe,</code></p>
+<p>Now you can this pipe anywhere you like in your templates.</p>
+<p>For example, if we want to convert non-english digits in a attribute named: <code>englishTextDigit</code>, we can use this code in our template:</p>
+<p><code>{{englishTextDigit | faNum}}</code></p>
+<h3 id="ennum">enNum</h3>
+<p>This pipe replaces all the Persian Digits to English digits without any need for additional code or parameter.</p>
+<p>For using this pipe, firstly you need to import the pipe from the library in your module:</p>
+<p><code>import {EnNumPipe} from &#39;ngx-persian&#39;;</code></p>
+<p>Then, like any other pipe, you need to <em>declare</em> the pipe in your module. For this, you should add following line in the <code>declarations</code> array of the <code>@NgModule</code> of your module:</p>
+<p><code>EnNumPipe,</code></p>
+<p>You can use this pipe anywhere you like in your templates for converting persian digits to english digits.</p>
+<p>For example, if we want to convert persian digits in a attribute named: <code>persianTextDigit</code>, we can use this code in our template:
+<code>{{persianTextDigit | enNum}}</code></p>
+<p>You can see the example usage of these pipes in below GIF:</p>
+<p><img src="https://github.com/alihoseiny/ngx-persian/raw/master/Usage%20Examples/faNum%20and%20enNum%20pipes.gif" alt="faNum and enNum pipes" class="img-responsive" title="Animation of faNum and enNum pipes usage"></p>
+<p><strong>Still have questions?</strong> see the <a href="https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test">related part of example app</a> or see: <a href="https://alihoseiny.github.io/ngx-persian/pipes/EnNumPipe.html">related section in code document for EnNumPipe</a> or see: <a href="https://alihoseiny.github.io/ngx-persian/pipes/FaNumPipe.html">related section in code document for FaNumPipe</a>.</p>
+<p>Also you can see <a href="https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/faNum.pipe.spec.ts">unit tests of FaNumPipe</a> and <a href="https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/enNum.pipe.spec.ts">unit tests of EnNumPipe</a> for more examples of how input and outputs could be.</p>
+<h3 id="irc">irc</h3>
+<p>This pipe formats currency values for two popular currency types in Iran: Rial and Toman.</p>
+<p>This pipes accepts one optional parameter for declaring currency type And get&#39;s this value as first parameter.</p>
+<p>Possible values for currency type parameter:</p>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Value</th>
+<th>Output currency type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R</td>
+<td>ریال</td>
+</tr>
+<tr>
+<td>RIAL</td>
+<td>ریال</td>
+</tr>
+<tr>
+<td>T</td>
+<td>تومان</td>
+</tr>
+<tr>
+<td>TOMAN</td>
+<td>تومان</td>
+</tr>
+</tbody>
+</table>
+<p>The default value is <code>r</code>, so if you don&#39;t set any currency type, this pipe will consider that you&#39;ve chosen rial currency type.</p>
+<p>For using this pipe, firstly you need to import the pipe from the library in your module:</p>
+<p><code>import {IRCurrencyPipe} from &#39;ngx-persian&#39;;</code></p>
+<p>Then, like any other pipe, you need to <em>declare</em> the pipe in your module. For this, you should add following line in the <code>declarations</code> array of the <code>@NgModule</code> of your module:</p>
+<p><code>IRCurrencyPipe,</code></p>
+<p>You can use this pipe anywhere you like in your templates for formatting a currency value in Iranian currency types.</p>
+<p>For example, For converting a digit to rial:
+<code>{{13750 | irc}}</code> output will be: <code>13,750 ریال</code></p>
+<p>You can pass currency type parameter as below:</p>
+<p><code>{{13750 | irc:&#39;T&#39;}}</code></p>
+<p>The output will be like:
+<code>137,750 تومان</code></p>
+<p>You can see the example usage of this pipes in below GIF:</p>
+<p><img src="https://github.com/alihoseiny/ngx-persian/raw/master/Usage%20Examples/IRCurrency-toman.gif" alt="IR Currency pipe for formatting currency values in rial or toman" class="img-responsive" title="IR Currency pipe for formatting currency values in rial or toman"></p>
+<p>For example, below code recreates default behaviour of the pipe (Grouping each 3 digit from right):</p>
+<p><code>{{13750 | irc:&#39;R&#39;}}</code></p>
+<p>In regular uses, you never need to pass the second parameter, but it&#39;s here for more special usages.</p>
+<p><strong>Still have questions?</strong> see the <a href="https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test">related part of example app</a> or see: <a href="https://alihoseiny.github.io/ngx-persian/pipes/IRCurrencyPipe.html">related section in code document for IRCurrencyPipe</a>.</p>
+<p>Also you can see <a href="https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/IRCurrency.pipe.spec.ts">unit tests of IRCurrencyPipe</a> for more examples of how input and outputs could be.</p>
+<h3 id="nationalcode">nationalCode</h3>
+<p>This pipe formats a 10-digit string to national code format like:</p>
+<p><code>xxx-xxxxxx-x</code></p>
+<p>For using this pipe, firstly you need to import the pipe from the library in your module:</p>
+<p><code>import {NationalCodePipe} from &#39;ngx-persian&#39;;</code></p>
+<p>Then, like any other pipe, you need to <em>declare</em> the pipe in your module. For this, you should add following line in the <code>declarations</code> array of the <code>@NgModule</code> of your module:</p>
+<p><code>NationalCodePipe,</code></p>
+<p>You can use this pipe anywhere you like in your templates for formatting iranian national number.
+For example: <code>0011753646 | nationalCode</code> produces following text: <code>001-175364-6</code></p>
+<p>You can see the example usage of this pipes in below GIF:</p>
+<p><img src="https://github.com/alihoseiny/ngx-persian/raw/master/Usage%20Examples/NationalCodePipe.gif" alt="Iranian national code formatter pipe" class="img-responsive" title="Iranian national number formatter pipe"></p>
+<p><strong>Still have questions?</strong> see the <a href="https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test">related part of example app</a> or see: <a href="https://alihoseiny.github.io/ngx-persian/pipes/NationalCodePipe.html">related section in code document for NationalCodePipe</a>.</p>
+<p>Also you can see <a href="https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/nationalCode.pipe.spec.ts">unit tests of NationalCodePipe</a> for more examples of how input and outputs could be.</p>
+<h3 id="jdate">jdate</h3>
+<p>This pipe formats <a href="#jalali-date"><code>JDate</code></a> object and creates a human readable text with different pre-defined formats. Also you can pass your custom format to it.
+If you pass instances of <code>Date</code> class those representing Georgian DateTime objects, this pipe first convert that object to an instance of <code>JDate</code> class, and then returns formatted Jalali datetime from it.</p>
+<p>You can pass Format name or custom format pattern as second parameter of this pipe.</p>
+<p>For using this pipe, firstly you need to import the pipe from the library in your module:</p>
+<p><code>import {JdatePipe} from &#39;ngx-persian&#39;;</code></p>
+<p>Then, like any other pipe, you need to <em>declare</em> the pipe in your module. For this, you should add following line in the <code>declarations</code> array of the <code>@NgModule</code> of your module:</p>
+<p><code>JdatePipe,</code></p>
+<p>You can use this pipe anywhere you like in your templates for formatting Jalali dates as <code>JDate</code> objects or converting and then formatting Georgian dates as <code>Date</code> objects.
+For example: <code> dateObject | jdate</code> produces following text: <code>23 اردیبهشت 1397، 12:12 ب.ظ&#39;</code></p>
+<p>For changing formatting pattern, you can set second parameter like this:</p>
+<p><code>dateObject| jdate:&#39;SHORT&#39;</code> That produces this result: <code>97/2/23 12:12 ب.ظ </code></p>
+<p>Below you can see list of pre-defined formats:</p>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Format name</th>
+<th>Equivalent Pattern String</th>
+<th>Example Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SHORT</td>
+<td><code>yy/m/d h:M t</code></td>
+<td>97/2/23 12:12 ب.ظ&#39;</td>
+</tr>
+<tr>
+<td>SHORT_DATE</td>
+<td><code>yy/m/d h:M t</code></td>
+<td>97/2/23 12:12 ب.ظ</td>
+</tr>
+<tr>
+<td>MEDIUM</td>
+<td><code>d mmm yyyy، h:M t</code></td>
+<td>23 اردیبهشت 1397، 12:12 ب.ظ</td>
+</tr>
+<tr>
+<td>MEDIUM_DATE</td>
+<td><code>d mmm yyyy، h:M t</code></td>
+<td>23 اردیبهشت 1397، 12:12 ب.ظ</td>
+</tr>
+<tr>
+<td>LONG</td>
+<td><code>d mmm yyyy، h:M:S T</code></td>
+<td>23 اردیبهشت 1397، 12:12:30 بعد از ظهر</td>
+</tr>
+<tr>
+<td>LONG_DATE</td>
+<td><code>d mmm yyyy، h:M:S T</code></td>
+<td>23 اردیبهشت 1397، 12:12:30 بعد از ظهر</td>
+</tr>
+<tr>
+<td>SHORT_TIME</td>
+<td><code>h:M t</code></td>
+<td>12:12 ب.ظ</td>
+</tr>
+<tr>
+<td>MEDIUM_TIME</td>
+<td><code>h:M:S t</code></td>
+<td>12:12:30 ب.ظ</td>
+</tr>
+<tr>
+<td>LONG_TIME</td>
+<td><code>h:M:S.l T</code></td>
+<td>12:12:30.300 بعد از ظهر</td>
+</tr>
+</tbody>
+</table>
+<p>Also instead of those pattern names, you can set your desired pattern string as described in the <a href="">documents of format method of JDate object</a>.</p>
+<p><strong>Still have questions?</strong> see the <a href="https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/pipes-test">related part of example app</a> or see: <a href="https://alihoseiny.github.io/ngx-persian/pipes/JdatePipe.html">related section in code document for JdatePipe</a>.</p>
+<p>Also you can see <a href="https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/Pipes/jdate.pipe.spec.ts">unit tests of JdatePipe</a> for more examples of how input and outputs could be.</p>
+<h2 id="services">Services</h2>
+<p>We provide some useful Angular Services for data validation and conversion. You can <em>Inject</em> Them anywhere you like using Angular DI.</p>
+<h3 id="persiannumberservice">PersianNumberService</h3>
+<p>This service created for validation of strings contains persian digits and converting other digits to the persian ones.</p>
+<p>For reading more detailed document, you can see <a href="https://alihoseiny.github.io/ngx-persian/injectables/PersianNumberService.html">related part of code document of the PersianNumberService</a>.</p>
+<h4 id="adding-persiannumberservice-to-your-application">Adding PersianNumberService to Your Application</h4>
+<p>For using this service you only need to import it in the file you want to use that in it. Simple as this:</p>
+<p><code>import {PersianNumberService} from &#39;ngx-persian&#39;;</code></p>
+<p>For <em>Injecting</em> this service, you just need to add it in the constructor of your service or component like this:</p>
+<p><code>constructor(private persianNumberService: PersianNumberService) {}</code></p>
+<p>Now you can use it like other attributes of your class with <code>this</code> keyword.</p>
+<p>So lets digging deep to the class and see what its methods do:</p>
+<h4 id="arabictopersian">arabicToPersian</h4>
+<p>You can use this method for converting arabic digits in the input string with persian digits. This method will not change other characters of the string and left them unchanged.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">console.log(this.persianNumberService.arabicToPersian(&#39;٤٥٦&#39;))
+// Expected output: ۴۵۶</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/PersianNumberService.html#arabicToPersian">related part of code document about arabicToPersian method</a>. Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Services/persian-number.service.spec.ts#L95">unit tests of the arabicToPersian method</a>.</p>
+<h4 id="containspersian">containsPersian</h4>
+<p>This method checks if input text contains <strong>any</strong> persian digit. So if there is at least one persian digit in the input, returns <code>true</code>.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">if (this.persianNumberService.containsPersian(&#39;A long text with english و فارسی words with a persian digit: ۱&#39;)) {
+  console.log(&#39;Input text contains persian digits.&#39;);
+} 
+
+if (!this.persianNumberService.containsPersian(&#39;یک متن فارسی با اعداد انگلیسی 156465 که رقم فارسی ندارد.&#39;)){
+  console.log(&#39;input text does not contain persian digits.&#39;);
+}</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/PersianNumberService.html#containsPersian">related part of code document about containsPersian method</a>. Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Services/persian-number.service.spec.ts#L18">unit tests of the containsPersian method</a>.</p>
+<h4 id="ispersian">isPersian</h4>
+<p>This method check if input string contains <strong>ONLY</strong> persian digits. So if there is any other character, returns <code>false</code>.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">if (this.persianNumberService.isPersian(&#39;۶۸۷۹۷۹۷&#39;)) {
+  console.log(&#39;Input string contains only persian numbers.&#39;)
+} 
+
+if (!this.persianNumberService.isPersian(&#39;۷۶۷۶۸ ۸۹۰۹۷&#39;)) {
+  console.log(&#39;Input string does not contain only persian numbers&#39;);
+} </code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/PersianNumberService.html#isPersian">related part of code document about isPersian method</a>. Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Services/persian-number.service.spec.ts#L59">unit tests of the isPersian method</a>.</p>
+<h4 id="toenglish">toEnglish</h4>
+<p>Converts all Persian digits in the input string to English digits. This method will not change any other characters of the input.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">console.log(this.persianNumberService.toEnglish(&#39;یک متن با اعداد فارسی مثل ۵۴۳۲۴۴۵&#39;));
+// Expected output: یک متن با اعداد فارسی مثل 5432445</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/PersianNumberService.html#toEnglish">related part of code document about toEnglish method</a>. Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Services/persian-number.service.spec.ts#L143">unit tests of the toEnglish method</a>.</p>
+<h4 id="topersian">toPersian</h4>
+<p>This method converts all English and Arabic digits to the Persian digits. This method will not change any other characters of the input.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">console.log(this.persianNumberService.toPersian(&#39;A long text with english digits: 54484 and Arabic digits: ٤٥٦&#39;));
+// Expected output: A long text with english digits: ۵۴۴۸۴ and Arabic digits: ۴۵۶</code></pre></div><h3 id="persianletterservice">PersianLetterService</h3>
+<p>This service created for validation of strings contains persian letters and converting arabic letters to the persian ones.</p>
+<p>For reading more detailed document, you can see <a href="https://alihoseiny.github.io/ngx-persian/injectables/PersianLetterService.html">related part of code document of the PersianLetterService</a>.</p>
+<h4 id="adding-persianletterservice-to-your-application">Adding PersianLetterService to Your Application</h4>
+<p>For using this service you only need to import it in the file you want to use that in it. Simple as this:</p>
+<p><code>import {PersianLetterService} from &#39;ngx-persian&#39;;</code></p>
+<p>For <em>Injecting</em> this service, you just need to add it in the constructor of your service or component like this:</p>
+<p><code>constructor(private persianLetterService: PersianLetterService) {}</code></p>
+<p>Now you can use it like other attributes of your class with <code>this</code> keyword.</p>
+<p>So lets digging deep to the class and see what its methods do:</p>
+<h4 id="containspersian-1">containsPersian</h4>
+<p>This method checks if input string contains <strong>any</strong> persian letter or not. So if there is at least one persian letter in the input, return <code>true</code>.</p>
+<p>Be careful, digits (۱,۲,...) are not letters.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">if (this.persianLetterService.containsPersian(&#39;Some words and numbers5454 wtih one persian letterی&#39;)) {
+  console.log(&#39;Input contains persian letters&#39;);
+} 
+
+if (!this.persianLetterService.containsPersian(&#39;۴۳۵۵ fdhf 45&#39;)) {
+  console.log(&#39;Input does not contain persian letters.&#39;);
+} </code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/PersianLetterService.html#containsPersian">related part of code document about containsPersian method</a>. Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Services/persian-letter.service.spec.ts#L18">unit tests of the containsPersian method</a>.</p>
+<h4 id="ispersian-1">isPersian</h4>
+<p>This method checks if input string contains <strong>ONLY</strong> persian letters or not.</p>
+<p>In default mode, if input contains any other character (instead whitespaces and special characters explained below), returns false. But you can control behaviour of this method by second parameter, <code>options</code>.</p>
+<div><pre class="line-numbers"><code class="language-typescript">isPersian(value: string, options: PLOptions = {
+                                                  persianDigits: false,
+                                                  enDigits: false,
+                                                  symbols: true,
+                                                  whitespaces: true}): boolean</code></pre></div><p>options parameter is an object implementing <a href="https://alihoseiny.github.io/ngx-persian/interfaces/PLOptions.html"><code>PLOptions</code> interface</a>.</p>
+<p>You can see possible properties of the options object, their meaning and their default value in the table below:</p>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Property</th>
+<th>Meaning</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>persianDigits</td>
+<td>If sets to <code>true</code>, accepts persian digits plus persian letters in the input string</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>enDigits</td>
+<td>If sets to <code>true</code>, accept english digits plus persian letters</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>symbols</td>
+<td>Accepts certain symbols plus persian letters.</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Symbols list:</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>?$-/:؟!~&quot;&#39;^_-[]{}()%&amp;*&gt;&lt;;</td>
+<td></td>
+</tr>
+<tr>
+<td>whitespaces</td>
+<td>If sets to <code>true</code>, accepts whitespace characters plus persian letters.</td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<p>You can use any combination of those parameters for getting the result you want.</p>
+<p>You only need to pass parameters of options those are different from default value. Missing properties will fill with default values.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">if (this.persianLetterService.isPersian(&#39;بدونفاصله&#39;), {whitespaces: false, symbols: false}) {
+  console.log(&#39;Input string contains only persian letters, not any other thing.&#39;);
+} 
+
+if (this.persianLetterService.isPersian(&#39;متن فارسی با فاصله و علائم به صورت پیش‌فرض قابل قبول است.&#39;)) {
+  console.log(&#39;Input string contains only persian letters, whitespaces and symbols.&#39;);
+} </code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/PersianLetterService.html#isPersian">related part of code document about isPersian method</a>. Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Services/persian-letter.service.spec.ts#L54">unit tests of the isPersian method</a>.</p>
+<h4 id="topersian-1">toPersian</h4>
+<p>This method converts arabic letters: <code>ك</code> and <code>ي</code> to persian letters: <code>ک</code> and <code>ی</code>.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">console.log(this.persianLetterService.toPersian(&#39;یك متن فارسي شامل حروف عربی&#39;));
+// Expected output: یک متن فارسی شامل حروف عربی</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/PersianLetterService.html#toPersian">related part of code document about toPersian method</a>. Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Services/persian-letter.service.spec.ts#L150">unit tests of the toPersian method</a>.</p>
+<h3 id="mobilephonenumberservice">MobilePhoneNumberService</h3>
+<p>This service created for validation of strings contains mobile phone numbers of iranian mobile operators.</p>
+<p>You can get operator name and validation result of a phone number by methods of this service.</p>
+<h4 id="adding-mobilephonenumberservice-to-your-application">Adding MobilePhoneNumberService to Your Application</h4>
+<p>For using this service you only need to import it in the file you want to use that in it. Simple as this:</p>
+<p><code>import {MobilePhoneNumberService} from &#39;ngx-persian&#39;;</code></p>
+<p>For <em>Injecting</em> this service, you just need to add it in the constructor of your service or component like this:</p>
+<p><code>constructor(private mobilePhoneNumberService: MobilePhoneNumberService) {}</code></p>
+<p>Now you can use it like other attributes of your class with <code>this</code> keyword.</p>
+<p>So lets digging deep to the class and see what its methods do:</p>
+<h4 id="isphonenumberpatternvalid">isPhoneNumberPatternValid</h4>
+<p>This method only checks if phoneNumber follows valid pattern. means starting by <code>+98</code> or <code>0</code>, then a <code>9</code> digit and then 9 digits. This method will not check validity of the phoneNumber code and can accept invalid strings those only locking like phone numbers and in reality are not a valid phone number.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">if (this.mobilePhoneNumberService.isPhoneNumberPatternValid(&#39;09357413028&#39;)) {
+  console.log(&#39;phone number follows correct pattern&#39;);
+} 
+
+if (!this.mobilePhoneNumberService.isPhoneNumberPatternValid(&#39;912475&#39;)) {
+  console.log(&#39;phone number is not valid.&#39;);
+} </code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/MobilePhoneNumberService.html#isPhoneNumberPatternValid">related part of code document about isPhoneNumberPatternValid method</a>. Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Services/mobile-phone-number.service.spec.ts#L18">unit tests of the  isPhoneNumberPatternValid method</a>.</p>
+<h4 id="getphonenumberoperator">getPhoneNumberOperator</h4>
+<p>This method first checks input for following correct pattern explained in the <code>isPhoneNumberPatternValid</code> method.</p>
+<p>Then, Checks all codes of all operators in <a href="https://alihoseiny.github.io/ngx-persian/miscellaneous/variables.html#MobileCodes">MobileCodes object</a>. IF finds a matched code, returns persian or english name of that operator from operatorsNames enum.</p>
+<p>In default, Persian name of operator will return. For controlling language of the output, you can use second optional parameter (<code>nameInEnglish</code>) of this method.</p>
+<p>By passing true, operator name will return in English. Default value of <code>nameInEnglish</code> parameter is `false.</p>
+<p>If there is no recognizable operator for inputted mobile number, a <a href="https://alihoseiny.github.io/ngx-persian/classes/InvalidMobileOperatorError.html"><code>InvalidMobileOperatorError</code></a> will throw.</p>
+<p>Also if input string does not follow correct pattern, an <a href="https://alihoseiny.github.io/ngx-persian/classes/InvalidMobilePhoneNumberError.html"><code>InvalidMobilePhoneNumberError</code></a> will throw.</p>
+<p>Supporting Mobile operator companies are listed in table below:</p>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Operator Name in English</th>
+<th>نام فارسی اپراتور</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IRANCELL</td>
+<td>ایرانسل</td>
+</tr>
+<tr>
+<td>MCI</td>
+<td>همراه اول</td>
+</tr>
+<tr>
+<td>TALIA</td>
+<td>تالیا</td>
+</tr>
+<tr>
+<td>RIGHTEL</td>
+<td>رایتل</td>
+</tr>
+<tr>
+<td>SPADAN</td>
+<td>اسپادان</td>
+</tr>
+<tr>
+<td>TKC</td>
+<td>شبکه مستقل تلفن همراه کیش</td>
+</tr>
+<tr>
+<td>SHATEL</td>
+<td>شاتل</td>
+</tr>
+<tr>
+<td>APTEL</td>
+<td>آپتل</td>
+</tr>
+<tr>
+<td>AZARTEL</td>
+<td>آذرتل</td>
+</tr>
+<tr>
+<td>SAMANTEL</td>
+<td>سامانتل</td>
+</tr>
+<tr>
+<td>LOTUSTEL</td>
+<td>لوتوس‌تل</td>
+</tr>
+<tr>
+<td>ANARESTAN</td>
+<td>انارستان</td>
+</tr>
+</tbody>
+</table>
+<p>We&#39;ve provided an enum named <code>operatorsNames</code> you can see it <a href="https://alihoseiny.github.io/ngx-persian/miscellaneous/enumerations.html#operatorsNames">here</a>.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">console.log(this.mobilePhoneNumberService.getPhoneNumberOperator(&#39;09352479965&#39;));
+// Expected output: ایرانسل
+
+console.log(this.mobilePhoneNumberService.getPhoneNumberOperator(&#39;+989352479965&#39;, true));
+// Expected output: irancell</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/MobilePhoneNumberService.html#getPhoneNumberOperator">related part of code document about getPhoneNumberOperator method</a>. Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Services/mobile-phone-number.service.spec.ts#L45">unit tests of the   getPhoneNumberOperator method</a>.</p>
+<h4 id="isvalidphonenumber">isValidPhoneNumber</h4>
+<p>If phoneNumber follows correct pattern and has valid operator, returns true. Otherwise returns false.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">if (this.mobilePhoneNumberService.isValidPhoneNumber(&#39;09195574410&#39;)) {
+  console.log(&#39;mobile phone number is valid.&#39;);
+}
+
+if (this.mobilePhoneNumberService.isValidPhoneNumber(&#39;09005574410&#39;)) {
+  console.log(&#39;mobile phone number is not valid.&#39;);
+}</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/MobilePhoneNumberService.html#isValidPhoneNumber">related part of code document about isValidPhoneNumber method</a>. Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Services/mobile-phone-number.service.spec.ts#L103">unit tests of the isValidPhoneNumber method</a>.</p>
+<h4 id="normalizephonenumber">normalizePhoneNumber</h4>
+<p>Removes +98 from the phoneNumber and replaces it with a 0 character. This method will not make any validation on the input.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">console.log(this.mobilePhoneNumberService.normalizePhoneNumber(&#39;+989352479965&#39;));
+// Expected output: 09352479965</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/MobilePhoneNumberService.html#normalizePhoneNumber">related part of code document about normalizePhoneNumber method</a>. Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Services/mobile-phone-number.service.spec.ts#L91">unit tests of the normalizePhoneNumber method</a>.</p>
+<h3 id="jalalidatevalidatorservice">JalaliDateValidatorService</h3>
+<p>Methods of this Service doing validation stuff on a Jalali date. You can use this Service using DI in all around of your app for validating Jalali dates without needing to convert them to the Georgian Date.</p>
+<h4 id="adding-jalalidatevalidatorservice-to-your-application">Adding JalaliDateValidatorService to Your Application</h4>
+<p>For using this service you only need to import it in the file you want to use that in it. Simple as this:</p>
+<p><code>import {JalaliDateValidatorService} from &#39;ngx-persian&#39;;</code></p>
+<p>For <em>Injecting</em> this service, you just need to add it in the constructor of your service or component like this:</p>
+<p><code>constructor(private jalaliDateValidatorService: JalaliDateValidatorService) {}</code></p>
+<p>Now you can use it like other attributes of your class with <code>this</code> keyword.</p>
+<p>So lets digging deep to the class and see what its methods do:</p>
+<h4 id="isjyearleap">isJYearLeap</h4>
+<p>This method gets a Jalali year as input. It jalali year is a leap year, returns <code>true</code>. If not, returns <code>false</code>.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">if (this.jalaliDateValidatorService.isJYearLeap(1375)) {
+  console.log(&#39;1375 is a leap year.&#39;);
+} 
+
+if (!this.jalaliDateValidatorService.isJYearLeap(1397)) {
+  console.log(&#39;1397 is not a leap year.&#39;);
+} </code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateValidatorService.html#isJYearLeap">related part of code document about isJYearLeap method</a>. Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-validator.service.spec.ts#L137">unit tests of the isJYearLeap method</a>.</p>
+<h4 id="isvalidjdate">isValidJDate</h4>
+<p>If Jalali date is not a valid Jalali date, return false. otherwise returns true.
+Input format of this method is:</p>
+<p><code>isValidJDate(jYear, jMonth, jDay)</code></p>
+<p><code>jYear</code> is a Jalali year. <code>jMonth</code> is number of month starting from zero. <code>jDay</code> is day number starting from one.</p>
+<p>Combination of year, month and day should be a valid date in the calendar.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">if (this.jalaliDateValidatorService.isValidJDate(1375, 11, 30)) {
+  console.log(&#39;Input is a valid Jalali date.&#39;);
+} 
+
+if (!this.jalaliDateValidatorService.isValidJDate(1397, 11, 30)) {
+  console.log(&#39;Input is not a valid Jalali date.&#39;);
+}  </code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateValidatorService.html#isValidJDate">related part of code document about isValidJDate method</a>. Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-validator.service.spec.ts#L10">unit tests of the isValidJDate method</a>.</p>
+<h4 id="isvalidjday">isValidJDay</h4>
+<p>Checks if day number is in valid range according to the given year and month.</p>
+<p>First six month of the year have 31 days. 5 next months have 30 days and last month maybe has 29 or 30 days.</p>
+<p>This method checks is day number in the valid range of day numbers of the month in a particular year or not.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">if (this.jalaliDateValidatorService.isValidJDay(1375, 11, 30)) {
+  console.log(&#39;Input day is valid in Jalali calendar.&#39;);
+} 
+
+if (!this.jalaliDateValidatorService.isValidJDay(1397, 11, 30)) {
+  console.log(&#39;Input is not valid in Jalali calendar.&#39;);
+} </code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateValidatorService.html#isValidJDay">related part of code document about isValidJDay method</a>. Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-validator.service.spec.ts#L30">unit tests of the isValidJDay method</a>.</p>
+<h4 id="isvalidjmonth">isValidJMonth</h4>
+<p>Checks if jalali month is in valid range or not. In default, <code>jMonth</code> should start from zero. If you want to start month number from one instead of zero, you should make <code>startFromZero</code> parameter to false.</p>
+<p><code>isValidJMonth(jMonth: number, startFromZero: boolean)</code></p>
+<p>Be careful about month number. Only in this method you can choose starting month number from one or zero. In others, month number starts only from zero.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">if (this.jalaliDateValidatorService.isValidJMonth(12, false)) {
+  console.log(&#39;Month is valid.&#39;);
+} 
+
+if (!this.jalaliDateValidatorService.isValidJMonth(12)) {
+  console.log(&#39;Month is not valid&#39;);
+} </code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateValidatorService.html#isValidJMonth">related part of code document about isValidJMonth method</a>. Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-validator.service.spec.ts#L56">unit tests of the isValidJMonth method</a>.</p>
+<h4 id="isvalidjyear">isValidJYear</h4>
+<p>Checks if jalali year is in acceptable range or not. Acceptable range for this validator is from <code>-61</code> to <code>3177</code>.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">if (this.jalaliDateValidatorService.isValidJYear(1397)) {
+  console.log(&#39;Year is valid.&#39;);
+} 
+
+if (!this.jalaliDateValidatorService.isValidJYear(3179)) {
+  console.log(&#39;Year is not valid&#39;);
+} </code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateValidatorService.html#isValidJYear">related part of code document about isValidJYear method</a>. Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-validator.service.spec.ts#L83">unit tests of the isValidJYear method</a>.</p>
+<h4 id="jmonthlength">jMonthLength</h4>
+<p>Returns number of days in a given month counting from 1.
+<code> jMonthLength(jYear: number, jMonth: number)</code></p>
+<p><code>jYear</code> is Jalali year number and <code>jMonth</code> is month number starts from zero.</p>
+<p>output is number of days in given month. First six months of the year have 31 days. 5 next months have 30 days and last month maybe has 29 or 30 days.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">console.log(this.jalaliDateValidatorService.jMonthLength(1375, 11));
+// Expected output: 30
+
+console.log(this.jalaliDateValidatorService.jMonthLength(1397, 0));
+// Expected output: 31</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateValidatorService.html#jMonthLength">related part of code document about jMonthLength method</a>.
+Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-validator.service.spec.ts#L91">unit tests of the jMonthLength method</a>.</p>
+<h4 id="numofjleapyears">numOfJLeapYears</h4>
+<p>Return number of leap years passed from base year until given Jalali year.</p>
+<p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateValidatorService.html#numOfJLeapYears">related part of code document about numOfJLeapYears method</a>.
+Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-validator.service.spec.ts#L113">unit tests of the numOfJLeapYears method</a>.</p>
+<h3 id="jalalidatecalculatorservice">JalaliDateCalculatorService</h3>
+<p>This service converts Georgian date to Jalali and vase versa. You can use all of the methods as static methods.</p>
+<h4 id="adding-jalalidatecalculatorservice-to-your-application">Adding JalaliDateCalculatorService to Your Application</h4>
+<p>For using this service you only need to import it in the file you want to use that in it. Simple as this:</p>
+<p><code>import {JalaliDateCalculatorService} from &#39;ngx-persian&#39;;</code></p>
+<p>For <em>Injecting</em> this service, you just need to add it in the constructor of your service or component like this:</p>
+<p><code>constructor(private jalaliDateCalculatorService: JalaliDateCalculatorService) {}</code></p>
+<p>Now you can use it like other attributes of your class with <code>this</code> keyword.</p>
+<p>JalaliDateValidatorService injected into this service. So if you want to create an instance of this service and don&#39;t want to use DI, you should pass an instance of that service in it. But if you are using DI as described before, you don&#39;t need to do anything at all.</p>
+<p>So lets digging deep to the class and see what its methods do:</p>
+<h4 id="converttogeorgian">convertToGeorgian</h4>
+<p>Converts a valid jalali date to a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">javascript <code>Date</code></a> object representing a equivalent Georgian date.
+this method looking like:</p>
+<p><code>convertToGeorgian(jYear: number, jMonth: number, jDay: number)</code></p>
+<p><code>jYear</code> is a full Jalali year like 1397.
+<code>jMonth</code> is month number starting from zero.
+<code>jDay</code> in day number starting from one.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">this.jalaliDateCalculator.convertToGeorgian(1397, 11, 22);
+// Expecting output of this line is: Date(2019, 2, 13);</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#convertToGeorgian">related part of code document about convertToGeorgian method</a>.
+Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.spec.ts#L139">unit tests of the convertToGeorgian method</a>.</p>
+<h4 id="converttojalali">convertToJalali</h4>
+<p>This method converts Georgian date to the jalali date. Output is an object implementing <a href="https://alihoseiny.github.io/ngx-persian/interfaces/SimpleDateInterface.html">SimpleDateInterface</a>.</p>
+<p>ATTENTION: month number starts from 0, but day number starts from 1. Just like native javascript Date object.</p>
+<p>Input of this method is a native javascript <code>Date</code> object.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">const jalali = this.jalaliDateCalculator.convertToJalali(new Date(2019, 2, 13));
+console.log(jalali.year); // Expected output: 1397
+console.log(jalali.month) // Expected output: 11
+console.log(jalali.day) // Expected output: 22</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#convertToJalali">related part of code document about convertToJalali method</a>.
+Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.spec.ts#L122">unit tests of the convertToJalali method</a>.</p>
+<h4 id="creategdatefromdays">createGDateFromDays</h4>
+<p>Creates a javascript Date object from number of passed days in Georgian calendar representing Georgian date.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">console.log(this.jalaliDateCalculator.createGDateFromDays(2458736));
+// Expected output: Date(2019, 8, 9)</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#createGDateFromDays">related part of code document about createGDateFromDays method</a>.
+Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.spec.ts#L28">unit tests of the createGDateFromDays method</a>.</p>
+<h4 id="firstdayofjyearinmarch">firstDayOfJYearInMarch</h4>
+<p>First day of the Farvardin month in Jalali calendar is in March month. This method returns the day number of starting day of new jalali year in March.</p>
+<p>The day number starts from 1 not zero and is equal to the real numbers in the calendar.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">console.log(this.jalaliDateCalculator.firstDayOfJYearInMarch(1398));
+// Expected output: 21</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#firstDayOfJYearInMarch">related part of code document about firstDayOfJYearInMarch method</a>.
+Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.spec.ts#L108">unit tests of the firstDayOfJYearInMarch method</a>.</p>
+<h4 id="georgianyeartojalaliyear">georgianYearToJalaliYear</h4>
+<p>Converts georgian year to the jalali year. Output year is the jalali year that start within the Georgian year.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">console.log(this.jalaliDateCalculator.georgianYearToJalaliYear(2018));
+// Expected output: 1397</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#georgianYearToJalaliYear">related part of code document about georgianYearToJalaliYear method</a>.</p>
+<h4 id="jalaliyeartogeorgianyear">jalaliYearToGeorgianYear</h4>
+<p>Converts jalali year number to the georgian year. Output year is the georgian year that jalali year starts within it, not the year that starts in the winter of jalali year.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">console.log(this.jalaliDateCalculator.jalaliYearToGeorgianYear(1397));
+// Expected output: 2018</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#jalaliYearToGeorgianYear">related part of code document about jalaliYearToGeorgianYear method</a>.</p>
+<h4 id="numberofpassedgdays">numberOfPassedGDays</h4>
+<p>Calculates the Julian Day number from Gregorian or Julian calendar dates.</p>
+<p>Input value of this method is a javascript <code>Date</code> object.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">const dateObj = new Date(2019, 8, 9);
+console.log(this.jalaliDateCalculator.numberOfPassedGDays(dateObj));
+// Expected output: 2458736</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#numberOfPassedGDays">related part of code document about numberOfPassedGDays method</a>.
+Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.spec.ts#L10">unit tests of the numberOfPassedGDays method</a>.</p>
+<h4 id="numberofpassedjdays">numberOfPassedJDays</h4>
+<p>Returns number of passed days from source day in jalali calendar to the given jalali date.</p>
+<p>method declaration:
+<code>numberOfPassedJDays(jYear: number, jMonth: number, jDay: number) </code></p>
+<p><code>jYear</code> is a full Jalali year like 1397.
+<code>jMonth</code> is month number starting from zero.
+<code>jDay</code> in day number starting from one.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">console.log(this.jalaliDateCalculator.numberOfPassedJDays(1397, 0, 1));
+// Expected output: 2458199</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#numberOfPassedJDays">related part of code document about numberOfPassedJDays method</a>.
+Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.spec.ts#L61">unit tests of the numberOfPassedJDays method</a>.</p>
+<h4 id="numofgleapyears">numOfGLeapYears</h4>
+<p>This function returns number of passed leap years from AD 621 until <code>targetGYear</code>.</p>
+<p>Example:
+Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">console.log(this.jalaliDateCalculator.numOfGLeapYears(2018));
+// Expected output: 339</code></pre></div><p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/injectables/JalaliDateCalculatorService.html#numOfGLeapYears">related part of code document about numOfGLeapYears method</a>.
+Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/JDate/jalali-date-calculator.service.spec.ts#L93">unit tests of the numOfGLeapYears method</a>.</p>
+<h2 id="jalali-date">Jalali Date</h2>
+<p>We always had problems with Jalali dates. Built-in javascript <code>Date</code> object created for Georgian date and everything has been built for that object.</p>
+<p>Now, in <strong>ngx-persian</strong>, we solved the problem for ever.</p>
+<p>We provided a class named <code>JDate</code>. This class implemented <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">javascript native <code>Date</code></a>. So you have access to all the methods and behaviours of that object, now in Jalali.</p>
+<p>Also you can use objects of <code>JDate</code> everywhere accepts javascript native <code>Date</code> object.</p>
+<p>That means you can use all libraries, services and ... those are working with javascript <code>Date</code> object, with Jalali date. without any need for changing things or writing them for Jalali date from scratch.</p>
+<p>This is the end of bad days for Iranian developers.🍷🍷🍷</p>
+<h3 id="how-to-add-jdate-to-your-project">How to add JDate to your project?</h3>
+<p>For using <code>JDate</code>, you only need to import it in the file you are working on it:</p>
+<p><code>import {JDate} from &#39;ngx-persian&#39;;</code></p>
+<h3 id="how-to-create-instances-of-jdate">How to create instances of JDate</h3>
+<p>There are many ways to create a Jalali Date object for your convenience.</p>
+<ol>
+<li>getting current date and time by creating an instance without any parameter: <code>new JDate()</code></li>
+<li>Creating <code>JDate</code> object from a jalali date string as described in the
+<a href="https://alihoseiny.github.io/ngx-persian/classes/JDate.html#parse"><code>pars</code> method document</a>, you can pass that string as
+first parameter and leave others empty. <code>new JDate(&#39;11 دی 1348 00:00:00&#39;)</code></li>
+<li>Creating <code>JDate</code> object from number of passed milliseconds from UNIX epoch: <code>new JDate(-12600000)</code></li>
+<li>Creating <code>JDate</code> object from a Georgian Date object and convert that date to the Jalali date effortlessly: <code>new JDate(new Date(2018, 1, 1))</code></li>
+<li>Creating JDate object from date and time values: <code>new JDate(1397, 12, 25)</code> or <code>new JDate(1397, 12, 25, 12, 32, 45, 123)</code></li>
+</ol>
+<p>As I said, This class implements entire <code>Date</code> object, so there are many methods, and you can do anything you could do with javascript <code>Date</code> ,
+plus some additional methods for simpler use like <a href="https://alihoseiny.github.io/ngx-persian/classes/JDate.html#format"><code>format</code> method</a> that formats date and time in desired pattern.</p>
+<p><a href="https://alihoseiny.github.io/ngx-persian/classes/JDate.html"><strong>You can see complete document of all methods of this class by clicking on this text</strong>.</a></p>
+<p><a href="https://github.com/alihoseiny/ngx-persian/blob/master/projects/ngx-persian/src/lib/JDate/jdate.spec.ts">Also you can get more clear vision of each method by viewing unit test of JDate class here.</a></p>
+<p>By using this class in your app, you never need another help for working and validating Jalali date and time.</p>
+<h2 id="nationalcodeservice">NationalCodeService</h2>
+<p>You can use this service for validating Iranian national code (number) And finding out if user input is a correct National code or not.
+For reading more detailed document, you can see [related part of the code document of the NationalCodeService] (<a href="https://alihoseiny.github.io/ngx-persian/injectables/NationalCodeService.html">https://alihoseiny.github.io/ngx-persian/injectables/NationalCodeService.html</a>)</p>
+<h3 id="adding-nationalcodeservice-to-your-application">Adding NationalCodeService to Your Application</h3>
+<p>For using this service you only need to import it in the file you want to use that in it. Simple as this:</p>
+<p><code>import {NationalCodeService} from &#39;ngx-persian&#39;;</code></p>
+<p>For Injecting this service, you just need to add it in the constructor of your service or component like this:</p>
+<p><code>constructor(private nationalCodeService: NationalCodeService) {}</code></p>
+<p>Now you can use it like other attributes of your class with this keyword.</p>
+<p>So lets digging deep to the class and see what its methods do:</p>
+<h3 id="normalize">normalize</h3>
+<p>This method normalizes inputs for being a 10-digit string.</p>
+<p>This method removes whitespaces from sides of the input and adds zero character at the beginning of the input until the length of the result reach to 10.</p>
+<p>If Input length is shorter than 8 or longer than 10, an [`InvalidNationalCodeError](<a href="https://alihoseiny.github.io/ngx-persian/classes/">https://alihoseiny.github.io/ngx-persian/classes/</a>) will throw.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">console.log(this.nationalCodeService(15234756));
+// Expected output is: &#39;0015234756&#39;
+
+console.log(this.nationalCodeService(&#39;015234756&#39;));
+// Expected output is: &#39;0015234756&#39;
+
+console.log(this.nationalCodeService(&#39;0015234756&#39;));
+// Expected output is: &#39;0015234756&#39;
+
+try {
+  this.nationalCodeService(&#39;34756&#39;);
+} catch (e) {
+  console.log(&#39;Input length is less than 8 and an InvalidNationalCodeError throw&#39;);
+}
+</code></pre></div><p>For more information you can see <a href="https://alihoseiny.github.io/ngx-persian/injectables/NationalCodeService.html#normalize">the related part of code document about normalize</a> method. Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/tree/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Services/national-code.service.spec.ts#L10">unit tests of the normalize method</a>.</p>
+<h3 id="isvalid">isValid</h3>
+<p>This method first normalizes the input using normalize method and implicitly checks input length, So you DO NOT NEED to normalize input before, but this will not make any bad effect.</p>
+<p>Then checks the validity of the input for being a valid Iranian national code. If it&#39;s a valid code, return true. Otherwise returns false.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">console.log(this.isValid(2365478824));
+// Expected output: true
+
+console.log(this.isValid(7731689951));
+// Expected output: false</code></pre></div><p>For more information you can see <a href="https://alihoseiny.github.io/ngx-persian/injectables/NationalCodeService.html#isValid">the related part of code document about isValid</a> method. Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/tree/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Services/national-code.service.spec.ts#L60">unit tests of the normalize method</a>.</p>
+<h2 id="validators">Validators</h2>
+<p>There are different validators for reactive forms. You can use them in your forms for validating data related to Iran or Farsi language without any need for writing new code.</p>
+<h3 id="persiannumbersvalidator">persianNumbersValidator</h3>
+<p>Reactive form validator that checks form control value contains only persian numbers.</p>
+<h4 id="adding-persiannumbersvalidator-to-your-code">Adding persianNumbersValidator to your code</h4>
+<p>First you should add validator in your component:</p>
+<p><code>import {persianNumbersValidator} from &#39;ngx-persian&#39;;</code></p>
+<p>Then you should add it to validators list of desired <code>FormControl</code>. That&#39;s it.
+You can see the example usage in below GIF:
+<img src="https://github.com/alihoseiny/ngx-persian/raw/master/Usage%20Examples/persianNumbersValidator.gif" alt="Angular form persian number validator" class="img-responsive" title="Angular form persian number validator"></p>
+<p><strong>Still have questions?</strong> see the <a href="https://github.com/alihoseiny/ngx-persian/blob/master/TestApplication/src/app/validator-functions/validator-functions.component.ts">related part of example app</a></p>
+<p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/miscellaneous/functions.html#persianNumbersValidator">related part of code document about persianNumbersValidator</a>.
+Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Validators/persian-validators.spec.ts#L24">unit tests of the persianNumbersValidator</a>.</p>
+<h3 id="persiannumbersvalidator-1">persianNumbersValidator</h3>
+<p>Reactive form validator that checks form control value contains only persian numbers.</p>
+<h4 id="adding--persianlettersvalidator-to-your-code">Adding  persianLettersValidator to your code</h4>
+<p>First you should add validator in your component:</p>
+<p><code>import {persianLettersValidator} from &#39;ngx-persian&#39;;</code></p>
+<p>Reactive form validator that checks form control value contains only persian letters and allowed characters in the options parameter.</p>
+<p>This validator gets an optional options parameter as <code>isPersian</code> method of <code>PersianLetterService</code>.</p>
+<p>For validating only persian letters without any other character (default behavior), you can add validator to your <code>FormControl</code> like it:</p>
+<p><code>persianLettersValidator()</code></p>
+<p>You can see the example usage in below GIF:
+<img src="https://github.com/alihoseiny/ngx-persian/raw/master/Usage%20Examples/persianLettersValidator-only%20letters.gif" alt="Angular form only persian letters validator" class="img-responsive" title="Angular form only persian letters validator"></p>
+<p>For validating only persian letters and whitespaces, you can add validator to your <code>FormControl</code> like it:</p>
+<p><code>persianLettersValidator({whitespaces: true})</code></p>
+<p>You can see the example usage in below GIF:
+<img src="https://github.com/alihoseiny/ngx-persian/raw/master/Usage%20Examples/persianLettersValidator-letters%20and%20whitespaces.gif" alt="Angular form persian letters and whitespaces validator" class="img-responsive" title="Angular form persian letters and whitespaces validator"></p>
+<p>For validating only persian letters and english digits, you can add validator to your <code>FormControl</code> like it:</p>
+<p><code>persianLettersValidator({enDigits: true})</code></p>
+<p>You can see the example usage in below GIF:
+<img src="https://github.com/alihoseiny/ngx-persian/raw/master/Usage%20Examples/persianLettersValidator-letters%20and%20en%20digits.gif" alt="Angular form persian letters and english digits validator" class="img-responsive" title="Angular form persian letters and english digits validator"></p>
+<p>For validating only persian letters and persian digits, you can add validator to your <code>FormControl</code> like it:</p>
+<p><code>persianLettersValidator({persianDigits: true})</code></p>
+<p>You can see the example usage in below GIF:
+<img src="https://github.com/alihoseiny/ngx-persian/raw/master/Usage%20Examples/persianLettersValidator-letters%20and%20fa%20digits.gif" alt="Angular form persian letters and persian digits validator" class="img-responsive" title="Angular form persian letters and persian digits validator"></p>
+<p>For validating only persian letters and symbols, you can add validator to your <code>FormControl</code> like it:</p>
+<p><code>persianLettersValidator({symbols: true})</code></p>
+<p>You can see the example usage in below GIF:
+<img src="https://github.com/alihoseiny/ngx-persian/raw/master/Usage%20Examples/persianLettersValidator-letters%20and%20symbols.gif" alt="Angular form persian letters and symbols validator" class="img-responsive" title="Angular form persian letters and symbols validator"></p>
+<p>You can validate inputs with any combination of these options.</p>
+<p><strong>Still have questions?</strong> see the <a href="https://github.com/alihoseiny/ngx-persian/tree/master/TestApplication/src/app/validator-functions">related part of example app</a></p>
+<p>For more information you can see the <a href="https://alihoseiny.github.io/ngx-persian/miscellaneous/functions.html#persianLettersValidator">related part of code document about persianLettersValidator</a>.
+Also for more examples, you can see the <a href="https://github.com/alihoseiny/ngx-persian/blob/e198c5577abca4bc634ea20ef1bccb863c8796ef/projects/ngx-persian/src/lib/Validators/persian-validators.spec.ts#L49">unit tests of the persianLettersValidator</a>.</p>
+<h2 id="directives">Directives</h2>
+<p>For template-driven forms, we also provided Two directives those using above validator functions.</p>
+<p>Read <a href="https://alihoseiny.github.io/ngx-persian/directives/PersianLetterDirective.html">code document of PersianLetterDirective</a> or [code document of PersianNumbersDirective].(<a href="https://alihoseiny.github.io/ngx-persian/directives/PersianNumbersDirective.html">https://alihoseiny.github.io/ngx-persian/directives/PersianNumbersDirective.html</a>)</p>
+<h1 id="contribution">Contribution</h1>
+<p>We want to keep this library fresh and useful for all Iranian developers. So we need your help for adding new features, fixing bugs and adding more documents.</p>
+<h2 id="how-you-can-help-all-iranian-angular-developers">How You can Help All Iranian Angular Developers?</h2>
+<p>You are wondering how you can contribute in this project? Here is a list of what you can do:</p>
+<ol>
+<li>You did anything useful and special for Iranian apps? So you can add that in this library and save other developers time.</li>
+<li>You think number of tests for some part of this library is not enough? So you can write more tests.</li>
+<li>Documents are not enough? You can help us by adding more documents.</li>
+<li>Current code could be better? You can make this cleaner or faster.</li>
+</ol>
+<p>You should follow these steps for contributing in this project:</p>
+<h2 id="1-getting-the-repository">1. Getting the Repository</h2>
+<p>For contributing, first fork the repository. Then create your branch and start coding.</p>
+<h2 id="2-add-tests">2. Add Tests</h2>
+<p>We are following TDD guides for developing this library, So you <strong>SHOULD</strong> add tests first and then add your code.</p>
+<h2 id="3-write-the-dock">3. Write the Dock</h2>
+<p>All codes should have complete in-code document following JSDoc syntax. Plus you should re-generate the code document using <a href="https://compodoc.app">compodoc</a>.
+For generating documents, you should run following command in the <em>project</em> directory:
+<code>npm run generate-docs</code></p>
+<p>Also you should add some documents about how to using a feature in the <code>README.md</code> file.</p>
+<h2 id="4-create-a-pull-request">4. Create A Pull Request</h2>
+<p>Now you are done and want to add your code. So come here and create a new pull request. Please make pull request message complete and useful. Also you should keep all commit messages in your branch meaningful and useful.</p>
+<p>Thank you for your contribution and make life easier for Iranian Angular developers.</p>
+<h1 id="there-is-any-problem">There is any problem?</h1>
+<p>If you have questions, find some bugs or need some features, you can open an issue and tell us. For some strange reasons this is not possible? so contact me by this email: <code>salam@alihoseiny.ir</code>.</p>
+<h1 id="citations">Citations</h1>
+<p>I should say a thank you to developers of <a href="https://github.com/jalaali/jalaali-js">jalaali js</a> and it&#39;s implementation in Type script: <a href="https://github.com/sijad/ts-jalaali/">jalaali Helper in Typescript</a> Because I used their code in Jalali services.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
