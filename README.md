@@ -968,6 +968,7 @@ You are wondering how you can contribute in this project? Here is a list of what
 2. You think number of tests for some part of this library is not enough? So you can write more tests.
 3. Documents are not enough? You can help us by adding more documents.
 4. Current code could be better? You can make this cleaner or faster.
+5. Currently, there is a problem for running tests in timezones different from Tehran. You can solve it!
 
 You should follow these steps for contributing in this project:
 ## 1. Getting the Repository

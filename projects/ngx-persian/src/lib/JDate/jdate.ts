@@ -28,7 +28,7 @@ export class JDate implements Date {
     private _jMonth?: number;
     private _jDay?: number;
     private _calculator: JalaliDateCalculatorService = new JalaliDateCalculatorService(new JalaliDateValidatorService());
-    private _timezone: string;
+    private _timezone: string | null;
 
     /**
      * For creating a JDate object, you have 5 different options.
@@ -72,7 +72,7 @@ export class JDate implements Date {
         minutes: number = 0,
         seconds: number = 0,
         milliseconds: number = 0,
-        timezone: string = 'Asia/Tehran'
+        timezone: string | null = null
     ) {
         this._timezone = timezone;
         if (!jYear) {
@@ -84,12 +84,9 @@ export class JDate implements Date {
         } else if (jYear instanceof Date && jMonth === undefined) {
             this._createFromDate(JDate.changeTimeZone(jYear, timezone));
         } else {
-            this._gregorianDate = this._calculator.convertToGeorgian(jYear as number, jMonth as number, jDay as number);
-            this._jalaliYear = jYear as number;
-            this._jMonth = jMonth;
-            this._jDay = jDay;
-            this._gregorianDate.setHours(hours, minutes, seconds, milliseconds);
-            this._gregorianDate = JDate.changeTimeZone(this._gregorianDate, timezone);
+            const gregorianDate = this._calculator.convertToGeorgian(jYear as number, jMonth as number, jDay as number);
+            gregorianDate.setHours(hours, minutes, seconds, milliseconds);
+            this._createFromDate(JDate.changeTimeZone(gregorianDate, timezone));
         }
         this._checkDateIsValid();
     }
@@ -180,13 +177,17 @@ export class JDate implements Date {
 
     /**
      * Converts given date to a specific timezone.
+     * If timezone is null, the original date object will return.
      *
      * @param date The date object we want to get its value to another timezone.
      * @param timeZone Name of target timezone.
      *
      * @return a Georgian Date object in new timezone.
      */
-    public static changeTimeZone(date: Date, timeZone: string): Date {
+    public static changeTimeZone(date: Date, timeZone: string | null): Date {
+        if (!timeZone) {
+            return date;
+        }
         const localDate = new Date(date.toLocaleString('en-US', {timeZone}));
         localDate.setSeconds(date.getSeconds(), date.getMilliseconds());    // The above line replaces these values to zero.
         const timeDifference = date.getTime() - localDate.getTime();
@@ -321,6 +322,13 @@ export class JDate implements Date {
             throw InvalidJalaliDateError;
         }
         return this._gregorianDate.getTime();
+    }
+
+    getUTCTime(): number {
+        if (!this._gregorianDate) {
+            throw InvalidJalaliDateError;
+        }
+        return (this._gregorianDate.getTime() + (this._gregorianDate.getTimezoneOffset() * 60 * 1000))
     }
 
     /**

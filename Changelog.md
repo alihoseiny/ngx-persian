@@ -3,6 +3,18 @@ List of changes of this library during time.
 
 You can get different version [here](https://www.npmjs.com/package/ngx-persian) or download them from npm command line.
 
+# V2.0.1
+# Features
+- Timezone added to the JDate.
+- The `getUTCTime` method added to the JDate.
+
+# V2.0.0
+## Improvement
+- The library made compatible with Angular 13.
+- Code style problems fixed. 
+## Breaking Changes
+- All enum names converted to the UPPER_CASE pattern.
+
 # V1.3.2
 ## Improvement
 - ngx-persian updated to Angular 11.
