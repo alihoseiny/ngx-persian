@@ -18,7 +18,7 @@
     "@angular/platform-browser": "~13.1.0",
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
-    "ngx-persian": "file:../../ngx-persian/dist/ngx-persian/ngx-persian-2.0.0.tgz",
+    "ngx-persian": "2.0.1",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
