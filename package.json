@@ -8,6 +8,7 @@
     "build-lib": "ng build ngx-persian --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test:prod": "ng test --browsers=ChromeHeadless --watch=false --code-coverage",
     "lint": "ng lint",
     "compodoc": "compodoc",
     "generate-docs": "compodoc -p projects/ngx-persian/tsconfig.lib.json -d docs",
