@@ -535,4 +535,22 @@ describe('JDate', () => {
             });
         });
     });
+
+    describe('changeTimeZone', () => {
+        [
+            [new Date(Date.UTC(2022, 2, 11, 23, 0, 10, 20)), 'Asia/Tehran', 2022, 2, 12, 2, 30, 10, 20],
+            [new Date(Date.parse('20 March 2021 12:00 GMT+0330')), 'UTC', 2021, 2, 20, 8, 30, 0, 0]
+        ].forEach(([inputDate, timezone, expected_year, expected_month, expected_day, expected_hour, expected_minute, expected_seconds, expected_milliseconds]) => {
+            it('should convert input date to the target timezone', () => {
+                const convertedDate = JDate.changeTimeZone(inputDate as Date, timezone as string);
+                expect(convertedDate.getFullYear()).toEqual(expected_year as number);
+                expect(convertedDate.getMonth()).toEqual(expected_month as number);
+                expect(convertedDate.getDate()).toEqual(expected_day as number);
+                expect(convertedDate.getHours()).toEqual(expected_hour as number);
+                expect(convertedDate.getMinutes()).toEqual(expected_minute as number);
+                expect(convertedDate.getSeconds()).toEqual(expected_seconds as number);
+                expect(convertedDate.getMilliseconds()).toEqual(expected_milliseconds as number);
+            });
+        });
+    });
 });

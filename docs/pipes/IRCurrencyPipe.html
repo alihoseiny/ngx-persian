@@ -233,7 +233,7 @@ export class IRCurrencyPipe implements PipeTransform {
         if (isNaN(numericValue)) {
             throw new Error(&#x60;NaN is not a acceptable number&#x60;);
         }
-        return &#x60;${numericValue.toLocaleString(&#x27;en-US&#x27;)} ${IRCurrencies[type]}&#x60;
+        return &#x60;${numericValue.toLocaleString(&#x27;en-US&#x27;)} ${IRCurrencies[type]}&#x60;;
     }
 }
 </code></pre>

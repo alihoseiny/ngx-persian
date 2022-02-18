@@ -784,11 +784,15 @@ Now, in **ngx-persian**, we solved the problem for ever.
 
 We provided a class named `JDate`. This class implemented [javascript native `Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date). So you have access to all the methods and behaviours of that object, now in Jalali.
 
-Also you can use objects of `JDate` everywhere accepts javascript native `Date` object.
+Also, you can use objects of `JDate` everywhere accepts javascript native `Date` object.
 
 That means you can use all libraries, services and ... those are working with javascript `Date` object, with Jalali date. without any need for changing things or writing them for Jalali date from scratch.
 
-This is the end of bad days for Iranian developers.🍷🍷🍷
+The `JDate` object is timezone aware. By default, it calculates all dates in the "Asia/Tehran" timezone. But you can pass any valid timezone name as the last parameter of the constructor.
+
+This is the end of bad days for Iranian developers.
+
+
 
 ### How to add JDate to your project?
 For using `JDate`, you only need to import it in the file you are working on it:
