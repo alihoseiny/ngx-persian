@@ -187,7 +187,7 @@ export class JDate implements Date {
      * @return a Georgian Date object in new timezone.
      */
     public static changeTimeZone(date: Date, timeZone: string): Date {
-        const localDate = new Date(date.toLocaleString('en-US', {timeZone: timeZone}));
+        const localDate = new Date(date.toLocaleString('en-US', {timeZone}));
         localDate.setSeconds(date.getSeconds(), date.getMilliseconds());    // The above line replaces these values to zero.
         const timeDifference = date.getTime() - localDate.getTime();
         return new Date(date.getTime() - timeDifference);
