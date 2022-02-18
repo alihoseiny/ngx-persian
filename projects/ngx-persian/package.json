@@ -1,6 +1,6 @@
 {
   "name": "ngx-persian",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A Full-featured library for newer versions on angular (2-7) for working with persian letters, digits, Date and time, Iran National Number and ...",
   "keywords": [
     "Angular",
