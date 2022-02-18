@@ -1,16 +1,23 @@
 {
   "name": "ngx-persian",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-lib": "ng build ngx-persian --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test:prod": "ng test --browsers=ChromeHeadless --watch=false --code-coverage",
     "lint": "ng lint",
     "compodoc": "compodoc",
     "generate-docs": "compodoc -p projects/ngx-persian/tsconfig.lib.json -d docs",
-    "serve-docs": "compodoc -s projects/ngx-persian/tsconfig.lib.json -d docs"
+    "serve-docs": "compodoc -s projects/ngx-persian/tsconfig.lib.json -d docs",
+    "copy-license": "cp LICENSE dist/ngx-persian",
+    "copy-readme": "cp README.md dist/ngx-persian",
+    "copy-files": "npm run copy-license && npm run copy-readme",
+    "npm_pack": "cd dist/ngx-persian && npm pack",
+    "publish-package": "npm run build-lib && npm run copy-files && npm run npm_pack"
   },
   "private": true,
   "dependencies": {
