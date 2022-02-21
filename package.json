@@ -30,7 +30,7 @@
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
     "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-jsdoc": "^37.9.2",
+    "eslint-plugin-jsdoc": "^37.9.4",
     "eslint-plugin-prefer-arrow": "^1.2.3",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
