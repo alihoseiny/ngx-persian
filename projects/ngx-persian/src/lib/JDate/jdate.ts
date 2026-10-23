@@ -75,7 +75,7 @@ export class JDate implements Date {
         timezone: string | null = null
     ) {
         this._timezone = timezone;
-        if (!jYear) {
+        if (jYear === undefined) {
             this._createFromDate(JDate.changeTimeZone(new Date(), timezone));
         } else if (typeof jYear === 'string' && jMonth === undefined) {
             this._createFromDate(JDate.changeTimeZone(new Date(JDate.parse(jYear)), timezone));

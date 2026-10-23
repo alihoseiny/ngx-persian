@@ -7,6 +7,10 @@ describe('JDate', () => {
             expect(new JDate()).toBeTruthy();
         });
 
+        it('should create a JDate from the Unix epoch timestamp zero', () => {
+            expect(new JDate(0).getTime()).toBe(0);
+        });
+
         it('should create a valid JDate object from date and time values', () => {
             const jalalyDate = new JDate(1397, 11, 12, 12, 13, 14, 255);
             expect(jalalyDate.format('yyyy-mm-dd HH:MM:SS.l')).toBe('1397-12-12 12:13:14.255');
